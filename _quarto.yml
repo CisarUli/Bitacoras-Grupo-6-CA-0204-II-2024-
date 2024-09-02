@@ -9,6 +9,8 @@ book:
   author: "Pablo Chaves, César Salazar"
   date: today
   site-url: google.com # Vacío por el momento
+  repo-url: https://github.com/CisarUli/Bitacoras-Grupo-6-CA-0204-II-2024-
+  downloads: [pdf]
   chapters:
     - "index.qmd"
     - "bitacora-1.qmd"
