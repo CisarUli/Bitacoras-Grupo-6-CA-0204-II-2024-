@@ -58,6 +58,25 @@ Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argu
 
 **Concluya:** El cómo se determina el estado de desaparecido de una persona migrante depende directamente del tiempo que tome tener conocimiento acerca de su paradero donde se analiza la evolución de cada caso con las investigaciones de diferentes organizaciones y finalmente se logre explicar la situación en que se encuentran los migrantes a sus familias. Todo lo anterior permitiría tener una descripción del estado de desaparecido para tener un mayor entendimiento sobre lo que ocurre con las personas que no han confirmado su llegada a su lugar de destino.
 
+**Pregunta 4: ¿Qué países son los que contienen el mayor porcentaje de migrantes desaparecidos por año?**
+
+**Contraargumentos**
+
+**Lógica:** Debido a la dificultad de tener la certeza de que un migrante se encuentra desaparecido, muerto o en buen estado durante su trayecto, no se puede asegurar que determinados países presentan un mayor número migrantes que el resto. Además, depende mucho de cómo cada país realiza sus investigaciones sobre migrantes desaparecidos, pues los métodos son distintos al igual que la eficacia al realizar las búsquedas.
+
+**Ética:** Se recolectan datos de diferentes fuentes, por lo que la calidad de la información puede variar demasiado. También se depende mucho de las instituciones de los países donde ocurren las desapariciones, por lo que la información obtenida está ligada a lo que dichas instituciones desean revelar.
+
+**Emoción:**  Se trata de una gran cantidad de casos de los cuales muchos no han concluido hoy en día, además de que otros no se actualizan con el paso de los años, por lo que no se podría representar la realidad sobre los diferentes países.
+
+**Argumentos**
+
+**Lógica:** Se tiene información del lugar de origen de donde parten los migrantes, hacia donde se dirigían, rutas que tomarían para llegar e incluso coordenadas de donde se encontraron en caso sobrevivencia o muerte. De esta forma se puede analizar de qué países provienen la mayor cantidad de desaparecidos al migrar e incluso cuáles son los países que son normalmente el destino de los migrantes.
+
+**Ética:** Se tiene diversas fuentes que contienen toda la información antes mencionada, incluso con causa de muerte (si fuera el caso) o en algunos casos el motivo de la desaparición. Además, los datos para el análisis de este proyecto se recolectaron desde el 2014, lo que sirve para determinar patrones sobre qué países resaltan en diferentes aspectos durante los últimos 10 años.
+
+**Emoción:** Es importante reconocer qué países presentan el mayor número de personas desaparecidas, para poder predecir casos futuros y que las instituciones responsables tomen las respectivas medidas para reducir dicho número. Se puede identificar países tanto que presenten el mayor número de emigrantes como de inmigrantes.
+
+**Concluya:** Para determinar qué países tienen más migrantes desaparecidos por año se requiere de la recolección de información de diferentes instituciones que se enfocan en encontrar a dichos migrantes, que con los datos de los últimos años se puede representar la realidad sobre cuáles de estos países presentan un mayor problema de desaparecidos que implica un problema de personas que intentaron buscar mejores oportunidades sin éxitos.
 
 
 
