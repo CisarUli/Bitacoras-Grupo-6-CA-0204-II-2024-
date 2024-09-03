@@ -8,4 +8,10 @@
 
 ## Planificación
 
+**Idea:** Quisieramos determinar diferentes cálculos estadísticos derivados de los casos sobre desapariciones o muertes de migrantes en todo el mundo.
+
+**Tensiones:** Podrían existir casos sin resolver, incluso de años anteriores. El estado de desaparecido no proporciona tanta información, pues se desconoce el paradero de la persona, si ha fallecido y cuál podría haber sido la posible causa de su muerte o desaparición, además de la zona exacta donde desapareció.
+
 ## Pregunta
+
+@wadiai
