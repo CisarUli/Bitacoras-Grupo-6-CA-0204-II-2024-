@@ -17,9 +17,6 @@ bibliography: references.bib
 
 format:
   html:
-      # Pueden usar cualquier tema de los que están aca:
-      # https://quarto.org/docs/output-formats/html-themes.html a excepción de
-      # los oscuros porque no entiende nada.
     theme: cosmo
   pdf:
     documentclass: scrreprt
