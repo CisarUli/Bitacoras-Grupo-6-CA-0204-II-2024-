@@ -12,7 +12,11 @@
 
 **Idea:** Quisieramos determinar diferentes cálculos estadísticos derivados de los casos sobre desapariciones o muertes de migrantes en todo el mundo.
 
-**Tensiones:** Podrían existir casos sin resolver, incluso de años anteriores. El estado de desaparecido no proporciona tanta información, pues se desconoce el paradero de la persona, si ha fallecido y cuál podría haber sido la posible causa de su muerte o desaparición, además de la zona exacta donde desapareció.
+**Tensiones:** Podrían existir casos sin resolver, incluso de años anteriores. El estado de desaparecido no proporciona tanta información, pues se desconoce el paradero de la persona, si ha fallecido y cuál podría haber sido la posible causa de su muerte o desaparición, además de la zona exacta donde desapareció. Además es posible que existan personas que no han sido reportadas como desaparecidas, lo cual evitaría reflejar la realidad el número de incidentes. 
+
+Por otro lado, dependiendo de cada país, se puede llevar un mejor o peor control sobre las investigaciones actuales, la calidad de la información de cada región es diferente y no todas proporcionan la información suficiente sobre cada caso. 
+
+
 
 ### Conceptualización
 
