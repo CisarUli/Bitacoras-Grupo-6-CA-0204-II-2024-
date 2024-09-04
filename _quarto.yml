@@ -1,17 +1,21 @@
 project:
+
+
+
   type: book
   output-dir: "docs"
 
 lang: es
 
 book:
-  title: "Bitácoras Grupo #<su número>, CA-204 (II-2024)"
-  author: "Estudiante A, Estudiante B, Estudiante C"
+  title: "Bitácoras Grupo #6, CA-204 (II-2024)"
+  author: "Pablo Chaves, César Salazar"
   date: today
   repo-actions: [edit]
   site-url: # Vacío por el momento
   chapters:
     - "index.qmd"
+    - "bitacora-1.qmd"
 
 bibliography: references.bib
 
