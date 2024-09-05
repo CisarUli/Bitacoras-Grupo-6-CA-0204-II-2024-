@@ -26,11 +26,18 @@ Determinar
 Cálculos estadísticos
 : "Es la recopilación, análisis, interpretación y presentación de datos; lo que permite extraer conclusiones y hacer predicciones sobre fenómenos o procesos del mundo real" - @OpenStax.
 
-Desaparición
-: Se refiere a la situación en la que una persona "se ausenta de su residencia habitual sin motivo conocido o aparente, generando preocupación sobre su paradero y seguridad. Existen diferentes tipos como desaparición forzada, voluntaria e involuntaria" - @MinisterioInterior.
+Migrante desaparecido 
+: La Real Academia Española define la palabra “migrante” como: “que migra”. Derivando este de migrar, que significa: “trasladarse desde el lugar en que se habita a otro diferente”. Y por otro lado, “desaparecido” significa: dicho de una persona: Que se halla en paradero desconocido, sin que se sepa si vive. Con lo cual se conforma uno de los elementos claves de la investigación presente: el estudio de datos referentes a personas que se han traslado a un lugar diferente del que viven, pero con desconocimiento de su paradero.  Se plantea por lo tanto una cuestión sociológica y estadística la cual se compone de un largo espectro de capas que se pretenden indagar y estudiar. @RAE.
 
-Migrante
-: "Persona que se desplaza de un lugar a otro, ya sea dentro de su propio país o cruzando fronteras internacionales, con el objetivo de residir temporal o permanentemente en un nuevo lugar" - @Newtral.
+Desaparición forzada
+: “Se considera desaparición forzada toda forma de arresto, detención, secuestro o cualquier otra modalidad de privación de libertad perpetrada por agentes del Estado o por personas o grupos de personas que actúan con la autorización, el apoyo o la aquiescencia del Estado, seguida de la negativa de las autoridades a reconocer la situación de privación de libertad o a revelar la suerte o el paradero de la persona interesada” - . 
+
+Detención
+: “Constituye la detención una medida cautelar de naturaleza personal y provisionalísima, que puede adoptar la autoridad judicial, policía e incluso los particulares, consistente en la limitación del derecho a la libertad del imputado con el objeto esencial, bien de ponerlo a disposición de la autoridad judicial, bien, si se encuentra ya en dicha situación, de resolver sobre la misma, restableciendo dicho derecho o adoptando una medida cautelar menos interina.” - .
+
+Muerte no registrada
+: ”Existen diferentes maneras de definir las muertes de personas migrantes. El Proyecto Migrantes Desaparecidos de la OIM, documenta las muertes y desapariciones de personas en el proceso de migración hacia un destino internacional. Esta definición es similar a la empleada por otras iniciativas, como la Deaths at the Borders Database (base de datos sobre las muertes registradas en las fronteras) en Europa, excepto que también incluye a los migrantes desaparecidos mientras atravesaban cuerpos de agua en su viaje. Se prefiere este enfoque porque las muertes que se producen en las fronteras físicas y durante el trayecto representan una categoría que es posible definir de forma más clara, y aporta información sobre los riesgos a los que se enfrentan las personas en las distintas rutas migratorias del mundo. Los cadáveres sin identificar que se encuentran en los cruces fronterizos o en las principales rutas migratorias pueden clasificarse como migrantes en función de sus pertenencias y de las características de sus muertes” - .
+
 
 ## Pregunta
 
@@ -42,7 +49,48 @@ Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argu
 
 ### Argumentación de la pregunta
 
-**3. Pregunta: ¿Qué determina que un migrante se considere desaparecido?**
+**Pregunta 1: ¿Qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?**
+
+**Contraargumentos**
+
+**Lógica:** A partir de bases de datos es potencialmente complejo poder crear inferencias u estudios puesto que son solo números que no reflejan la realidad.
+
+**Ética:** Las bases de datos contienen información delicada y sensible, esto es: desapariciones y muertes de personas. Así que un incorrecto estudio u orientación del tema podría no aportar sino más bien violentar la integridad de dichas personas o sus familiares.
+
+**Emocional:** Las fuentes que potencialmente se estudiarían pueden estar sesgadas. Ya que el tema migratorio consiste en un área tan política, es muy probable que el proyecto contenga información falsa, contradictoria y tergiversada por entes gubernamentales, compañías, y agencias periodísticas.
+
+**Argumentos**
+
+**Lógica:** La complejidad del proyecto es un hecho, sin embargo, lo es también una representación académica, objetiva, y con el peso de investigación suficiente. No solo utilizando las bases de datos seleccionadas, sino también: libros, entrevistas, fuentes periodísticas de diversa índole, estudios similares y un autónomo juicio por parte de los autores; puede establecerse un proyecto altamente apegado a la realidad con patrones demostrables.
+
+**Ética:** Se asume el hecho de que es un tema delicado, triste y oscuro. Sin embargo, con el único hecho de conocer, estudiar y analizar el tema, se tratará con el respeto y la seriedad necesarios; eventualmente creando un trabajo de referencia que pueda ser utilizado para paliar una de las problemáticas más graves del mundo.
+
+**Emocional:** En definitiva, el presente trabajo no reflejará ingenuidad ni será aliado a ninguna autoridad política, social o económica. Por lo cual, mediante la utilización de los altos principios de investigación que representan a la Universidad de Costa Rica, se procurará tener una investigación respetable.
+
+**Concluya:** El objetivo de crear un análisis integral sobre migrantes desaparecidos es un reto que involucrará un alto número de horas de trabajo; en este camino, se asume que se tratarán temas difíciles que requerirán la puesta en marcha de mecanismos académicos, de inteligencia, y valores humanos. 
+Aunque el trabajo presenta una serie de desventajas, las ventajas las sobrepasan; ya que no solo se desea estudiar mecánicamente una área sociológica, sino que se planea crear un proyecto de investigación revolucionario en aras de contribuir social.
+
+**Pregunta 2: ¿Cuáles son los trasfondos geográficos, sociopolíticos y psicológicos que pueden determinar el destino de un porcentaje alto de migrantes se declare desaparecido?**
+
+**Contraargumentos**
+
+**Lógica:** Evaluar trasfondos externos sobre un tema de investigación podría demorar mucho tiempo; a la misma vez, es inminente la posibilidad de desviarse de los objetivos del proyecto.
+
+**Ética:** Incluir temas sociopolíticos podría implicar la parcialización del tema, u de otro modo, la no relevancia que se le podría asignar debido a lectores no interesados en esto. 
+
+**Emocional:** El hecho de que se involucre no las razones directas, si no que: estados mentales, situaciones sociales y gubernamentales; podría significar una invasión a la privacidad de personas que únicamente deseaban desplazarse de un lugar al que por diversos motivos no querían estar.
+
+**Argumentos**
+
+**Lógica:** El equipo de investigación tiene el tiempo suficiente para una profunda investigación sobre el tema planteado. Sería una falacia indicar que se desviaría del tema del trabajo involucrar temas geográficos, sociopolíticos y psicológicos, pues más bien estos son la base sobre la cual derivan los datos. Por ello, a través de una inteligente, sutil, razonable manera de estudio, se conjugarán esta serie de aspectos para enriquecer el presente trabajo.
+
+**Ética:** Nunca se mencionarán en el trabajo identidades de personas; y se contarán con fuentes de confianza que traten los temas con responsabilidad social. 
+
+**Emocional:** Nunca se mencionarán en el trabajo identidades de personas; y se contarán con fuentes de confianza que traten los temas con responsabilidad social. En otras palabras, no se pretende en absoluto hacer una persecución a distintos grupos de personas, si no que exponer datos e información únicamente veraz que más bien ignoren los prejuicios que existen en el mundo hacia migrantes y ofrezca una perspectiva con exclusividad al problema.
+
+**Concluya:** Las series de matices que presenta este trabajo de investigación son muy numerosas. Y aunque siempre, sin excepción, la manipulación y representación de temas sociales, políticos y de salud es delicada; sin estos es imposible completar un trabajo tan ambicioso. Por ello se reconoce la dificultad, y el juicio necesario que se necesitará. Además, ¿si se hace un trabajo incompleto, para qué hacerlo?
+
+**Pregunta 3: ¿Qué determina que un migrante se considere desaparecido?**
 
 **Contraargumentos**
 
@@ -82,22 +130,186 @@ Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argu
 
 **Concluya:** Para determinar qué países tienen más migrantes desaparecidos por año se requiere de la recolección de información de diferentes instituciones que se enfocan en encontrar a dichos migrantes, que con los datos de los últimos años se puede representar la realidad sobre cuáles de estos países presentan un mayor problema de desaparecidos que implica un problema de personas que intentaron buscar mejores oportunidades sin éxitos.
 
-## Argumentación a través de datos
+### Argumentación a través de datos
 
 La investigación se basa en una base de datos que se encuentra en Kaggle acerca de migrantes desaparecidos a nivel mundial:
 
-**Fuente de información:** Kaggle
+**Fuente de información:** Las bases de datos adquiridas, y que serán la fuente del proyecto para los respectivos procesos investigativos, provienen de la página web de Missing Migrants Project,  una iniciativa que nació en el 2014 por la Organización Internacional de Migración (OIM). Esta iniciativa documenta muertes y desapariciones de personas que se encuentran en procesos de migración.
+
 **Contexto temporal y espacial de los datos:** Desde 2014 hasta 2022, a nivel mundial.
-**Facilidad de obtener la información:** óptima
-**Población de estudio:** Migrantes desaparecidos a nivel mundial
-**Muestra observada**
+
+**Facilidad de obtener la información:** Óptima.
+
+**Población de estudio:** Migrantes desaparecidos a nivel mundial.
+
+**Muestra observada:** Casos del 2014 al 2022.
+
 **Unidad estadística o individuos:** Basado en más de 11.000 casos.
+
 **Descripción de las variables de la tabla:** Casos categorizados por ID, región, fecha de ocurrencia, desaparecidos, sobrevivientes, muertes, causa de muerte, coordenadas, etc.
 
-## V de Gowin
+#### UVE Heurística 
+
+Con base en lo descrito con anterioridad, haciendo uso de la pregunta de investigación, el objetivo general y los objetivos específicos, se construye esta UVE Heurística. Los elementos de este recurso se detallan adelante.
+
+#### Conceptos Básicos
+
+**Fórmulas estadísticas:**
+
+Medidas de Tendencia Central
+: Las medidas de centralización (o medidas de posición central)son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos.
+Las medidas a utilizar son:
+
+* Media: Es el promedio de todos los datos de la muestra.
+
+* Mediana: Es el valor del medio de todos los datos ordenados de menor a mayor.
+
+* Moda: Valor más repetido del conjunto de datos.
+
+  Desglosadas individualmente:
+
+  + Media
+: Para calcular la media se deben sumar todos los valores y luego dividir entre el número total de datos. La media también se conoce como media aritmética o promedio. Además, la media de una distribución estadística es equivalente a su esperanza matemática.
+
+  + Mediana
+: La mediana es el valor del medio de todos los datos ordenados de menor a mayor. Es decir, la mediana divide todo el conjunto de datos ordenados en dos partes iguales. El cálculo de la mediana depende de si el número total de datos es par o impar:
+
+    - Si el número total de datos es impar, la mediana será el valor que está justo en el medio de los datos. Es decir, el valor que está en la posición (n+1)/2 de los datos ordenados.
+
+    - Si el número total de datos es par, la mediana será la media de los dos datos que están en el centro. Esto es, la media aritmética de los valores que están en la posiciones n/2 y n/2+1 de los datos ordenados.
+
+  + Moda 
+: La moda (o moda estadística o valor modal) es el valor del conjunto de datos que tiene una mayor frecuencia absoluta, esto es, el valor que más se repite de un conjunto de datos. Así que, para calcular la moda de un conjunto de datos estadísticos basta con contar el número de veces que aparece cada dato en la muestra. Se pueden distinguir tres tipos de modas según el número de valores que están más repetidos:
+
+    - Moda unimodal: solo hay un valor con el máximo número de repeticiones. Por ejemplo, [1, 4, 2, 4, 5, 3].
+    
+    - Moda bimodal: el máximo número de repeticiones se produce en dos valores diferentes y ambos valores se repiten el mismo número de veces. Por ejemplo, [2, 6, 7, 2, 3, 6, 9].
+    
+    - Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, [3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1].
+
+Coeficiente de Correlación de Pearson
+: Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
+
+De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas. A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas.
+El valor del índice de correlación de Pearson está entre -1 y +1, ambos incluidos. Más abajo veremos cómo se interpreta el valor del coeficiente de correlación de Pearson.
+
+El coeficiente de correlación de Pearson depende de su valor:
+
+* r=-1: Las dos variables tienen una correlación perfecta negativa, por lo que se puede trazar una recta con pendiente negativa en la que se encuentren todos los puntos.
+
+* -1<r<0: La correlación entre las dos variables es negativa, por lo tanto, cuando una variable aumenta la otra disminuye. Cuanto más cerca esté el valor de -1 significa que más relacionadas negativamente están las variables.
+
+* r=0: La correlación entre las dos variables es muy débil, de hecho, la relación lineal entre ellas es nula. Esto no significa que las variables sean independientes, ya que podrían tener una relación no lineal.
+
+* 0<r<1: La correlación entre las dos variables es positiva, cuanto más cerca esté el valor de +1 más fuerte es la relación entre las variables. En este caso, una variable tiende a incrementar su valor cuando la otra también aumenta.
+
+* r=1: Las dos variables tienen una correlación perfecta positiva, es decir, tienen una relación lineal positiva.
+interpretacion del coeficiente de correlacion de pearson
+
+Regresión Lineal Simple
+: La regresión lineal simple es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y. Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
+
+Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal. Lógicamente, la relación entre las dos variables debe ser lineal, sino se debe utilizar otro tipo de modelo de regresión.
+
+La ecuación de un modelo de regresión lineal simple está formada por dos coeficientes: la constante de la ecuación (b0) y el coeficiente de la correlación entre las dos variables (b1). Para poder hacer una regresión lineal simple, se deben cumplir las siguientes hipótesis:
+
+* Independencia: los residuos observados deben ser independientes entre sí. Una manera común de garantizar la independencia del modelo es añadiendo aleatoriedad en el proceso de muestreo.
+
+* Homocedasticidad: debe haber homogeneidad en las varianzas de los residuos, es decir, la variabilidad de los residuos debe ser constante.
+
+* Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
+Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
+
+#### Teorías y Principios
+
+Según Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen.
+
+El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo. Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
 
 ## Parte de escritura
 
 ## Referencias
+
+### Fichas bibliográficas 
+
+Con motivo de esclarecer cuál es la bibliografía por utilizar para la construcción de este trabajo investigativo, se muestran a continuación algunos de los recursos: 
+
+* **Título:  The causes and consequences of the missing immigrants.**
+
+* Autora: Lisa Camner McKay
+
+* Nombre del tema:  Implicaciones de la desaparición de inmigrantes.
+
+* Forma de organizarlo:
+
+  + Cronológico: Artículo publicado el 17 de abril del 2023.
+  
+  + Metodológico: La autora utiliza un estilo informativo, de opinión y de fondo.
+  
+  + Temático: Se trata esencialmente de un texto meramente informativo con respaldo científico.
+  
+  + Teórico: El articulo intenta discutir la importancia del decaimiento de la inmigración en los últimos años. Por ejemplo, este fenómeno ha tenido implicaciones en el sector de trabajo, específicamente el área de agricultura que es la que suele tener más representación de extranjeros. Además, la autora enfatiza el impacto económico que esto provoca y qué debería hacer el gobierno para cambiar la situación.
+  
+*	Resumen de una oración: Menos inmigrantes, menos trabajos ocupados.
+
+*	Argumento central: De aproximadamente 2 millones de inmigrantes desaparecidos, 1 200 000 hubiese ocupado plazas en la fuerza de trabajo. Esto ha debilitado el saludable funcionamiento de la Economía de Estados Unidos.
+
+*	Problemas con el argumento: Posible sesgo político.
+
+*	Resumen de un párrafo: El congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere. En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración.
+
+* **Título:  Psychology of Immigration 101.**
+
+* Autores: Desconocido. 
+
+* Nombre del tema: Aspectos psicológicos de la inmigración.
+
+* Forma de organizarlo:
+
+  + Cronológico: Artículo proveniente del 2012.
+  
+  + Metodológico: Al igual que el texto anterior, el artículo está conformado con un estilo informativo.
+  
+  + Temático: Consiste en una indagación periodística, científica y médica.
+  
+  + Teórico: Los autores han desarrollado un trabajo repleto de información y diversas herramientas para profesionales de la salud mental, educadores, defensores, proveedores de servicios y miembros del público sobre las necesidades de salud mental de los inmigrantes en los Estados Unidos. Este texto al abordar una faceta médica en cuanto al problema de la inmigración, contribuye a facilitar con información veraz a describir situaciones sociopolíticas y económicas que envuelven a personas inmigrantes.
+  
+* Resumen de una oración: La inmigración, contrariamente a como creen muchos, no se encuentra en aumento, más bien en disminución. 
+
+* Argumento central: La inmigración día a día disminuye y disminuye, creando así un efecto negativo en economía de los países. 
+
+* Problemas con el argumento: No se tienen.
+
+* Resumen de un párrafo: El bienestar de las personas inmigrantes se encuentra constantemente en deterioro, esto porque la xenofobia, discriminación y racismo están plenamente arraigados en el mundo, lo cual influye de manera sumamente negativa en la mente estas personas en estado de vulnerabilidad. 
+
+* **Título:  Inmigration Data Matters.**
+
+* Autores: Jeanne Batalova, Andriy Shymonyak and Michelle Mittelstadt.
+
+* Nombre del tema: Importancia de los datos migratorios para modelar y formar correctas políticas.
+
+* Forma de organizarlo:
+
+  + Cronológico: Publicado en Marzo del 2018.
+  
+  + Metodológico: Se trato de un trabajo investigativo altamente diverso, con fases exploratorias, descriptivas y correlacionales. 
+  
+  + Temático: Trabajo de investigación que resalta la aplicación de los datos en distintos entornos políticos. 
+  
+  + Teórico: Este texto investigativo contiene una abundante muestra de fuentes, bases de datos y artículos periodísticos que engloban, definen y citan la inmigración mundial.
+  
+* Resumen de una oración: Exposición de una cita que revela las características de inmigrantes, refugiados y otros. Como origen y destino al cual se dirigen.
+
+* Argumento central: Datos que pretenden encapsular estadísticas de migración mundial.
+
+* Problemas con el argumento: Ninguno.
+
+* Resumen de un párrafo: Bases de datos nacionales y reportes de países que son parte de la Unión Europea, que muestra datos de: detención, condiciones y protección.
+
+### V de Gowin
+
+![Caption](UVE.png "UVE Heurística")
+
+### Bibliografía
 
 @RAE; @OpenStax; @MinisterioInterior; @Newtral
