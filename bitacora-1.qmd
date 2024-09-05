@@ -8,13 +8,13 @@
 
 ### Git Log
 
-![Caption](Log/01-log.png "Git Log 01")
+![Git Log 01](Log/01-log.png "Git Log 01")
 
-![Caption](Log/02-log.png "Git Log 02")
+![Git Log 02](Log/02-log.png "Git Log 02")
 
-![Caption](Log/03-log.png "Git Log 03")
+![Git Log 03](Log/03-log.png "Git Log 03")
 
-![Caption](Log/04-log.png "Git Log 04")
+![Git Log 04](Log/04-log.png "Git Log 04")
 
 ### CHANGELOG
 
@@ -404,7 +404,7 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 ### V de Gowin
 
-![Caption](UVE.png "UVE Heurística")
+![UVE Heurística](UVE.png "UVE Heurística")
 
 ### Bibliografía
 
