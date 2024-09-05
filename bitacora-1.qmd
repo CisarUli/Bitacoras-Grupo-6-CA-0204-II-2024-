@@ -21,16 +21,16 @@ Por otro lado, dependiendo de cada país, se puede llevar un mejor o peor contro
 ### Conceptualización
 
 Determinar
-: Decidir algo o despejar la incertidumbre sobre ello.
+: "Decidir algo, despejar la incertidumbre sobre ello" - @RAE.
 
 Cálculos estadísticos
-: Son operaciones matemáticas que se realizan sobre un conjunto de datos para analizarlos y entenderlos mejor, como por ejemplo moda, desviación estándar, media, etc.
+: "Es la recopilación, análisis, interpretación y presentación de datos; lo que permite extraer conclusiones y hacer predicciones sobre fenómenos o procesos del mundo real" - @OpenStax.
 
 Desaparición
-: Se refiere a la situación en la que una persona se ausenta de su residencia habitual sin motivo conocido o aparente, generando preocupación sobre su paradero y seguridad. Existen diferentes tipos como desaparición forzada, voluntaria e involuntaria.
+: Se refiere a la situación en la que una persona "se ausenta de su residencia habitual sin motivo conocido o aparente, generando preocupación sobre su paradero y seguridad. Existen diferentes tipos como desaparición forzada, voluntaria e involuntaria" - @MinisterioInterior.
 
 Migrante
-: Persona que se desplaza de un lugar a otro, ya sea dentro de su propio país o cruzando fronteras internacionales, con el objetivo de residir temporal o permanentemente en un nuevo lugar.
+: "Persona que se desplaza de un lugar a otro, ya sea dentro de su propio país o cruzando fronteras internacionales, con el objetivo de residir temporal o permanentemente en un nuevo lugar" - @Newtral.
 
 ## Pregunta
 
@@ -100,6 +100,4 @@ La investigación se basa en una base de datos que se encuentra en Kaggle acerca
 
 ## Referencias
 
-
-
-@wadiai
+@RAE; @OpenStax; @MinisterioInterior; @Newtral
