@@ -30,13 +30,13 @@ Migrante desaparecido
 : La Real Academia Española define la palabra “migrante” como: “que migra”. Derivando este de migrar, que significa: “trasladarse desde el lugar en que se habita a otro diferente”. Y por otro lado, “desaparecido” significa: dicho de una persona: Que se halla en paradero desconocido, sin que se sepa si vive. Con lo cual se conforma uno de los elementos claves de la investigación presente: el estudio de datos referentes a personas que se han traslado a un lugar diferente del que viven, pero con desconocimiento de su paradero.  Se plantea por lo tanto una cuestión sociológica y estadística la cual se compone de un largo espectro de capas que se pretenden indagar y estudiar. @RAE.
 
 Desaparición forzada
-: “Se considera desaparición forzada toda forma de arresto, detención, secuestro o cualquier otra modalidad de privación de libertad perpetrada por agentes del Estado o por personas o grupos de personas que actúan con la autorización, el apoyo o la aquiescencia del Estado, seguida de la negativa de las autoridades a reconocer la situación de privación de libertad o a revelar la suerte o el paradero de la persona interesada” - . 
+: “Se considera desaparición forzada toda forma de arresto, detención, secuestro o cualquier otra modalidad de privación de libertad perpetrada por agentes del Estado o por personas o grupos de personas que actúan con la autorización, el apoyo o la aquiescencia del Estado, seguida de la negativa de las autoridades a reconocer la situación de privación de libertad o a revelar la suerte o el paradero de la persona interesada” - @ohchr. 
 
 Detención
-: “Constituye la detención una medida cautelar de naturaleza personal y provisionalísima, que puede adoptar la autoridad judicial, policía e incluso los particulares, consistente en la limitación del derecho a la libertad del imputado con el objeto esencial, bien de ponerlo a disposición de la autoridad judicial, bien, si se encuentra ya en dicha situación, de resolver sobre la misma, restableciendo dicho derecho o adoptando una medida cautelar menos interina.” - .
+: “Constituye la detención una medida cautelar de naturaleza personal y provisionalísima, que puede adoptar la autoridad judicial, policía e incluso los particulares, consistente en la limitación del derecho a la libertad del imputado con el objeto esencial, bien de ponerlo a disposición de la autoridad judicial, bien, si se encuentra ya en dicha situación, de resolver sobre la misma, restableciendo dicho derecho o adoptando una medida cautelar menos interina.” - @derechouned.
 
 Muerte no registrada
-: ”Existen diferentes maneras de definir las muertes de personas migrantes. El Proyecto Migrantes Desaparecidos de la OIM, documenta las muertes y desapariciones de personas en el proceso de migración hacia un destino internacional. Esta definición es similar a la empleada por otras iniciativas, como la Deaths at the Borders Database (base de datos sobre las muertes registradas en las fronteras) en Europa, excepto que también incluye a los migrantes desaparecidos mientras atravesaban cuerpos de agua en su viaje. Se prefiere este enfoque porque las muertes que se producen en las fronteras físicas y durante el trayecto representan una categoría que es posible definir de forma más clara, y aporta información sobre los riesgos a los que se enfrentan las personas en las distintas rutas migratorias del mundo. Los cadáveres sin identificar que se encuentran en los cruces fronterizos o en las principales rutas migratorias pueden clasificarse como migrantes en función de sus pertenencias y de las características de sus muertes” - .
+: ”Existen diferentes maneras de definir las muertes de personas migrantes. El Proyecto Migrantes Desaparecidos de la OIM, documenta las muertes y desapariciones de personas en el proceso de migración hacia un destino internacional. Esta definición es similar a la empleada por otras iniciativas, como la Deaths at the Borders Database (base de datos sobre las muertes registradas en las fronteras) en Europa, excepto que también incluye a los migrantes desaparecidos mientras atravesaban cuerpos de agua en su viaje. Se prefiere este enfoque porque las muertes que se producen en las fronteras físicas y durante el trayecto representan una categoría que es posible definir de forma más clara, y aporta información sobre los riesgos a los que se enfrentan las personas en las distintas rutas migratorias del mundo. Los cadáveres sin identificar que se encuentran en los cruces fronterizos o en las principales rutas migratorias pueden clasificarse como migrantes en función de sus pertenencias y de las características de sus muertes” - @migrationdataportal.
 
 
 ## Pregunta
@@ -157,7 +157,7 @@ Con base en lo descrito con anterioridad, haciendo uso de la pregunta de investi
 **Fórmulas estadísticas:**
 
 Medidas de Tendencia Central
-: Las medidas de centralización (o medidas de posición central)son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos.
+: Las medidas de centralización (o medidas de posición central) [@probabilidadyestadistica] son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos.
 Las medidas a utilizar son:
 
 * Media: Es el promedio de todos los datos de la muestra.
@@ -188,7 +188,7 @@ Las medidas a utilizar son:
     - Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, [3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1].
 
 Coeficiente de Correlación de Pearson
-: Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
+: Para calcular el coeficiente de correlación de Pearson [@probabilidadyestadistica2.0]entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
 
 De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas. A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas.
 El valor del índice de correlación de Pearson está entre -1 y +1, ambos incluidos. Más abajo veremos cómo se interpreta el valor del coeficiente de correlación de Pearson.
@@ -207,7 +207,7 @@ El coeficiente de correlación de Pearson depende de su valor:
 interpretacion del coeficiente de correlacion de pearson
 
 Regresión Lineal Simple
-: La regresión lineal simple es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y. Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
+: La regresión lineal simple [@probabilidadyestadistica3.0] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y. Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
 
 Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal. Lógicamente, la relación entre las dos variables debe ser lineal, sino se debe utilizar otro tipo de modelo de regresión.
 
@@ -222,7 +222,7 @@ Linealidad: la relación entre la variable independiente y la variable dependien
 
 #### Teorías y Principios
 
-Según Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen.
+Según @Todd los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen.
 
 El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo. Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
 
@@ -234,7 +234,7 @@ El cambio climático y el desplazamiento por desastres son las crisis definitori
 
 Con motivo de esclarecer cuál es la bibliografía por utilizar para la construcción de este trabajo investigativo, se muestran a continuación algunos de los recursos: 
 
-* **Título:  The causes and consequences of the missing immigrants.**
+* **Título:  The causes and consequences of the missing immigrants. [@MinneapolisFed]**
 
 * Autora: Lisa Camner McKay
 
@@ -258,7 +258,7 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 *	Resumen de un párrafo: El congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere. En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración.
 
-* **Título:  Psychology of Immigration 101.**
+* **Título:  Psychology of Immigration 101. [@APA]**
 
 * Autores: Desconocido. 
 
@@ -282,7 +282,7 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 * Resumen de un párrafo: El bienestar de las personas inmigrantes se encuentra constantemente en deterioro, esto porque la xenofobia, discriminación y racismo están plenamente arraigados en el mundo, lo cual influye de manera sumamente negativa en la mente estas personas en estado de vulnerabilidad. 
 
-* **Título:  Inmigration Data Matters.**
+* **Título:  Inmigration Data Matters.[migrationpolicy]**
 
 * Autores: Jeanne Batalova, Andriy Shymonyak and Michelle Mittelstadt.
 
@@ -312,4 +312,4 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 ### Bibliografía
 
-@RAE; @OpenStax; @MinisterioInterior; @Newtral
+@RAE; @OpenStax; @MinisterioInterior; @Newtral; MinneapolisFed; @APA; @migrationpolicy; @probabilidadyestadistica; @probabilidadyestadistica2.0; @probabilidadyestadistica3.0; @ohchr; @derechouned; @migrationdataportal; @Todd
