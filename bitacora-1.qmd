@@ -56,7 +56,7 @@ Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argu
 
 **Lógica:** Existen diferentes causas por las que las personas migran, pero se tiene el objetivo encontrarse en mejores condiciones de vida que en su actual residencia. Por lo tanto, se espera que luego de un tiempo la persona tenga éxito, o en caso contrario vuelva a su país de origen. Al no tener conocimiento pronto de la situación del migrante, se sospecha la desaparición de dicha persona. Al iniciar la investigación existen diferentes factores que indican el posible paradero de la persona desaparecida, ya sea que la ruta es peligrosa, existe demasiada seguridad fronteriza para pasar, que se diera un evento catastrófico cerca de la ruta, etc. Si al final de la investigación se encuentran sobrevivientes o, en caso de muerte, el cuerpo de la persona desaparecida, se concluye el caso. De otro modo se mantiene el estado de desaparición.
 
-**Ética:** Existen diferentes artículos que hablan sobre la desaparición de migrantes, cómo realizan la investigación de cada una y cómo mejoran con el paso de los años. Además, se cuenta con una base de datos con casos a partir del 2014, con lo que se puede analizar la evolución de los casos con el paso de los años.
+**Ética:** Existen diferentes artículos que hablan sobre la desaparición de migrantes, cómo realizan la investigación de cada una y cómo mejoran con el paso de los años. Además, se cuenta con una base de datos con casos a partir del 2014, con lo que se puede analizar la evolución de los casos hasta la actualidad.
 
 **Emoción:** Debido a que la problemática tiene mayor relevancia actualmente, además de las familias preocupadas por el paradero de sus seres queridos, se cuenta con organizaciones que estudian los diferentes casos, donde se señalan las diferentes causas y aspectos que indican cuando un migrante se encuentra desaparecido, incluso en que situaciones es más probable que grupos de migrantes no tengan éxito en su viaje.
 
@@ -81,6 +81,24 @@ Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argu
 **Emoción:** Es importante reconocer qué países presentan el mayor número de personas desaparecidas, para poder predecir casos futuros y que las instituciones responsables tomen las respectivas medidas para reducir dicho número. Se puede identificar países tanto que presenten el mayor número de emigrantes como de inmigrantes.
 
 **Concluya:** Para determinar qué países tienen más migrantes desaparecidos por año se requiere de la recolección de información de diferentes instituciones que se enfocan en encontrar a dichos migrantes, que con los datos de los últimos años se puede representar la realidad sobre cuáles de estos países presentan un mayor problema de desaparecidos que implica un problema de personas que intentaron buscar mejores oportunidades sin éxitos.
+
+## Argumentación a través de datos
+
+La investigación se basa en una base de datos que se encuentra en Kaggle acerca de migrantes desaparecidos a nivel mundial:
+
+**Fuente de información:** Kaggle
+**Contexto temporal y espacial de los datos:** Desde 2014 hasta 2022, a nivel mundial.
+**Facilidad de obtener la información:** óptima
+**Población de estudio:** Migrantes desaparecidos a nivel mundial
+**Muestra observada**
+**Unidad estadística o individuos:** Basado en más de 11.000 casos.
+**Descripción de las variables de la tabla:** Casos categorizados por ID, región, fecha de ocurrencia, desaparecidos, sobrevivientes, muertes, causa de muerte, coordenadas, etc.
+
+## V de Gowin
+
+## Parte de escritura
+
+## Referencias
 
 
 
