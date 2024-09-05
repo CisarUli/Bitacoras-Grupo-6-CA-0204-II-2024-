@@ -228,6 +228,29 @@ El cambio climático y el desplazamiento por desastres son las crisis definitori
 
 ## Parte de escritura
 
+**Pregunta seleccionada:* ¿Qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando con declaradas desaparecidas?**
+
+La escogencia de esta pregunta deriva del hecho que se determinó que la visión de los autores, así como una mezcla entre los demás problemas mencionados, como también, los lineamientos del curso en el que se enmarca este trabajo investigativo: Herramientas para Ciencia de Datos; corresponde de manera más precisa con la búsqueda y cálculo de patrones a los datos generados de tablas sobre la inmigración mundial. 
+
+Además, se considera que a raíz de la colosal cantidad de material que abunda tanto en internet, como en libros y/o revistas, y siendo estos en su mayoría dedicas a la exposición de hechos así como de datos numéricos directos que apelan al raciocinio del lector: se establece que un propio esquema con perspectivas imparciales, académicas y científicas, que son las que ofrecerán los autores, será lo más conveniente y prudente para contribuir a plenitud con la sociedad e investigación en sí. 
+
+**Argumentación**
+
+Este proyecto pretende con la pregunta: “¿Qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?” crear un marco integral académico e investigativo que exponga de manera concisa y veraz información relevante e imparcial, con una serie de indagaciones derivadas de cálculos estadísticos, así como también, ofrecer un respaldo teórico apoyado en una larga lista de fuentes de índole: periodísticas, gubernamentales, no gubernamentales, científicas, médicas, entre otras; todo ello con en relación absoluta y directa al fenómeno de migración mundial. [@migrationpolicy; MinneapolisFed]
+
+Cuando se mencionan las palabras: indagaciones, reportes, conclusiones; o específicamente: patrones, se hace alusión a los resultados que implicarán el proceso investigativo presente. Entre estos patrones, se espera: crear mapas geográficos que señalen destinos, rutas, coordenadas que presenten mayor riesgo para las personas inmigrantes; enumerar una serie de cálculos estadísticos que mencione datos como: media, moda, mediana, coeficiente de Pearson, entre otros; derivados únicamente de las bases de datos escogidas como fuentes directas de la investigación. 
+
+**Resumen**
+
+El trazo que abarca la investigación actualmente consiste en una larga, diversa, y fructífera colección de información que tiene matices desde áreas como la economía, estadística y matemáticas, hasta temáticas meramente sociales como: sociología y política, e incluso médicas como la psiquiatría y psicología.
+Mediante un análisis y discusión dados sobre la visión del proyecto, lineamientos que deben seguirse, y motivaciones por parte de los autores, se ha construido una sólida base informativa con la que se harán respectivos cálculos e inferencias que puedan responder las preguntas planteadas del proyecto. Por ello, la enorme gama de material recolectada serán los cimientos del proyecto. 
+
+A través del estudio de distintas fuentes periodísticas, se ha concluido que el fenómeno de migración es tan delicado y lleno de matices, que el presente trabajo podrá apoyarse de un vasto número de similares proyectos que comparten las inquietudes que en trabajo se exponen. 
+
+Por otro lado, aspectos mencionados en este trabajo como: relación de la geografía e inmigrantes, conexión entre personas inmigrantes y aspectos psicológicos, o las influencias de la sociopolítica en los procesos migratorios, son ampliamente discutidos por muchas organizaciones que pretenden contribuir a mejorar un fenómeno que tristemente ha tomado tintes de problemáticas por lo que arraiga ser una persona inmigrante. Gracias a estos descubrimientos, se determina que el trabajo es completamente viable, y se le puede dar mejor forma tomando caminos distintos a los ya tomados por otros autores. 
+
+Así como también, estos trabajos investigativos que se asemejan a la visión del presente proyecto, serán totalmente respetados, y a partir de ellos, se restructurará y dará forma al trabajo de manera que se note el crecimiento didáctico generado por el intercambio y la enseñanza adquirida. 
+
 ## Referencias
 
 ### Fichas bibliográficas 
