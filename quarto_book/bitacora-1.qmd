@@ -404,7 +404,7 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 ### V de Gowin
 
-![UVE Heurística](UVE.png "UVE Heurística")
+![UVE 01: UVE Heurística](UVE.png "UVE Heurística")
 
 ### Bibliografía
 

@@ -1,0 +1,35 @@
+project:
+
+
+
+  type: book
+  output-dir: "../docs"
+
+lang: es
+
+book:
+  title: "Bitácoras Grupo #6, CA-204 (II-2024)"
+  author: "Pablo Chaves, César Salazar"
+  date: today
+  site-url: google.com # Vacío por el momento
+  repo-url: https://github.com/CisarUli/Bitacoras-Grupo-6-CA-0204-II-2024-
+  repo-actions: [edit, source]
+  downloads: [pdf]
+  chapters:
+    - "index.qmd"
+    - "bitacora-1.qmd"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+execute:
+  freeze: auto
+  cache: true
+
+from: markdown+tex_math_single_backslash+emoji
+link-external-newwindow: true
