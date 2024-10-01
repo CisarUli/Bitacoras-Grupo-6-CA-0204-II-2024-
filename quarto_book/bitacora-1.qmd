@@ -136,7 +136,7 @@ Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argu
 
 1. ¿Qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?
 
-2: ¿Cuáles son los trasfondos geográficos, sociopolíticos y psicológicos que pueden determinar el destino de un porcentaje alto de migrantes se declare desaparecido?
+2. ¿Cuáles son los trasfondos geográficos, sociopolíticos y psicológicos que pueden determinar el destino de un porcentaje alto de migrantes se declare desaparecido?
 
 3.  ¿Qué determina que un migrante se considere desaparecido?
 
@@ -266,7 +266,48 @@ Esta iniciativa documenta muertes y desapariciones de personas que se encuentran
 
 **Unidad estadística o individuos:** Basado en más de 11.000 casos.
 
-**Descripción de las variables de la tabla:** Casos categorizados por ID, región, fecha de ocurrencia, desaparecidos, sobrevivientes, muertes, causa de muerte, coordenadas, etc.
+**Descripción de las variables de la tabla: [@Nocco]** 
+
+- **Main ID *(chr)*:** Identificador principal del incidente.
+
+- **Incident ID *(chr)*:** Código único asignado a cada incidente registrado.
+
+- **Region *(chr)*:** La región geográfica donde ocurrió el incidente.
+
+- **Incident Date *(date)*:** Fecha estimada en que ocurrió el incidente. En los casos donde no se conoce la fecha exacta de muerte, se considera la fecha en que se encontraron los cuerpos, en caso de ser varios. Si se tratara de sobrevivientes, testigos o entrevistados se registra la fecha en que ocurrió la entrevista. 
+
+- **Year *(int)*:** Año en que ocurrió el incidente.
+
+- **Reported Month *(chr)*:** Mes en que fue reportado el incidente.
+
+- **Number Dead *(int)*:** El número total de personas confirmadas muertas en un incidente, es decir, el número de cuerpos recuperados. Si se presume que los migrantes han muerto, pero sus cuerpos no han sido encontrados entonces la entrada estará en blanco.
+
+- **Minimum Estimated Number of Missing *(int)*:** Número mínimo estimado de personas desaparecidas. El número de desaparecidos se calcula restando el número de cuerpos recuperados y el número de supervivientes del número total de migrantes que fueron reportados desaparecidos. Este número puede ser reportado por los migrantes sobrevivientes o por testigos. Si no se denuncia la desaparición de personas, se deja en blanco.
+
+- **Total Number of Dead and Missing *(int)*:** Total de fallecidos y desaparecidos sumados.
+
+- **Number of Survivors *(int)*:** El número de migrantes que sobrevivieron al incidente, si se conoce. En caso contrario estará en blanco.
+
+- **Number of Females *(int)*:** Número de mujeres consideradas muertas o desaparecidas en el incidente, si se conoce. En caso contrario estará en blanco.
+
+- **Number of Males *(int)*:** Número de hombres considerados muertos o desaparecidos en el incidente, si se conoce. En caso contrario estará en blanco.
+
+- **Number of Children *(int)*:** Número de niños considerados muertos o desaparecidos en el incidente, si se conoce. En caso contrario estará en blanco.
+
+- **Cause of Death *(chr)*:** Es el conjunto de condiciones que dieron lugar a la muerte del migrante, es decir, las circunstancias del hecho que produjo la lesión mortal. Si se desconoce, se incluye el motivo siempre que sea posible.
+
+- **Location of Death *(chr)*:** Ubicación del incidente donde ocurrió la muerte o donde los cuerpos fueron encontrados.
+- **Information Source *(chr)*:** Fuente de la información relacionada con el incidente.
+- **Coordinates *(dbl)*:** Coordenadas geográficas del lugar del incidente. Las coordenadas geográficas se estiman, ya que a menudo no se conocen ubicaciones precisas.
+
+- **Migration Route (chr):** Ruta migratoria utilizada por las personas involucradas.En caso de no conocerse estará en blanco.
+
+- **URL *(chr)*:** Enlace web asociado al incidente para obtener más detalles.
+
+- **UNSD Geographical Grouping *(chr)*:** Clasificación geográfica de acuerdo con la división de las Naciones Unidas.
+
+- **Source Quality *(int)*:** Los incidentes se clasifican en una escala del 1 al 5 según las fuentes de información disponibles. Los incidentes clasificados como nivel 1 se basan en información de una sola fuente. Los incidentes clasificados como nivel 2 se basan en relatos de testigos presenciales no corroborados o datos de encuestados. Los incidentes clasificados como nivel 3 se basan en información de múltiples reportes de medios, mientras que los incidentes de nivel 4 se basan en información de al menos una ONG, OIG u otra organización humanitaria con conocimiento directo del incidente. Los incidentes clasificados en el nivel 5 se basan en información de fuentes oficiales, como forenses, médicos forenses o funcionarios gubernamentales, O de múltiples organizaciones humanitarias.
+
 
 #### UVE Heurística
 
