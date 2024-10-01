@@ -87,7 +87,7 @@ All notable changes to this project will be documented in this file.
 
 ### Definición
 
-**Idea:** Quisieramos determinar diferentes cálculos estadísticos derivados de los casos sobre desapariciones o muertes de migrantes en todo el mundo.
+**Idea:** Con este proyecto quisieramos no solo entender el fenómeno de los migrantes desaparecidos desde una perspectiva sociológica, sino también contribuir significativamente al ámbito social debido a que es esencial que se respeten y defiendan los derechos humanos. Para lograrlo, se plantea utilizar los datos recolectados por organizaciones que investigan el paradero de los migrantes, lo cual permitiría describir y entender mejor su estado de desaparecido. Además, se pretende identificar los países con más migrantes desaparecidos para ofrecer una visión más clara de los lugares donde el problema es más grave, en el contexto de personas que migran en busca de mejores oportunidades, pero no logran su objetivo.
 
 **Tensiones:** Podrían existir casos sin resolver, incluso de años anteriores.
 El estado de desaparecido no proporciona tanta información, pues se desconoce el paradero de la persona, si ha fallecido y cuál podría haber sido la posible causa de su muerte o desaparición, además de la zona exacta donde desapareció.
@@ -133,6 +133,10 @@ Muerte no registrada
 ## Pregunta
 
 Se reformula la idea en forma de preguntas, con el fin de encontrar ciertos argumentos que ayuden a resolverlas.
+
+1. ¿Qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?
+
+2: ¿Cuáles son los trasfondos geográficos, sociopolíticos y psicológicos que pueden determinar el destino de un porcentaje alto de migrantes se declare desaparecido?
 
 3.  ¿Qué determina que un migrante se considere desaparecido?
 
@@ -217,7 +221,7 @@ Además, se cuenta con una base de datos con casos a partir del 2014, con lo que
 
 **Emoción:** Debido a que la problemática tiene mayor relevancia actualmente, además de las familias preocupadas por el paradero de sus seres queridos, se cuenta con organizaciones que estudian los diferentes casos, donde se señalan las diferentes causas y aspectos que indican cuando un migrante se encuentra desaparecido, incluso en que situaciones es más probable que grupos de migrantes no tengan éxito en su viaje.
 
-**Concluya:** El cómo se determina el estado de desaparecido de una persona migrante depende directamente del tiempo que tome tener conocimiento acerca de su paradero donde se analiza la evolución de cada caso con las investigaciones de diferentes organizaciones y finalmente se logre explicar la situación en que se encuentran los migrantes a sus familias.
+**Concluya:** La forma en cómo se determina el estado de desaparecido de una persona migrante depende directamente del tiempo que tome tener conocimiento acerca de su paradero donde se analiza la evolución de cada caso con las investigaciones de diferentes organizaciones y finalmente se logre explicar la situación en que se encuentran los migrantes a sus familias.
 Todo lo anterior permitiría tener una descripción del estado de desaparecido para tener un mayor entendimiento sobre lo que ocurre con las personas que no han confirmado su llegada a su lugar de destino.
 
 **Pregunta 4: ¿Qué países son los que contienen el mayor porcentaje de migrantes desaparecidos por año?**
@@ -268,6 +272,8 @@ Esta iniciativa documenta muertes y desapariciones de personas que se encuentran
 
 Con base en lo descrito con anterioridad, haciendo uso de la pregunta de investigación, el objetivo general y los objetivos específicos, se construye esta UVE Heurística.
 Los elementos de este recurso se detallan adelante.
+
+![UVE 01: UVE Heurística](UVE.png "UVE Heurística")
 
 #### Conceptos Básicos
 
@@ -468,7 +474,7 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 -   Resumen de un párrafo: El bienestar de las personas inmigrantes se encuentra constantemente en deterioro, esto porque la xenofobia, discriminación y racismo están plenamente arraigados en el mundo, lo cual influye de manera sumamente negativa en la mente estas personas en estado de vulnerabilidad.
 
--   **Título: Inmigration Data Matters.\[migrationpolicy\]**
+-   **Título: Inmigration Data Matters. [@migrationpolicy]** 
 
 -   Autores: Jeanne Batalova, Andriy Shymonyak and Michelle Mittelstadt.
 
@@ -492,10 +498,6 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 -   Problemas con el argumento: Ninguno.
 
 -   Resumen de un párrafo: Bases de datos nacionales y reportes de países que son parte de la Unión Europea, que muestra datos de: detención, condiciones y protección.
-
-### V de Gowin
-
-![UVE 01: UVE Heurística](UVE.png "UVE Heurística")
 
 ### Bibliografía
 
