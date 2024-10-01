@@ -322,7 +322,7 @@ Los elementos de este recurso se detallan adelante.
 
 Medidas de Tendencia Central
 
-:   Las medidas de centralización (o medidas de posición central) [@probabilidadyestadistica] son métricas estadísticas que se encargan de mostrar el valor central distributivo.
+:   Las medidas de centralización (o medidas de posición central) son métricas estadísticas que se encargan de mostrar el valor central distributivo.
     Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos.
     Las medidas a utilizar son:
 
@@ -375,7 +375,7 @@ Medidas de Tendencia Central
 
 Coeficiente de Correlación de Pearson
 
-:   Para calcular el coeficiente de correlación de Pearson [@probabilidadyestadistica2.0]entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
+:   Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
 
 De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas.
 A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas.
@@ -462,7 +462,7 @@ Así como también, estos trabajos investigativos que se asemejan a la visión d
 
 Con motivo de esclarecer cuál es la bibliografía por utilizar para la construcción de este trabajo investigativo, se muestran a continuación algunos de los recursos:
 
--   **Título: The causes and consequences of the missing immigrants. [@MinneapolisFed]**
+**Título: The causes and consequences of the missing immigrants. [@MinneapolisFed]**
 
 -   Autora: Lisa Camner McKay
 
@@ -490,9 +490,9 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 -   Resumen de un párrafo: El congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere.
     En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración.
 
--   **Título: Psychology of Immigration 101. [@APA]**
+**Título: Psychology of Immigration 101. [@APA]**
 
--   Autores: Desconocido.
+-   Autores: American Psychological Association.
 
 -   Nombre del tema: Aspectos psicológicos de la inmigración.
 
@@ -515,7 +515,7 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 -   Resumen de un párrafo: El bienestar de las personas inmigrantes se encuentra constantemente en deterioro, esto porque la xenofobia, discriminación y racismo están plenamente arraigados en el mundo, lo cual influye de manera sumamente negativa en la mente estas personas en estado de vulnerabilidad.
 
--   **Título: Inmigration Data Matters. [@migrationpolicy]** 
+**Título: Inmigration Data Matters. [@migrationpolicy]** 
 
 -   Autores: Jeanne Batalova, Andriy Shymonyak and Michelle Mittelstadt.
 
@@ -539,6 +539,55 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 -   Problemas con el argumento: Ninguno.
 
 -   Resumen de un párrafo: Bases de datos nacionales y reportes de países que son parte de la Unión Europea, que muestra datos de: detención, condiciones y protección.
+
+**Título: Introduction to Human Geography. [@Todd]**
+
+-   Autores: David Dorrell, Georgeta Connor, Joseph Henderson, Todd Lindley, Adam Dohrenwend, Juana Ibáñez, Molly McGraw, Alan Ciba, Neusa Hidalgo Monroy Wohlgemuth, Rusti Liner.
+
+-   Nombre del tema: “Migration”.
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Artículo publicado el 1 de enero de 2024.
+
+    -   Metodológico: Los autores utilizaron un estilo informativo y argumentativo, basado en 20 fuentes diferentes.
+
+    -   Temático: Se trata esencialmente de un texto meramente informativo con respaldo científico.
+
+    -   Teórico: El capítulo explica la geografía humana para entender patrones geográficos de migración.
+
+-   Resumen de una oración: Patrones geográficos de migración influenciados por factores económicos, políticos, ambientales y socio-culturales.
+
+-   Argumento central: Describe el fenómeno de la migración, junto con sus principales causas y consecuencias tanto para los migrantes como sus países de origen o de destino. 
+
+-   Problemas con el argumento: Dependencia de fuentes gubernamentales y sesgo político en la recolección de datos.
+
+-   Resumen de un párrafo: Existen tendencias generales en la migración global, donde factores como la economía influyen enormemente en este fenómeno. Se describe la migración Norte-Sur, que se refiere a los casos relacionados entre Canadá y USA con Latinoamérica en general, donde por causa de la pobreza se presenta la necesidad de moverse a países más desarrollados. También se da una breve explicación sobre la influencia de fenómenos como el cambio climático y los desastres naturales, donde cada vez toman mayor importancia.
+
+**Título: Introducción a la Estadística. [@Zabala]**
+
+-   Autor: Martín Andonegui Zabala.
+
+-   Nombre del tema: “Las medidas de tendencia central”
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Artículo publicado en junio de 2007.
+
+    -   Metodológico: El texto logra explicar aspectos estadísticos mediante descripciones, métodos cuantitativos y algunas aplicaciones.
+
+    -   Temático: Estadística básica.
+
+    -   Teórico: Abarca diferentes métodos estadísticos con variables tanto cualitativas como cuantitativas.
+
+-   Resumen de una oración: Se busca encontrar datos especiales derivados de los datos recolectados.
+
+-   Argumento central: Describe conceptos y teoría básica sobre estadística, con un enfoque educacional con el objetivo de formar una buena base. 
+
+-   Problemas con el argumento: No encontrados
+
+-   Resumen de un párrafo: Se encuentra diferentes tipos de información en todos lados, por lo que es importante saber interpretarla, reconocer que datos son más relevantes que otros al analizar sus características (ya sean cualitativos o cuantitativos) y determinar si se puede concluir algo a cerca de ellos. Por lo que existe la estadística, que trata sobre cómo manejar dichos datos utilizando diferentes métodos.
+
 
 ### Bibliografía
 
