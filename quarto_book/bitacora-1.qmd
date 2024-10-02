@@ -588,6 +588,77 @@ Con motivo de esclarecer cuál es la bibliografía por utilizar para la construc
 
 -   Resumen de un párrafo: Se encuentra diferentes tipos de información en todos lados, por lo que es importante saber interpretarla, reconocer que datos son más relevantes que otros al analizar sus características (ya sean cualitativos o cuantitativos) y determinar si se puede concluir algo a cerca de ellos. Por lo que existe la estadística, que trata sobre cómo manejar dichos datos utilizando diferentes métodos.
 
+**Título: La Correlación de Pearson y el proceso de regresión por el Método de Mínimos Cuadrados. [@Fiallos]**
+
+-   Autor: Germán Fiallos.
+
+-   Nombre del tema: “La Correlación de Pearson”.
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Artículo publicado el 1 de junio de 2021.
+
+    -   Metodológico: El texto comparte métodos cuantitativos para el análisis de los gráficos de dispersión y la relación que existe entre las dos variables.
+
+    -   Temático: Estadística.
+
+    -   Teórico: Procesos matemáticos sobre el análisis de correlación entre 2 variables.
+    
+-   Resumen de una oración: Explica la interdisciplinariedad que existe entre las regresiones y correlaciones con las ecuaciones lineales.
+
+-   Argumento central: Se estudia el diagrama de dispersión y el coeficiente de correlación de Pearson, junto con sus características y sus diferentes tipos. 
+
+-   Problemas con el argumento: No encontrados.
+
+-   Resumen de un párrafo: El coeficiente de correlación de Pearson nos indica cómo están correlacionadas dos variables, en primer lugar, si existe dicha correlación, si es directa o indirecta (índice negativo o positivo) donde la directa significa que el incremento de una variable implica el incremento de la otra y la indirecta que el incremento de una variable implica la reducción de la otra. Además, se puede analizar la intensidad con que están correlacionadas estas variables.
+
+**Título: Determinar. [@RAE]**
+
+-   Autor: Real Academia Española.
+
+-   Nombre del tema: “Definición de determinar”
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Definición actualiza al 2023.
+
+    -   Metodológico: El texto es del tipo descriptivo, utilizando la vigesimotercera edición del diccionario de la lengua española.
+
+    -   Temático: Lingüística.
+
+    -   Teórico: Definición, composición y sinónimos de la palabra “determinar”.
+    
+-   Resumen de una oración: La palabra determinar es decidir algo, despejar la incertidumbre sobre ello.
+
+-   Argumento central: Describe y explica que es determinar junto con algunos ejemplos y sus conjugados.
+
+-   Problemas con el argumento: No encontrados.
+
+-   Resumen de un párrafo: Determinar se refiere a establecer o definir algo de forma precisa, implica tener seguridad sobre una situación, condición o cantidad. La determinación se requiere para poder tomar decisiones y lograr llegar a una conclusión sobre lo que se habla. Se utiliza mucho en contextos donde se den lugar evaluaciones o decisiones fundamentadas. Algunos de sus sinónimos son decidir, resolver, concluir, acordar, etc. 
+
+**Título: Missing Migrants Project. [@Nocco]**
+
+-   Autor: Stefano Nocco.
+
+-   Nombre del tema: “Datos sobre migrantes desaparecidos”.
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Artículo actualizado al 2022.
+
+    -   Metodológico: El texto utiliza datos recolectados de la Internacional Organization for Migration (IOM).
+
+    -   Temático: Datasets.
+
+    -   Teórico: Base de datos recolectados del 2014 al 2022 sobre casos de migrantes desaparecidos, donde se encuentran número de sobrevivientes, muertes o aún desaparecidos.
+    
+-   Resumen de una oración: El proyecto de “Missing Migrants” resalta el problema mencionado con datos recolectados en 8 años.
+
+-   Argumento central: Se presenta una gran cantidad de casos de desapariciones para su estudio, con el fin de divulgar y generar conciencia sobre la problemática.
+
+-   Problemas con el argumento: Depende de fuentes gubernamentales o algunos datos no cuentan con más de una fuente.
+
+-   Resumen de un párrafo: Expone los diferentes casos de migrantes desaparecidos incluyendo ubicación geográfica, fecha en la que ocurrió el incidente, ruta que seguían los migrantes para llegar al lugar de destino, género de las víctimas, si hubieron niños involucrados, etc. En cada caso se tiene el número de sobrevivientes, muertes o personas aún desaparecidas. Con los datos se puede identificar que países presentar en mayor medida el problema, ya se por tener muchos inmigrantes o emigrantes. 
 
 ### Bibliografía
 
