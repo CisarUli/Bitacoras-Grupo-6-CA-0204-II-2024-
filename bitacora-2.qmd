@@ -1,0 +1,90 @@
+---
+title: "Bitacora 2"
+editor: visual
+---
+
+## Organización y Literatura
+
+| Tipo | Tema general | Tema específico | Título | Año | Autor(es) |
+|----|----|----|----|----|----|
+| Salud | Exposición problemáticas | Crítica a la inmigración | 13 | 2022 | UN |
+| Salud | Citar problemas psicológicos | Hacer énfasis en trastornos mentales de inmigrantes | 2 | 2012 | American Psychological Association |
+
+# Enlace: Salud
+
+### Textos a estudiar
+
+-   **“More than 50,000 migrants ‘die in search of a better life’”** 13
+-   **“Psychology of Immigration”** 2
+
+## Resumen
+
+El segundo texto: **“Psychology of Immigration”** recopila una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia.
+
+Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa la migración mundialmente hoy en día. Uno de estos mitos sería que la migración está en alza, lo cual no es cierto; sucede lo contrario.
+
+Con una relación que dota de cierto paralelismo, el texto número 13: **“More than 50,000 migrants ‘die in search of a better life’”** resulta en un texto ampliamente periodístico que critica las pobres circunstancias de los migrantes. Este texto generalmente trata de exponer datos, criticar circunstancias y plantear soluciones a las consecuencias de la migración.
+
+## Contraste
+
+La diferencia que presentan ambos artículos, si bien ambos están ampliamente entrelazados bajo una óptica de salud, reside en el foco de dar la información.
+
+Es un hecho que ambos artículos discuten los problemas que enfrentan los migrantes al hacer sus travesías, también ambos artículos estudian datos y elaboran una narrativa que pone en alerta las dificultades que enfrentan todas las personas que se desplazan de un país a otro (sobre todo ilegalmente). Sin embargo, un texto tiene
+
+```{r}
+library(tidyverse)
+library(ggmap)
+
+lista_archivos <- lapply(X = dir(path = "data/"), 
+                        FUN = function(f){
+                          read_csv(paste0("data/", f))
+                        })
+
+datos_consolidado <- bind_rows(lista_archivos) |>
+  janitor::clean_names()
+
+
+MissingMigrants.Global.2015 |>
+  ggplot(aes(x = Region)) + 
+  geom_bar(fill = "darkblue") +
+  theme_minimal() +
+  labs(title = "Incidentes por Región",
+       x = "Región",
+       y = "Total de Incidentes")
+MissingMigrants.Global.2015 |>
+ggplot(aes(x = Region, y = Number.Dead)) +
+  geom_col(fill = "orange") +
+  theme_minimal() +
+  labs(
+    title = "Total de Muertes por Región",
+       x = "Región",
+       y = "Total de Muertes")
+MissingMigrants.Global.2015 |>
+ggplot(aes(x = Longitude, y = Latitude)) +
+  geom_point(color = "red", size = 2) +
+  theme_minimal() +
+  labs(
+    title = "Mapa de Incidentes según Coordenadas",
+    x = "Longitud",
+    y = "Latitud")
+MissingMigrants.Global.2015 |>
+  ggplot(aes(x = Cause.of.Death)) +
+  geom_bar(fill = "lightgreen") +
+  theme_minimal() +
+  labs(
+    title = "Distribución de las Causas de Muerte")
+MissingMigrants.Global.2015 |> 
+  ggplot(aes(x = as.Date(Incident.Date))) +
+  geom_line(stat = "count", color = "darkred") +
+  theme_minimal() +
+  labs(
+    title = "Número de Incidentes por Fecha",
+    x = "Fecha",
+    y = "Número de Incidentes")
+MissingMigrants.Global.2015 |>
+  ggplot(aes(x = Gender, y = NumberDead, fill = Gender)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Número de Fallecidos por Género", x = "Género", y = "Número de Fallecidos")
+
+```
