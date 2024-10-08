@@ -1,6 +1,25 @@
----
-title: "Bitacora 2"
----
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+# Bitácora 2
+
+## Comandos de git
+
+### Git Log
+
+![Git Log 01](images/Log/01-log.png "Git Log 01")
+
+![Git Log 02](images/Log/02-log.png "Git Log 02")
+
+![Git Log 03](images/Log/03-log.png "Git Log 03")
+
+![Git Log 04](images/Log/04-log.png "Git Log 04")
+
+### CHANGELOG
+
+### Git Summary
 
 ## Organización y Literatura
 
@@ -9,14 +28,14 @@ title: "Bitacora 2"
 | Salud | Exposición problemáticas | Crítica a la inmigración | 13 | 2022 | UN |
 | Salud | Citar problemas psicológicos | Hacer énfasis en trastornos mentales de inmigrantes | 2 | 2012 | American Psychological Association |
 
-# Enlace: Salud
+### Enlace: Salud
 
-### Textos a estudiar
+#### Textos a estudiar
 
 -   **“More than 50,000 migrants ‘die in search of a better life’”** 13
 -   **“Psychology of Immigration”** 2
 
-## Resumen
+### Resumen
 
 El segundo texto: **“Psychology of Immigration”** recopila una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia.
 
@@ -24,66 +43,207 @@ Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa
 
 Con una relación que dota de cierto paralelismo, el texto número 13: **“More than 50,000 migrants ‘die in search of a better life’”** resulta en un texto ampliamente periodístico que critica las pobres circunstancias de los migrantes. Este texto generalmente trata de exponer datos, criticar circunstancias y plantear soluciones a las consecuencias de la migración.
 
-## Contraste
+### Contraste
 
 La diferencia que presentan ambos artículos, si bien ambos están ampliamente entrelazados bajo una óptica de salud, reside en el foco de dar la información.
 
 Es un hecho que ambos artículos discuten los problemas que enfrentan los migrantes al hacer sus travesías, también ambos artículos estudian datos y elaboran una narrativa que pone en alerta las dificultades que enfrentan todas las personas que se desplazan de un país a otro (sobre todo ilegalmente). Sin embargo, un texto tiene
 
-```{r}
-library(tidyverse)
-library(ggmap)
-# 
-# lista_archivos <- lapply(X = dir(path = "data/"), 
-#                         FUN = function(f){
-#                           read_csv(paste0("data/", f))
-#                         })
-# 
-# datos_consolidado <- bind_rows(lista_archivos) |>
-#   janitor::clean_names()
-# 
-# 
-# MissingMigrants.Global.2015 |>
-#   ggplot(aes(x = Region)) + 
-#   geom_bar(fill = "darkblue") +
-#   theme_minimal() +
-#   labs(title = "Incidentes por Región",
-#        x = "Región",
-#        y = "Total de Incidentes")
-# MissingMigrants.Global.2015 |>
-# ggplot(aes(x = Region, y = Number.Dead)) +
-#   geom_col(fill = "orange") +
-#   theme_minimal() +
-#   labs(
-#     title = "Total de Muertes por Región",
-#        x = "Región",
-#        y = "Total de Muertes")
-# MissingMigrants.Global.2015 |>
-# ggplot(aes(x = Longitude, y = Latitude)) +
-#   geom_point(color = "red", size = 2) +
-#   theme_minimal() +
-#   labs(
-#     title = "Mapa de Incidentes según Coordenadas",
-#     x = "Longitud",
-#     y = "Latitud")
-# MissingMigrants.Global.2015 |>
-#   ggplot(aes(x = Cause.of.Death)) +
-#   geom_bar(fill = "lightgreen") +
-#   theme_minimal() +
-#   labs(
-#     title = "Distribución de las Causas de Muerte")
-# MissingMigrants.Global.2015 |> 
-#   ggplot(aes(x = as.Date(Incident.Date))) +
-#   geom_line(stat = "count", color = "darkred") +
-#   theme_minimal() +
-#   labs(
-#     title = "Número de Incidentes por Fecha",
-#     x = "Fecha",
-#     y = "Número de Incidentes")
-# MissingMigrants.Global.2015 |>
-#   ggplot(aes(x = Gender, y = NumberDead, fill = Gender)) +
-#   geom_bar(stat = "identity") +
-#   theme_minimal() +
-#   labs(title = "Número de Fallecidos por Género", x = "Género", y = "Número de Fallecidos")
 
-```
+## Análisis Descriptivo.
+
+La base de datos renombrada "migrantes_desaparecidos" se encuentra en formato tidy. Las observaciones en las variables que presentan número de muertes, sobrevivientes o aún desaparecidos con valores NA se refiere a los casos donde se desconoce la situación de los individuos. Para el análisis del proyecto se utiliza "Todomigrantes_desaparecidos" donde se consideran los NA como 0, así evitar omitir casos.
+
+Se busca responder lo siguiente:
+
+1. ¿Qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?
+
+2. ¿Cuáles son los trasfondos geográficos, sociopolíticos y psicológicos que pueden determinar el destino de un porcentaje alto de migrantes se declare desaparecido?
+
+3.  ¿Qué determina que un migrante se considere desaparecido?
+
+4.  ¿Qué países son los que contienen el mayor porcentaje de migrantes desaparecidos por año?
+
+Nos enfocaremos en la cuarta pregunta, pues lo cuadros resumenes logran acercarse a una respuesta, sin embargo se debe generalizar a regiones y no países debido a la información con la que se cuenta.
+
+Para tener una mayor facilidad al trabajar, se utiliza ProjectTemplate y además se utilizan los siguientes paquetes para manipular la base de datos: tidyverse, dplyr, tidyr y knitr.
+
+````{r}
+suppressMessages(library(tidyverse))
+suppressMessages(library(dplyr))
+suppressMessages(library(tidyr))
+suppressMessages(library(knitr))
+suppressMessages(library(countrycode))
+````
+Primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables:
+
+````{r}
+lista_archivos <- lapply(X = dir(path = "data/"), 
+                         FUN = function(f){
+                           read_csv(paste0("data/", f))
+                           })
+migrantes_desaparecidos <- bind_rows(lista_archivos) |>
+  janitor::clean_names()
+
+migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+  separate(coordinates,
+           into = c("latitud", "longitud"),
+           sep = ",", fill = "left"
+           )
+migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+
+migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+  mutate(incident_date = as.Date(
+    str_extract(incident_date,
+                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 5:6, 9, 16, 20:21)] #elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos |>
+  mutate(
+    location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  mutate(
+    country_of_death = countrycode(location_of_death,
+                          origin = 'country.name',
+                          destination = 'country.name'),
+    cause_of_death = str_extract(cause_of_death, "^[^/]+")
+  )
+migrantes_desaparecidos <- migrantes_desaparecidos |>
+  mutate(across(where(is.numeric), ~ replace_na(., 0))
+  )
+migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
+migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
+migrantes_desaparecidos$country_of_death <- as.factor(migrantes_desaparecidos$country_of_death)
+
+glimpse(migrantes_desaparecidos)
+````
+### Cuadros Resumen
+
+A continuación se muestran algunas estadísticas sobre los datos recolectados como 
+promedio (Prom), porcentaje (Per), máximo (Max), variación (Var)y desviación (Desv)
+acerca de los casos de mueres (M), sobrevivientes (S) y desaparecidos (D):
+
+**Resumen por Año:**
+
+````{r}
+migrantes_desaparecidos |>
+  filter(!is.na(incident_date)) |>
+  group_by(año = format(incident_date, "%Y")) |>
+  summarise(
+    prom_m = mean(number_dead),
+    prom_s = mean(number_of_survivors),
+    prom_d = mean(minimum_estimated_number_of_missing),
+    per_m = sum(number_dead) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_s = sum(number_of_survivors) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100) |> 
+  kable(caption = "Resumen de Migrantes Desaparecidos por Año")
+````
+**Resumen por Region:**
+````{r}
+migrantes_desaparecidos |>
+  filter(!is.na(region)) |>
+  group_by(region) |>
+  summarise(
+    prom_m = mean(number_dead),
+    prom_s = mean(number_of_survivors),
+    prom_d = mean(minimum_estimated_number_of_missing),
+    per_m = sum(number_dead) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_s = sum(number_of_survivors) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100) |> 
+  kable(caption = "Resumen de Migrantes Desaparecidos por Región")
+````
+**Resumen por País:**
+````{r}
+migrantes_desaparecidos |>
+  filter(!is.na(country_of_death)) |>
+  group_by(pais = country_of_death) |>
+  summarise(
+    prom_m = mean(number_dead),
+    prom_s = mean(number_of_survivors),
+    prom_d = mean(minimum_estimated_number_of_missing),
+    per_m = sum(number_dead) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_s = sum(number_of_survivors) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100) |>
+  arrange(desc(prom_m)) |>  
+  slice_head(n = 15) |> 
+  kable(caption = "Resumen de Migrantes Desaparecidos por País")
+````
+**Resumen por Causa de Muerte:**
+````{r}
+migrantes_desaparecidos |>
+  filter(!is.na(cause_of_death)) |>
+  group_by(cause_of_death) |>
+  summarise(
+    casos = sum(number_dead),
+    prom_m = mean(number_dead),
+    per_m = sum(number_dead)/sum(migrantes_desaparecidos$number_dead) * 100,
+    Max_M = max(number_dead),
+    Var_M = var(number_dead),
+    Desv_M = sd(number_dead)) |>
+  kable(caption = "Resumen de Causa de Muerte de Migrantes Desaparecidos")
+````
+### Gráficas
+A continuación se muestran algunas gráficas sobre los datos recolectados, utilizando los siguientes paquetes:
+
+````{r}
+suppressMessages(library(ggplot2))
+suppressMessages(library(cowplot))
+````
+
+**Incidentes por año**
+
+````{r}
+migrantes_desaparecidos |>   
+  filter(!is.na(incident_date)) |>
+  ggplot(aes(x = format(incident_date, "%Y"))) +
+  geom_bar(fill = "darkred") +
+  labs(
+    tittle = "Incidentes por año",
+    x = "Año",
+    y = "Incidentes"
+  ) + 
+  theme_minimal()
+````
+
+**Mapa sobre incidetes por Region**
+````{r}
+migrantes_desaparecidos |> #Falta que aparezca el mapa
+ggplot(aes(x = longitud, y = latitud)) +
+  geom_point(color = "red", size = 0.5) +
+  theme_minimal() +
+  labs(
+    title = "Mapa de Incidentes según Coordenadas",
+    x = "Longitud",
+    y = "Latitud")
+````
+
+

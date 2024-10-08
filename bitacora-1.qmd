@@ -14,13 +14,13 @@ editor:
 
 ### Git Log
 
-![Git Log 01](img/01-log.png "Git Log 01")
+![Git Log 01](images/Log/01-log.png "Git Log 01")
 
-![Git Log 02](img/02-log.png "Git Log 02")
+![Git Log 02](images/Log/02-log.png "Git Log 02")
 
-![Git Log 03](img/03-log.png "Git Log 03")
+![Git Log 03](images/Log/03-log.png "Git Log 03")
 
-![Git Log 04](img/04-log.png "Git Log 04")
+![Git Log 04](images/Log/04-log.png "Git Log 04")
 
 ### CHANGELOG
 
@@ -314,7 +314,7 @@ Esta iniciativa documenta muertes y desapariciones de personas que se encuentran
 Con base en lo descrito con anterioridad, haciendo uso de la pregunta de investigación, el objetivo general y los objetivos específicos, se construye esta UVE Heurística.
 Los elementos de este recurso se detallan adelante.
 
-![UVE 01: UVE Heurística](img/UVE.png "UVE Heurística")
+![UVE 01: UVE Heurística](images/UVE.png "UVE Heurística")
 
 #### Conceptos Básicos
 
@@ -806,4 +806,4 @@ Las rutas europeas también representan el mayor número y la mayor proporción 
 
 ### Bibliografía
 
-@RAE; @OpenStax; @MinisterioInterior; @Newtral; @MinneapolisFed; @APA; @migrationpolicy; @probabilidadyestadistica3.0; @ohchr; @derechouned; @migrationdataportal; @Todd; @Zabala; @Fiallos; @Nocco; @Duhaime; @Brito; @Giuliana; @UN; @WHO
+@RAE; @OpenStax; @MinisterioInterior; @Newtral; @MinneapolisFed; @APA; @migrationpolicy; @probabilidadyestadistica3.0; @ohchr; @derechouned; @migrationdataportal; @Todd; @Zabala; @Fiallos; @Nocco; @Duhaime; @Brito; @Giuliana; @UN; @WHO;
