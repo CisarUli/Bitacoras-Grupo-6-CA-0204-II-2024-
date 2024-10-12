@@ -74,6 +74,7 @@ suppressMessages(library(dplyr))
 suppressMessages(library(tidyr))
 suppressMessages(library(knitr))
 suppressMessages(library(countrycode))
+suppressMessages(library(forcats))
 ````
 Primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables:
 
@@ -98,7 +99,7 @@ migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
     str_extract(incident_date,
                 "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
     )
-migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 5:6, 9, 16, 20:21)] #elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
 migrantes_desaparecidos <- migrantes_desaparecidos |>
   mutate(
     location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
@@ -108,10 +109,10 @@ migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas d
     country_of_death = countrycode(location_of_death,
                           origin = 'country.name',
                           destination = 'country.name'),
-    cause_of_death = str_extract(cause_of_death, "^[^/]+")
-  )
-migrantes_desaparecidos <- migrantes_desaparecidos |>
-  mutate(across(where(is.numeric), ~ replace_na(., 0))
+    cause_of_death = str_extract(cause_of_death, "^[^/]+"),
+    region = str_extract(region, 
+                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_replace(region, "Caribbean", "America")
   )
 migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
 migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
@@ -222,21 +223,25 @@ suppressMessages(library(cowplot))
 **Incidentes por año**
 
 ````{r}
-migrantes_desaparecidos |>   
-  filter(!is.na(incident_date)) |>
-  ggplot(aes(x = format(incident_date, "%Y"))) +
-  geom_bar(fill = "darkred") +
-  labs(
-    tittle = "Incidentes por año",
-    x = "Año",
-    y = "Incidentes"
-  ) + 
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    frecuencia = n()
+  ) |>
+  ggplot(aes(x = year, y = frecuencia)) +
+  geom_line(color = "black", size = 1) +
+  geom_point(color = "red", size = 2) +
+  geom_smooth(se = FALSE, size = 1, linetype = "dotted") +
+  labs(title = "Incidentes por año",
+       x = "Año", 
+       y = "Incidentes") +
   theme_minimal()
 ````
 
-**Mapa sobre incidetes por Region**
+**Mapa sobre incidentes por Region**
+
 ````{r}
-migrantes_desaparecidos |> #Falta que aparezca el mapa
+migrantes_desaparecidos |> 
 ggplot(aes(x = longitud, y = latitud)) +
   geom_point(color = "red", size = 0.5) +
   theme_minimal() +
@@ -245,5 +250,62 @@ ggplot(aes(x = longitud, y = latitud)) +
     x = "Longitud",
     y = "Latitud")
 ````
+**Causa de muerte**
 
+````{r}
+
+migrantes_desaparecidos |>  
+  filter(!is.na(incident_date)) |>
+  ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death), fill = region)) +
+  geom_col() +
+  labs(
+    tittle = "Causa de muerte",
+    x = "Muertes",
+    y = "Causa"
+  ) + 
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set1")
+
+````
+**Sobrevivientes por año**
+
+````{r}
+
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    rescatados = sum(number_of_survivors, na.rm = TRUE)
+  ) |>
+  ggplot(aes(year)) +
+  geom_line(aes(y = rescatados), color = "darkblue", size = 1) +
+  geom_point(aes(y = rescatados), color = "cyan", size = 2) +
+  geom_smooth(aes(y = rescatados), se = FALSE, size = 1, linetype = "twodash") +
+  labs(title = "Sobrevivientes por año",
+       x = "Año", 
+       y = "Migrantes") +
+  theme_minimal()
+
+````
+
+**Muertes por año**
+
+````{r}
+
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    rescatados = sum(number_of_survivors, na.rm = TRUE)
+  ) |>
+  ggplot(aes(year)) +
+  geom_line(aes(y = muertes), color = "darkred", size = 1) +
+  geom_point(aes(y = muertes), color = "orange", size = 2) +
+  geom_smooth(aes(y = muertes), se = FALSE, size = 1, linetype = "dotted") +
+  labs(title = "Muertes por año",
+       x = "Año", 
+       y = "Migrantes") +
+  theme_minimal()
+
+````
 

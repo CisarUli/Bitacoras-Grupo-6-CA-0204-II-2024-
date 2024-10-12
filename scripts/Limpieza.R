@@ -24,7 +24,7 @@ migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
     str_extract(incident_date,
                 "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
     )
-migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 5:6, 9, 16, 20:21)] #elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
 migrantes_desaparecidos <- migrantes_desaparecidos |>
   mutate(
     location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
@@ -34,12 +34,14 @@ migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas d
     country_of_death = countrycode(location_of_death,
                           origin = 'country.name',
                           destination = 'country.name'),
-    cause_of_death = str_extract(cause_of_death, "^[^/]+")
+    cause_of_death = str_extract(cause_of_death, "^[^/]+"),
+    region = str_extract(region, 
+                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_replace(region, "Caribbean", "America")
   )
-migrantes_desaparecidos <- migrantes_desaparecidos |>
-  mutate(across(where(is.numeric), ~ replace_na(., 0))
-  )
+#migrantes_desaparecidos <- migrantes_desaparecidos |>
+  #mutate(across(where(is.numeric), ~ replace_na(., 0))
+  #)
 migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
 migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
 migrantes_desaparecidos$country_of_death <- as.factor(migrantes_desaparecidos$country_of_death)
-
