@@ -330,7 +330,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(dplyr))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(tidyr))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(knitr))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(countrycode))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(countrycode))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(forcats))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables:</p>
 <div class="cell">
@@ -429,7 +430,7 @@ dbl  (9): Year, Number Dead, Minimum Estimated Number of Missing, Total Numb...
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_extract</span>(incident_date,</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                <span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}</span><span class="sc">\\</span><span class="st">b"</span>), <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span>)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="ot">&lt;-</span> migrantes_desaparecidos[ , <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">20</span><span class="sc">:</span><span class="dv">21</span>)] <span class="co">#elimina la columna 1</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="ot">&lt;-</span> migrantes_desaparecidos[ , <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">20</span><span class="sc">:</span><span class="dv">21</span>)] <span class="co">#elimina la columna 1</span></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="ot">&lt;-</span> migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">location_of_death =</span> <span class="fu">str_remove_all</span>(location_of_death, <span class="st">" </span><span class="sc">\\</span><span class="st">(see coordinates for exact location</span><span class="sc">\\</span><span class="st">)"</span>)</span>
@@ -439,8 +440,11 @@ dbl  (9): Year, Number Dead, Minimum Estimated Number of Missing, Total Numb...
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_of_death =</span> <span class="fu">countrycode</span>(location_of_death,</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                          <span class="at">origin =</span> <span class="st">'country.name'</span>,</span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                          <span class="at">destination =</span> <span class="st">'country.name'</span>),</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">cause_of_death =</span> <span class="fu">str_extract</span>(cause_of_death, <span class="st">"^[^/]+"</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">cause_of_death =</span> <span class="fu">str_extract</span>(cause_of_death, <span class="st">"^[^/]+"</span>),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_extract</span>(region, </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Asia|America|Africa|Europe|Caribbean|Mediterranean"</span>),</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_replace</span>(region, <span class="st">"Caribbean"</span>, <span class="st">"America"</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: There were 2 warnings in `mutate()`.
 The first warning was:
@@ -450,26 +454,24 @@ Caused by warning:
 ! Some values were not matched unambiguously: &nbsp;#63 beach foreshore, in the vicinity of Number 60 village, East Berbice, Corentyne, Guyana, &nbsp;Carrera 5 N° 2-56 del barrio 26 de febrero,Albania,Maicao,La Guajira Colombiana, "El Hielo" border crossing point, Manzanillo, Montecristi, Dominican Republic, near border with Haiti, 1.3 km from border wall in Sunland Park, Doña Ana County, New Mexico, USA, 10 hours walking from Senafe, Eritrea, towards the border with Ethiopia, 100KM from Jaghboub, Libya, near border with Egypt, 120 KM away from Chadian border and 310 KM South Kufra, Libya, 128 nautical miles southwest of the Canary Islands, 130 miles west of Marco Island, off southwest Florida, 15 miles northeast of Cape Greco, Cyprus (boat departed from Tripoli, Lebanon), 16 nautical miles north of Garabouli (Castelverde), Libya - Embarkation from Alkums on 30.06.2, 1610 East Paisano Drive, El Paso, El Paso County, Texas, 20 KM North Ra's Ajdir (on border), Ben Gardane, Tunisia - embarkation from Abu Kammash, Libya on night between 14-15 Dec, 20 miles east of Hollywood Beach, Florida, 20 miles off the coast of Alicante, Spain - boat departed from Algeria, 20 miles off the coast of Cartagena, Murcia, Spain - boat departed from Mostaganem, Algeria, 200km off the coast of Western Sahara, having drifted off to about 650km south of the Canary Islands - boat had departed on 28 July from Dakhla with 46POB, was adrift for 14 days. Survivors disembarked in Las Palmas, Canary Islands, Spain, 23 miles east of Fort Pierce, Florida, USA - Departed on 10 Feb 2021 from Bimini, Bahamas., 24 miles south of Miami, Florida, 250km off Gran Canaria, Canary Islands, Spain - embarkation from the Western Sahara about one week earlier., 27 miles southeast of Alboran Island in the Alboran Sea between Morocco and Spain, 28 abandoned human trafficking camps scattered along a 50 km (30 mile) stretch of the Malaysia border with Thailand (Wang Kelian site), 28 miles southwest of Isla de Alborán, between Morocco and Spain, 3.2 kilometers from the resort city of Bodrum, near Kara Ada, en route to Kos, 30 km from Inkhalid, Mali, near border with Algeria. Departed from Bordj Badji Mokhtar on foot., 32 Km off the coast of Libya, south of Malta, 37 miles west of Cabo de Trafalgar, Cadiz, Spain - embarkation 3 days before from Arcila (south of Tanger), Morocco, 4 kilometers from the Nicaragua-Costa Rica border, Río San Juan Department, Esperanza Verde reserve, Nicaragua, 40 miles off the coast of Harwich, Essex, UK, 40 miles south-east of Cabo de Gata, Almería, Spain - boat departed from Algeria (Alboran Sea), 40km from Dirkou, Niger on a road that goes towards Libya, 44 KM Northeast of Zarzis, Tunisia - embarkation from Libya, 5 nautical miles west of Alboran Island, between Spain and Morocco, 6 miles Southeast Kerkennah Islands, Tunisia - embarkation from Zuwara, Libya on night between 22-23 May, 6.3 nautical miles from  Güiria, Sucre, Venezuela, en route to Trinidad and Tobago, 62 miles south of Alboran Island, Alboran Sea, between Morocco and Spain, 650km south of the Canary Islands, Spain - departure from Dakhla, Western Sahara on 28 July, 7 nautical miles north of Qarapoli (Castelverde), Libya - Remains washed ashore at Qarapoli and Tajoura in following days, 77km south-east of Lanzarote, Spain - departure from Tarfaya, Morocco, 97 km north of border, Kenedy County, Texas, A16 motorway near Calais, A8 motorway near Roquebrune-Cap-Martin, France, Abandoned airfield outside Downham Market, England, UK, About 12 miles off Desecheo Island, Puerto Rico, USA - departure from Dominican Republic, About 2 miles south of Hondale Road, between Deming and Columbus, Luna County, New Mexico, USA, About 200 meters off the coast of Ayvacık district, Çanakkale  Province, Turkey, likely en route to Lesvos, Greece, Aegean Sea, After being rescued off the coast of the Canary Islands, Spain - embarkation on 17 June, 60km south of Dakhla, Western Sahara, After disembarkation in Port of Tarifa, Cádiz, Spain (rescued from boat in Gibraltar Strait), Agia Fotia on Lesvos, Agia Triada area in Lesvos, Ain Diwar, Syria near border of Syria/Turkey/Iraq, Aktobe region, Kazakshtan, near the border with Russia, Alboran Sea between Morocco and Spain, Alborán Sea, 32 nautical miles south of Cabo de Gata, Almería, Spain - boat departed from Algeria, Alboran Sea, 56 nautical miles east of Carboneras, Almería, Spain - boat departed from Algeria, Algerian-Mauritanian border, All American Canal and Wisteria Canal, Calexico, CA 92231. GPS: N32.66140 W115.55400, All American Canal, CA near Calexico, All American Canal, Calexico CA, All American Canal, Calexico, Imperial County, California, All American Canal, Drop 2, Winterhaven, Imperial County, California, All American Canal, Drop 3, Holtville, Imperial County, California, All American Canal, East of Highline Canal, Calexico CA, Altinkoy region in Izmir province's Cesme district, en route to Chios, Ancona, Italy. Had likely come on ferry from Greece., Andaman Sea, Anza-Borrego Desert State Park, San Diego County, California, Approximately 16 miles south of Key West,  Monroe County, Florida, USA - Embarked from Puerto de Mariel, Cuba on 23.05.2021, Approximately 34 miles on New Mexico state roads south of Interstate 10, on New Mexico State Road 146, Grant County, New Mexico, USA&nbsp;, Approximately 40 miles from the US-Mexico border, near San Manuel, Hidalgo County, Texas, USA, Approximately 60 nautical miles southeast of Crete, Greece - departure from Turkey, Around Abu Hamad at small village, Sudan, around Aswan in the Sahara desert, Sudan, Around the borders of Egypt and Sudan near to Aswan, Ash Shamaliyah, Sudan, Assamaka, Niger, near border with Algeria, Assamakka, Niger - close to the board with Algeria, At  the University Medical Center in El Paso, El Paso County, Texas, USA - after being in a car accident on  New Mexico State Road 185 on Aug 3 2021, At a reception camp 30km south of Warsaw, Poland - one day after being evacuated from Afghanistan, At Dewele point of entry from Djibouti to Ethiopia, At Fort Pierce Inlet, Florida, USA - departure from Bimini, Bahamas on 22 Jan, At international border crossing Pakistan-India, close to Bakhasar, Rajasthan, India, At sea between The Gambia and the Canary Islands, Spain - boat found 800km south of Tenerife, departed from The Gambia 19 days before, At sea, between Venezuela and Curaçao, At Tchibarakaten, a water point and a crossing point located near the Algerian-Nigerian border, At Tessalit, Mali - close to the border with Algeria, At the base of Mt. Cristo Rey, Sunland Park, Doña Ana County, New Mexico, USA, At the border between Eritrea and Ethiopia, Near guna guna, At the border between Pembinal, North Dakota, USA and Emerson, Manitoba, Canada, At the border of Eritrea and Sudan, At the border of Eritrea and Sudan, Near Teseney, Eritrea, At the customs office no. 2 (at the border between Bolivia and Chile), Pisiga, Bolivia, At the dock of Ancona, Italy - on board of a ferry coming from Greece, At the Honduras-Guatemala border, close to Corinto, Honduras, At the intersection of Mangana Hein Road and U.S. Highway 83 north, Laredo, Webb County, Texas, At the land border between Morocco and Algeria en route to Oujda, Morocco, At the Libyan Desert, after a three day drive from the Sudanese Border., Libya, At the Mali-Algeria border between Elkhalil, Mali and Bordj Badji Mokhtar, Algeria, At the Mali-Algeria border, between In-Halil (Mali) and Borj (Algeria), At the Moldova-Ukraine Palanca border crossing, At the OYO Metropolitan Hotel in Blonk Street, Sheffield, UK, At the port of Valencia, Spain - They arrived in the Liberian ship "Leto", coming from Ivory Coast. The jumped off the ship just before it docked., At the port of Valencia, Spain - They were found dead inside a container on the Liberian ship "Sag Good Timing", coming from Algeria., at the Spain-Morocco border, in Melilla, Spain, At the Sudan-Ethiopia border, Amhara Region, West Gondar Zone , Metema woreda, Achira kebele, Gage village, At the Sudanese Libyan border, Sudan, At the Syria-Turkey border close to Harim, Idlib, Syria, At the Syria-
 ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="ot">&lt;-</span> migrantes_desaparecidos <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="dv">0</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>cause_of_death <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>cause_of_death)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>region)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>country_of_death <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>country_of_death)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(migrantes_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>cause_of_death <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>cause_of_death)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>region)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>country_of_death <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>country_of_death)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(migrantes_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 11,341
-Columns: 16
+Columns: 17
 $ incident_id                         &lt;chr&gt; "2014.MMP00001", "2014.MMP00002", …
-$ region                              &lt;fct&gt; North America, North America, Nort…
+$ region                              &lt;fct&gt; America, America, America, America…
 $ incident_date                       &lt;date&gt; 2014-01-06, 2014-01-12, 2014-01-1…
+$ year                                &lt;dbl&gt; 2014, 2014, 2014, 2014, 2014, 2014…
 $ number_dead                         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 12, 1, 1, 1, 1, …
-$ minimum_estimated_number_of_missing &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-$ number_of_survivors                 &lt;dbl&gt; 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0…
-$ number_of_females                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0…
-$ number_of_males                     &lt;dbl&gt; 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0…
-$ number_of_children                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0…
+$ minimum_estimated_number_of_missing &lt;dbl&gt; NA, NA, NA, NA, 0, NA, NA, NA, NA,…
+$ number_of_survivors                 &lt;dbl&gt; NA, NA, NA, NA, 2, NA, NA, NA, NA,…
+$ number_of_females                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 9, NA, NA,…
+$ number_of_males                     &lt;dbl&gt; 1, NA, NA, 1, 1, NA, NA, NA, NA, N…
+$ number_of_children                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 3, NA, NA,…
 $ cause_of_death                      &lt;fct&gt; Mixed or unknown, Mixed or unknown…
 $ location_of_death                   &lt;chr&gt; "Pima Country Office of the Medica…
 $ latitud                             &lt;dbl&gt; 31.650259, 31.597130, 31.940260, 3…
@@ -1099,16 +1101,26 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Incidentes por año</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span>   </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(incident_date)) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">format</span>(incident_date, <span class="st">"%Y"</span>))) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkred"</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tittle =</span> <span class="st">"Incidentes por año"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Año"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Incidentes"</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">frecuencia =</span> <span class="fu">n</span>()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> frecuencia)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Incidentes por año"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Año"</span>, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Incidentes"</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1117,20 +1129,111 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 </div>
 </div>
-<p><strong>Mapa sobre incidetes por Region</strong></p>
+<p><strong>Mapa sobre incidentes por Region</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span> <span class="co">#Falta que aparezca el mapa</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longitud, <span class="at">y =</span> latitud)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Mapa de Incidentes según Coordenadas"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longitud"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Latitud"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longitud, <span class="at">y =</span> latitud)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Mapa de Incidentes según Coordenadas"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longitud"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Latitud"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 36 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="bitacora-2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Causa de muerte</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span>  </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(incident_date)) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> number_dead, <span class="at">y =</span> <span class="fu">fct_infreq</span>(cause_of_death), <span class="at">fill =</span> region)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tittle =</span> <span class="st">"Causa de muerte"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Muertes"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Causa"</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 619 rows containing missing values or values outside the scale range
+(`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Sobrevivientes por año</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">muertes =</span> <span class="fu">sum</span>(number_dead, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rescatados =</span> <span class="fu">sum</span>(number_of_survivors, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> rescatados), <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> rescatados), <span class="at">color =</span> <span class="st">"cyan"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> rescatados), <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"twodash"</span>) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sobrevivientes por año"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Año"</span>, </span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Migrantes"</span>) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Muertes por año</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">muertes =</span> <span class="fu">sum</span>(number_dead, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rescatados =</span> <span class="fu">sum</span>(number_of_survivors, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year)) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> muertes), <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> muertes), <span class="at">color =</span> <span class="st">"orange"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> muertes), <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Muertes por año"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Año"</span>, </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Migrantes"</span>) <span class="sc">+</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
