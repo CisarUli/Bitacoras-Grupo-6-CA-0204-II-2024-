@@ -28,6 +28,7 @@ migrantes_desaparecidos |>    #Historico de muertes por año
     y = "Incidentes"
   ) + 
   theme_minimal()
+
 migrantes_desaparecidos |>     #grafica por causa de muerte
   filter(!is.na(incident_date)) |>
   ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death), fill = region)) +
@@ -57,4 +58,45 @@ migrantes_desaparecidos |>
        x = "Año", 
        y = "Migrantes") +
   theme_minimal()
+
+migrantes_desaparecidos |>     #Mujeres muertes
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_of_females, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = fct_reorder(region, -muertes))) +
+  geom_col(fill = "darkred") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Muertes",
+    y = "Region"
+  ) + 
+  theme_minimal() 
+
+migrantes_desaparecidos |>     #Hombres muertes
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_of_males, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = fct_reorder(region, -muertes))) +
+  geom_col(fill = "darkred") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Muertes",
+    y = "Region"
+  ) + 
+  theme_minimal() 
+  
+migrantes_desaparecidos |>     #grafica por causa de muerte con facet
+  filter(!is.na(incident_date)) |>
+  ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death))) +
+  geom_col(fill = "darkgreen") +
+  facet_grid(~region) +
+  labs(
+    tittle = "Causa de muerte",
+    x = "Muertes",
+    y = "Causa"
+  ) + 
+  theme_minimal() 
+
 

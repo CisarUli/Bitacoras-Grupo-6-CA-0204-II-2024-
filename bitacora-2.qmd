@@ -50,7 +50,7 @@ La diferencia que presentan ambos artículos, si bien ambos están ampliamente e
 Es un hecho que ambos artículos discuten los problemas que enfrentan los migrantes al hacer sus travesías, también ambos artículos estudian datos y elaboran una narrativa que pone en alerta las dificultades que enfrentan todas las personas que se desplazan de un país a otro (sobre todo ilegalmente). Sin embargo, un texto tiene
 
 
-## Análisis Descriptivo.
+## Análisis Descriptivo
 
 La base de datos renombrada "migrantes_desaparecidos" se encuentra en formato tidy. Las observaciones en las variables que presentan número de muertes, sobrevivientes o aún desaparecidos con valores NA se refiere a los casos donde se desconoce la situación de los individuos. Para el análisis del proyecto se utiliza "Todomigrantes_desaparecidos" donde se consideran los NA como 0, así evitar omitir casos.
 
@@ -123,8 +123,8 @@ glimpse(migrantes_desaparecidos)
 ### Cuadros Resumen
 
 A continuación se muestran algunas estadísticas sobre los datos recolectados como 
-promedio (Prom), porcentaje (Per), máximo (Max), variación (Var)y desviación (Desv)
-acerca de los casos de mueres (M), sobrevivientes (S) y desaparecidos (D):
+promedio (prom), porcentaje (per), máximo (max), variación (var)y desviación (desv)
+acerca de los casos de mueres (m), sobrevivientes (s) y desaparecidos (d):
 
 **Resumen por Año:**
 
@@ -250,6 +250,7 @@ ggplot(aes(x = longitud, y = latitud)) +
     x = "Longitud",
     y = "Latitud")
 ````
+
 **Causa de muerte**
 
 ````{r}
@@ -265,7 +266,6 @@ migrantes_desaparecidos |>
   ) + 
   theme_minimal() +
   scale_fill_brewer(palette = "Set1")
-
 ````
 **Sobrevivientes por año**
 
@@ -279,7 +279,7 @@ migrantes_desaparecidos |>
   ) |>
   ggplot(aes(year)) +
   geom_line(aes(y = rescatados), color = "darkblue", size = 1) +
-  geom_point(aes(y = rescatados), color = "cyan", size = 2) +
+  geom_point(aes(y = rescatados), color = "cyan", size = 3) +
   geom_smooth(aes(y = rescatados), se = FALSE, size = 1, linetype = "twodash") +
   labs(title = "Sobrevivientes por año",
        x = "Año", 
@@ -300,12 +300,93 @@ migrantes_desaparecidos |>
   ) |>
   ggplot(aes(year)) +
   geom_line(aes(y = muertes), color = "darkred", size = 1) +
-  geom_point(aes(y = muertes), color = "orange", size = 2) +
+  geom_point(aes(y = muertes), color = "orange", size = 3) +
   geom_smooth(aes(y = muertes), se = FALSE, size = 1, linetype = "dotted") +
   labs(title = "Muertes por año",
        x = "Año", 
        y = "Migrantes") +
   theme_minimal()
+
+````
+
+**Muertes de mujeres migrantes por region**
+
+````{r}
+
+migrantes_desaparecidos |>
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_of_females, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = fct_reorder(region, -muertes))) +
+  geom_col(fill = "darkred") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Muertes",
+    y = "Region"
+  ) + 
+  theme_minimal() 
+
+````
+
+**Muertes de hombres migrantes por region**
+
+````{r}
+
+migrantes_desaparecidos |> 
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_of_males, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = fct_reorder(region, -muertes))) +
+  geom_col(fill = "darkred") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Muertes",
+    y = "Region"
+  ) + 
+  theme_minimal() 
+
+````
+**Muertes de mujeres migrantes por año**
+
+````{r}
+
+migrantes_desaparecidos |> 
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_of_females, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = year, y = muertes)) +
+  geom_line(color = "#571B7A", size = 1) +
+  geom_point(color = "#3DE5E5", size = 3) +
+  labs(
+    tittle = "Muertes de mujeres migrantes por año",
+    x = "Muertes",
+    y = "Año"
+  ) + 
+  theme_minimal() 
+
+````
+
+**Muertes de hombres migrantes por año**
+
+````{r}
+
+migrantes_desaparecidos |> 
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_of_males, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = year, y = muertes)) +
+  geom_line(color = "#04954D", size = 1) +
+  geom_point(color = "#80E35B", size = 3) +
+  labs(
+    tittle = "Muertes de hombres migrantes por año",
+    x = "Muertes",
+    y = "Año"
+  ) + 
+  theme_minimal() 
 
 ````
 
