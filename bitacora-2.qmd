@@ -35,7 +35,7 @@
 -   **“More than 50,000 migrants ‘die in search of a better life’”** 13
 -   **“Psychology of Immigration”** 2
 
-### Resumen
+#### Resumen
 
 El segundo texto: **“Psychology of Immigration”** recopila una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia.
 
@@ -43,11 +43,101 @@ Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa
 
 Con una relación que dota de cierto paralelismo, el texto número 13: **“More than 50,000 migrants ‘die in search of a better life’”** resulta en un texto ampliamente periodístico que critica las pobres circunstancias de los migrantes. Este texto generalmente trata de exponer datos, criticar circunstancias y plantear soluciones a las consecuencias de la migración.
 
-### Contraste
+#### Contraste
 
 La diferencia que presentan ambos artículos, si bien ambos están ampliamente entrelazados bajo una óptica de salud, reside en el foco de dar la información.
 
-Es un hecho que ambos artículos discuten los problemas que enfrentan los migrantes al hacer sus travesías, también ambos artículos estudian datos y elaboran una narrativa que pone en alerta las dificultades que enfrentan todas las personas que se desplazan de un país a otro (sobre todo ilegalmente). Sin embargo, un texto tiene
+Es un hecho que ambos artículos discuten los problemas que enfrentan los migrantes al hacer sus travesías, también ambos artículos estudian datos y elaboran una narrativa que pone en alerta las dificultades que enfrentan todas las personas que se desplazan de un país a otro (sobre todo ilegalmente). 
+
+
+### Enlace: Sociológico
+
+#### Resumen
+
+**“The causes and consequences of the missing immigrants”** por Lisa Camner McKay, resulta ser el primer texto a exponer en el enlace con temática sociológica. Este artículo, que en su traducción es: *“Las causas y consecuencias de inmigrantes perdidos”*, tiene un enfoque social y político. En él, la autora discute la gran problemática que acarrea la inmigración, no el hecho de que se dé, sino más bien los efectos negativos que implican que en los últimos años haya cada vez menos migración.
+
+Esencialmente, la autora explica en qué afecta que cada vez menos personas emigren a los Estados Unidos. A diferencia de lo que se cree, los inmigrantes no son causa directa del crimen, la saturación de plazas de trabajo, o cualquier otro elemento disuasorio. Más bien, que haya menos migrantes en los Estados Unidos ha significado un debilitamiento en su economía, lo cual ya está mostrando signos.
+
+La autora finalmente hace un llamado para que se pongan en marcha legislaciones que favorezcan el paso de migrantes a Estados Unidos. Dado que problemas como inflación y aumento de la pobreza son implicaciones de la falta de migración, es imperativo manejar esta problemática.
+
+El segundo artículo a exponer en este enlace es **“Introduction to Human Geography”**. Este texto será de gran utilidad para la elaboración del marco teórico, así como también para contribuir a la elaboración de la lista de resultados que se desprenderán tanto de esta sección, como de los cálculos estadísticos.
+
+Este libro, entre muchas cosas más, se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: los autores explican por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas.
+
+A continuación, se tiene **“Migrant deaths and disappearances”** (*Muertes y desapariciones de migrantes*). Este es un texto periodístico e investigativo que ofrece un panorama repleto de datos e información sobre inmigrantes. Sin embargo, el artículo es más complejo que eso. En él, se detallan fuentes de alta calidad que relatan mediante información veraz y concisa lo que tiene que ver con la migración.
+
+Se menciona, por ejemplo, *Missing Migrants Projects*, una página ampliamente utilizada en este trabajo investigativo. Además, se ofrecen más fuentes que explican datos en distintos sectores del mundo referentes a la migración.
+
+El siguiente texto es **“Protection of migrants from enforced disappearance: A human rights perspective”**. Este es un texto periodístico-investigativo muy apreciado en el presente trabajo. No solo los autores Bernard Duhaime y Andréanne Thibault critican y exponen las difíciles condiciones que experimentan los migrantes, sino que discuten cómo los gobiernos son partícipes de las complicadas situaciones por las que pasan estas personas y qué deberían hacer estos para ofrecer mejores condiciones humanas.
+
+**“A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever”** (*Una década de documentación de más de 63,000 muertes de migrantes muestra que desplazarse es más letal que nunca*), por Renata Brito y Kerstin Sopke, ofrece el lado más oscuro del presente proyecto, que también es el más triste.
+
+En este texto periodístico e investigativo, se detalla mediante explicaciones históricas y sociales, además de datos, cómo los migrantes han estado muriendo en los últimos años, en gran parte debido a la falta de legislación gubernamental. El artículo también tiene contenido médico, ya que pone en perspectiva cómo esta situación afecta psicológicamente a los migrantes.
+
+El último escrito a describir en esta sección es **“Refugees and Asylum Seekers Dealing with the Production of Different Temporal Regimes by Asylum and Reception Policies”** (*Refugiados y solicitantes de asilo lidiando con la producción de diferentes regímenes temporales por políticas de asilo y recepción*). En este texto, los autores Giuliana Sanò, Giulia Storato y Francesco Della Puppa escriben desde una perspectiva sociológica y psicológica, poniendo en tema la vida de las personas migrantes.
+
+Este artículo es útil porque, a diferencia de los demás, tiene un enfoque más centrado no en la economía o la salud, sino en cómo viven las personas que deciden migrar.
+
+#### Contraste
+
+Aunque todos los artículos y textos tienen una temática sociológica marcada, hay diferencias notables:
+- El primer texto, **“The causes and consequences of the missing immigrants”**, expone cómo afecta a Estados Unidos la disminución de la migración. A diferencia de otros artículos como **“Migrant deaths and disappearances”** y **“Protection of migrants from enforced disappearance: A human rights perspective”**, que se enfocan en datos y soluciones para los migrantes, este se centra más en las implicaciones económicas.
+  
+- **“Refugees and Asylum Seekers Dealing with the Production of Different Temporal Regimes by Asylum and Reception Policies”** es el artículo más sociológico, ya que explora las experiencias de los migrantes desde una perspectiva exclusivamente humana, mientras que otros involucran factores políticos y geográficos.
+
+- **“Introduction to Human Geography”** es el único texto que menciona los fenómenos geográficos y naturales que afectan a las personas que deciden migrar, lo cual es un aspecto central del proyecto.
+
+#### Contribución propia
+
+En conclusión, todos los textos son de gran interés para el desarrollo del proyecto investigativo. Aunque tienen similitudes, se establece que pertenecen a la categoría de sociología.
+El primer artículo de Lisa Camner ofrecerá una perspectiva sociológica-económica necesaria. **“Introduction to Human Geography”** proporcionará el marco geográfico y natural requerido. Los demás textos, de carácter más antropológico y sociológico, serán fundamentales para la construcción del marco teórico.
+
+### Enlace: Estadístico
+
+#### Resumen
+Inicialmente se tiene el texto: **“Introducción a la Estadística”**, el cual, aunque presenta un estilo sumamente didáctico, se prioriza su contenido relativo a la exposición de conceptos de la matemática y estadística. La manera distributiva del texto, que se compone de descripciones conceptuales de temas como: media, mediana y moda; y paralelamente, exposición a casos/situaciones donde se pueden hacer cálculos relativos a la Estadística, resultan productivos para el presente proyecto. Aunque no es este el texto en que los autores se basan completamente para desarrollar su investigación, es una fuente destacada y reconocida para apoyar el sentido metodológico.
+
+Un escrito que posee gran similitud al anterior, de parte de **Germán Fiallos**, es: **“La Correlación de Pearson y el proceso de regresión por el Método de Mínimos Cuadrados”**. Este texto ofrece el material suficiente para el entendimiento integral de los métodos estadísticos: Regresión Lineal Simple y el Coeficiente de Pearson. Métodos que se espera utilizar para elaborar una serie de cálculos con base en las listas de datos mencionadas. Esencialmente, este texto ofrece explicaciones en cuanto a: diagramas de dispersión, conceptos del Coeficiente de Pearson (como si es directo o indirecto), comparación y contraste entre el Coeficiente de Pearson y la Regresión Lineal Simple, entre otros. Se podría decir que todo el contenido de este artículo será la base del conocimiento que se utilizará para la creación de resultados y cálculos que conceptualicen los objetivos planteados del proyecto.
+
+La siguiente y penúltima página web de la que se hablará es: **“Missing Migrants Project”**. Esta es básicamente la base del proyecto. Aquí están contenidas todas las bases de datos a utilizar en el trabajo investigativo. A manera de resumen, **“Missing Migrants Project”** expone series de bases de datos referentes a desapariciones y muertes de migrantes. Bases de datos que contienen información tan extensa y variada como: regiones, periodos, tipos de desapariciones y/o muertes, entre otras variables.
+El último texto por resumir en esta sección es: **“Inmigration Data Matters”**; también un trabajo investigativo que expone una colección de numerosas fuentes relativas a la desaparición de migrantes. Temas relativos a migrantes como: empleabilidad, salud, organizaciones que dan soporte y otras características de los migrantes son tratados en ese proyecto.
+
+#### Contraste
+
+Se pueden enumerar diferentes contrastes entre los textos mencionados. Por ejemplo, las fuentes bibliográficas **5** y **6** son de un carácter más pedagógico. Ambos tienen el propósito de explicar temas estadísticos desde una óptica educativa, con el fin de que estudiantes puedan aprender de ellos y aplicar esta materia tanto en sus estudios como en su trabajo actual y/o futuro.
+Esto implica que se diferencian en gran medida de los otros dos textos: **“Missing Migrants Project”** y **“Inmigration Data Matters”**, que presentan bases de datos y recursos para la investigación referente a los migrantes desaparecidos. Estos últimos se describen como textos **8** y **3**.
+
+Los puntos de contraste estimados son:
+- Los textos **5** y **6** son pedagógicos-educativos, mientras que los textos **8** y **3** son meramente investigativos.
+- Mientras que los textos **8** y **3** pueden ser utilizados para el apoyo de investigación teórico-numérica, los textos **5** y **6** sí permiten la realización de cálculos estadísticos, ya que ofrecen explicaciones y ejemplos prácticos.
+
+#### Contribución propia
+
+A modo de conclusión, se establece que los cuatro textos explicados en este enlace presentan un enfoque orientado a la Estadística, pero se separan en dos grupos por sus naturalezas completamente distintas.
+
+**“Missing Migrants Project”** y **“Inmigration Data Matters”** son fuentes que se utilizarán inteligentemente para la recolección de datos y contenido teórico que fundamente el contexto del presente proyecto. Puesto que ambas fuentes son trabajos investigativos, el proyecto tomará inspiración de estos para la construcción de un trabajo integral que los use como ejemplos.
+
+En cuanto a **“La Correlación de Pearson y el proceso de regresión por el Método de Mínimos Cuadrados”** y **“Introducción a la Estadística”**, el material presente en estos textos colaborará en el diseño de una de las partes más esenciales del trabajo: la creación de modelos estadísticos y la exposición de resultados que contribuyan a la expansión del conocimiento sobre migrantes desaparecidos.
+
+### Enlace: Pedagógico
+
+#### Resumen
+
+Ambos artículos son de naturaleza sumamente directa. En un primer caso, se tiene la fuente de la **Real Academia Española (RAE)** definiendo la palabra: **“Determinar”**. Esto resulta relevante para el trabajo investigativo únicamente porque consiste en la palabra clave que conecta, dirige, y entrelaza distintos métodos investigativos empleados.
+
+Por otro lado, el artículo de la **Organización Mundial de la Salud (OMS)** es más extenso y fructífero para el proyecto. El texto ofrecido por la OMS es altamente refrescante y útil, además de ser una herramienta de concientización. Mediante este artículo periodístico/investigativo, la OMS expone la importancia y/o necesidad de proteger a las personas migrantes de los peligros a los que se enfrentan a diario. No es solo una invitación ligera, sino una crítica directa a la situación actual, exigiendo mayor justicia por parte de los gobiernos y organizaciones sin fines de lucro.
+
+#### Contraste
+
+Resulta difícil un contraste entre ambos textos debido a sus naturalezas completamente diferentes. Uno ofrece una simple definición de una palabra, mientras que el otro cita una serie de consejos y críticas referentes a la situación migratoria.
+La **RAE**, en su definición de **“Determinar”**, tiene como único objetivo informar sobre el significado de la palabra, sin ningún sesgo u opinión subjetiva. Es un texto técnico que refleja la precisión lingüística y académica de una institución como la RAE, sin intención de influir en la acción.
+
+Por el contrario, el texto de la **OMS**, titulado **“Act now to save lives and prevent migrants from going missing”**, se enfoca en exponer hechos investigados por la propia organización. Su finalidad es desarrollar un marco lleno de consejos y opiniones para ayudar a las víctimas migrantes, promoviendo acciones inmediatas.
+
+#### Contribución propia
+
+Aunque ambos artículos tienen un alto grado de pedagogía, tratan de asuntos completamente opuestos. No hay una comparación directa entre ellos, lo que los hace aún más valiosos para este trabajo. La combinación de una fuente académica y una fuente de acción social enriquece el proyecto al aportar perspectivas diversas.
+En conclusión, estos artículos forman parte integral de la estructura del trabajo investigativo debido a su utilidad única y su diferencia en enfoque y contenido.
 
 
 ## Análisis Descriptivo
@@ -79,6 +169,10 @@ suppressMessages(library(forcats))
 Primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables:
 
 ````{r}
+#|echo: FALSE
+#|warning: FALSE
+#|messages: FALSE
+
 lista_archivos <- lapply(X = dir(path = "data/"), 
                          FUN = function(f){
                            read_csv(paste0("data/", f))
