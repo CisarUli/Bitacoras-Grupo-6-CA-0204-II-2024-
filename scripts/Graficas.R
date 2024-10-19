@@ -99,4 +99,54 @@ migrantes_desaparecidos |>     #grafica por causa de muerte con facet
   ) + 
   theme_minimal() 
 
+migrantes_desaparecidos |>
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    porcentaje = muertes/sum(migrantes_desaparecidos$number_dead, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = region)) +
+  geom_col()
 
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    freq = n(),
+    muertes = sum(number_dead, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = year, y = muertes)) +
+  geom_line()
+
+
+migrantes_desaparecidos |> #Muerte por sexo por año
+  filter(
+    is.na(number_of_survivors),
+    is.na(minimum_estimated_number_of_missing)
+  ) |>
+  group_by(year) |>
+  summarise(
+    mujeres = sum(number_of_females, na.rm = TRUE),
+    hombres = sum(number_of_males, na.rm = TRUE),
+  ) |>
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = hombres), color = "blue") +
+  geom_line(aes(y = mujeres), color = "red") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Migrantes",
+    y = "Año"
+  ) + 
+  theme_minimal() 
+
+migrantes_desaparecidos |> #Muerte de niños migrantes
+  filter(
+    is.na(number_of_survivors),
+    is.na(minimum_estimated_number_of_missing)
+  ) |>
+  group_by(year) |>
+  summarise(
+    niños = sum(number_of_children, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = year, y = niños)) +
+  geom_line(color = "darkblue", size = 1) + 
+  theme_minimal()

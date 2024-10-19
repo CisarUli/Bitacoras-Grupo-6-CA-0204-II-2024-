@@ -31,4 +31,32 @@ migrantes_desaparecidos |>
   kable( 
         caption = "Resumen de migrantes desaparecidos por Año")
 
+migrantes_desaparecidos |>
+  group_by(cause_of_death) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    porcentaje = muertes/sum(migrantes_desaparecidos$number_dead, na.rm = TRUE) * 100)
+
+migrantes_desaparecidos |> #Muerte por sexo por año
+  filter(
+    is.na(number_of_survivors),
+    is.na(minimum_estimated_number_of_missing)
+  ) |>
+  group_by(year) |>
+  summarise(
+    mujeres = sum(number_of_females, na.rm = TRUE),
+    hombres = sum(number_of_males, na.rm = TRUE),
+    per_hombres = hombres/(hombres + mujeres) * 100,
+    per_mujeres = mujeres/(mujeres + hombres) * 100
+  )  
+
+migrantes_desaparecidos |> #Muerte por sexo por año
+  group_by(year) |>
+  summarise(
+    mujeres = sum(number_of_females, na.rm = TRUE),
+    hombres = sum(number_of_males, na.rm = TRUE),
+    per_hombres = hombres/(hombres + mujeres) * 100,
+    per_mujeres = mujeres/(mujeres + hombres) * 100
+  )
+
 
