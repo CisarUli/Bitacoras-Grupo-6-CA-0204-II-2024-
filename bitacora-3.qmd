@@ -1,0 +1,123 @@
+---
+editor: 
+  markdown: 
+    wrap: sentence
+execute: 
+  warning: FALSE
+  messages: FALSE
+---
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+# Bitácora 3
+
+## Parte de Planificación
+
+### Análisis de Modelación
+
+#### Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)
+
+Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años. 
+
+Primero se cargan los datos recolectados del 2014 al 2022:
+
+````{r}
+
+library(tidyverse)
+library(knitr)
+library(countrycode)
+
+lista_archivos <- lapply(X = dir(path = "data/"), 
+                         FUN = function(f){
+                           read_csv(paste0("data/", f))
+                           })
+migrantes_desaparecidos <- bind_rows(lista_archivos) |>
+  janitor::clean_names()
+
+migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+  separate(coordinates,
+           into = c("latitud", "longitud"),
+           sep = ",", fill = "left"
+           )
+migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+
+migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+  mutate(incident_date = as.Date(
+    str_extract(incident_date,
+                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos |>
+  mutate(
+    location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  mutate(
+    country_of_death = countrycode(location_of_death,
+                          origin = 'country.name',
+                          destination = 'country.name'),
+    cause_of_death = str_extract(cause_of_death, "^[^/]+"),
+    region = str_extract(region, 
+                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_replace(region, "Caribbean", "America")
+  )
+migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
+migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
+migrantes_desaparecidos$country_of_death <- as.factor(migrantes_desaparecidos$country_of_death)
+ts_muertes <- migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE)
+  )
+
+ts_muertes <- ts(ts_muertes$muertes, start = min(ts_muertes$year), end = max(ts_muertes$year), frequency = 1)
+
+glimpse(migrantes_desaparecidos)
+glimpse(ts_muertes)
+
+````
+
+Primero se observan algunos patrones o tendencias:
+
+````{r}
+
+plot(ts_muertes, main="Muertes por año", xlab="Año", ylab="Muertes", col="darkblue", type="l")
+
+````
+Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:
+
+````{r}
+
+library(tseries)
+adf.test(ts_muertes)
+
+````
+
+Note que la serie no es estacionaria, pues p-value > 0.05, entonces se procede a diferenciarla:
+
+````{r}
+
+diff_muertes <- diff(ts_muertes)
+plot(diff_muertes, main = "Serie temporal diferenciada", col = "darkred")
+
+````
+Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete **forecast** para un mejor manejo de los parámetros AR, I y MA de la serie:
+
+````{r}
+
+library(forecast)
+modelo_arima <- auto.arima(ts_muertes)
+summary(modelo_arima)
+
+````
+Finalmente utilizamos la funión forecast() para realizar las predicciones en los próximos 5 años sobre las muertes de migrantes desaparecidos:
+
+````{r}
+
+prediccion_muertes <- forecast(modelo_arima, h=5)
+plot(prediccion_muertes, main="Predicción de muertes de migrantes para los próximos 5 años")
+
+````
