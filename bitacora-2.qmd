@@ -484,6 +484,53 @@ migrantes_desaparecidos |>
 
 ````
 
+### Propuesta Metodológica
+
+**Método #1: Coeficiente de Correlación de Pearson**
+
+:   Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
+
+De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas.
+A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas.
+El valor del índice de correlación de Pearson está entre -1 y +1, ambos incluidos.
+Más abajo veremos cómo se interpreta el valor del coeficiente de correlación de Pearson.
+
+El coeficiente de correlación de Pearson depende de su valor:
+
+-   r=-1: Las dos variables tienen una correlación perfecta negativa, por lo que se puede trazar una recta con pendiente negativa en la que se encuentren todos los puntos.
+
+-   -1\<r\<0: La correlación entre las dos variables es negativa, por lo tanto, cuando una variable aumenta la otra disminuye.
+    Cuanto más cerca esté el valor de -1 significa que más relacionadas negativamente están las variables.
+
+-   r=0: La correlación entre las dos variables es muy débil, de hecho, la relación lineal entre ellas es nula.
+    Esto no significa que las variables sean independientes, ya que podrían tener una relación no lineal.
+
+-   0\<r\<1: La correlación entre las dos variables es positiva, cuanto más cerca esté el valor de +1 más fuerte es la relación entre las variables.
+    En este caso, una variable tiende a incrementar su valor cuando la otra también aumenta.
+
+-   r=1: Las dos variables tienen una correlación perfecta positiva, es decir, tienen una relación lineal positiva.
+    interpretacion del coeficiente de correlacion de pearson
+
+**Método #2: Regresión Lineal Simple**
+
+:   La regresión lineal simple [@probabilidadyestadistica3.0] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y.
+    Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
+
+Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal.
+Lógicamente, la relación entre las dos variables debe ser lineal, sino se debe utilizar otro tipo de modelo de regresión.
+
+La ecuación de un modelo de regresión lineal simple está formada por dos coeficientes: la constante de la ecuación (b0) y el coeficiente de la correlación entre las dos variables (b1).
+Para poder hacer una regresión lineal simple, se deben cumplir las siguientes hipótesis:
+
+-   Independencia: los residuos observados deben ser independientes entre sí.
+    Una manera común de garantizar la independencia del modelo es añadiendo aleatoriedad en el proceso de muestreo.
+
+-   Homocedasticidad: debe haber homogeneidad en las varianzas de los residuos, es decir, la variabilidad de los residuos debe ser constante.
+
+-   Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
+    Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
+
+
 ### Fichas de Resultados
 
 
