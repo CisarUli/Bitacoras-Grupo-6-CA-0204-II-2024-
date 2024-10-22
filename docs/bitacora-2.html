@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,6 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./bitacora-3.html" rel="next">
 <link href="./bitacora-1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -161,6 +182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bitácora 2</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bitacora-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bitácora 3</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -188,7 +215,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#cuadros-resumen" id="toc-cuadros-resumen" class="nav-link" data-scroll-target="#cuadros-resumen"><span class="header-section-number">2.3.1</span> Cuadros Resumen</a></li>
   <li><a href="#gráficas" id="toc-gráficas" class="nav-link" data-scroll-target="#gráficas"><span class="header-section-number">2.3.2</span> Gráficas</a></li>
-  <li><a href="#fichas-de-resultados" id="toc-fichas-de-resultados" class="nav-link" data-scroll-target="#fichas-de-resultados"><span class="header-section-number">2.3.3</span> Fichas de Resultados</a></li>
+  <li><a href="#propuesta-metodológica" id="toc-propuesta-metodológica" class="nav-link" data-scroll-target="#propuesta-metodológica"><span class="header-section-number">2.3.3</span> Propuesta Metodológica</a></li>
+  <li><a href="#fichas-de-resultados" id="toc-fichas-de-resultados" class="nav-link" data-scroll-target="#fichas-de-resultados"><span class="header-section-number">2.3.4</span> Fichas de Resultados</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/CisarUli/Bitacoras-Grupo-6-CA-0204-II-2024-/blob/main/bitacora-2.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
@@ -395,15 +423,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Nos enfocaremos en la cuarta pregunta, pues lo cuadros resumenes logran acercarse a una respuesta, sin embargo se debe generalizar a regiones y no países debido a la información con la que se cuenta.</p>
 <p>Para tener una mayor facilidad al trabajar, se utiliza ProjectTemplate y además se utilizan los siguientes paquetes para manipular la base de datos: tidyverse, dplyr, tidyr y knitr.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(tidyverse))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(dplyr))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(tidyr))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(knitr))</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(countrycode))</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(forcats))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo: FALSE</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|warning: FALSE</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|messages: FALSE</span></span>
@@ -412,6 +445,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">FUN =</span> <span class="cf">function</span>(f){</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="st">"data/"</span>, f))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                           })</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 306 Columns: 21
 ── Column specification ────────────────────────────────────────────────────────
@@ -487,6 +521,8 @@ dbl  (9): Year, Number Dead, Minimum Estimated Number of Missing, Total Numb...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(lista_archivos) <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,6 +554,7 @@ dbl  (9): Year, Number Dead, Minimum Estimated Number of Missing, Total Numb...
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Asia|America|Africa|Europe|Caribbean|Mediterranean"</span>),</span>
 <span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_replace</span>(region, <span class="st">"Caribbean"</span>, <span class="st">"America"</span>)</span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: There were 2 warnings in `mutate()`.
 The first warning was:
@@ -527,11 +564,14 @@ Caused by warning:
 ! Some values were not matched unambiguously: &nbsp;#63 beach foreshore, in the vicinity of Number 60 village, East Berbice, Corentyne, Guyana, &nbsp;Carrera 5 N° 2-56 del barrio 26 de febrero,Albania,Maicao,La Guajira Colombiana, "El Hielo" border crossing point, Manzanillo, Montecristi, Dominican Republic, near border with Haiti, 1.3 km from border wall in Sunland Park, Doña Ana County, New Mexico, USA, 10 hours walking from Senafe, Eritrea, towards the border with Ethiopia, 100KM from Jaghboub, Libya, near border with Egypt, 120 KM away from Chadian border and 310 KM South Kufra, Libya, 128 nautical miles southwest of the Canary Islands, 130 miles west of Marco Island, off southwest Florida, 15 miles northeast of Cape Greco, Cyprus (boat departed from Tripoli, Lebanon), 16 nautical miles north of Garabouli (Castelverde), Libya - Embarkation from Alkums on 30.06.2, 1610 East Paisano Drive, El Paso, El Paso County, Texas, 20 KM North Ra's Ajdir (on border), Ben Gardane, Tunisia - embarkation from Abu Kammash, Libya on night between 14-15 Dec, 20 miles east of Hollywood Beach, Florida, 20 miles off the coast of Alicante, Spain - boat departed from Algeria, 20 miles off the coast of Cartagena, Murcia, Spain - boat departed from Mostaganem, Algeria, 200km off the coast of Western Sahara, having drifted off to about 650km south of the Canary Islands - boat had departed on 28 July from Dakhla with 46POB, was adrift for 14 days. Survivors disembarked in Las Palmas, Canary Islands, Spain, 23 miles east of Fort Pierce, Florida, USA - Departed on 10 Feb 2021 from Bimini, Bahamas., 24 miles south of Miami, Florida, 250km off Gran Canaria, Canary Islands, Spain - embarkation from the Western Sahara about one week earlier., 27 miles southeast of Alboran Island in the Alboran Sea between Morocco and Spain, 28 abandoned human trafficking camps scattered along a 50 km (30 mile) stretch of the Malaysia border with Thailand (Wang Kelian site), 28 miles southwest of Isla de Alborán, between Morocco and Spain, 3.2 kilometers from the resort city of Bodrum, near Kara Ada, en route to Kos, 30 km from Inkhalid, Mali, near border with Algeria. Departed from Bordj Badji Mokhtar on foot., 32 Km off the coast of Libya, south of Malta, 37 miles west of Cabo de Trafalgar, Cadiz, Spain - embarkation 3 days before from Arcila (south of Tanger), Morocco, 4 kilometers from the Nicaragua-Costa Rica border, Río San Juan Department, Esperanza Verde reserve, Nicaragua, 40 miles off the coast of Harwich, Essex, UK, 40 miles south-east of Cabo de Gata, Almería, Spain - boat departed from Algeria (Alboran Sea), 40km from Dirkou, Niger on a road that goes towards Libya, 44 KM Northeast of Zarzis, Tunisia - embarkation from Libya, 5 nautical miles west of Alboran Island, between Spain and Morocco, 6 miles Southeast Kerkennah Islands, Tunisia - embarkation from Zuwara, Libya on night between 22-23 May, 6.3 nautical miles from  Güiria, Sucre, Venezuela, en route to Trinidad and Tobago, 62 miles south of Alboran Island, Alboran Sea, between Morocco and Spain, 650km south of the Canary Islands, Spain - departure from Dakhla, Western Sahara on 28 July, 7 nautical miles north of Qarapoli (Castelverde), Libya - Remains washed ashore at Qarapoli and Tajoura in following days, 77km south-east of Lanzarote, Spain - departure from Tarfaya, Morocco, 97 km north of border, Kenedy County, Texas, A16 motorway near Calais, A8 motorway near Roquebrune-Cap-Martin, France, Abandoned airfield outside Downham Market, England, UK, About 12 miles off Desecheo Island, Puerto Rico, USA - departure from Dominican Republic, About 2 miles south of Hondale Road, between Deming and Columbus, Luna County, New Mexico, USA, About 200 meters off the coast of Ayvacık district, Çanakkale  Province, Turkey, likely en route to Lesvos, Greece, Aegean Sea, After being rescued off the coast of the Canary Islands, Spain - embarkation on 17 June, 60km south of Dakhla, Western Sahara, After disembarkation in Port of Tarifa, Cádiz, Spain (rescued from boat in Gibraltar Strait), Agia Fotia on Lesvos, Agia Triada area in Lesvos, Ain Diwar, Syria near border of Syria/Turkey/Iraq, Aktobe region, Kazakshtan, near the border with Russia, Alboran Sea between Morocco and Spain, Alborán Sea, 32 nautical miles south of Cabo de Gata, Almería, Spain - boat departed from Algeria, Alboran Sea, 56 nautical miles east of Carboneras, Almería, Spain - boat departed from Algeria, Algerian-Mauritanian border, All American Canal and Wisteria Canal, Calexico, CA 92231. GPS: N32.66140 W115.55400, All American Canal, CA near Calexico, All American Canal, Calexico CA, All American Canal, Calexico, Imperial County, California, All American Canal, Drop 2, Winterhaven, Imperial County, California, All American Canal, Drop 3, Holtville, Imperial County, California, All American Canal, East of Highline Canal, Calexico CA, Altinkoy region in Izmir province's Cesme district, en route to Chios, Ancona, Italy. Had likely come on ferry from Greece., Andaman Sea, Anza-Borrego Desert State Park, San Diego County, California, Approximately 16 miles south of Key West,  Monroe County, Florida, USA - Embarked from Puerto de Mariel, Cuba on 23.05.2021, Approximately 34 miles on New Mexico state roads south of Interstate 10, on New Mexico State Road 146, Grant County, New Mexico, USA&nbsp;, Approximately 40 miles from the US-Mexico border, near San Manuel, Hidalgo County, Texas, USA, Approximately 60 nautical miles southeast of Crete, Greece - departure from Turkey, Around Abu Hamad at small village, Sudan, around Aswan in the Sahara desert, Sudan, Around the borders of Egypt and Sudan near to Aswan, Ash Shamaliyah, Sudan, Assamaka, Niger, near border with Algeria, Assamakka, Niger - close to the board with Algeria, At  the University Medical Center in El Paso, El Paso County, Texas, USA - after being in a car accident on  New Mexico State Road 185 on Aug 3 2021, At a reception camp 30km south of Warsaw, Poland - one day after being evacuated from Afghanistan, At Dewele point of entry from Djibouti to Ethiopia, At Fort Pierce Inlet, Florida, USA - departure from Bimini, Bahamas on 22 Jan, At international border crossing Pakistan-India, close to Bakhasar, Rajasthan, India, At sea between The Gambia and the Canary Islands, Spain - boat found 800km south of Tenerife, departed from The Gambia 19 days before, At sea, between Venezuela and Curaçao, At Tchibarakaten, a water point and a crossing point located near the Algerian-Nigerian border, At Tessalit, Mali - close to the border with Algeria, At the base of Mt. Cristo Rey, Sunland Park, Doña Ana County, New Mexico, USA, At the border between Eritrea and Ethiopia, Near guna guna, At the border between Pembinal, North Dakota, USA and Emerson, Manitoba, Canada, At the border of Eritrea and Sudan, At the border of Eritrea and Sudan, Near Teseney, Eritrea, At the customs office no. 2 (at the border between Bolivia and Chile), Pisiga, Bolivia, At the dock of Ancona, Italy - on board of a ferry coming from Greece, At the Honduras-Guatemala border, close to Corinto, Honduras, At the intersection of Mangana Hein Road and U.S. Highway 83 north, Laredo, Webb County, Texas, At the land border between Morocco and Algeria en route to Oujda, Morocco, At the Libyan Desert, after a three day drive from the Sudanese Border., Libya, At the Mali-Algeria border between Elkhalil, Mali and Bordj Badji Mokhtar, Algeria, At the Mali-Algeria border, between In-Halil (Mali) and Borj (Algeria), At the Moldova-Ukraine Palanca border crossing, At the OYO Metropolitan Hotel in Blonk Street, Sheffield, UK, At the port of Valencia, Spain - They arrived in the Liberian ship "Leto", coming from Ivory Coast. The jumped off the ship just before it docked., At the port of Valencia, Spain - They were found dead inside a container on the Liberian ship "Sag Good Timing", coming from Algeria., at the Spain-Morocco border, in Melilla, Spain, At the Sudan-Ethiopia border, Amhara Region, West Gondar Zone , Metema woreda, Achira kebele, Gage village, At the Sudanese Libyan border, Sudan, At the Syria-Turkey border close to Harim, Idlib, Syria, At the Syria-
 ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
 </div>
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>cause_of_death <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>cause_of_death)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>region)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos<span class="sc">$</span>country_of_death <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(migrantes_desaparecidos<span class="sc">$</span>country_of_death)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(migrantes_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 11,341
 Columns: 17
@@ -559,6 +599,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <p>A continuación se muestran algunas estadísticas sobre los datos recolectados como promedio (prom), porcentaje (per), máximo (max), variación (var)y desviación (desv) acerca de los casos de mueres (m), sobrevivientes (s) y desaparecidos (d):</p>
 <p><strong>Resumen por Año:</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(incident_date)) <span class="sc">|&gt;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(año <span class="ot">=</span> <span class="fu">format</span>(incident_date, <span class="st">"%Y"</span>)) <span class="sc">|&gt;</span></span>
@@ -579,6 +621,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sum</span>(number_of_survivors) <span class="sc">+</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sum</span>(minimum_estimated_number_of_missing)) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Resumen de Migrantes Desaparecidos por Año"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Resumen de Migrantes Desaparecidos por Año</caption>
@@ -681,6 +724,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Resumen por Region:</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(region)) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
@@ -701,6 +746,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sum</span>(number_of_survivors) <span class="sc">+</span></span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sum</span>(minimum_estimated_number_of_missing)) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Resumen de Migrantes Desaparecidos por Región"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Resumen de Migrantes Desaparecidos por Región</caption>
@@ -875,6 +921,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Resumen por País:</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(country_of_death)) <span class="sc">|&gt;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">pais =</span> country_of_death) <span class="sc">|&gt;</span></span>
@@ -897,6 +945,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(prom_m)) <span class="sc">|&gt;</span>  </span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Resumen de Migrantes Desaparecidos por País"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Resumen de Migrantes Desaparecidos por País</caption>
@@ -1062,6 +1111,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Resumen por Causa de Muerte:</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(cause_of_death)) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cause_of_death) <span class="sc">|&gt;</span></span>
@@ -1073,6 +1124,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var_M =</span> <span class="fu">var</span>(number_dead),</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Desv_M =</span> <span class="fu">sd</span>(number_dead)) <span class="sc">|&gt;</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Resumen de Causa de Muerte de Migrantes Desaparecidos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Resumen de Causa de Muerte de Migrantes Desaparecidos</caption>
@@ -1169,11 +1221,16 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="gráficas"><span class="header-section-number">2.3.2</span> Gráficas</h3>
 <p>A continuación se muestran algunas gráficas sobre los datos recolectados, utilizando los siguientes paquetes:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(ggplot2))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(cowplot))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p><strong>Incidentes por año</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1187,6 +1244,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Año"</span>, </span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Incidentes"</span>) <span class="sc">+</span></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -1204,6 +1262,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Mapa sobre incidentes por Region</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longitud, <span class="at">y =</span> latitud)) <span class="sc">+</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
@@ -1212,6 +1272,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Mapa de Incidentes según Coordenadas"</span>,</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longitud"</span>,</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Latitud"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 36 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -1226,6 +1287,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Causa de muerte</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span>  </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(incident_date)) <span class="sc">|&gt;</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> number_dead, <span class="at">y =</span> <span class="fu">fct_infreq</span>(cause_of_death), <span class="at">fill =</span> region)) <span class="sc">+</span></span>
@@ -1237,6 +1300,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 619 rows containing missing values or values outside the scale range
 (`geom_col()`).</code></pre>
@@ -1251,6 +1315,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Sobrevivientes por año</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1265,6 +1331,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Año"</span>, </span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Migrantes"</span>) <span class="sc">+</span></span>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -1282,6 +1349,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Muertes por año</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1296,6 +1365,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Año"</span>, </span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Migrantes"</span>) <span class="sc">+</span></span>
 <span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
@@ -1309,6 +1379,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Muertes de mujeres migrantes por region</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1322,6 +1394,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Region"</span></span>
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1332,6 +1405,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Muertes de hombres migrantes por region</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1345,6 +1420,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Region"</span></span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1355,6 +1431,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Muertes de mujeres migrantes por año</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1369,6 +1447,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Año"</span></span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -1383,6 +1462,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 <p><strong>Muertes de hombres migrantes por año</strong></p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>migrantes_desaparecidos <span class="sc">|&gt;</span> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1397,6 +1478,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Año"</span></span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1406,12 +1488,59 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 </div>
 </div>
 </section>
-<section id="fichas-de-resultados" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="fichas-de-resultados"><span class="header-section-number">2.3.3</span> Fichas de Resultados</h3>
+<section id="propuesta-metodológica" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="propuesta-metodológica"><span class="header-section-number">2.3.3</span> Propuesta Metodológica</h3>
+<dl>
+<dt><strong>Método #1: Coeficiente de Correlación de Pearson</strong></dt>
+<dd>
+<p>Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.</p>
+</dd>
+</dl>
+<p>De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas. A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas. El valor del índice de correlación de Pearson está entre -1 y +1, ambos incluidos. Más abajo veremos cómo se interpreta el valor del coeficiente de correlación de Pearson.</p>
+<p>El coeficiente de correlación de Pearson depende de su valor:</p>
+<ul>
+<li><p>r=-1: Las dos variables tienen una correlación perfecta negativa, por lo que se puede trazar una recta con pendiente negativa en la que se encuentren todos los puntos.</p></li>
+<li><p>-1&lt;r&lt;0: La correlación entre las dos variables es negativa, por lo tanto, cuando una variable aumenta la otra disminuye. Cuanto más cerca esté el valor de -1 significa que más relacionadas negativamente están las variables.</p></li>
+<li><p>r=0: La correlación entre las dos variables es muy débil, de hecho, la relación lineal entre ellas es nula. Esto no significa que las variables sean independientes, ya que podrían tener una relación no lineal.</p></li>
+<li><p>0&lt;r&lt;1: La correlación entre las dos variables es positiva, cuanto más cerca esté el valor de +1 más fuerte es la relación entre las variables. En este caso, una variable tiende a incrementar su valor cuando la otra también aumenta.</p></li>
+<li><p>r=1: Las dos variables tienen una correlación perfecta positiva, es decir, tienen una relación lineal positiva. interpretacion del coeficiente de correlacion de pearson</p></li>
+</ul>
+<dl>
+<dt><strong>Método #2: Regresión Lineal Simple</strong></dt>
+<dd>
+<p>La regresión lineal simple <span class="citation" data-cites="probabilidadyestadistica3.0">(<a href="#ref-probabilidadyestadistica3.0" role="doc-biblioref">Desconocido 2024</a>)</span> es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y. Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.</p>
+</dd>
+</dl>
+<p>Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal. Lógicamente, la relación entre las dos variables debe ser lineal, sino se debe utilizar otro tipo de modelo de regresión.</p>
+<p>La ecuación de un modelo de regresión lineal simple está formada por dos coeficientes: la constante de la ecuación (b0) y el coeficiente de la correlación entre las dos variables (b1). Para poder hacer una regresión lineal simple, se deben cumplir las siguientes hipótesis:</p>
+<ul>
+<li><p>Independencia: los residuos observados deben ser independientes entre sí. Una manera común de garantizar la independencia del modelo es añadiendo aleatoriedad en el proceso de muestreo.</p></li>
+<li><p>Homocedasticidad: debe haber homogeneidad en las varianzas de los residuos, es decir, la variabilidad de los residuos debe ser constante.</p></li>
+<li><p>Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0. Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.</p></li>
+</ul>
+<p><strong>Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)</strong></p>
+<p>Según Saadeddin, ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad. Como se mencionó anteriormente, el modelo está compuesto de tres partes:</p>
+<ul>
+<li><strong>Parte autorregresiva (AR)</strong></li>
+</ul>
+<p>Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El “marco de autoregresión” funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores.</p>
+<p>Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas.</p>
+<ul>
+<li><strong>Parte integrada (I)</strong></li>
+</ul>
+<p>Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.</p>
+<ul>
+<li><strong>Parte de la media móvil (MA)</strong></li>
+</ul>
+<p>Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados.</p>
+<p>Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud.</p>
+</section>
+<section id="fichas-de-resultados" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="fichas-de-resultados"><span class="header-section-number">2.3.4</span> Fichas de Resultados</h3>
 <p><strong>1. Resultado: Principal causa de muerte.</strong></p>
-<p><strong>- Resumen en una oración: </strong>El 37.6% de las muertes de migrantes es por ahogamiento.</p>
-<p><strong>- Principal característica: </strong>El hallazgo nos indica los tipos de rutas que son los más peligrosos para migrar. <strong>- Problemas o posibles desafíos: </strong>Es posible que al utilizar medios de transporte marítimos sea más fácil tener control de las muertes, ya que se asumen, por lo que este hallazgo podría no representar tanta relevancia como otro tipo de muertes confirmadas</p>
-<p><strong>- Resumen en un párrafo: </strong>Alrededor de 10.000 migrantes mueren por ahogamiento, representando un 37.6% del total de muertes confirmadas en esta investigación, además más del 50% de estos migrantes fallecieron en el Meditarraneo, siendo la ruta que conecta países como Siria, Marruecos, Afganistán, Nigeria, España, Italia, Grecia, etc. Al ser el mar Mediterraneo muy extenso y bañando las costas de muchos países, parece evidente que esta region cuente con el mayor porcentaje de muertes, además de la dificultad para trasladarse por vía marítima.</p>
+<p><strong>- Resumen en una oración:</strong> El 37.6% de las muertes de migrantes es por ahogamiento.</p>
+<p><strong>- Principal característica:</strong> El hallazgo nos indica los tipos de rutas que son los más peligrosos para migrar. <strong>- Problemas o posibles desafíos:</strong> Es posible que al utilizar medios de transporte marítimos sea más fácil tener control de las muertes, ya que se asumen, por lo que este hallazgo podría no representar tanta relevancia como otro tipo de muertes confirmadas</p>
+<p><strong>- Resumen en un párrafo:</strong> Alrededor de 10.000 migrantes mueren por ahogamiento, representando un 37.6% del total de muertes confirmadas en esta investigación, además más del 50% de estos migrantes fallecieron en el Meditarraneo, siendo la ruta que conecta países como Siria, Marruecos, Afganistán, Nigeria, España, Italia, Grecia, etc. Al ser el mar Mediterraneo muy extenso y bañando las costas de muchos países, parece evidente que esta region cuente con el mayor porcentaje de muertes, además de la dificultad para trasladarse por vía marítima.</p>
 <p><strong>2. Resultado: Region con más muertes.</strong></p>
 <p><strong>- Resumen en una oración:</strong> El 32.7% de los migrantes muere en África.</p>
 <p><strong>- Principal característica:</strong> El hallazgo indica que África es la zona más difícil por donde migrar.</p>
@@ -1434,6 +1563,11 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <p><strong>- Resumen en un párrafo:</strong> Desde el 2014 se han reportado 2700 niños desaparecidos, de los cuales más de 1200 se han confirmado muertos. Los migrantes son una parte de la población muy vulnerable, más si se trata de niños migrantes que pueden estar o no acompañados por sus familiares. Existen demasiados desafíos a los que deben enfrentarse al momento de migrar, donde ha muerto el 44.44% de los niños reportados desaparecidos. El año con mayor número de muertes fue el 2019 con 405 niños involucrados.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-probabilidadyestadistica3.0" class="csl-entry" role="listitem">
+Desconocido, Autor. 2024. <span>«Regresión Lineal Simple»</span>. <a href="https://www.probabilidadyestadistica.net/regresion-lineal-simple/">https://www.probabilidadyestadistica.net/regresion-lineal-simple/</a>.
+</div>
+</div>
 </section>
 </section>
 
@@ -1870,6 +2004,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./bitacora-3.html" class="pagination-link" aria-label="Bitácora 3">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bitácora 3</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
