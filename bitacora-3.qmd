@@ -121,3 +121,45 @@ prediccion_muertes <- forecast(modelo_arima, h=5)
 plot(prediccion_muertes, main="Predicción de muertes de migrantes para los próximos 5 años")
 
 ````
+
+#### Regresión Lineal Simple (Datos 2022)
+
+# Cargar tidyverse
+library(tidyverse)
+
+# Cargar datos
+data <- read.csv("MissingMigrants-Global-2022.csv")
+
+# Filtrando datos para la primera regresión
+data_filtered <- data %>%
+  select(Number.Dead, Total.Number.of.Dead.and.Missing) %>%
+  drop_na()
+
+# Regresión lineal simple: Número de muertos y Total de muertos y desaparecidos
+model1 <- lm(Number.Dead ~ Total.Number.of.Dead.and.Missing, data = data_filtered)
+summary(model1)
+
+# Coeficientes
+slope1 <- coef(model1)[2]
+intercept1 <- coef(model1)[1]
+
+cat("Modelo 1 - Pendiente: ", slope1, "\n")
+cat("Modelo 1 - Intercepto: ", intercept1, "\n")
+
+# Para la segunda regresión, se codifican las regiones numéricamente
+data_filtered_regions <- data %>%
+  select(Region, Number.Dead) %>%
+  drop_na()
+
+data_filtered_regions$Region_encoded <- as.numeric(factor(data_filtered_regions$Region))
+
+# Regresión lineal simple: Regiones y Número de muertos
+model2 <- lm(Number.Dead ~ Region_encoded, data = data_filtered_regions)
+summary(model2)
+
+# Coeficientes
+slope2 <- coef(model2)[2]
+intercept2 <- coef(model2)[1]
+
+cat("Modelo 2 - Pendiente: ", slope2, "\n")
+cat("Modelo 2 - Intercepto: ", intercept2, "\n")
