@@ -163,3 +163,47 @@ intercept2 <- coef(model2)[1]
 
 cat("Modelo 2 - Pendiente: ", slope2, "\n")
 cat("Modelo 2 - Intercepto: ", intercept2, "\n")
+
+## Análisis de Regresión Lineal Simple
+
+### 1. Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos
+
+En este análisis del modelo, se buscó entender la relación entre el **total de muertos y desaparecidos** y el **número de muertos** en incidentes migratorios.
+
+La ecuación de la regresión es la siguiente:
+
+\[
+\text{Número de muertos} = 1.1458 + 0.1832 \times (\text{Total de muertos y desaparecidos})
+\]
+
+#### Interpretación de Resultados:
+
+- **Pendiente (\(\beta_1 = 0.1832\))**: Por cada persona adicional en el total de muertos y desaparecidos, se espera que el número de muertos aumente en **0.18 personas**, en promedio.
+  
+- **Intercepto (\(\beta_0 = 1.1458\))**: Si el total de muertos y desaparecidos fuera cero, el modelo indica que el número estimado de muertos sería **1.15 personas**. Aunque es correcto, no necesariamente reflejo algo revelador, dado que un total de muertos y desaparecidos igual a 0 no implica migrantes fallecidos.
+
+Este modelo sugiere una relación positiva entre estas dos variables, lo que se espera, puesto que el número de muertos está relacionado con el total de muertos y desaparecidos en un incidente.
+
+---
+
+### 2. Relación entre la Región y el Número de Muertos
+
+En este análisis, las **regiones** se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el **número de muertos** cambia entre las distintas regiones.
+
+La ecuación de la regresión es:
+
+\[
+\text{Número de muertos} = 1.3123 + 0.0774 \times (\text{Región codificada})
+\]
+
+#### Interpretación de Resultados:
+
+- **Pendiente (\(\beta_1 = 0.0774\))**: Indica que, en promedio, al cambiar de una región a otra (codificada numéricamente), el número de muertos aumenta en **0.077 personas**.
+  
+- **Intercepto (\(\beta_0 = 1.3123\))**: Cuando la región es la primera codificada, el número esperado de muertos es de **1.31 personas**.
+
+El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.
+
+---
+
+
