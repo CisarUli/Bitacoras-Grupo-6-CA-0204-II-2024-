@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -181,6 +210,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#análisis-de-modelación" id="toc-análisis-de-modelación" class="nav-link" data-scroll-target="#análisis-de-modelación"><span class="header-section-number">3.1.1</span> Análisis de Modelación</a></li>
   </ul></li>
+  <li><a href="#parte-de-escritura" id="toc-parte-de-escritura" class="nav-link" data-scroll-target="#parte-de-escritura"><span class="header-section-number">3.2</span> Parte de Escritura</a></li>
+  <li><a href="#parte-de-reflexión" id="toc-parte-de-reflexión" class="nav-link" data-scroll-target="#parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/CisarUli/Bitacoras-Grupo-6-CA-0204-II-2024-/blob/main/bitacora-3.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -212,9 +243,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.1" class="anchored" data-anchor-id="parte-de-planificación"><span class="header-section-number">3.1</span> Parte de Planificación</h2>
 <section id="análisis-de-modelación" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="análisis-de-modelación"><span class="header-section-number">3.1.1</span> Análisis de Modelación</h3>
-<section id="método-3-modelo-autorregresivo-integrado-de-media-móvil-arima" class="level4" data-number="3.1.1.1">
-<h4 data-number="3.1.1.1" class="anchored" data-anchor-id="método-3-modelo-autorregresivo-integrado-de-media-móvil-arima"><span class="header-section-number">3.1.1.1</span> Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)</h4>
-<p>Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años.</p>
 <p>Primero se cargan los datos recolectados del 2014 al 2022:</p>
 <div class="cell">
 <details class="code-fold">
@@ -269,7 +297,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>ts_muertes <span class="ot">&lt;-</span> <span class="fu">ts</span>(ts_muertes<span class="sc">$</span>muertes, <span class="at">start =</span> <span class="fu">min</span>(ts_muertes<span class="sc">$</span>year), <span class="at">end =</span> <span class="fu">max</span>(ts_muertes<span class="sc">$</span>year), <span class="at">frequency =</span> <span class="dv">1</span>)</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(migrantes_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>ts_sobrevivientes <span class="ot">&lt;-</span> migrantes_desaparecidos <span class="sc">|&gt;</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">sobrevivientes =</span> <span class="fu">sum</span>(number_of_survivors, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>ts_sobrevivientes <span class="ot">&lt;-</span> <span class="fu">ts</span>(ts_sobrevivientes<span class="sc">$</span>sobrevivientes, </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start =</span> <span class="fu">min</span>(ts_sobrevivientes<span class="sc">$</span>year), </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end =</span> <span class="fu">max</span>(ts_sobrevivientes<span class="sc">$</span>year), </span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>                        <span class="at">frequency =</span> <span class="dv">1</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>ts_desaparecidos <span class="ot">&lt;-</span> migrantes_desaparecidos <span class="sc">|&gt;</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">desaparecidos =</span> <span class="fu">sum</span>(minimum_estimated_number_of_missing, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>ts_desaparecidos <span class="ot">&lt;-</span> <span class="fu">ts</span>(ts_desaparecidos<span class="sc">$</span>desaparecidos, </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start =</span> <span class="fu">min</span>(ts_desaparecidos<span class="sc">$</span>year), </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end =</span> <span class="fu">max</span>(ts_desaparecidos<span class="sc">$</span>year), </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>                        <span class="at">frequency =</span> <span class="dv">1</span>)</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(migrantes_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 11,341
@@ -292,24 +342,175 @@ $ migrantion_route                    &lt;chr&gt; "US-Mexico border crossing", "
 $ source_quality                      &lt;dbl&gt; 5, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5…
 $ country_of_death                    &lt;fct&gt; United States, United States, Unit…</code></pre>
 </div>
+</div>
+<section id="método-2-regresión-lineal-simple-datos-2022" class="level4" data-number="3.1.1.1">
+<h4 data-number="3.1.1.1" class="anchored" data-anchor-id="método-2-regresión-lineal-simple-datos-2022"><span class="header-section-number">3.1.1.1</span> Método #2: Regresión Lineal Simple (Datos 2022)</h4>
+<div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ts_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar datos</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/MissingMigrants-Global-2022.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrando datos para la primera regresión</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Number.Dead, Total.Number.of.Dead.and.Missing) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresión lineal simple: Número de muertos y Total de muertos y desaparecidos</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Number.Dead <span class="sc">~</span> Total.Number.of.Dead.and.Missing, <span class="at">data =</span> data_filtered)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> Time-Series [1:9] from 2014 to 2022: 1752 4077 4071 3664 3176 ...</code></pre>
+<pre><code>
+Call:
+lm(formula = Number.Dead ~ Total.Number.of.Dead.and.Missing, 
+    data = data_filtered)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-14.067  -0.329  -0.329  -0.329  16.825 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                       1.14579    0.07027    16.3   &lt;2e-16 ***
+Total.Number.of.Dead.and.Missing  0.18317    0.01065    17.2   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.807 on 773 degrees of freedom
+Multiple R-squared:  0.2767,    Adjusted R-squared:  0.2757 
+F-statistic: 295.7 on 1 and 773 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficientes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>slope1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model1)[<span class="dv">2</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>intercept1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model1)[<span class="dv">1</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Modelo 1 - Pendiente: "</span>, slope1, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modelo 1 - Pendiente:  0.183171 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Modelo 1 - Intercepto: "</span>, intercept1, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modelo 1 - Intercepto:  1.145787 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para la segunda regresión, se codifican las regiones numéricamente</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data_filtered_regions <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Region, Number.Dead) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>data_filtered_regions<span class="sc">$</span>Region_encoded <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(data_filtered_regions<span class="sc">$</span>Region))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresión lineal simple: Regiones y Número de muertos</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Number.Dead <span class="sc">~</span> Region_encoded, <span class="at">data =</span> data_filtered_regions)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Number.Dead ~ Region_encoded, data = data_filtered_regions)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.6988 -0.6988 -0.5889 -0.4425 20.3744 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     1.88193    0.17257  10.905   &lt;2e-16 ***
+Region_encoded -0.03662    0.02078  -1.762   0.0784 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.12 on 773 degrees of freedom
+Multiple R-squared:  0.004001,  Adjusted R-squared:  0.002713 
+F-statistic: 3.105 on 1 and 773 DF,  p-value: 0.07842</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficientes</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>slope2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model2)[<span class="dv">2</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>intercept2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model2)[<span class="dv">1</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Modelo 2 - Pendiente: "</span>, slope2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modelo 2 - Pendiente:  -0.03662218 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Modelo 2 - Intercepto: "</span>, intercept2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modelo 2 - Intercepto:  1.881927 </code></pre>
 </div>
 </div>
+<p><strong>Análisis de Regresión Lineal Simple</strong></p>
+<p><strong>1. Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos</strong></p>
+<p>En este análisis del modelo, se buscó entender la relación entre el <strong>total de muertos y desaparecidos</strong> y el <strong>número de muertos</strong> en incidentes migratorios.</p>
+<p>La ecuación de la regresión es la siguiente:</p>
+<p><span class="math display">\[
+\text{Número de muertos} = 1.1458 + 0.1832 \times (\text{Total de muertos y desaparecidos})
+\]</span></p>
+<p><strong>Interpretación de Resultados:</strong></p>
+<ul>
+<li><p><strong>Pendiente (<span class="math inline">\(\beta_1 = 0.1832\)</span>)</strong>: Por cada persona adicional en el total de muertos y desaparecidos, se espera que el número de muertos aumente en <strong>0.18 personas</strong>, en promedio.</p></li>
+<li><p><strong>Intercepto (<span class="math inline">\(\beta_0 = 1.1458\)</span>)</strong>: Si el total de muertos y desaparecidos fuera cero, el modelo indica que el número estimado de muertos sería <strong>1.15 personas</strong>. Aunque es correcto, no necesariamente reflejo algo revelador, dado que un total de muertos y desaparecidos igual a 0 no implica migrantes fallecidos.</p></li>
+</ul>
+<p>Este modelo sugiere una relación positiva entre estas dos variables, lo que se espera, puesto que el número de muertos está relacionado con el total de muertos y desaparecidos en un incidente.</p>
+<hr>
+<p><strong>2. Relación entre la Región y el Número de Muertos</strong></p>
+<p>En este análisis, las <strong>regiones</strong> se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el <strong>número de muertos</strong> cambia entre las distintas regiones.</p>
+<p>La ecuación de la regresión es:</p>
+<p><span class="math display">\[
+\text{Número de muertos} = 1.3123 + 0.0774 \times (\text{Región codificada})
+\]</span></p>
+<p><strong>Interpretación de Resultados:</strong></p>
+<ul>
+<li><p><strong>Pendiente (<span class="math inline">\(\beta_1 = 0.0774\)</span>)</strong>: Indica que, en promedio, al cambiar de una región a otra (codificada numéricamente), el número de muertos aumenta en <strong>0.077 personas</strong>.</p></li>
+<li><p><strong>Intercepto (<span class="math inline">\(\beta_0 = 1.3123\)</span>)</strong>: Cuando la región es la primera codificada, el número esperado de muertos es de <strong>1.31 personas</strong>.</p></li>
+</ul>
+<p>El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.</p>
+</section>
+<section id="método-3-modelo-autorregresivo-integrado-de-media-móvil-arima" class="level4" data-number="3.1.1.2">
+<h4 data-number="3.1.1.2" class="anchored" data-anchor-id="método-3-modelo-autorregresivo-integrado-de-media-móvil-arima"><span class="header-section-number">3.1.1.2</span> Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)</h4>
+<p>Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años.</p>
+<p>Recuerde que el modelo ARIMA requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:</p>
+<ul>
+<li><p>p: Es el número de observaciones de retraso en el modelo.</p></li>
+<li><p>d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.</p></li>
+<li><p>q: Es el tamaño de datos que se utiliza para la media móvil.</p></li>
+</ul>
+<p><strong>Análisis de ARIMA</strong></p>
+<p><strong>1. Predicción de muertes de migrantes en los próximos 5 años</strong></p>
 <p>Primero se observan algunos patrones o tendencias:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_muertes, <span class="at">main=</span><span class="st">"Muertes por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Muertes"</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time Series:
+Start = 2014 
+End = 2019 
+Frequency = 1 
+[1] 1752 4077 4071 3664 3176 3624</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_muertes, <span class="at">main=</span><span class="st">"Muertes por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Muertes"</span>, <span class="at">col=</span><span class="st">"darkred"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -318,8 +519,8 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -334,13 +535,13 @@ alternative hypothesis: stationary</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>diff_muertes <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_muertes)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_muertes, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"darkred"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>diff_muertes <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_muertes)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_muertes, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"darkred"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -349,9 +550,9 @@ alternative hypothesis: stationary</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_muertes)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_muertes)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Series: ts_muertes 
@@ -372,25 +573,392 @@ Training set 6.063545e-13 971.8449 851.5556 -16.6233 38.94371 0.8189018
 Training set -0.0912454</code></pre>
 </div>
 </div>
-<p>Finalmente utilizamos la funión forecast() para realizar las predicciones en los próximos 5 años sobre las muertes de migrantes desaparecidos:</p>
+<p>Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre las muertes de migrantes desaparecidos:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>prediccion_muertes <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_muertes, <span class="at">main=</span><span class="st">"Predicción de muertes de migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>prediccion_muertes <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prediccion_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$method
+[1] "ARIMA(0,0,0) with non-zero mean"
+
+$model
+Series: ts_muertes 
+ARIMA(0,0,0) with non-zero mean 
+
+Coefficients:
+           mean
+      3027.6667
+s.e.   323.9503
+
+sigma^2 = 1062543:  log likelihood = -74.68
+AIC=153.37   AICc=155.37   BIC=153.76
+
+$level
+[1] 80 95
+
+$mean
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+[1] 3027.667 3027.667 3027.667 3027.667 3027.667
+
+$lower
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+          80%      95%
+2023 1706.647 1007.341
+2024 1706.647 1007.341
+2025 1706.647 1007.341
+2026 1706.647 1007.341
+2027 1706.647 1007.341
+
+$upper
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+          80%      95%
+2023 4348.686 5047.992
+2024 4348.686 5047.992
+2025 4348.686 5047.992
+2026 4348.686 5047.992
+2027 4348.686 5047.992</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_muertes, <span class="at">main=</span><span class="st">"Predicción de muertes de migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p><strong>Interpretación de resultados</strong></p>
+<p>Al analizar el patrón de muertes se pueden proyectar las futuras muertes de migrantes en un horizonte de 5 años.</p>
+<p><strong>- Predicción puntual:</strong> Se puede observar que es más probable que mueran 3.028 migrantes por año.</p>
+<p><strong>- Incertidumbre:</strong> Existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año y un 95% de que el número de muertes se encuentre entre 1.007 y 5.047</p>
+<p><strong>2. Predicción de sobrevivientes migrantes en los próximos 5 años</strong></p>
+<p>Al igual que con las muertes de migrantes, se observan algunos patrones o tendencias:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_sobrevivientes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time Series:
+Start = 2014 
+End = 2019 
+Frequency = 1 
+[1]  6122  8099 17112  6888  8321  4925</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_sobrevivientes, <span class="at">main=</span><span class="st">"Sobrevivientes por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Sobrevivientes"</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_sobrevivientes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Augmented Dickey-Fuller Test
 
+data:  ts_sobrevivientes
+Dickey-Fuller = -1.4007, Lag order = 2, p-value = 0.8007
+alternative hypothesis: stationary</code></pre>
+</div>
+</div>
+<p>Al igual que con las muertes, note que la serie no es estacionaria, pues p-value &gt; 0.05, entonces se procede a diferenciarla:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>diff_sobrevivientes <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_sobrevivientes)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_sobrevivientes, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete <strong>forecast</strong> para un mejor manejo de los parámetros AR, I y MA de la serie:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_sobrevivientes)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Series: ts_sobrevivientes 
+ARIMA(0,0,0) with non-zero mean 
 
+Coefficients:
+          mean
+      8011.111
+s.e.  1157.820
+
+sigma^2 = 13572881:  log likelihood = -86.15
+AIC=176.29   AICc=178.29   BIC=176.69
+
+Training set error measures:
+                       ME    RMSE      MAE       MPE     MAPE      MASE
+Training set 8.084397e-13 3473.44 2298.123 -13.41378 28.41677 0.5435004
+                    ACF1
+Training set -0.09825737</code></pre>
+</div>
+</div>
+<p>Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre los sobrevivientes migrantes desaparecidos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>prediccion_sobrevivientes <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prediccion_sobrevivientes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$method
+[1] "ARIMA(0,0,0) with non-zero mean"
+
+$model
+Series: ts_sobrevivientes 
+ARIMA(0,0,0) with non-zero mean 
+
+Coefficients:
+          mean
+      8011.111
+s.e.  1157.820
+
+sigma^2 = 13572881:  log likelihood = -86.15
+AIC=176.29   AICc=178.29   BIC=176.69
+
+$level
+[1] 80 95
+
+$mean
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+[1] 8011.111 8011.111 8011.111 8011.111 8011.111
+
+$lower
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+          80%      95%
+2023 3289.697 790.3312
+2024 3289.697 790.3312
+2025 3289.697 790.3312
+2026 3289.697 790.3312
+2027 3289.697 790.3312
+
+$upper
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+          80%      95%
+2023 12732.53 15231.89
+2024 12732.53 15231.89
+2025 12732.53 15231.89
+2026 12732.53 15231.89
+2027 12732.53 15231.89</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_sobrevivientes, <span class="at">main=</span><span class="st">"Predicción de sobrevivientes migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación de resultados</strong></p>
+<p>Al analizar el patrón de sobrevivientes se pueden proyectar el número futuro de sobrevivientes migrantes en un horizonte de 5 años.</p>
+<p><strong>- Predicción puntual:</strong> Se puede observar que es más probable que sobrevivan o sean rescatados 8.011 migrantes por año.</p>
+<p><strong>- Incertidumbre:</strong> Existe un 80% de probabilidad de que el número de sobrevivientes de los próximos años se encuentre entre 3.289 y 12.732 sobrevivientes por año y un 95% de probabilidad de que el número de sobrevivientes se encuentre entre 790 y 15.231.</p>
+<p><strong>3. Predicción de desapareciones de migrantes en los próximos 5 años</strong></p>
+<p>Al igual que en los casos anteriores, se observan algunos patrones o tendencias:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time Series:
+Start = 2014 
+End = 2019 
+Frequency = 1 
+[1] 3566 2637 4013 2620 1811 1777</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_desaparecidos, <span class="at">main=</span><span class="st">"Desaparecidos por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Desaparecidos"</span>, <span class="at">col=</span><span class="st">"purple"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Augmented Dickey-Fuller Test
+
+data:  ts_desaparecidos
+Dickey-Fuller = -2.3603, Lag order = 2, p-value = 0.4351
+alternative hypothesis: stationary</code></pre>
+</div>
+</div>
+<p>Igualmente la serie no es estacionaria, pues p-value &gt; 0.05, entonces se procede a diferenciarla:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>diff_desaparecidos <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_desaparecidos)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_desaparecidos, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"purple"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete <strong>forecast</strong> para un mejor manejo de los parámetros AR, I y MA de la serie:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_desaparecidos)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Series: ts_desaparecidos 
+ARIMA(0,1,0) 
+
+sigma^2 = 921593:  log likelihood = -66.29
+AIC=134.57   AICc=135.24   BIC=134.65
+
+Training set error measures:
+                   ME     RMSE      MAE       MPE     MAPE      MASE       ACF1
+Training set -259.826 905.0933 733.2851 -19.44727 34.22342 0.8893694 -0.4340032</code></pre>
+</div>
+</div>
+<p>Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre los sobrevivientes migrantes desaparecidos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>prediccion_desaparecidos <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prediccion_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$method
+[1] "ARIMA(0,1,0)"
+
+$model
+Series: ts_desaparecidos 
+ARIMA(0,1,0) 
+
+sigma^2 = 921593:  log likelihood = -66.29
+AIC=134.57   AICc=135.24   BIC=134.65
+
+$level
+[1] 80 95
+
+$mean
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+[1] 1224 1224 1224 1224 1224
+
+$lower
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+             80%        95%
+2023    -6.28489  -657.5584
+2024  -515.88558 -1436.9254
+2025  -906.91594 -2034.9547
+2026 -1236.56978 -2539.1167
+2027 -1527.00065 -2983.2924
+
+$upper
+Time Series:
+Start = 2023 
+End = 2027 
+Frequency = 1 
+          80%      95%
+2023 2454.285 3105.558
+2024 2963.886 3884.925
+2025 3354.916 4482.955
+2026 3684.570 4987.117
+2027 3975.001 5431.292</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_desaparecidos, <span class="at">main=</span><span class="st">"Predicción de desapariciones de migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bitacora-3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación de resultados</strong></p>
+<p>Al analizar el patrón de migrantes desaparecidos se pueden proyectar el número futuras desapariciones en un horizonte de 5 años.</p>
+<p><strong>- Predicción puntual:</strong> Se puede observar que es más probable 1.224 migrantes sean reportados como desaparecidos cada año.</p>
+<p><strong>- Incertidumbre:</strong> A diferencia de los casos de muerte y sobrevivencia, la predicción del número de dsaparecidos varía por año como se muestra anteriormente, donde con un 80% de probabilidad el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.</p>
 </section>
 </section>
+</section>
+<section id="parte-de-escritura" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="parte-de-escritura"><span class="header-section-number">3.2</span> Parte de Escritura</h2>
+</section>
+<section id="parte-de-reflexión" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</h2>
+<hr>
+
+
 </section>
 
 </main> <!-- /main -->
