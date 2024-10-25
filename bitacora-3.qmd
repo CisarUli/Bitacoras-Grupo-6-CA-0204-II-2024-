@@ -17,10 +17,6 @@ execute:
 
 ### Análisis de Modelación
 
-#### Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)
-
-Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años. 
-
 Primero se cargan los datos recolectados del 2014 al 2022:
 
 ````{r}
@@ -75,60 +71,36 @@ ts_muertes <- migrantes_desaparecidos |>
 
 ts_muertes <- ts(ts_muertes$muertes, start = min(ts_muertes$year), end = max(ts_muertes$year), frequency = 1)
 
+ts_sobrevivientes <- migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    sobrevivientes = sum(number_of_survivors, na.rm = TRUE)
+  )
+
+ts_sobrevivientes <- ts(ts_sobrevivientes$sobrevivientes, 
+                        start = min(ts_sobrevivientes$year), 
+                        end = max(ts_sobrevivientes$year), 
+                        frequency = 1)
+
+ts_desaparecidos <- migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    desaparecidos = sum(minimum_estimated_number_of_missing, na.rm = TRUE)
+  )
+
+ts_desaparecidos <- ts(ts_desaparecidos$desaparecidos, 
+                        start = min(ts_desaparecidos$year), 
+                        end = max(ts_desaparecidos$year), 
+                        frequency = 1)
+
 glimpse(migrantes_desaparecidos)
-glimpse(ts_muertes)
-
-````
-
-Primero se observan algunos patrones o tendencias:
-
-````{r}
-
-plot(ts_muertes, main="Muertes por año", xlab="Año", ylab="Muertes", col="darkblue", type="l")
-
-````
-Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:
-
-````{r}
-
-library(tseries)
-adf.test(ts_muertes)
-
-````
-
-Note que la serie no es estacionaria, pues p-value > 0.05, entonces se procede a diferenciarla:
-
-````{r}
-
-diff_muertes <- diff(ts_muertes)
-plot(diff_muertes, main = "Serie temporal diferenciada", col = "darkred")
-
-````
-Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete **forecast** para un mejor manejo de los parámetros AR, I y MA de la serie:
-
-````{r}
-
-library(forecast)
-modelo_arima <- auto.arima(ts_muertes)
-summary(modelo_arima)
-
-````
-Finalmente utilizamos la funión forecast() para realizar las predicciones en los próximos 5 años sobre las muertes de migrantes desaparecidos:
-
-````{r}
-
-prediccion_muertes <- forecast(modelo_arima, h=5)
-plot(prediccion_muertes, main="Predicción de muertes de migrantes para los próximos 5 años")
 
 ````
 
 #### Método #2: Regresión Lineal Simple (Datos 2022)
 ````{r}
-# Cargar tidyverse
-library(tidyverse)
-
 # Cargar datos
-data <- read.csv("MissingMigrants-Global-2022.csv")
+data <- read.csv("data/MissingMigrants-Global-2022.csv")
 
 # Filtrando datos para la primera regresión
 data_filtered <- data %>%
@@ -204,6 +176,178 @@ La ecuación de la regresión es:
 - **Intercepto (\(\beta_0 = 1.3123\))**: Cuando la región es la primera codificada, el número esperado de muertos es de **1.31 personas**.
 
 El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.
+
+#### Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)
+
+Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años. 
+
+Recuerde que el modelo ARIMA requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:
+
+- p: Es el número de observaciones de retraso en el modelo.
+
+- d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.
+
+- q: Es el tamaño de datos que se utiliza para la media móvil.
+
+**Análisis de ARIMA**
+
+**1. Predicción de muertes de migrantes en los próximos 5 años**
+
+Primero se observan algunos patrones o tendencias:
+
+````{r}
+head(ts_muertes)
+plot(ts_muertes, main="Muertes por año", xlab="Año", ylab="Muertes", col="darkred", type="l")
+
+````
+Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:
+
+````{r}
+
+library(tseries)
+adf.test(ts_muertes)
+
+````
+
+Note que la serie no es estacionaria, pues p-value > 0.05, entonces se procede a diferenciarla:
+
+````{r}
+
+diff_muertes <- diff(ts_muertes)
+plot(diff_muertes, main = "Serie temporal diferenciada", col = "darkred")
+
+````
+Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete **forecast** para un mejor manejo de los parámetros AR, I y MA de la serie:
+
+````{r}
+
+library(forecast)
+modelo_arima <- auto.arima(ts_muertes)
+summary(modelo_arima)
+
+````
+Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre las muertes de migrantes desaparecidos:
+
+````{r}
+
+prediccion_muertes <- forecast(modelo_arima, h=5)
+head(prediccion_muertes)
+plot(prediccion_muertes, main="Predicción de muertes de migrantes para los próximos 5 años")
+
+````
+**Interpretación de resultados**
+
+Al analizar el patrón de muertes se pueden proyectar las futuras muertes de migrantes en un horizonte de 5 años.
+
+**- Predicción puntual:** Se puede observar que es más probable que mueran 3.028 migrantes por año.
+
+**- Incertidumbre:** Existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año y un 95% de que el número de muertes se encuentre entre 1.007 y 5.047
+
+**2. Predicción de sobrevivientes migrantes en los próximos 5 años**
+
+Al igual que con las muertes de migrantes, se observan algunos patrones o tendencias:
+
+````{r}
+head(ts_sobrevivientes)
+plot(ts_sobrevivientes, main="Sobrevivientes por año", xlab="Año", ylab="Sobrevivientes", col="darkblue", type="l")
+
+````
+Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:
+
+````{r}
+
+library(tseries)
+adf.test(ts_sobrevivientes)
+
+````
+
+Al igual que con las muertes, note que la serie no es estacionaria, pues p-value > 0.05, entonces se procede a diferenciarla:
+
+````{r}
+
+diff_sobrevivientes <- diff(ts_sobrevivientes)
+plot(diff_sobrevivientes, main = "Serie temporal diferenciada", col = "darkblue")
+
+````
+Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete **forecast** para un mejor manejo de los parámetros AR, I y MA de la serie:
+
+````{r}
+
+library(forecast)
+modelo_arima <- auto.arima(ts_sobrevivientes)
+summary(modelo_arima)
+
+````
+Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre los sobrevivientes migrantes desaparecidos:
+
+````{r}
+
+prediccion_sobrevivientes <- forecast(modelo_arima, h=5)
+head(prediccion_sobrevivientes)
+plot(prediccion_sobrevivientes, main="Predicción de sobrevivientes migrantes para los próximos 5 años")
+
+````
+**Interpretación de resultados**
+
+Al analizar el patrón de sobrevivientes se pueden proyectar el número futuro de sobrevivientes migrantes en un horizonte de 5 años.
+
+**- Predicción puntual:** Se puede observar que es más probable que sobrevivan o sean rescatados 8.011 migrantes por año.
+
+**- Incertidumbre:** Existe un 80% de probabilidad de que el número de sobrevivientes de los próximos años se encuentre entre 3.289 y 12.732 sobrevivientes por año y un 95% de probabilidad de que el número de sobrevivientes se encuentre entre 790 y 15.231.
+
+**3. Predicción de desapareciones de migrantes en los próximos 5 años**
+
+Al igual que en los casos anteriores, se observan algunos patrones o tendencias:
+
+````{r}
+head(ts_desaparecidos)
+plot(ts_desaparecidos, main="Desaparecidos por año", xlab="Año", ylab="Desaparecidos", col="purple", type="l")
+
+````
+Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:
+
+````{r}
+
+library(tseries)
+adf.test(ts_desaparecidos)
+
+````
+
+Igualmente la serie no es estacionaria, pues p-value > 0.05, entonces se procede a diferenciarla:
+
+````{r}
+
+diff_desaparecidos <- diff(ts_desaparecidos)
+plot(diff_desaparecidos, main = "Serie temporal diferenciada", col = "purple")
+
+````
+Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete **forecast** para un mejor manejo de los parámetros AR, I y MA de la serie:
+
+````{r}
+
+library(forecast)
+modelo_arima <- auto.arima(ts_desaparecidos)
+summary(modelo_arima)
+
+````
+Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre los sobrevivientes migrantes desaparecidos:
+
+````{r}
+
+prediccion_desaparecidos <- forecast(modelo_arima, h=5)
+head(prediccion_desaparecidos)
+plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes para los próximos 5 años")
+
+````
+**Interpretación de resultados**
+
+Al analizar el patrón de migrantes desaparecidos se pueden proyectar el número futuras desapariciones en un horizonte de 5 años.
+
+**- Predicción puntual:** Se puede observar que es más probable 1.224 migrantes sean reportados como desaparecidos cada año.
+
+**- Incertidumbre:** A diferencia de los casos de muerte y sobrevivencia, la predicción del número de dsaparecidos varía por año como se muestra anteriormente, donde con un 80% de probabilidad el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.
+
+
 
 ## Parte de Escritura
 ## Parte de reflexión
