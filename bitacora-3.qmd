@@ -13,6 +13,56 @@ execute:
 
 # Bitácora 3
 
+Para esta bitácora se añade un nuevo método: el modelo autorregresivo integrado de media móvil (ARIMA), además de nuevas fichas bibliográficas respceto al nuevo método.
+
+**Título: ARIMA para la previsión de series temporales: Guía completa. [@Saadeddin]**
+
+-   Autora: Zaina Saadeddin
+
+-   Nombre del tema: "Cómo utilizar el modelo ARIMA".
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Sitio web actualizado el 2024.
+    
+    -   Metodológico: El texto presenta un método cuantitativo para obtener previsiones de series temporales.
+    
+    -   Temático: Estadístico
+    
+    -   Teórico: Método matemático para el análisis de series temporales.
+    
+-   Resumen en una oración: Qué es, cómo se compone y cómo utilizar el modelo ARIMA.
+
+-   Argumento central: Se presentan el modelo ARIMA junto a sus componentes, además de explicar el código de cómo construir dicho modelo en R.
+
+-   Problema con el argumento: Ninguno.
+
+-   Resumen de un párrafo: El modelo autorregresivo integrado de media móvil (ARIMA) permite analizar series temporales para detectar ciertos patrones o tendencias que permitan formar previsiones exactas de series futuras, dicho modelo es principalmente de utilidad en áreas como las finanzas, la economía y en ciencias centradas en el medio ambiente. Además, se explican las series temporales en R y del paquete forecast y la función auto.arima()
+
+**Título: Modelos ARIMA para la predicción del gasto conjunto de oxígeno de vuelo y otros gases en el Ejército del Aire. [@SanidadMilitar]**
+
+-   Autores: Gallego-Nicasio Moraleda, Rodríguez Aranda, Mínguez Novella, Jiménez Pérez
+
+-   Nombre del tema: "Análisis del gasto de oxígeno y otros gases para previsiones futuras"
+
+-   Forma de organizarlo:
+
+    -   Cronológico: Artículo publicado en el 2018.
+    
+    -   Metodológico: El texto utiliza el método cuantitativo del modelo ARIMA.
+    
+    -   Temático: Estadístico
+    
+    -   Teórico: Ánálisis del gasto de diferentes gases del ejército aéreo de España para prever futuros gastos.
+    
+-   Resumen en una oración: Se presenta una estimación matemática para la predicción económica del gasto en gases.
+
+-   Argumento central: Se explica cómo se utilizó el modelo ARIMA para obtener previsiones sobre el gasto en gases, incluyendo la ecuación general y los diferentes componentes.
+
+-   Problema con el argumento: Ninguno.
+
+-   Resumen de un párrafo: El ejército aéreo de España ha presentado notables gastos en gases y elementos relacionados sen los últimos años, lo cual se debe a la falta de algún tipo de análisis matemático que presente un manejo óptimo del presupuesto asignado. Además este artículo presenta la ecuación general del modelo ARIMA, donde se explican diferentes componentes utilizados como el autorregresivo, el de media móvily el integrado junto el operador de retardo y sus coeficientes respectivos, además de tomar en cuenta el componente aleatorio.
+
 ## Parte de Planificación
 
 ### Análisis de Modelación
@@ -181,13 +231,27 @@ El modelo sugiere que hay diferencias leves en el número de muertos entre las r
 
 Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años. 
 
-Recuerde que el modelo ARIMA requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:
+Recuerde que el modelo ARIMA, según @SanidadMilitar, requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:
 
 - p: Es el número de observaciones de retraso en el modelo.
 
 - d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.
 
 - q: Es el tamaño de datos que se utiliza para la media móvil.
+
+Y utiliza la siguiente ecuación:
+
+\[
+(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
+\]
+
+Donde:
+
+- \( Y_t \): valor de la variable en el momento \( t \).
+- \( L \): operador de retardos (por ejemplo, \( Y_{t-1} = Y_t \cdot L \)).
+- \( a_p \): coeficientes para el componente autorregresivo.
+- \( b_q \): coeficientes para el componente de medias móviles.
+- \( \varepsilon_t \): componente aleatoria.
 
 **Análisis de ARIMA**
 
@@ -289,9 +353,11 @@ plot(prediccion_sobrevivientes, main="Predicción de sobrevivientes migrantes pa
 ````
 **Interpretación de resultados**
 
-Al analizar el patrón de sobrevivientes se pueden proyectar el número futuro de sobrevivientes migrantes en un horizonte de 5 años.
+Al analizar el patrón de sobrevivientes se pueden proyectar el número futuro de 
+sobrevivientes migrantes en un horizonte de 5 años.
 
-**- Predicción puntual:** Se puede observar que es más probable que sobrevivan o sean rescatados 8.011 migrantes por año.
+**- Predicción puntual:** Se puede observar que es más probable que sobrevivan o
+sean rescatados 8.011 migrantes por año.
 
 **- Incertidumbre:** Existe un 80% de probabilidad de que el número de sobrevivientes de los próximos años se encuentre entre 3.289 y 12.732 sobrevivientes por año y un 95% de probabilidad de que el número de sobrevivientes se encuentre entre 790 y 15.231.
 
