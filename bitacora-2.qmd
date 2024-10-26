@@ -593,7 +593,7 @@ Para poder hacer una regresión lineal simple, se deben cumplir las siguientes h
 
 **Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)**
 
-Según Saadeddin, ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad.
+Según @Saadeddin, ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad.
 Como se mencionó anteriormente, el modelo está compuesto de tres partes:
 
 -   **Parte autorregresiva (AR)**

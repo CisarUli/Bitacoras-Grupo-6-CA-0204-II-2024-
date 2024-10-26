@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -239,6 +259,39 @@ window.Quarto = {
 
 <hr>
 <hr>
+<p>Para esta bitácora se añade un nuevo método: el modelo autorregresivo integrado de media móvil (ARIMA), además de nuevas fichas bibliográficas respceto al nuevo método.</p>
+<p><strong>Título: ARIMA para la previsión de series temporales: Guía completa. <span class="citation" data-cites="Saadeddin">(<a href="#ref-Saadeddin" role="doc-biblioref">Saadeddin 2024</a>)</span></strong></p>
+<ul>
+<li><p>Autora: Zaina Saadeddin</p></li>
+<li><p>Nombre del tema: “Cómo utilizar el modelo ARIMA”.</p></li>
+<li><p>Forma de organizarlo:</p>
+<ul>
+<li><p>Cronológico: Sitio web actualizado el 2024.</p></li>
+<li><p>Metodológico: El texto presenta un método cuantitativo para obtener previsiones de series temporales.</p></li>
+<li><p>Temático: Estadístico</p></li>
+<li><p>Teórico: Método matemático para el análisis de series temporales.</p></li>
+</ul></li>
+<li><p>Resumen en una oración: Qué es, cómo se compone y cómo utilizar el modelo ARIMA.</p></li>
+<li><p>Argumento central: Se presentan el modelo ARIMA junto a sus componentes, además de explicar el código de cómo construir dicho modelo en R.</p></li>
+<li><p>Problema con el argumento: Ninguno.</p></li>
+<li><p>Resumen de un párrafo: El modelo autorregresivo integrado de media móvil (ARIMA) permite analizar series temporales para detectar ciertos patrones o tendencias que permitan formar previsiones exactas de series futuras, dicho modelo es principalmente de utilidad en áreas como las finanzas, la economía y en ciencias centradas en el medio ambiente. Además, se explican las series temporales en R y del paquete forecast y la función auto.arima()</p></li>
+</ul>
+<p><strong>Título: Modelos ARIMA para la predicción del gasto conjunto de oxígeno de vuelo y otros gases en el Ejército del Aire. <span class="citation" data-cites="SanidadMilitar">(<a href="#ref-SanidadMilitar" role="doc-biblioref">Gallego-Nicasio Moraleda 2018</a>)</span></strong></p>
+<ul>
+<li><p>Autores: Gallego-Nicasio Moraleda, Rodríguez Aranda, Mínguez Novella, Jiménez Pérez</p></li>
+<li><p>Nombre del tema: “Análisis del gasto de oxígeno y otros gases para previsiones futuras”</p></li>
+<li><p>Forma de organizarlo:</p>
+<ul>
+<li><p>Cronológico: Artículo publicado en el 2018.</p></li>
+<li><p>Metodológico: El texto utiliza el método cuantitativo del modelo ARIMA.</p></li>
+<li><p>Temático: Estadístico</p></li>
+<li><p>Teórico: Ánálisis del gasto de diferentes gases del ejército aéreo de España para prever futuros gastos.</p></li>
+</ul></li>
+<li><p>Resumen en una oración: Se presenta una estimación matemática para la predicción económica del gasto en gases.</p></li>
+<li><p>Argumento central: Se explica cómo se utilizó el modelo ARIMA para obtener previsiones sobre el gasto en gases, incluyendo la ecuación general y los diferentes componentes.</p></li>
+<li><p>Problema con el argumento: Ninguno.</p></li>
+<li><p>Resumen de un párrafo: El ejército aéreo de España ha presentado notables gastos en gases y elementos relacionados sen los últimos años, lo cual se debe a la falta de algún tipo de análisis matemático que presente un manejo óptimo del presupuesto asignado. Además este artículo presenta la ecuación general del modelo ARIMA, donde se explican diferentes componentes utilizados como el autorregresivo, el de media móvily el integrado junto el operador de retardo y sus coeficientes respectivos, además de tomar en cuenta el componente aleatorio.</p></li>
+</ul>
 <section id="parte-de-planificación" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="parte-de-planificación"><span class="header-section-number">3.1</span> Parte de Planificación</h2>
 <section id="análisis-de-modelación" class="level3" data-number="3.1.1">
@@ -482,11 +535,23 @@ F-statistic: 3.105 on 1 and 773 DF,  p-value: 0.07842</code></pre>
 <section id="método-3-modelo-autorregresivo-integrado-de-media-móvil-arima" class="level4" data-number="3.1.1.2">
 <h4 data-number="3.1.1.2" class="anchored" data-anchor-id="método-3-modelo-autorregresivo-integrado-de-media-móvil-arima"><span class="header-section-number">3.1.1.2</span> Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)</h4>
 <p>Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años.</p>
-<p>Recuerde que el modelo ARIMA requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:</p>
+<p>Recuerde que el modelo ARIMA, según <span class="citation" data-cites="SanidadMilitar">Gallego-Nicasio Moraleda (<a href="#ref-SanidadMilitar" role="doc-biblioref">2018</a>)</span>, requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:</p>
 <ul>
 <li><p>p: Es el número de observaciones de retraso en el modelo.</p></li>
 <li><p>d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.</p></li>
 <li><p>q: Es el tamaño de datos que se utiliza para la media móvil.</p></li>
+</ul>
+<p>Y utiliza la siguiente ecuación:</p>
+<p><span class="math display">\[
+(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(Y_t\)</span>: valor de la variable en el momento <span class="math inline">\(t\)</span>.</li>
+<li><span class="math inline">\(L\)</span>: operador de retardos (por ejemplo, <span class="math inline">\(Y_{t-1} = Y_t \cdot L\)</span>).</li>
+<li><span class="math inline">\(a_p\)</span>: coeficientes para el componente autorregresivo.</li>
+<li><span class="math inline">\(b_q\)</span>: coeficientes para el componente de medias móviles.</li>
+<li><span class="math inline">\(\varepsilon_t\)</span>: componente aleatoria.</li>
 </ul>
 <p><strong>Análisis de ARIMA</strong></p>
 <p><strong>1. Predicción de muertes de migrantes en los próximos 5 años</strong></p>
@@ -959,6 +1024,14 @@ Frequency = 1
 <hr>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-SanidadMilitar" class="csl-entry" role="listitem">
+Gallego-Nicasio Moraleda, Mínguez Novella, Rodríguez Aranda. 2018. <span>«Modelos ARIMA para la predicción del gasto conjunto de oxígeno de vuelo y otros gases en el Ejército del Aire»</span>. <em>Madrid</em> 74 (4): 1887-8571. <a href="https://doi.org/10.4321/s1887-85712018000400002">https://doi.org/10.4321/s1887-85712018000400002</a>.
+</div>
+<div id="ref-Saadeddin" class="csl-entry" role="listitem">
+Saadeddin, Zaina. 2024. <span>«ARIMA para la previsión de series temporales: Guía completa»</span>. <a href="https://www.datacamp.com/es/tutorial/arima">https://www.datacamp.com/es/tutorial/arima</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
