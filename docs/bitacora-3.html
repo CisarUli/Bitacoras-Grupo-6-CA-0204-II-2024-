@@ -229,6 +229,7 @@ window.Quarto = {
   <li><a href="#parte-de-planificación" id="toc-parte-de-planificación" class="nav-link active" data-scroll-target="#parte-de-planificación"><span class="header-section-number">3.1</span> Parte de Planificación</a>
   <ul class="collapse">
   <li><a href="#análisis-de-modelación" id="toc-análisis-de-modelación" class="nav-link" data-scroll-target="#análisis-de-modelación"><span class="header-section-number">3.1.1</span> Análisis de Modelación</a></li>
+  <li><a href="#construcción-de-fichas-de-resultados" id="toc-construcción-de-fichas-de-resultados" class="nav-link" data-scroll-target="#construcción-de-fichas-de-resultados"><span class="header-section-number">3.1.2</span> Construcción de fichas de resultados</a></li>
   </ul></li>
   <li><a href="#parte-de-escritura" id="toc-parte-de-escritura" class="nav-link" data-scroll-target="#parte-de-escritura"><span class="header-section-number">3.2</span> Parte de Escritura</a></li>
   <li><a href="#parte-de-reflexión" id="toc-parte-de-reflexión" class="nav-link" data-scroll-target="#parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</a></li>
@@ -259,7 +260,7 @@ window.Quarto = {
 
 <hr>
 <hr>
-<p>Para esta bitácora se añade un nuevo método: el modelo autorregresivo integrado de media móvil (ARIMA), además de nuevas fichas bibliográficas respceto al nuevo método.</p>
+<p>Para esta bitácora se añade un nuevo método: el modelo autorregresivo integrado de media móvil (ARIMA), además de nuevas fichas bibliográficas respecto al nuevo método.</p>
 <p><strong>Título: ARIMA para la previsión de series temporales: Guía completa. <span class="citation" data-cites="Saadeddin">(<a href="#ref-Saadeddin" role="doc-biblioref">Saadeddin 2024</a>)</span></strong></p>
 <ul>
 <li><p>Autora: Zaina Saadeddin</p></li>
@@ -707,10 +708,6 @@ Frequency = 1
 </div>
 </div>
 </div>
-<p><strong>Interpretación de resultados</strong></p>
-<p>Al analizar el patrón de muertes se pueden proyectar las futuras muertes de migrantes en un horizonte de 5 años.</p>
-<p><strong>- Predicción puntual:</strong> Se puede observar que es más probable que mueran 3.028 migrantes por año.</p>
-<p><strong>- Incertidumbre:</strong> Existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año y un 95% de que el número de muertes se encuentre entre 1.007 y 5.047</p>
 <p><strong>2. Predicción de sobrevivientes migrantes en los próximos 5 años</strong></p>
 <p>Al igual que con las muertes de migrantes, se observan algunos patrones o tendencias:</p>
 <div class="cell">
@@ -864,11 +861,7 @@ Frequency = 1
 </div>
 </div>
 </div>
-<p><strong>Interpretación de resultados</strong></p>
-<p>Al analizar el patrón de sobrevivientes se pueden proyectar el número futuro de sobrevivientes migrantes en un horizonte de 5 años.</p>
-<p><strong>- Predicción puntual:</strong> Se puede observar que es más probable que sobrevivan o sean rescatados 8.011 migrantes por año.</p>
-<p><strong>- Incertidumbre:</strong> Existe un 80% de probabilidad de que el número de sobrevivientes de los próximos años se encuentre entre 3.289 y 12.732 sobrevivientes por año y un 95% de probabilidad de que el número de sobrevivientes se encuentre entre 790 y 15.231.</p>
-<p><strong>3. Predicción de desapareciones de migrantes en los próximos 5 años</strong></p>
+<p><strong>3. Predicción de desapariciones de migrantes en los próximos 5 años</strong></p>
 <p>Al igual que en los casos anteriores, se observan algunos patrones o tendencias:</p>
 <div class="cell">
 <details class="code-fold">
@@ -1009,11 +1002,30 @@ Frequency = 1
 </div>
 </div>
 </div>
-<p><strong>Interpretación de resultados</strong></p>
-<p>Al analizar el patrón de migrantes desaparecidos se pueden proyectar el número futuras desapariciones en un horizonte de 5 años.</p>
-<p><strong>- Predicción puntual:</strong> Se puede observar que es más probable 1.224 migrantes sean reportados como desaparecidos cada año.</p>
-<p><strong>- Incertidumbre:</strong> A diferencia de los casos de muerte y sobrevivencia, la predicción del número de dsaparecidos varía por año como se muestra anteriormente, donde con un 80% de probabilidad el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.</p>
 </section>
+</section>
+<section id="construcción-de-fichas-de-resultados" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="construcción-de-fichas-de-resultados"><span class="header-section-number">3.1.2</span> Construcción de fichas de resultados</h3>
+<p><strong>6. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.</strong></p>
+<p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 se reporten 3.028 muertes.</p>
+<p><strong>Principal característica: </strong>El resultado presenta el número de muertes probable que ocurra en los próximos 5 años.</p>
+<p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
+<p><strong>Resumen en un párrafo: </strong>Se puede observar una preddicción puntual de que mueran 3.028 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año, que se diferencia en promedio en 1.321 muertes a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 1.007 y 5.047, que se diferencia en promedio en 2.020 muertes a la predicción central.</p>
+<p><strong>7. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.</strong></p>
+<p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 se reporten 8.011 muertes.</p>
+<p><strong>Principal característica: </strong>El resultado presenta el número de sobrevivientes migrantes más probable que ocurra en los próximos 5 años.</p>
+<p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
+<p><strong>Resumen en un párrafo: </strong>Se puede observar una predicción puntual de que sobrevivan o sean rescatados 8.011 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de sobrevivientes migrantes en los próximos años se encuentre entre 3.289 y 12.732 por año, que se diferencia en promedio en 4.721 a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 790 y 15.231, que se diferencia en promedio en 7.220 muertes a la predicción central.</p>
+<p><strong>8. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.</strong></p>
+<p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 sean reportados 1.224 migrantes como desaparecidos cada año</p>
+<p><strong>Principal característica: </strong>El resultado presenta el número de migrantes desaparecidos más probable que ocurra en los próximos 5 años.</p>
+<p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
+<p><strong>Resumen en un párrafo: </strong>A diferencia de los casos de muerte y sobrevivencia, la predicción puntual del número de dsaparecidos varía por año como se muestra anteriormente, donde existe una incertidumbre con un 80% de probabilidad de que el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.</p>
+<p><strong>9. Nombre del hallazgo: Más sobrevivientes que muertos</strong></p>
+<p><strong>Resumen en una oración: </strong> Se espera que se rescaten 4.983 más migrantes que los que no logran sobrevivir.</p>
+<p><strong>Principal característica: </strong>El hallazgo compara los resultados 7 y 8 y presente un mayor número de sobrevivientes al número de muertes en un futuro.</p>
+<p><strong>Problemas o posibles desafíos: </strong>No se toma en cuenta los desaparecidos, debido a que podría tratarse de posibles sobrevivientes o de muertos.</p>
+<p><strong>Resumen en un párrafo: </strong>Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.</p>
 </section>
 </section>
 <section id="parte-de-escritura" class="level2" data-number="3.2">

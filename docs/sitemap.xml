@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>google.com/bitacora-3.html</loc>
-    <lastmod>2024-10-26T21:56:12.234Z</lastmod>
-  </url>
-  <url>
     <loc>google.com/index.html</loc>
     <lastmod>2024-09-17T19:00:11.120Z</lastmod>
   </url>
@@ -15,5 +11,9 @@
   <url>
     <loc>google.com/bitacora-2.html</loc>
     <lastmod>2024-10-26T22:02:52.045Z</lastmod>
+  </url>
+  <url>
+    <loc>google.com/bitacora-3.html</loc>
+    <lastmod>2024-10-28T00:31:17.972Z</lastmod>
   </url>
 </urlset>
