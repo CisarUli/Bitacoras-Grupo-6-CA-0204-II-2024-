@@ -230,110 +230,6 @@ El modelo sugiere que hay diferencias leves en el número de muertos entre las r
 
 
 
-# Variables Importantes
-- **Region**: Región donde ocurrió el incidente.
-- **Estado**: Estado donde ocurrió el incidente.
-- **Nivel_inc**: Nivel de impacto.
-- **Total_inc**: Número de casos confirmados.
-- **Num_Fallecimientos**: Número de fallecimientos.
-- **Num_Heridos**: Número de heridos debido a incidentes de desempleo.
-- **Sector**: Sector de trabajo en el que labora el afectado de manera directamente relacionada.
-- **Grupo_et**: Clase de grupo étnico involucrado.
-- **Tipo_inc**: Tipo de migración utilizada.
-
-Se describe el análisis:
-
-1. Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.
-
-
-
-
-## Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021
-
-### Resumen general de los incidentes:
-
-#### 2019:
-- Total de incidentes: 1422
-- Total de muertes: 324
-- Total de desempleados: 1777
-- Total de muertes y desempleados: 5,481
-
-#### 2021:
-- Total de incidentes: 1380
-- Total de muertes: 238
-- Total de desempleados: 2,206
-- Total de muertes y desempleados: 5,146
-
-### Interpretación:
-Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.
-
----
-
-### Distribución regional de los incidentes:
-
-#### Regiones con mayor número de incidentes en 2019:
-1. Área Oeste/Central: 489
-2. Zona del Norte: 288
-3. Región del Este: 259
-4. Península del Norte: 169
-
-#### Regiones con mayor número de incidentes en 2021:
-1. Área Metropolitana: 417
-2. Norte del Norte: 409
-3. Mediterráneo: 353
-
-### Interpretación:
-En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.
-
----
-
-### Principales causas de muerte:
- Asesinatos: 213
-Accidentes vehiculares: 208
-
-#### 2021:
-Asesinatos: 431
-Violencia intrafamiliar: 256
-Condiciones socioeconómicas adversas: 224
-
-### Conclusión:
-Ambos años, los asesinatos fueron las causas principales de muerte. 
-
-
-# Análisis de regresión temporal: Relación entre el mes y los desaparecidos
-
-Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.
-
-### Ecuaciones de regresión
-
-#### 2019:
-- Desaparecidos = 80.34 + 10.44 × (Mes)
-  - Pendiente: 10.44
-  - Intercepto: 80.24
-
-#### 2021:
-- Desaparecidos = 164.03 + 7.17 × (Mes)
-  - Pendiente: 7.17
-  - Intercepto: 164.03
-
-### Interpretación de los resultados
-
-#### 2019:
-- La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes.
-- La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).
-
-#### 2021:
-- En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes).
-- El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.
-
----
-
-### Conclusión del análisis de regresión
-
-Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.
-
-
-
 
 #### Método #2 Modelo autorregresivo integrado de media móvil (ARIMA)
 
@@ -565,6 +461,113 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 **Problemas o posibles desafíos: **No se toma en cuenta los desaparecidos, debido a que podría tratarse de posibles sobrevivientes o de muertos.
 
 **Resumen en un párrafo: **Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.
+
+
+
+**Variables Importantes**
+
+- **Region**: Región donde ocurrió el incidente.
+- **Estado**: Estado donde ocurrió el incidente.
+- **Nivel_inc**: Nivel de impacto.
+- **Total_inc**: Número de casos confirmados.
+- **Num_Fallecimientos**: Número de fallecimientos.
+- **Num_Heridos**: Número de heridos debido a incidentes de desempleo.
+- **Sector**: Sector de trabajo en el que labora el afectado de manera directamente relacionada.
+- **Grupo_et**: Clase de grupo étnico involucrado.
+- **Tipo_inc**: Tipo de migración utilizada.
+
+Se describe el análisis:
+
+1. Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.
+
+
+
+
+**Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021**
+
+Resumen general de los incidentes:
+
+2019:
+- Total de incidentes: 1422
+- Total de muertes: 324
+- Total de desempleados: 1777
+- Total de muertes y desempleados: 5,481
+
+2021:
+- Total de incidentes: 1380
+- Total de muertes: 238
+- Total de desempleados: 2,206
+- Total de muertes y desempleados: 5,146
+
+Interpretación:
+Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.
+
+---
+
+**Distribución regional de los incidentes:**
+
+Regiones con mayor número de incidentes en 2019:
+1. Área Oeste/Central: 489
+2. Zona del Norte: 288
+3. Región del Este: 259
+4. Península del Norte: 169
+
+Regiones con mayor número de incidentes en 2021:
+1. Área Metropolitana: 417
+2. Norte del Norte: 409
+3. Mediterráneo: 353
+
+Interpretación:
+En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.
+
+---
+
+**Principales causas de muerte:**
+ Asesinatos: 213
+Accidentes vehiculares: 208
+
+2021:
+Asesinatos: 431
+Violencia intrafamiliar: 256
+Condiciones socioeconómicas adversas: 224
+
+Conclusión:
+Ambos años, los asesinatos fueron las causas principales de muerte. 
+
+
+**Análisis de regresión temporal: Relación entre el mes y los desaparecidos**
+
+Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.
+
+**Ecuaciones de regresión**
+
+2019:
+- Desaparecidos = 80.34 + 10.44 × (Mes)
+  - Pendiente: 10.44
+  - Intercepto: 80.24
+
+2021:
+- Desaparecidos = 164.03 + 7.17 × (Mes)
+  - Pendiente: 7.17
+  - Intercepto: 164.03
+
+Interpretación de los resultados
+
+2019:
+- La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes.
+- La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).
+
+2021:
+- En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes).
+- El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.
+
+---
+
+### Conclusión del análisis de regresión
+
+Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.
+
+
 
 ### Ordenamiento de los elementos del reporte
 
