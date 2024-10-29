@@ -229,6 +229,102 @@ El modelo sugiere que hay diferencias leves en el número de muertos entre las r
 
 
 
+**Variables Importantes**
+
+- **Region**: Región donde ocurrió el incidente.
+- **Estado**: Estado donde ocurrió el incidente.
+- **Nivel_inc**: Nivel de impacto.
+- **Total_inc**: Número de casos confirmados.
+- **Num_Fallecimientos**: Número de fallecimientos.
+- **Num_Heridos**: Número de heridos debido a incidentes de desempleo.
+- **Sector**: Sector de trabajo en el que labora el afectado de manera directamente relacionada.
+- **Grupo_et**: Clase de grupo étnico involucrado.
+- **Tipo_inc**: Tipo de migración utilizada.
+
+Se describe el análisis:
+
+1. Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.
+
+
+
+
+**Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021**
+
+Resumen general de los incidentes:
+
+2019:
+- Total de incidentes: 1422
+- Total de muertes: 324
+- Total de desempleados: 1777
+- Total de muertes y desempleados: 5,481
+
+2021:
+- Total de incidentes: 1380
+- Total de muertes: 238
+- Total de desempleados: 2,206
+- Total de muertes y desempleados: 5,146
+
+Interpretación:
+Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.
+
+---
+
+**Distribución regional de los incidentes:**
+
+Regiones con mayor número de incidentes en 2019:
+1. Área Oeste/Central: 489
+2. Zona del Norte: 288
+3. Región del Este: 259
+4. Península del Norte: 169
+
+Regiones con mayor número de incidentes en 2021:
+1. Área Metropolitana: 417
+2. Norte del Norte: 409
+3. Mediterráneo: 353
+
+Interpretación:
+En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.
+
+---
+
+**Principales causas de muerte:**
+ Asesinatos: 213
+Accidentes vehiculares: 208
+
+2021:
+Asesinatos: 431
+Violencia intrafamiliar: 256
+Condiciones socioeconómicas adversas: 224
+
+Conclusión:
+Ambos años, los asesinatos fueron las causas principales de muerte. 
+
+
+**Análisis de regresión temporal: Relación entre el mes y los desaparecidos**
+
+Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.
+
+**Ecuaciones de regresión**
+
+2019:
+- Desaparecidos = 80.34 + 10.44 × (Mes)
+  - Pendiente: 10.44
+  - Intercepto: 80.24
+
+2021:
+- Desaparecidos = 164.03 + 7.17 × (Mes)
+  - Pendiente: 7.17
+  - Intercepto: 164.03
+
+Interpretación de los resultados
+
+2019:
+- La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes.
+- La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).
+
+2021:
+- En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes).
+- El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.
 
 
 #### Método #2 Modelo autorregresivo integrado de media móvil (ARIMA)
@@ -397,32 +493,47 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 ### Construcción de fichas de resultados
 
 
-- **1. **Nombre de su hallazgo/resultado**: Incidentes totales en 2019 y 2021.**
+- **6. Nombre de su hallazgo/resultado: Incidentes totales en 2019 y 2021.**
+
 - **Resumen en una oración**: Se registraron 1,422 incidentes en 2019 y 1,380 en 2021.
+
 - **Principal característica**: Pequeña dismuninución en la cantidad de incidentes entre los dos años.
+
 - **Problemas o posibles desafíos**: La diferencia en los incidentes podría estar influenciada por factores externos como la pandemia de COVID, con lo cual se requiere contextualizar los datos.
+
 - **Resumen en un párrafo**: En el análisis de los incidentes entre 2019 y 2021, se observa una ligera reducción en la cantidad total. Esto podría estar relacionado con variaciones en patrones migratorios y factores socioeconómicos como los causados por la pandemia. A pesar de la disminución en el total, otros factores muestran tendencias significativas que ameritan un análisis detallado.
 
-- **2. Nombre de su hallazgo/resultado**: Variables clave en el análisis de incidentes migratorios*
+- **7. Nombre de su hallazgo/resultado: Variables clave en el análisis de incidentes migratorios**
+
 - **Resumen en una oración**: Se identificaron variables importantes relacionadas con la ubicación, impacto, consecuencias y características de los incidentes migratorios.
+
 - **Principal característica**: Las variables recolectaron información detallada sobre la región, estado, nivel de impacto, y consecuencias como muertes, heridos y desempleo, lo cual permite un análisis exhaustivo de cada incidente.
+
 - **Problemas o posibles desafíos**: La complejidad de las variables y la variabilidad en los datos podrían tergiversan una información uniforme, especialmente en comparación interanual.
+
 - **Resumen en un párrafo**: En el análisis de incidentes migratorios, se definieron variables clave que permiten categorizar y analizar cada caso con detalle. Estas incluyen información sobre la ubicación geográfica (región y estado), el nivel de impacto, la cantidad de incidentes confirmados, y las consecuencias en términos de fallecimientos, heridos y desempleo. También se consideran el sector de trabajo de los afectados, el grupo étnico involucrado, y el tipo de migración, lo cual facilita identificar patrones y diferencias significativas entre los años 2019 y 2021.
 
-- **3. Nombre de su hallazgo/resultado**: Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos*
+- **8. Nombre de su hallazgo/resultado: Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos**
+
 - **Resumen en una oración**: Se encontró una relación positiva entre el total de muertos y desaparecidos y el número de muertos en incidentes migratorios.
+
 - **Principal característica**: La pendiente de la regresión indica que, en promedio, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos aumenta en 0.18 personas.
+
 - **Problemas o posibles desafíos**: La interpretación del intercepto es sumamente significativa.
+
 - **Resumen en un párrafo**: El análisis de regresión entre el total de muertos y desaparecidos y el número de muertos revela una relación positiva esperada, con una pendiente que sugiere que, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos se incrementa en aproximadamente 0.18 personas.
 
-- **4. Nombre de su hallazgo/resultado**: Relación entre la Región y el Número de Muertos*
+- **9. Nombre de su hallazgo/resultado: Relación entre la Región y el Número de Muertos**
+
 - **Resumen en una oración**: Se observan diferencias leves en el número de muertos entre regiones, pero la relación no es significativa.
+
 - **Principal característica**: La pendiente de 0.0774 indica un aumento leve en el número de muertos al pasar de una región a otra.
+
 - **Problemas o posibles desafíos**: La pequeña pendiente sugiere que las variaciones en el número de muertos entre regiones no son relevantes, limitando la utilidad del modelo para identificar diferencias significativas.
+
 - **Resumen en un párrafo**: El análisis de regresión que relaciona las regiones (codificadas numéricamente) y el número de muertos muestra una pendiente baja (0.0774), lo que sugiere diferencias leves en el número de muertos al cambiar de una región a otra. Aunque el modelo sugiere una ligera variación, esta no es significativa y no refleja una diferencia drástica entre las regiones. El intercepto de 1.31 indica el número esperado de muertos en la primera región codificada. En conclusión, aunque hay una relación entre la región y el número de muertos, esta no es suficiente para ser estadísticamente relevante.
 
-
-**6. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.**
+**10. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.**
 
 **Resumen en una oración: **Se espera que del 2023 al 2027 se reporten 3.028 muertes.
 
@@ -432,7 +543,7 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 
 **Resumen en un párrafo: **Se puede observar una preddicción puntual de que mueran 3.028 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año, que se diferencia en promedio en 1.321 muertes a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 1.007 y 5.047, que se diferencia en promedio en 2.020 muertes a la predicción central.
 
-**7. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.**
+**11. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.**
 
 **Resumen en una oración: **Se espera que del 2023 al 2027 se reporten 8.011 muertes.
 
@@ -442,7 +553,7 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 
 **Resumen en un párrafo: **Se puede observar una predicción puntual de que sobrevivan o sean rescatados 8.011 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de sobrevivientes migrantes en los próximos años se encuentre entre 3.289 y 12.732 por año, que se diferencia en promedio en 4.721 a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 790 y 15.231, que se diferencia en promedio en 7.220 muertes a la predicción central.
 
-**8. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.**
+**12. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.**
 
 **Resumen en una oración: **Se espera que del 2023 al 2027 sean reportados 1.224 migrantes como desaparecidos cada año
 
@@ -452,7 +563,7 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 
 **Resumen en un párrafo: **A diferencia de los casos de muerte y sobrevivencia, la predicción puntual del número de dsaparecidos varía por año como se muestra anteriormente, donde existe una incertidumbre con un 80% de probabilidad  de que el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.
 
-**9. Nombre del hallazgo: Más sobrevivientes que muertos**
+**13. Nombre del hallazgo: Más sobrevivientes que muertos**
 
 **Resumen en una oración: ** Se espera que se rescaten 4.983 más migrantes que los que no logran sobrevivir.
 
@@ -462,104 +573,6 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 
 **Resumen en un párrafo: **Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.
 
-
-
-**Variables Importantes**
-
-- **Region**: Región donde ocurrió el incidente.
-- **Estado**: Estado donde ocurrió el incidente.
-- **Nivel_inc**: Nivel de impacto.
-- **Total_inc**: Número de casos confirmados.
-- **Num_Fallecimientos**: Número de fallecimientos.
-- **Num_Heridos**: Número de heridos debido a incidentes de desempleo.
-- **Sector**: Sector de trabajo en el que labora el afectado de manera directamente relacionada.
-- **Grupo_et**: Clase de grupo étnico involucrado.
-- **Tipo_inc**: Tipo de migración utilizada.
-
-Se describe el análisis:
-
-1. Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.
-
-
-
-
-**Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021**
-
-Resumen general de los incidentes:
-
-2019:
-- Total de incidentes: 1422
-- Total de muertes: 324
-- Total de desempleados: 1777
-- Total de muertes y desempleados: 5,481
-
-2021:
-- Total de incidentes: 1380
-- Total de muertes: 238
-- Total de desempleados: 2,206
-- Total de muertes y desempleados: 5,146
-
-Interpretación:
-Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.
-
----
-
-**Distribución regional de los incidentes:**
-
-Regiones con mayor número de incidentes en 2019:
-1. Área Oeste/Central: 489
-2. Zona del Norte: 288
-3. Región del Este: 259
-4. Península del Norte: 169
-
-Regiones con mayor número de incidentes en 2021:
-1. Área Metropolitana: 417
-2. Norte del Norte: 409
-3. Mediterráneo: 353
-
-Interpretación:
-En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.
-
----
-
-**Principales causas de muerte:**
- Asesinatos: 213
-Accidentes vehiculares: 208
-
-2021:
-Asesinatos: 431
-Violencia intrafamiliar: 256
-Condiciones socioeconómicas adversas: 224
-
-Conclusión:
-Ambos años, los asesinatos fueron las causas principales de muerte. 
-
-
-**Análisis de regresión temporal: Relación entre el mes y los desaparecidos**
-
-Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.
-
-**Ecuaciones de regresión**
-
-2019:
-- Desaparecidos = 80.34 + 10.44 × (Mes)
-  - Pendiente: 10.44
-  - Intercepto: 80.24
-
-2021:
-- Desaparecidos = 164.03 + 7.17 × (Mes)
-  - Pendiente: 7.17
-  - Intercepto: 164.03
-
-Interpretación de los resultados
-
-2019:
-- La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes.
-- La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).
-
-2021:
-- En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes).
-- El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.
 
 ---
 
@@ -595,7 +608,6 @@ Ahora se ordenan los elementos por sección:
 
 
 ## Parte de Escritura
-
 
 ## Parte de reflexión
 ---
