@@ -30,6 +30,8 @@ format:
     code-summary: "Código"
   pdf:
     documentclass: scrreprt
+    prefer-html: TRUE
+    webshot: TRUE
 
 execute:
   freeze: auto
