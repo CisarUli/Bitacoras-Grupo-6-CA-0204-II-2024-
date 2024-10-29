@@ -227,6 +227,53 @@ La ecuación de la regresión es:
 
 El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.
 
+
+
+
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+
+data_2019 = pd.read_csv("MissingMigrants-Global-2019.csv")
+data_2021 = pd.read_csv("MissingMigrants-Global-2021.csv")
+
+
+data_2019['Incident Date'] = pd.to_datetime(data_2019['Incident Date'], errors='coerce')
+data_2021['Incident Date'] = pd.to_datetime(data_2021['Incident Date'], errors='coerce')
+
+data_2019['Month'] = data_2019['Incident Date'].dt.month
+data_2021['Month'] = data_2021['Incident Date'].dt.month
+
+# Resumen descriptivo 2019
+summary_2019 = {
+    "Total Incidents": data_2019.shape[0],
+    "Total Dead": data_2019["Number Dead"].sum(),
+    "Total Missing": data_2019["Minimum Estimated Number of Missing"].sum(),
+    "Total Dead and Missing": data_2019["Total Number of Dead and Missing"].sum(),
+}
+print("Resumen 2019:", summary_2019)
+
+# Resumen descriptivo 2021
+summary_2021 = {
+    "Total Incidents": data_2021.shape[0],
+    "Total Dead": data_2021["Number Dead"].sum(),
+    "Total Missing": data_2021["Minimum Estimated Number of Missing"].sum(),
+    "Total Dead and Missing": data_2021["Total Number of Dead and Missing"].sum(),
+}
+print("Resumen 2021:", summary_2021)
+
+# Distribución por región
+print("\nDistribución por región en 2019:\n", data_2019["Region"].value_counts())
+print("\nDistribución por región en 2021:\n", data_2021["Region"].value_counts())
+
+# Principales causas de muerte
+print("\nCausas principales en 2019:\n", data_2019["Cause of Death"].value_counts().head(5))
+print("\nCausas principales en 2021:\n", data_2021["Cause of Death"].value_counts().head(5))
+
+
+
+
 #### Método #2 Modelo autorregresivo integrado de media móvil (ARIMA)
 
 Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años. 
