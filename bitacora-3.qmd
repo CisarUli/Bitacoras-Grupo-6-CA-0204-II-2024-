@@ -147,7 +147,7 @@ glimpse(migrantes_desaparecidos)
 
 ````
 
-#### Método #2: Regresión Lineal Simple (Datos 2022)
+#### Método #1: Regresión Lineal Simple (Datos 2022)
 ````{r}
 # Cargar datos
 data <- read.csv("data/MissingMigrants-Global-2022.csv")
@@ -227,7 +227,7 @@ La ecuación de la regresión es:
 
 El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.
 
-#### Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)
+#### Método #2 Modelo autorregresivo integrado de media móvil (ARIMA)
 
 Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años. 
 
@@ -432,9 +432,86 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 
 **Resumen en un párrafo: **Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.
 
+### Ordenamiento de los elementos del reporte
 
+Se dividen los elementos principales de la investigación en primarios y secundarios como se muestra en la siguientes tabla:
+
+````{r}
+
+library(knitr)
+library(kableExtra)
+
+elementos <- data.frame(
+  Primarios = c(
+    "Las medidas de tendencia central", 
+    "Cómo utilizar el modelo ARIMA",
+    "Análisis de regresión lineal simple",
+    "Geografía de la migración",
+    "Predicción de muertes de migrantes",
+    "Predicción de sobrevivientes migrantes",
+    "Predicción de desapariciones de migrantes"
+    ),
+  Secundarios = c(
+    "Implicaciones de la desaparición de inmigrantes", 
+    "Aspectos psicológicos de la inmigración",
+    "Importancia de los datos migratorios para modelar y formar correctas políticas",
+    "Protección de migrantes de desapariciones forzadas",
+    "Comparación de muertes y rescates de migrantes",
+    " ",
+    " "
+    )
+)
+kable(elementos, "html", col.names = c("Primarios", "Secundarios")) |>
+  kable_styling("striped", full_width = F) |>
+  add_header_above(c("Elementos de reporte" = 2)) |>
+  column_spec(1:2, width = "5cm", extra_css = "text-align: left;") |>
+  row_spec(0, bold = T)
+
+
+````
+
+Ahora se ordenan los elementos por sección:
+
+````{r}
+
+library(knitr)
+library(kableExtra)
+
+elementos <- data.frame(
+  Sección = c(
+   "Introducción",
+   "Metodología",
+   "Resultados"
+    ),
+  Temas = c(
+    "1. Geografía de la migración<br>
+    2. Importancia de los datos migratorios para modelar y formar correctas políticas<br>
+    3. Aspectos psicológicos de la inmigración<br>
+    4. Protección de migrantes de desapariciones forzadas",
+    
+    "1. Las medidas de tendencia central<br>
+    2. Análisis de regresión lineal simple<br>
+    3. Cómo utilizar el modelo ARIMA",
+    
+    "1. Predicción de muertes de migrantes<br>
+    2. Predicción de sobrevivientes migrantes<br>
+    3. Predicción de desapariciones de migrantes<br>
+    4. Comparación de muertes y rescates de migrantes<br>
+    5. Implicaciones de la desaparición de inmigrantes"
+    )
+)
+kable(elementos, "html", escape = FALSE, col.names = c("Sección", "Temas a tratar")) |>
+  kable_styling("striped", full_width = F) |>
+  add_header_above(c("Elementos de reporte" = 2)) |>
+  column_spec(1:2, extra_css = "text-align: left;") |>
+  row_spec(0, bold = T)
+
+
+````
 
 ## Parte de Escritura
+
+
 ## Parte de reflexión
 ---
 

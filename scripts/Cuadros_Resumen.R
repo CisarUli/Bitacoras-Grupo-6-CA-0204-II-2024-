@@ -59,4 +59,33 @@ migrantes_desaparecidos |> #Muerte por sexo por año
     per_mujeres = mujeres/(mujeres + hombres) * 100
   )
 
+library(knitr)
+library(kableExtra)
+
+elementos <- data.frame(
+  Primarios = c(
+    "Las medidas de tendencia central", 
+    "Cómo utilizar el modelo ARIMA",
+    "Análisis de regresión lineal simple",
+    "Geografía de la migración",
+    "Predicción de muertes de migrantes",
+    "Predicción de sobrevivientes migrantes",
+    "Predicción de desapariciones de migrantes"
+  ),
+  Secundarios = c(
+    "Implicaciones de la desaparición de inmigrantes", 
+    "Aspectos psicológicos de la inmigración",
+    "Importancia de los datos migratorios para modelar y formar correctas políticas",
+    "Protección de migrantes de desapariciones forzadas",
+    "Comparación de muertes y rescates de migrantes",
+    " ",
+    " "
+  )
+)
+kable(elementos, "html", col.names = c("Primarios", "Secundarios")) |>
+  kable_styling("striped", full_width = F) |>
+  add_header_above(c("Elementos de reporte" = 2)) |>
+  column_spec(1:2, width = "5cm", extra_css = "text-align: left;") |>
+  row_spec(0, bold = T)
+
 
