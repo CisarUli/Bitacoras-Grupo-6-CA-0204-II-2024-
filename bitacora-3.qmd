@@ -230,68 +230,77 @@ El modelo sugiere que hay diferencias leves en el número de muertos entre las r
 
 
 
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-import numpy as np
+# Variables Importantes
+- **Region**: Región donde ocurrió el incidente.
+- **Estado**: Estado donde ocurrió el incidente.
+- **Nivel_inc**: Nivel de impacto.
+- **Total_inc**: Número de casos confirmados.
+- **Num_Fallecimientos**: Número de fallecimientos.
+- **Num_Heridos**: Número de heridos debido a incidentes de desempleo.
+- **Sector**: Sector de trabajo en el que labora el afectado de manera directamente relacionada.
+- **Grupo_et**: Clase de grupo étnico involucrado.
+- **Tipo_inc**: Tipo de migración utilizada.
+
+Se describe el análisis:
+
+1. Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.
 
 
-data_2019 = pd.read_csv("MissingMigrants-Global-2019.csv")
-data_2021 = pd.read_csv("MissingMigrants-Global-2021.csv")
 
 
-data_2019['Incident Date'] = pd.to_datetime(data_2019['Incident Date'], errors='coerce')
-data_2021['Incident Date'] = pd.to_datetime(data_2021['Incident Date'], errors='coerce')
+## Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021
 
-data_2019['Month'] = data_2019['Incident Date'].dt.month
-data_2021['Month'] = data_2021['Incident Date'].dt.month
+### Resumen general de los incidentes:
 
-# Resumen descriptivo 2019
-summary_2019 = {
-    "Total Incidents": data_2019.shape[0],
-    "Total Dead": data_2019["Number Dead"].sum(),
-    "Total Missing": data_2019["Minimum Estimated Number of Missing"].sum(),
-    "Total Dead and Missing": data_2019["Total Number of Dead and Missing"].sum(),
-}
-print("Resumen 2019:", summary_2019)
+#### 2019:
+- Total de incidentes: 1422
+- Total de muertes: 324
+- Total de desempleados: 1777
+- Total de muertes y desempleados: 5,481
 
-# Resumen descriptivo 2021
-summary_2021 = {
-    "Total Incidents": data_2021.shape[0],
-    "Total Dead": data_2021["Number Dead"].sum(),
-    "Total Missing": data_2021["Minimum Estimated Number of Missing"].sum(),
-    "Total Dead and Missing": data_2021["Total Number of Dead and Missing"].sum(),
-}
-print("Resumen 2021:", summary_2021)
+#### 2021:
+- Total de incidentes: 1380
+- Total de muertes: 238
+- Total de desempleados: 2,206
+- Total de muertes y desempleados: 5,146
 
-# Distribución por región
-print("\nDistribución por región en 2019:\n", data_2019["Region"].value_counts())
-print("\nDistribución por región en 2021:\n", data_2021["Region"].value_counts())
+### Interpretación:
+Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.
 
-# Principales causas de muerte
-print("\nCausas principales en 2019:\n", data_2019["Cause of Death"].value_counts().head(5))
-print("\nCausas principales en 2021:\n", data_2021["Cause of Death"].value_counts().head(5))
+---
 
-# Regresión lineal por mes para 2019
-monthly_missing_2019 = data_2019.groupby('Month')['Minimum Estimated Number of Missing'].sum()
-X_2019 = np.array(monthly_missing_2019.index).reshape(-1, 1)
-y_2019 = monthly_missing_2019.values
+### Distribución regional de los incidentes:
 
-reg_2019 = LinearRegression().fit(X_2019, y_2019)
-coef_2019 = reg_2019.coef_[0]
-intercept_2019 = reg_2019.intercept_
+#### Regiones con mayor número de incidentes en 2019:
+1. Área Oeste/Central: 489
+2. Zona del Norte: 288
+3. Región del Este: 259
+4. Península del Norte: 169
 
-print(f"\nRegresión 2019: Desaparecidos = {intercept_2019:.2f} + {coef_2019:.2f} * Mes")
+#### Regiones con mayor número de incidentes en 2021:
+1. Área Metropolitana: 417
+2. Norte del Norte: 409
+3. Mediterráneo: 353
 
-# Regresión lineal por mes para 2021
-monthly_missing_2021 = data_2021.groupby('Month')['Minimum Estimated Number of Missing'].sum()
-X_2021 = np.array(monthly_missing_2021.index).reshape(-1, 1)
-y_2021 = monthly_missing_2021.values
+### Interpretación:
+En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.
 
-reg_2021 = LinearRegression().fit(X_2021, y_2021)
-coef_2021 = reg_2021.coef_[0]
-intercept_2021 = reg_2021.intercept_
+---
 
-print(f"Regresión 2021: Desaparecidos = {intercept_2021:.2f} + {coef_2021:.2f} * Mes")
+### Principales causas de muerte:
+ Asesinatos: 213
+Accidentes vehiculares: 208
+
+#### 2021:
+Asesinatos: 431
+Violencia intrafamiliar: 256
+Condiciones socioeconómicas adversas: 224
+
+### Conclusión:
+Ambos años, los asesinatos fueron las causas principales de muerte. 
+
+
+
 
 
 
