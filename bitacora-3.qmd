@@ -500,6 +500,15 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 
 ### Construcción de fichas de resultados
 
+
+- **1. **Nombre de su hallazgo/resultado**: Incidentes totales en 2019 y 2021.**
+- **Resumen en una oración**: Se registraron 1,422 incidentes en 2019 y 1,380 en 2021.
+- **Principal característica**: Pequeña dismuninución en la cantidad de incidentes entre los dos años.
+- **Problemas o posibles desafíos**: La diferencia en los incidentes podría estar influenciada por factores externos como la pandemia de COVID, con lo cual se requiere contextualizar los datos.
+- **Resumen en un párrafo**: En el análisis de los incidentes entre 2019 y 2021, se observa una ligera reducción en la cantidad total. Esto podría estar relacionado con variaciones en patrones migratorios y factores socioeconómicos como los causados por la pandemia. A pesar de la disminución en el total, otros factores muestran tendencias significativas que ameritan un análisis detallado.
+
+
+
 **6. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.**
 
 **Resumen en una oración: **Se espera que del 2023 al 2027 se reporten 3.028 muertes.
