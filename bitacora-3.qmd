@@ -519,6 +519,13 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 - **Problemas o posibles desafíos**: La interpretación del intercepto es sumamente significativa.
 - **Resumen en un párrafo**: El análisis de regresión entre el total de muertos y desaparecidos y el número de muertos revela una relación positiva esperada, con una pendiente que sugiere que, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos se incrementa en aproximadamente 0.18 personas.
 
+- **4. Nombre de su hallazgo/resultado**: Relación entre la Región y el Número de Muertos*
+- **Resumen en una oración**: Se observan diferencias leves en el número de muertos entre regiones, pero la relación no es significativa.
+- **Principal característica**: La pendiente de 0.0774 indica un aumento leve en el número de muertos al pasar de una región a otra.
+- **Problemas o posibles desafíos**: La pequeña pendiente sugiere que las variaciones en el número de muertos entre regiones no son relevantes, limitando la utilidad del modelo para identificar diferencias significativas.
+- **Resumen en un párrafo**: El análisis de regresión que relaciona las regiones (codificadas numéricamente) y el número de muertos muestra una pendiente baja (0.0774), lo que sugiere diferencias leves en el número de muertos al cambiar de una región a otra. Aunque el modelo sugiere una ligera variación, esta no es significativa y no refleja una diferencia drástica entre las regiones. El intercepto de 1.31 indica el número esperado de muertos en la primera región codificada. En conclusión, aunque hay una relación entre la región y el número de muertos, esta no es suficiente para ser estadísticamente relevante.
+
+
 **6. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.**
 
 **Resumen en una oración: **Se espera que del 2023 al 2027 se reporten 3.028 muertes.
