@@ -271,6 +271,27 @@ print("\nDistribución por región en 2021:\n", data_2021["Region"].value_counts
 print("\nCausas principales en 2019:\n", data_2019["Cause of Death"].value_counts().head(5))
 print("\nCausas principales en 2021:\n", data_2021["Cause of Death"].value_counts().head(5))
 
+# Regresión lineal por mes para 2019
+monthly_missing_2019 = data_2019.groupby('Month')['Minimum Estimated Number of Missing'].sum()
+X_2019 = np.array(monthly_missing_2019.index).reshape(-1, 1)
+y_2019 = monthly_missing_2019.values
+
+reg_2019 = LinearRegression().fit(X_2019, y_2019)
+coef_2019 = reg_2019.coef_[0]
+intercept_2019 = reg_2019.intercept_
+
+print(f"\nRegresión 2019: Desaparecidos = {intercept_2019:.2f} + {coef_2019:.2f} * Mes")
+
+# Regresión lineal por mes para 2021
+monthly_missing_2021 = data_2021.groupby('Month')['Minimum Estimated Number of Missing'].sum()
+X_2021 = np.array(monthly_missing_2021.index).reshape(-1, 1)
+y_2021 = monthly_missing_2021.values
+
+reg_2021 = LinearRegression().fit(X_2021, y_2021)
+coef_2021 = reg_2021.coef_[0]
+intercept_2021 = reg_2021.intercept_
+
+print(f"Regresión 2021: Desaparecidos = {intercept_2021:.2f} + {coef_2021:.2f} * Mes")
 
 
 
