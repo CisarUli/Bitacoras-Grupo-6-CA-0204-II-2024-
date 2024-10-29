@@ -12,3 +12,5 @@ knitr
 countrycode
 tseries
 forecast
+kableExtra
+webshot2
