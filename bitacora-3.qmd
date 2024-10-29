@@ -507,6 +507,11 @@ plot(prediccion_desaparecidos, main="Predicción de desapariciones de migrantes 
 - **Problemas o posibles desafíos**: La diferencia en los incidentes podría estar influenciada por factores externos como la pandemia de COVID, con lo cual se requiere contextualizar los datos.
 - **Resumen en un párrafo**: En el análisis de los incidentes entre 2019 y 2021, se observa una ligera reducción en la cantidad total. Esto podría estar relacionado con variaciones en patrones migratorios y factores socioeconómicos como los causados por la pandemia. A pesar de la disminución en el total, otros factores muestran tendencias significativas que ameritan un análisis detallado.
 
+- **2. Nombre de su hallazgo/resultado**: Variables clave en el análisis de incidentes migratorios*
+- **Resumen en una oración**: Se identificaron variables importantes relacionadas con la ubicación, impacto, consecuencias y características de los incidentes migratorios.
+- **Principal característica**: Las variables recolectaron información detallada sobre la región, estado, nivel de impacto, y consecuencias como muertes, heridos y desempleo, lo cual permite un análisis exhaustivo de cada incidente.
+- **Problemas o posibles desafíos**: La complejidad de las variables y la variabilidad en los datos podrían tergiversan una información uniforme, especialmente en comparación interanual.
+- **Resumen en un párrafo**: En el análisis de incidentes migratorios, se definieron variables clave que permiten categorizar y analizar cada caso con detalle. Estas incluyen información sobre la ubicación geográfica (región y estado), el nivel de impacto, la cantidad de incidentes confirmados, y las consecuencias en términos de fallecimientos, heridos y desempleo. También se consideran el sector de trabajo de los afectados, el grupo étnico involucrado, y el tipo de migración, lo cual facilita identificar patrones y diferencias significativas entre los años 2019 y 2021.
 
 
 **6. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.**
