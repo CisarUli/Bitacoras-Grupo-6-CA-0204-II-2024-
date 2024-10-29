@@ -300,6 +300,37 @@ Condiciones socioeconómicas adversas: 224
 Ambos años, los asesinatos fueron las causas principales de muerte. 
 
 
+# Análisis de regresión temporal: Relación entre el mes y los desaparecidos
+
+Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.
+
+### Ecuaciones de regresión
+
+#### 2019:
+- Desaparecidos = 80.34 + 10.44 × (Mes)
+  - Pendiente: 10.44
+  - Intercepto: 80.24
+
+#### 2021:
+- Desaparecidos = 164.03 + 7.17 × (Mes)
+  - Pendiente: 7.17
+  - Intercepto: 164.03
+
+### Interpretación de los resultados
+
+#### 2019:
+- La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes.
+- La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).
+
+#### 2021:
+- En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes).
+- El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.
+
+---
+
+### Conclusión del análisis de regresión
+
+Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.
 
 
 
