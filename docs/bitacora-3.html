@@ -230,7 +230,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#análisis-de-modelación" id="toc-análisis-de-modelación" class="nav-link" data-scroll-target="#análisis-de-modelación"><span class="header-section-number">3.1.1</span> Análisis de Modelación</a></li>
   <li><a href="#construcción-de-fichas-de-resultados" id="toc-construcción-de-fichas-de-resultados" class="nav-link" data-scroll-target="#construcción-de-fichas-de-resultados"><span class="header-section-number">3.1.2</span> Construcción de fichas de resultados</a></li>
-  <li><a href="#ordenamiento-de-los-elementos-del-reporte" id="toc-ordenamiento-de-los-elementos-del-reporte" class="nav-link" data-scroll-target="#ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.3</span> Ordenamiento de los elementos del reporte</a></li>
+  <li><a href="#conclusión-del-análisis-de-regresión" id="toc-conclusión-del-análisis-de-regresión" class="nav-link" data-scroll-target="#conclusión-del-análisis-de-regresión"><span class="header-section-number">3.1.3</span> Conclusión del análisis de regresión</a></li>
+  <li><a href="#ordenamiento-de-los-elementos-del-reporte" id="toc-ordenamiento-de-los-elementos-del-reporte" class="nav-link" data-scroll-target="#ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.4</span> Ordenamiento de los elementos del reporte</a></li>
   </ul></li>
   <li><a href="#parte-de-escritura" id="toc-parte-de-escritura" class="nav-link" data-scroll-target="#parte-de-escritura"><span class="header-section-number">3.2</span> Parte de Escritura</a></li>
   <li><a href="#parte-de-reflexión" id="toc-parte-de-reflexión" class="nav-link" data-scroll-target="#parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</a></li>
@@ -533,6 +534,44 @@ F-statistic: 3.105 on 1 and 773 DF,  p-value: 0.07842</code></pre>
 <li><p><strong>Intercepto (<span class="math inline">\(\beta_0 = 1.3123\)</span>)</strong>: Cuando la región es la primera codificada, el número esperado de muertos es de <strong>1.31 personas</strong>.</p></li>
 </ul>
 <p>El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.</p>
+<p><strong>Variables Importantes</strong></p>
+<ul>
+<li><strong>Region</strong>: Región donde ocurrió el incidente.</li>
+<li><strong>Estado</strong>: Estado donde ocurrió el incidente.</li>
+<li><strong>Nivel_inc</strong>: Nivel de impacto.</li>
+<li><strong>Total_inc</strong>: Número de casos confirmados.</li>
+<li><strong>Num_Fallecimientos</strong>: Número de fallecimientos.</li>
+<li><strong>Num_Heridos</strong>: Número de heridos debido a incidentes de desempleo.</li>
+<li><strong>Sector</strong>: Sector de trabajo en el que labora el afectado de manera directamente relacionada.</li>
+<li><strong>Grupo_et</strong>: Clase de grupo étnico involucrado.</li>
+<li><strong>Tipo_inc</strong>: Tipo de migración utilizada.</li>
+</ul>
+<p>Se describe el análisis:</p>
+<ol type="1">
+<li>Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.</li>
+</ol>
+<p><strong>Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021</strong></p>
+<p>Resumen general de los incidentes:</p>
+<p>2019: - Total de incidentes: 1422 - Total de muertes: 324 - Total de desempleados: 1777 - Total de muertes y desempleados: 5,481</p>
+<p>2021: - Total de incidentes: 1380 - Total de muertes: 238 - Total de desempleados: 2,206 - Total de muertes y desempleados: 5,146</p>
+<p>Interpretación: Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.</p>
+<hr>
+<p><strong>Distribución regional de los incidentes:</strong></p>
+<p>Regiones con mayor número de incidentes en 2019: 1. Área Oeste/Central: 489 2. Zona del Norte: 288 3. Región del Este: 259 4. Península del Norte: 169</p>
+<p>Regiones con mayor número de incidentes en 2021: 1. Área Metropolitana: 417 2. Norte del Norte: 409 3. Mediterráneo: 353</p>
+<p>Interpretación: En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.</p>
+<hr>
+<p><strong>Principales causas de muerte:</strong> Asesinatos: 213 Accidentes vehiculares: 208</p>
+<p>2021: Asesinatos: 431 Violencia intrafamiliar: 256 Condiciones socioeconómicas adversas: 224</p>
+<p>Conclusión: Ambos años, los asesinatos fueron las causas principales de muerte.</p>
+<p><strong>Análisis de regresión temporal: Relación entre el mes y los desaparecidos</strong></p>
+<p>Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.</p>
+<p><strong>Ecuaciones de regresión</strong></p>
+<p>2019: - Desaparecidos = 80.34 + 10.44 × (Mes) - Pendiente: 10.44 - Intercepto: 80.24</p>
+<p>2021: - Desaparecidos = 164.03 + 7.17 × (Mes) - Pendiente: 7.17 - Intercepto: 164.03</p>
+<p>Interpretación de los resultados</p>
+<p>2019: - La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes. - La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).</p>
+<p>2021: - En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes). - El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.</p>
 </section>
 <section id="método-2-modelo-autorregresivo-integrado-de-media-móvil-arima" class="level4" data-number="3.1.1.2">
 <h4 data-number="3.1.1.2" class="anchored" data-anchor-id="método-2-modelo-autorregresivo-integrado-de-media-móvil-arima"><span class="header-section-number">3.1.1.2</span> Método #2 Modelo autorregresivo integrado de media móvil (ARIMA)</h4>
@@ -1007,29 +1046,56 @@ Frequency = 1
 </section>
 <section id="construcción-de-fichas-de-resultados" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="construcción-de-fichas-de-resultados"><span class="header-section-number">3.1.2</span> Construcción de fichas de resultados</h3>
-<p><strong>6. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.</strong></p>
+<ul>
+<li><p><strong>6. Nombre de su hallazgo/resultado: Incidentes totales en 2019 y 2021.</strong></p></li>
+<li><p><strong>Resumen en una oración</strong>: Se registraron 1,422 incidentes en 2019 y 1,380 en 2021.</p></li>
+<li><p><strong>Principal característica</strong>: Pequeña dismuninución en la cantidad de incidentes entre los dos años.</p></li>
+<li><p><strong>Problemas o posibles desafíos</strong>: La diferencia en los incidentes podría estar influenciada por factores externos como la pandemia de COVID, con lo cual se requiere contextualizar los datos.</p></li>
+<li><p><strong>Resumen en un párrafo</strong>: En el análisis de los incidentes entre 2019 y 2021, se observa una ligera reducción en la cantidad total. Esto podría estar relacionado con variaciones en patrones migratorios y factores socioeconómicos como los causados por la pandemia. A pesar de la disminución en el total, otros factores muestran tendencias significativas que ameritan un análisis detallado.</p></li>
+<li><p><strong>7. Nombre de su hallazgo/resultado: Variables clave en el análisis de incidentes migratorios</strong></p></li>
+<li><p><strong>Resumen en una oración</strong>: Se identificaron variables importantes relacionadas con la ubicación, impacto, consecuencias y características de los incidentes migratorios.</p></li>
+<li><p><strong>Principal característica</strong>: Las variables recolectaron información detallada sobre la región, estado, nivel de impacto, y consecuencias como muertes, heridos y desempleo, lo cual permite un análisis exhaustivo de cada incidente.</p></li>
+<li><p><strong>Problemas o posibles desafíos</strong>: La complejidad de las variables y la variabilidad en los datos podrían tergiversan una información uniforme, especialmente en comparación interanual.</p></li>
+<li><p><strong>Resumen en un párrafo</strong>: En el análisis de incidentes migratorios, se definieron variables clave que permiten categorizar y analizar cada caso con detalle. Estas incluyen información sobre la ubicación geográfica (región y estado), el nivel de impacto, la cantidad de incidentes confirmados, y las consecuencias en términos de fallecimientos, heridos y desempleo. También se consideran el sector de trabajo de los afectados, el grupo étnico involucrado, y el tipo de migración, lo cual facilita identificar patrones y diferencias significativas entre los años 2019 y 2021.</p></li>
+<li><p><strong>8. Nombre de su hallazgo/resultado: Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos</strong></p></li>
+<li><p><strong>Resumen en una oración</strong>: Se encontró una relación positiva entre el total de muertos y desaparecidos y el número de muertos en incidentes migratorios.</p></li>
+<li><p><strong>Principal característica</strong>: La pendiente de la regresión indica que, en promedio, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos aumenta en 0.18 personas.</p></li>
+<li><p><strong>Problemas o posibles desafíos</strong>: La interpretación del intercepto es sumamente significativa.</p></li>
+<li><p><strong>Resumen en un párrafo</strong>: El análisis de regresión entre el total de muertos y desaparecidos y el número de muertos revela una relación positiva esperada, con una pendiente que sugiere que, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos se incrementa en aproximadamente 0.18 personas.</p></li>
+<li><p><strong>9. Nombre de su hallazgo/resultado: Relación entre la Región y el Número de Muertos</strong></p></li>
+<li><p><strong>Resumen en una oración</strong>: Se observan diferencias leves en el número de muertos entre regiones, pero la relación no es significativa.</p></li>
+<li><p><strong>Principal característica</strong>: La pendiente de 0.0774 indica un aumento leve en el número de muertos al pasar de una región a otra.</p></li>
+<li><p><strong>Problemas o posibles desafíos</strong>: La pequeña pendiente sugiere que las variaciones en el número de muertos entre regiones no son relevantes, limitando la utilidad del modelo para identificar diferencias significativas.</p></li>
+<li><p><strong>Resumen en un párrafo</strong>: El análisis de regresión que relaciona las regiones (codificadas numéricamente) y el número de muertos muestra una pendiente baja (0.0774), lo que sugiere diferencias leves en el número de muertos al cambiar de una región a otra. Aunque el modelo sugiere una ligera variación, esta no es significativa y no refleja una diferencia drástica entre las regiones. El intercepto de 1.31 indica el número esperado de muertos en la primera región codificada. En conclusión, aunque hay una relación entre la región y el número de muertos, esta no es suficiente para ser estadísticamente relevante.</p></li>
+</ul>
+<p><strong>10. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.</strong></p>
 <p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 se reporten 3.028 muertes.</p>
 <p><strong>Principal característica: </strong>El resultado presenta el número de muertes probable que ocurra en los próximos 5 años.</p>
 <p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
 <p><strong>Resumen en un párrafo: </strong>Se puede observar una preddicción puntual de que mueran 3.028 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año, que se diferencia en promedio en 1.321 muertes a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 1.007 y 5.047, que se diferencia en promedio en 2.020 muertes a la predicción central.</p>
-<p><strong>7. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.</strong></p>
+<p><strong>11. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.</strong></p>
 <p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 se reporten 8.011 muertes.</p>
 <p><strong>Principal característica: </strong>El resultado presenta el número de sobrevivientes migrantes más probable que ocurra en los próximos 5 años.</p>
 <p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
 <p><strong>Resumen en un párrafo: </strong>Se puede observar una predicción puntual de que sobrevivan o sean rescatados 8.011 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de sobrevivientes migrantes en los próximos años se encuentre entre 3.289 y 12.732 por año, que se diferencia en promedio en 4.721 a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 790 y 15.231, que se diferencia en promedio en 7.220 muertes a la predicción central.</p>
-<p><strong>8. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.</strong></p>
+<p><strong>12. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.</strong></p>
 <p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 sean reportados 1.224 migrantes como desaparecidos cada año</p>
 <p><strong>Principal característica: </strong>El resultado presenta el número de migrantes desaparecidos más probable que ocurra en los próximos 5 años.</p>
 <p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
 <p><strong>Resumen en un párrafo: </strong>A diferencia de los casos de muerte y sobrevivencia, la predicción puntual del número de dsaparecidos varía por año como se muestra anteriormente, donde existe una incertidumbre con un 80% de probabilidad de que el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.</p>
-<p><strong>9. Nombre del hallazgo: Más sobrevivientes que muertos</strong></p>
+<p><strong>13. Nombre del hallazgo: Más sobrevivientes que muertos</strong></p>
 <p><strong>Resumen en una oración: </strong> Se espera que se rescaten 4.983 más migrantes que los que no logran sobrevivir.</p>
 <p><strong>Principal característica: </strong>El hallazgo compara los resultados 7 y 8 y presente un mayor número de sobrevivientes al número de muertes en un futuro.</p>
 <p><strong>Problemas o posibles desafíos: </strong>No se toma en cuenta los desaparecidos, debido a que podría tratarse de posibles sobrevivientes o de muertos.</p>
 <p><strong>Resumen en un párrafo: </strong>Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.</p>
+<hr>
 </section>
-<section id="ordenamiento-de-los-elementos-del-reporte" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.3</span> Ordenamiento de los elementos del reporte</h3>
+<section id="conclusión-del-análisis-de-regresión" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="conclusión-del-análisis-de-regresión"><span class="header-section-number">3.1.3</span> Conclusión del análisis de regresión</h3>
+<p>Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.</p>
+</section>
+<section id="ordenamiento-de-los-elementos-del-reporte" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.4</span> Ordenamiento de los elementos del reporte</h3>
 <p>Se dividen los elementos principales de la investigación en primarios y secundarios como se muestra en la siguientes tabla:</p>
 <table class="caption-top table">
 <colgroup>
@@ -1100,19 +1166,116 @@ Frequency = 1
 </tr>
 </tbody>
 </table>
+<div class="page-break">
+
+</div>
 </section>
 </section>
 <section id="parte-de-escritura" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="parte-de-escritura"><span class="header-section-number">3.2</span> Parte de Escritura</h2>
+<p>Se ha realizado un estudio sobre las desapariciones de migrantes hacia otro país donde se analizan los casos reportados en los últimos 10 años, donde se han determinado ciertos patrones, tendencias y posibles motivos o factores que influyen en que ocurran dichos sucesos. La importancia de esta investigación recae en un problema social en el cuál los migrantes se encuentran en situaciones vulnerables donde se dan abusos, explotación, violencia, entre otras que conllevan a la desaparición de millones de personas o incluso que enfrenten la muerte. Tener conciencia sobre dicha problemática permite visualizar las violaciones contra los derechos humanos y empezar a protegerlos. Además se puede indagar acerca de que eventos generan estas migraciones como situaciones de pobreza, persecución, conflictos, entre otros y comprender las necesidades humanitarias que deben ser atentidas con urgencia.</p>
+<p><span class="citation" data-cites="Todd">David Dorrell (<a href="#ref-Todd" role="doc-biblioref">2024</a>)</span> en <strong>“Introduction to Human Geography”</strong> se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: el autor explica por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas. Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo. Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.</p>
+<p>Gracias a <span class="citation" data-cites="migrationdataportal">Migration Data Portal (<a href="#ref-migrationdataportal" role="doc-biblioref">2024</a>)</span> se tiene el Proyecto Migrantes Desaparecidos de la OIM es la única base de datos que recopila datos sobre muertes de migrantes. Las fuentes de datos que se emplean varían según la disponibilidad en cada región. Por ejemplo, en la región del Mediterráneo, el personal local de la OIM transmite datos cuando asiste a los sobrevivientes en los puntos de desembarco en Libia. En la frontera entre Estados Unidos y México, los datos se compilan en base a datos de los médicos forenses y las oficinas de los alguaciles de los condados de Estados Unidos, las agencias de búsqueda y rescate (SAR) mexicanas y fuentes de los medios de comunicación. En la Encuesta sobre la travesía del desierto del Sahara, se incluyen datos de la Matriz de Seguimiento de Desplazamientos (DTM) de la OIM. Las estimaciones en otras regiones se basan en una combinación de fuentes oficiales, datos de la OIM y otros organismos de las Naciones Unidas, datos de organizaciones de la sociedad civil y, principalmente, informes de los medios de comunicación.</p>
+<p>Así <span class="citation" data-cites="UN">Nations (<a href="#ref-UN" role="doc-biblioref">2022</a>)</span> en <strong>“More than 50,000 migrants ‘die in search of a better life’”</strong> expone que más de la mitad de las 50.000 muertes individuales documentadas ocurrieron en rutas hacia y dentro de Europa, y las rutas mediterráneas se cobraron al menos 25.104 vidas. Las rutas europeas también representan el mayor número y la mayor proporción de migrantes desaparecidos o presuntamente muertos, con al menos 16.032 desaparecidos en el mar y cuyos restos nunca se han recuperado. África es la segunda región más mortal para las personas en movimiento, con más de 9.000 muertes relacionadas con la migración documentadas desde 2014. Las encuestas regionales de hogares indican que estas cifras son casi con certeza muy inferiores a las reales.</p>
+<p>También <span class="citation" data-cites="MinneapolisFed">Minneapolis (<a href="#ref-MinneapolisFed" role="doc-biblioref">2023</a>)</span> discute la gran problemática que acarrea la inmigración, no el hecho de que se dé, sino más bien los efectos negativos que implican que en los últimos años haya cada vez menos migración, principalmente en los incidentes ocurridos en Norteamérica el congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere. En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración. Esencialmente, la autora explica en qué afecta que cada vez menos personas emigren a los Estados Unidos. A diferencia de lo que se cree, los inmigrantes no son causa directa del crimen, la saturación de plazas de trabajo, o cualquier otro elemento disuasorio. Más bien, que haya menos migrantes en los Estados Unidos ha significado un debilitamiento en su economía, lo cual ya está mostrando signos. La autora finalmente hace un llamado para que se pongan en marcha legislaciones que favorezcan el paso de migrantes a Estados Unidos. Dado que problemas como inflación y aumento de la pobreza son implicaciones de la falta de migración, es imperativo manejar esta problemática.</p>
+<p>Entre algunas de las principales causas de la migración, según <span class="citation" data-cites="Duhaime">Bernard Duhaime (<a href="#ref-Duhaime" role="doc-biblioref">2018</a>)</span>, es tiene la existencia de agentes del Estado que pueden ser ellos mismos contrabandistas o traficantes, organizando el tráfico o trata de migrantes, facilitando la migración indocumentada o posibilitando la estancia de migrantes irregulares. En otras ocasiones, participan indirectamente en actividades de tráfico y trata de migrantes llevadas a cabo por actores privados, facilitando operaciones, permitiendo la entrada de migrantes indocumentados, proporcionando documentos fraudulentos o simplemente haciendo la vista gorda. Las actividades de tráfico y trata de migrantes a menudo se llevan a cabo con la participación o colaboración de funcionarios estatales corruptos, y la corrupción y la colusión son generalmente una parte crítica de dichas operaciones. Además <span class="citation" data-cites="Brito">Renata Brito (<a href="#ref-Brito" role="doc-biblioref">2024</a>)</span> en <strong>““A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever”“</strong> indica que los guardacostas libios, formados y financiados por la UE, han sido vinculados con traficantes de personas que explotan a migrantes que son interceptados y devueltos a precarios centros de detención. Un grupo de expertos respaldado por la ONU ha concluido que los abusos cometidos contra los migrantes en el Mediterráneo y en Libia pueden constituir crímenes contra la humanidad.</p>
+<p>Por otro lado <span class="citation" data-cites="APA">Association (<a href="#ref-APA" role="doc-biblioref">2024</a>)</span> en <strong>“Psychology of Immigration”</strong> presenta una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia. Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa la migración mundialmente hoy en día. Uno de estos mitos sería que la migración está en alza, lo cual no es cierto; sucede lo contrario. La <span class="citation" data-cites="WHO">Organization (<a href="#ref-WHO" role="doc-biblioref">2022</a>)</span> en <strong>““Act now to save lives and prevent migrants from going missing”“</strong> expone la importancia y/o necesidad de proteger a las personas migrantes de los peligros a los que se enfrentan a diario. No es solo una invitación ligera, sino una crítica directa a la situación actual, exigiendo mayor justicia por parte de los gobiernos y organizaciones sin fines de lucro. También expresa que existen práctica, conocimientos y orientación que pueden orientar los esfuerzos coordinados para hacer realidad los compromisos contraídos en virtud del derecho internacional y los objetivos del Pacto Mundial para la Migración. Los organismos internacionales, regionales y subregionales pueden desempeñar un papel importante para facilitar esos esfuerzos, junto con los agentes y las comunidades locales.</p>
+<p>Para la metodología, inicialmente en <strong>“Introducción a la Estadística”</strong> aunque se presenta un estilo sumamente didáctico, se prioriza su contenido relativo a la exposición de conceptos de la matemática y estadística. Las medidas de centralización (o medidas de posición central) son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos. Las medidas a utilizar son:</p>
+<ul>
+<li><p>Media: Es el promedio de todos los datos de la muestra.</p></li>
+<li><p>Mediana: Es el valor del medio de todos los datos ordenados de menor a mayor.</p></li>
+<li><p>Moda: Valor más repetido del conjunto de datos.</p></li>
+</ul>
+<p>Desglosadas individualmente:</p>
+<dl>
+<dt>Media</dt>
+<dd>
+<p>Para calcular la media se deben sumar todos los valores y luego dividir entre el número total de datos. La media también se conoce como media aritmética o promedio. Además, la media de una distribución estadística es equivalente a su esperanza matemática.</p>
+</dd>
+<dt>Mediana</dt>
+<dd>
+<p>La mediana es el valor del medio de todos los datos ordenados de menor a mayor. Es decir, la mediana divide todo el conjunto de datos ordenados en dos partes iguales. El cálculo de la mediana depende de si el número total de datos es par o impar:</p>
+</dd>
+</dl>
+<ul>
+<li><p>Si el número total de datos es impar, la mediana será el valor que está justo en el medio de los datos. Es decir, el valor que está en la posición (n+1)/2 de los datos ordenados.</p></li>
+<li><p>Si el número total de datos es par, la mediana será la media de los dos datos que están en el centro. Esto es, la media aritmética de los valores que están en la posiciones n/2 y n/2+1 de los datos ordenados.</p></li>
+</ul>
+<dl>
+<dt>Moda</dt>
+<dd>
+<p>La moda (o moda estadística o valor modal) es el valor del conjunto de datos que tiene una mayor frecuencia absoluta, esto es, el valor que más se repite de un conjunto de datos. Así que, para calcular la moda de un conjunto de datos estadísticos basta con contar el número de veces que aparece cada dato en la muestra. Se pueden distinguir tres tipos de modas según el número de valores que están más repetidos:</p>
+</dd>
+</dl>
+<ul>
+<li><p>Moda unimodal: solo hay un valor con el máximo número de repeticiones. Por ejemplo, <span class="math display">\[1, 4, 2, 4, 5, 3\]</span>.</p></li>
+<li><p>Moda bimodal: el máximo número de repeticiones se produce en dos valores diferentes y ambos valores se repiten el mismo número de veces. Por ejemplo, <span class="math display">\[2, 6, 7, 2, 3, 6, 9\]</span>.</p></li>
+</ul>
+<p>Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, <span class="math display">\[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\]</span>.</p>
+<p>Para la modelación se utilizan dos métodos, <span class="citation" data-cites="Saadaddin">(<a href="#ref-Saadaddin" role="doc-biblioref"><strong>Saadaddin?</strong></a>)</span> explica que ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad. Como se mencionó anteriormente, el modelo está compuesto de tres partes:</p>
+<ul>
+<li><strong>Parte autorregresiva (AR)</strong></li>
+</ul>
+<p>Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El “marco de autoregresión” funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores.</p>
+<p>Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas.</p>
+<ul>
+<li><strong>Parte integrada (I)</strong></li>
+</ul>
+<p>Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.</p>
+<ul>
+<li><strong>Parte de la media móvil (MA)</strong></li>
+</ul>
+<p>Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados.</p>
+<p>Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud. Además <span class="citation" data-cites="SanidadMilitar">Gallego-Nicasio Moraleda (<a href="#ref-SanidadMilitar" role="doc-biblioref">2018</a>)</span> indica que para los tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) se requiere de tres parámetros definidos como:</p>
+<ul>
+<li><p>p: Es el número de observaciones de retraso en el modelo.</p></li>
+<li><p>d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.</p></li>
+<li><p>q: Es el tamaño de datos que se utiliza para la media móvil.</p></li>
+</ul>
+<p>Y utiliza la siguiente ecuación:</p>
+<p><span class="math display">\[
+(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(Y_t\)</span>: valor de la variable en el momento <span class="math inline">\(t\)</span>.</li>
+<li><span class="math inline">\(L\)</span>: operador de retardos (por ejemplo, <span class="math inline">\(Y_{t-1} = Y_t \cdot L\)</span>).</li>
+<li><span class="math inline">\(a_p\)</span>: coeficientes para el componente autorregresivo.</li>
+<li><span class="math inline">\(b_q\)</span>: coeficientes para el componente de medias móviles.</li>
+<li><span class="math inline">\(\varepsilon_t\)</span>: componente aleatoria.</li>
+</ul>
 </section>
 <section id="parte-de-reflexión" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</h2>
-<hr>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-APA" class="csl-entry" role="listitem">
+Association, American Psychological. 2024. <span>«Psychology of Immigration 101»</span>. <a href="https://www.apa.org/topics/immigration/immigration-psychology">https://www.apa.org/topics/immigration/immigration-psychology</a>.
+</div>
+<div id="ref-Duhaime" class="csl-entry" role="listitem">
+Bernard Duhaime, Andréanne Thibault. 2018. <span>«Protection of migrants from enforced disappearance: A human rights perspective»</span>. <em>International Review of the Red Cross</em> 99 (2): 569-87. <a href="https://doi.org/10.1017/S1816383118000097">https://doi.org/10.1017/S1816383118000097</a>.
+</div>
+<div id="ref-Todd" class="csl-entry" role="listitem">
+David Dorrell, Joseph Henderson, Georgeta Connor. 2024. <span>«Capítulo 3: Migration»</span>. En <em>Introduction to Human Geography</em>, editado por LOUIS: The Louisiana Library Network, 57-82. <a href="https://louis.pressbooks.pub/humangeography/chapter/3/">https://louis.pressbooks.pub/humangeography/chapter/3/</a>.
+</div>
 <div id="ref-SanidadMilitar" class="csl-entry" role="listitem">
 Gallego-Nicasio Moraleda, Mínguez Novella, Rodríguez Aranda. 2018. <span>«Modelos ARIMA para la predicción del gasto conjunto de oxígeno de vuelo y otros gases en el Ejército del Aire»</span>. <em>Madrid</em> 74 (4): 1887-8571. <a href="https://doi.org/10.4321/s1887-85712018000400002">https://doi.org/10.4321/s1887-85712018000400002</a>.
+</div>
+<div id="ref-migrationdataportal" class="csl-entry" role="listitem">
+Migration Data Portal. 2024. <span>«Muertes y Desapariciones de Migrantes»</span>. <a href="https://www.migrationdataportal.org/es/themes/muertes-y-desapariciones-de-migrantes">https://www.migrationdataportal.org/es/themes/muertes-y-desapariciones-de-migrantes</a>.
+</div>
+<div id="ref-MinneapolisFed" class="csl-entry" role="listitem">
+Minneapolis, Federal Reserve Bank of. 2023. <span>«The Causes and Consequences of the Missing Immigrants»</span>. <a href="https://www.minneapolisfed.org/article/2023/the-causes-and-consequences-of-the-missing-immigrants">https://www.minneapolisfed.org/article/2023/the-causes-and-consequences-of-the-missing-immigrants</a>.
+</div>
+<div id="ref-UN" class="csl-entry" role="listitem">
+Nations, United. 2022. <span>«More than 50,000 migrants ’die in search of a better life’»</span>. <a href="https://news.un.org/en/story/2022/11/1130997">https://news.un.org/en/story/2022/11/1130997</a>.
+</div>
+<div id="ref-WHO" class="csl-entry" role="listitem">
+Organization, World Health. 2022. <span>«Act now to save lives and prevent migrants from going missing»</span>. <a href="https://www.who.int/news/item/07-03-2022-act-now-to-save-lives-and-prevent-migrants-from-going-missing">https://www.who.int/news/item/07-03-2022-act-now-to-save-lives-and-prevent-migrants-from-going-missing</a>.
+</div>
+<div id="ref-Brito" class="csl-entry" role="listitem">
+Renata Brito, Kerstin Sopke. 2024. <span>«A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever»</span>. <a href="https://apnews.com/article/migration-global-deaths-united-nations-9fba1b7019e6b1113b7e3e9ce751c0bb">https://apnews.com/article/migration-global-deaths-united-nations-9fba1b7019e6b1113b7e3e9ce751c0bb</a>.
 </div>
 <div id="ref-Saadeddin" class="csl-entry" role="listitem">
 Saadeddin, Zaina. 2024. <span>«ARIMA para la previsión de series temporales: Guía completa»</span>. <a href="https://www.datacamp.com/es/tutorial/arima">https://www.datacamp.com/es/tutorial/arima</a>.
