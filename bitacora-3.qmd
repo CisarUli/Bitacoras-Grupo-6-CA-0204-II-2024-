@@ -606,10 +606,110 @@ Ahora se ordenan los elementos por sección:
 | Metodología   | 1. Las medidas de tendencia central (principal)<br>2. Análisis de regresión lineal simple (principal)<br>3. Cómo utilizar el modelo ARIMA (principal) |
 | Resultados    | 1. Predicción de muertes de migrantes (principal)<br>2. Predicción de sobrevivientes migrantes (principal)<br>3. Predicción de desapariciones de migrantes (principal)<br>4. Comparación de muertes y rescates de migrantes (secundario)<br>5. Implicaciones de la desaparición de inmigrantes (secundario) |
 
+::: {.page-break}
+:::
+
 
 ## Parte de Escritura
 
+Se ha realizado un estudio sobre las desapariciones de migrantes hacia otro país donde se analizan los casos reportados en los últimos 10 años, donde se han determinado ciertos patrones, tendencias y posibles motivos o factores que influyen en que ocurran dichos sucesos. La importancia de esta investigación recae en un problema social en el cuál los migrantes se encuentran en situaciones vulnerables donde se dan abusos, explotación, violencia, entre otras que conllevan a la desaparición de millones de personas o incluso que enfrenten la muerte. Tener conciencia sobre dicha problemática permite visualizar las violaciones contra los derechos humanos y empezar a protegerlos. Además se puede indagar acerca de que eventos generan estas migraciones como situaciones de pobreza, persecución, conflictos, entre otros y comprender las necesidades humanitarias que deben ser atentidas con urgencia.
+
+@Todd en  **“Introduction to Human Geography”** se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: el autor explica por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas. Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo.
+Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
+
+Gracias a @migrationdataportal se tiene el Proyecto Migrantes Desaparecidos de la OIM es la única base de datos que recopila datos sobre muertes de migrantes. Las fuentes de datos que se emplean varían según la disponibilidad en cada región. Por ejemplo, en la región del Mediterráneo, el personal local de la OIM transmite datos cuando asiste a los sobrevivientes en los puntos de desembarco en Libia. En la frontera entre Estados Unidos y México, los datos se compilan en base a datos de los médicos forenses y las oficinas de los alguaciles de los condados de Estados Unidos, las agencias de búsqueda y rescate (SAR) mexicanas y fuentes de los medios de comunicación. En la Encuesta sobre la travesía del desierto del Sahara, se incluyen datos de la Matriz de Seguimiento de Desplazamientos (DTM) de la OIM. Las estimaciones en otras regiones se basan en una combinación de fuentes oficiales, datos de la OIM y otros organismos de las Naciones Unidas, datos de organizaciones de la sociedad civil y, principalmente, informes de los medios de comunicación. 
+
+Así @UN en **“More than 50,000 migrants ‘die in search of a better life’”**  expone que más de la mitad de las 50.000 muertes individuales documentadas ocurrieron en rutas hacia y dentro de Europa, y las rutas mediterráneas se cobraron al menos 25.104 vidas. Las rutas europeas también representan el mayor número y la mayor proporción de migrantes desaparecidos o presuntamente muertos, con al menos 16.032 desaparecidos en el mar y cuyos restos nunca se han recuperado. África es la segunda región más mortal para las personas en movimiento, con más de 9.000 muertes relacionadas con la migración documentadas desde 2014. Las encuestas regionales de hogares indican que estas cifras son casi con certeza muy inferiores a las reales. 
+
+También @MinneapolisFed discute la gran problemática que acarrea la inmigración, no el hecho de que se dé, sino más bien los efectos negativos que implican que en los últimos años haya cada vez menos migración, principalmente en los incidentes ocurridos en Norteamérica el congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere. En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración. Esencialmente, la autora explica en qué afecta que cada vez menos personas emigren a los Estados Unidos. A diferencia de lo que se cree, los inmigrantes no son causa directa del crimen, la saturación de plazas de trabajo, o cualquier otro elemento disuasorio. Más bien, que haya menos migrantes en los Estados Unidos ha significado un debilitamiento en su economía, lo cual ya está mostrando signos. La autora finalmente hace un llamado para que se pongan en marcha legislaciones que favorezcan el paso de migrantes a Estados Unidos. Dado que problemas como inflación y aumento de la pobreza son implicaciones de la falta de migración, es imperativo manejar esta problemática.
+
+Entre algunas de las principales causas de la migración, según @Duhaime, es tiene la existencia de agentes del Estado que pueden ser ellos mismos contrabandistas o traficantes, organizando el tráfico o trata de migrantes, facilitando la migración indocumentada o posibilitando la estancia de migrantes irregulares. En otras ocasiones, participan indirectamente en actividades de tráfico y trata de migrantes llevadas a cabo por actores privados, facilitando operaciones, permitiendo la entrada de migrantes indocumentados, proporcionando documentos fraudulentos o simplemente haciendo la vista gorda. Las actividades de tráfico y trata de migrantes a menudo se llevan a cabo con la participación o colaboración de funcionarios estatales corruptos, y la corrupción y la colusión son generalmente una parte crítica de dichas operaciones. Además @Brito en **""A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever""** indica que los guardacostas libios, formados y financiados por la UE, han sido vinculados con traficantes de personas que explotan a migrantes que son interceptados y devueltos a precarios centros de detención. Un grupo de expertos respaldado por la ONU ha concluido que los abusos cometidos contra los migrantes en el Mediterráneo y en Libia pueden constituir crímenes contra la humanidad.
+
+Por otro lado @APA en **“Psychology of Immigration”** presenta una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia. Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa la migración mundialmente hoy en día. Uno de estos mitos sería que la migración está en alza, lo cual no es cierto; sucede lo contrario. La @WHO en **""Act now to save lives and prevent migrants from going missing""** expone la importancia y/o necesidad de proteger a las personas migrantes de los peligros a los que se enfrentan a diario.
+No es solo una invitación ligera, sino una crítica directa a la situación actual, exigiendo mayor justicia por parte de los gobiernos y organizaciones sin fines de lucro. También expresa que existen práctica, conocimientos y orientación que pueden orientar los esfuerzos coordinados para hacer realidad los compromisos contraídos en virtud del derecho internacional y los objetivos del Pacto Mundial para la Migración. Los organismos internacionales, regionales y subregionales pueden desempeñar un papel importante para facilitar esos esfuerzos, junto con los agentes y las comunidades locales. 
+
+Para la metodología, inicialmente en **“Introducción a la Estadística”** aunque se presenta un estilo sumamente didáctico, se prioriza su contenido relativo a la exposición de conceptos de la matemática y estadística. Las medidas de centralización (o medidas de posición central) son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos. Las medidas a utilizar son:
+
+-   Media: Es el promedio de todos los datos de la muestra.
+
+-   Mediana: Es el valor del medio de todos los datos ordenados de menor a mayor.
+
+-   Moda: Valor más repetido del conjunto de datos.
+
+Desglosadas individualmente:
+
+Media
+
+:   Para calcular la media se deben sumar todos los valores y luego dividir entre el número total de datos.
+            La media también se conoce como media aritmética o promedio.
+            Además, la media de una distribución estadística es equivalente a su esperanza matemática.
+
+ Mediana
+
+:   La mediana es el valor del medio de todos los datos ordenados de menor a mayor. Es decir, la mediana divide todo el conjunto de datos ordenados en dos partes iguales. El cálculo de la mediana depende de si el número total de datos es par o impar:
+
+- Si el número total de datos es impar, la mediana será el valor que está justo en el medio de los datos.
+            Es decir, el valor que está en la posición (n+1)/2 de los datos ordenados.
+
+- Si el número total de datos es par, la mediana será la media de los dos datos que están en el centro.
+            Esto es, la media aritmética de los valores que están en la posiciones n/2 y n/2+1 de los datos ordenados.
+
+Moda
+
+:   La moda (o moda estadística o valor modal) es el valor del conjunto de datos que tiene una mayor frecuencia absoluta, esto es, el valor que más se repite de un conjunto de datos. Así que, para calcular la moda de un conjunto de datos estadísticos basta con contar el número de veces que aparece cada dato en la muestra. Se pueden distinguir tres tipos de modas según el número de valores que están más repetidos:
+
+-   Moda unimodal: solo hay un valor con el máximo número de repeticiones.
+            Por ejemplo, \[1, 4, 2, 4, 5, 3\].
+
+-   Moda bimodal: el máximo número de repeticiones se produce en dos valores diferentes y ambos valores se repiten el mismo número de veces.
+            Por ejemplo, \[2, 6, 7, 2, 3, 6, 9\].
+
+Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones.
+            Por ejemplo, \[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\].
+
+Para la modelación se utilizan dos métodos, @Saadaddin explica que ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad.
+Como se mencionó anteriormente, el modelo está compuesto de tres partes:
+
+-   **Parte autorregresiva (AR)**
+
+Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El "marco de autoregresión" funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores. 
+
+Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas. 
+
+-   **Parte integrada (I)**
+
+Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.
+
+-   **Parte de la media móvil (MA)**
+
+Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados. 
+
+Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud. Además @SanidadMilitar indica que para los tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) se requiere de tres parámetros definidos como:
+
+- p: Es el número de observaciones de retraso en el modelo.
+
+- d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.
+
+- q: Es el tamaño de datos que se utiliza para la media móvil.
+
+Y utiliza la siguiente ecuación:
+
+\[
+(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
+\]
+
+Donde:
+
+- \( Y_t \): valor de la variable en el momento \( t \).
+- \( L \): operador de retardos (por ejemplo, \( Y_{t-1} = Y_t \cdot L \)).
+- \( a_p \): coeficientes para el componente autorregresivo.
+- \( b_q \): coeficientes para el componente de medias móviles.
+- \( \varepsilon_t \): componente aleatoria.
+
 ## Parte de reflexión
----
+
+
+
+
 
 
