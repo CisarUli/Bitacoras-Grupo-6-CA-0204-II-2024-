@@ -706,6 +706,65 @@ Donde:
 - \( b_q \): coeficientes para el componente de medias móviles.
 - \( \varepsilon_t \): componente aleatoria.
 
+
+# Comparación entre el Total de Muertes en 2019 y 2021
+
+En el 2019, el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
+
+**Interpretación de Resultados:**
+
+El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.
+
+---
+
+# Análisis de la Distribución Regional de Incidentes en 2019 y 2021
+
+En este punto se observan patrones distintos entre los dos años. 
+
+En 2019, las regiones con mayor número de incidentes fueron el Área Oeste/Central, la Zona del Norte y la Región del Este, con 489, 288, y 259 incidentes, respectivamente. En cuanto al 2021, los incidentes mostraron marcas en áreas metropolitanas, con 417 incidentes en la capital y 409 en el Norte del Norte, seguido por el Mediterráneo con 353 incidentes.
+
+**Interpretación de Resultados:**
+
+Como es también reflejado en las fichas bibliográficas, este tipo de problemáticas puede que signifique la intensificación de ciertos conflictos y condiciones socioeconómicas adversas en áreas urbanas, que atraen a más migrantes o son zonas de paso forzoso. Además de que usualmente estás áreas son tanto las más pobladas como las que suelen presentar eventos sociopolíticos. La elección de las rutas migratorias en 2021 podría haber sido impulsada por la búsqueda de empleo y seguridad.
+
+---
+
+# Principales Causas de Muerte entre Migrantes en 2019 y 2021
+
+En el 2019, las causas de muerte principales fueron asesinatos y accidentes vehiculares, con 213 y 208 casos respectivamente. Para 2021, las principales causas de muerte incluyeron asesinatos (431 casos), violencia intrafamiliar (256 casos), y condiciones socioeconómicas adversas (224 casos).
+
+**Interpretación de Resultados:**
+
+En 2019, como se describe, los accidentes vehiculares fueron una causa mayoritaria; con alta probabilidad podría determinarse que se debería a los medios de trasporte ilegales de los migrantes, (que carecen de poca seguridad), o accidentes de tránsito derivados de persecuciones. Para 2021, el aumento en casos de violencia intrafamiliar y condiciones socioeconómicas adversas podría estar relacionado con el impacto de la pandemia, que exacerbó las desigualdades y aumentó la vulnerabilidad de los migrantes.
+
+---
+
+# Tendencias Temporales de Desaparecidos: 2019 vs. 2021
+
+Para comprender la variación en el número de desaparecidos a lo largo del tiempo, se llevó a cabo una regresión con el mes como variable independiente en los años 2019 y 2021.
+
+**Interpretación de Resultados:**
+
+En 2019, la pendiente positiva de 10.44 indica que el número de desaparecidos aumentaba en promedio en 10.44 personas cada mes, quizás impulsado por los flujos migratorios estacionales, como el verano en Europa. En 2021, aunque la pendiente fue menor (7.17 personas adicionales por mes), el número inicial de desaparecidos era considerablemente más alto (164.03), lo que sugiere que la pandemia podría haber incrementado la cifra base de desaparecidos.
+
+---
+
+# Implicaciones de las Diferencias en Causas de Muerte y Desaparecidos
+
+Los cambios en las causas de muerte entre el 2019 y 2021, especialmente el incremento en violencia intrafamiliar y condiciones socioeconómicas adversas, muestran una triste metamorfosis en los riesgos que enfrentan los migrantes en sus países de origen y durante su tránsito.
+
+Estos fenómenos complejos pueden ser intensificados en contextos de crisis económica y social. Los migrantes suelen enfrentar situaciones de gran precariedad, que los exponen a una doble vulnerabilidad: por un lado, los riesgos inherentes a las rutas migratorias y, por otro, la posibilidad de enfrentar situaciones de violencia doméstica tanto en su país de origen como al país en que se trasladaron. Esto pone de relieve la importancia de las políticas públicas para la prevención de la violencia intrafamiliar y el apoyo psicosocial a migrantes en tránsito, en especial en tiempos de crisis.
+
+Además, el incremento en el número de desaparecidos en los primeros meses de 2021 sugiere que, aunque se redujeron las muertes, los migrantes pueden estar enfrentando más riesgos asociados con el tráfico de personas o meramente la ilegalidad con la que se mueven.
+
+---
+
+# Reflexiones sobre el Análisis de Regresión y el Impacto Social
+
+El análisis de regresión lineal simple utilizado para explorar la relación entre el total de muertos y desaparecidos y el número de muertos, así como entre la región y el número de muertos, ha permitido identificar patrones básicos en los datos migratorios. Sin embargo, estos modelos lineales presentan numerosas limitaciones, ya que los procesos migratorios y sus riesgos son fenómenos altamente multifactoriales que interactúan con diversas variables sociales, económicas y políticas.
+
+Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.
+
 ## Parte de reflexión
 
 
