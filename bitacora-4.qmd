@@ -9,3 +9,718 @@ execute:
 
 # Bitacora 4
 
+## Parte de Planificación
+
+Para contestar la pregunta de nuestro problema "¿qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?" primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables en el modelo:
+
+```{r}
+#|echo: FALSE
+#|warning: FALSE
+#|messages: FALSE
+
+lista_archivos <- lapply(X = dir(path = "data/"), 
+                         FUN = function(f){
+                           read_csv(paste0("data/", f))
+                           })
+migrantes_desaparecidos <- bind_rows(lista_archivos) |>
+  janitor::clean_names()
+
+migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+  separate(coordinates,
+           into = c("latitud", "longitud"),
+           sep = ",", fill = "left"
+           )
+migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+
+migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+  mutate(incident_date = as.Date(
+    str_extract(incident_date,
+                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos |>
+  mutate(
+    location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  mutate(
+    country_of_death = countrycode(location_of_death,
+                          origin = 'country.name',
+                          destination = 'country.name'),
+    cause_of_death = str_extract(cause_of_death, "^[^/]+"),
+    region = str_extract(region, 
+                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_replace(region, "Caribbean", "America")
+  )
+migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
+migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
+migrantes_desaparecidos$country_of_death <- as.factor(migrantes_desaparecidos$country_of_death)
+
+glimpse(migrantes_desaparecidos)
+```
+
+### Cuadros Resumen
+
+A continuación se muestran algunas estadísticas sobre los datos recolectados como promedio (prom), porcentaje (per), máximo (max), variación (var)y desviación (desv) acerca de los casos de mueres (m), sobrevivientes (s) y desaparecidos (d):
+
+**Resumen por Año:**
+
+```{r}
+migrantes_desaparecidos |>
+  filter(!is.na(incident_date)) |>
+  group_by(año = format(incident_date, "%Y")) |>
+  summarise(
+    prom_m = mean(number_dead),
+    prom_s = mean(number_of_survivors),
+    prom_d = mean(minimum_estimated_number_of_missing),
+    per_m = sum(number_dead) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_s = sum(number_of_survivors) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100) |> 
+  kable(caption = "Resumen de Migrantes Desaparecidos por Año")
+```
+
+**Resumen por Region:**
+
+```{r}
+migrantes_desaparecidos |>
+  filter(!is.na(region)) |>
+  group_by(region) |>
+  summarise(
+    prom_m = mean(number_dead),
+    prom_s = mean(number_of_survivors),
+    prom_d = mean(minimum_estimated_number_of_missing),
+    per_m = sum(number_dead) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_s = sum(number_of_survivors) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100) |> 
+  kable(caption = "Resumen de Migrantes Desaparecidos por Región")
+```
+
+**Resumen por País:**
+
+```{r}
+migrantes_desaparecidos |>
+  filter(!is.na(country_of_death)) |>
+  group_by(pais = country_of_death) |>
+  summarise(
+    prom_m = mean(number_dead),
+    prom_s = mean(number_of_survivors),
+    prom_d = mean(minimum_estimated_number_of_missing),
+    per_m = sum(number_dead) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_s = sum(number_of_survivors) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing) / 
+      (sum(number_dead) +
+         sum(number_of_survivors) +
+         sum(minimum_estimated_number_of_missing)) * 100) |>
+  arrange(desc(prom_m)) |>  
+  slice_head(n = 15) |> 
+  kable(caption = "Resumen de Migrantes Desaparecidos por País")
+```
+
+**Resumen por Causa de Muerte:**
+
+```{r}
+migrantes_desaparecidos |>
+  filter(!is.na(cause_of_death)) |>
+  group_by(cause_of_death) |>
+  summarise(
+    casos = sum(number_dead),
+    prom_m = mean(number_dead),
+    per_m = sum(number_dead)/sum(migrantes_desaparecidos$number_dead) * 100,
+    Max_M = max(number_dead),
+    Var_M = var(number_dead),
+    Desv_M = sd(number_dead)) |>
+  kable(caption = "Resumen de Causa de Muerte de Migrantes Desaparecidos")
+```
+
+### Figuras
+
+A continuación se muestran algunas gráficas sobre los datos recolectados, utilizando los siguientes paquetes:
+
+```{r}
+suppressMessages(library(ggplot2))
+suppressMessages(library(cowplot))
+```
+
+**Incidentes por año**
+
+```{r}
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    frecuencia = n()
+  ) |>
+  ggplot(aes(x = year, y = frecuencia)) +
+  geom_line(color = "black", size = 1) +
+  geom_point(color = "red", size = 2) +
+  geom_smooth(se = FALSE, size = 1, linetype = "dotted") +
+  labs(title = "Incidentes por año",
+       x = "Año", 
+       y = "Incidentes") +
+  theme_minimal()
+```
+
+**Mapa sobre incidentes por Region**
+
+```{r}
+migrantes_desaparecidos |> 
+ggplot(aes(x = longitud, y = latitud)) +
+  geom_point(color = "red", size = 0.5) +
+  theme_minimal() +
+  labs(
+    title = "Mapa de Incidentes según Coordenadas",
+    x = "Longitud",
+    y = "Latitud")
+```
+
+**Causa de muerte**
+
+```{r}
+
+migrantes_desaparecidos |>  
+  filter(!is.na(incident_date)) |>
+  ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death), fill = region)) +
+  geom_col() +
+  labs(
+    tittle = "Causa de muerte",
+    x = "Muertes",
+    y = "Causa"
+  ) + 
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set1")
+```
+
+**Sobrevivientes por año**
+
+```{r}
+
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    rescatados = sum(number_of_survivors, na.rm = TRUE)
+  ) |>
+  ggplot(aes(year)) +
+  geom_line(aes(y = rescatados), color = "darkblue", size = 1) +
+  geom_point(aes(y = rescatados), color = "cyan", size = 3) +
+  geom_smooth(aes(y = rescatados), se = FALSE, size = 1, linetype = "twodash") +
+  labs(title = "Sobrevivientes por año",
+       x = "Año", 
+       y = "Migrantes") +
+  theme_minimal()
+
+```
+
+**Muertes por año**
+
+```{r}
+
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    rescatados = sum(number_of_survivors, na.rm = TRUE)
+  ) |>
+  ggplot(aes(year)) +
+  geom_line(aes(y = muertes), color = "darkred", size = 1) +
+  geom_point(aes(y = muertes), color = "orange", size = 3) +
+  geom_smooth(aes(y = muertes), se = FALSE, size = 1, linetype = "dotted") +
+  labs(title = "Muertes por año",
+       x = "Año", 
+       y = "Migrantes") +
+  theme_minimal()
+
+```
+
+**Muertes de mujeres migrantes por region**
+
+```{r}
+
+migrantes_desaparecidos |>
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_of_females, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = fct_reorder(region, -muertes))) +
+  geom_col(fill = "darkred") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Muertes",
+    y = "Region"
+  ) + 
+  theme_minimal() 
+
+```
+
+**Muertes de hombres migrantes por region**
+
+```{r}
+
+migrantes_desaparecidos |> 
+  group_by(region) |>
+  summarise(
+    muertes = sum(number_of_males, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = muertes, y = fct_reorder(region, -muertes))) +
+  geom_col(fill = "darkred") +
+  labs(
+    tittle = "Muertes de hombres migrantes",
+    x = "Muertes",
+    y = "Region"
+  ) + 
+  theme_minimal() 
+
+```
+
+**Muertes de mujeres migrantes por año**
+
+```{r}
+
+migrantes_desaparecidos |> 
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_of_females, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = year, y = muertes)) +
+  geom_line(color = "#571B7A", size = 1) +
+  geom_point(color = "#3DE5E5", size = 3) +
+  labs(
+    tittle = "Muertes de mujeres migrantes por año",
+    x = "Muertes",
+    y = "Año"
+  ) + 
+  theme_minimal() 
+
+```
+
+**Muertes de hombres migrantes por año**
+
+```{r}
+
+migrantes_desaparecidos |> 
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_of_males, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = year, y = muertes)) +
+  geom_line(color = "#04954D", size = 1) +
+  geom_point(color = "#80E35B", size = 3) +
+  labs(
+    tittle = "Muertes de hombres migrantes por año",
+    x = "Muertes",
+    y = "Año"
+  ) + 
+  theme_minimal() 
+
+```
+
+### Método #1: Regresión Lineal Simple**
+
+:   La regresión lineal simple [@probabilidadyestadistica3.0] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y.
+    Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
+
+Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal.
+Lógicamente, la relación entre las dos variables debe ser lineal, sino se debe utilizar otro tipo de modelo de regresión.
+
+La ecuación de un modelo de regresión lineal simple está formada por dos coeficientes: la constante de la ecuación (b0) y el coeficiente de la correlación entre las dos variables (b1).
+Para poder hacer una regresión lineal simple, se deben cumplir las siguientes hipótesis:
+
+-   Independencia: los residuos observados deben ser independientes entre sí.
+    Una manera común de garantizar la independencia del modelo es añadiendo aleatoriedad en el proceso de muestreo.
+
+-   Homocedasticidad: debe haber homogeneidad en las varianzas de los residuos, es decir, la variabilidad de los residuos debe ser constante.
+
+-   Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
+    Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
+    
+Primero se cargan los datos recolectados del 2014 al 2022:
+
+````{r}
+
+library(tidyverse)
+library(knitr)
+library(countrycode)
+
+lista_archivos <- lapply(X = dir(path = "data/"), 
+                         FUN = function(f){
+                           read_csv(paste0("data/", f))
+                           })
+migrantes_desaparecidos <- bind_rows(lista_archivos) |>
+  janitor::clean_names()
+
+migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+  separate(coordinates,
+           into = c("latitud", "longitud"),
+           sep = ",", fill = "left"
+           )
+migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+
+migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+  mutate(incident_date = as.Date(
+    str_extract(incident_date,
+                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos |>
+  mutate(
+    location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
+    )
+migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  mutate(
+    country_of_death = countrycode(location_of_death,
+                          origin = 'country.name',
+                          destination = 'country.name'),
+    cause_of_death = str_extract(cause_of_death, "^[^/]+"),
+    region = str_extract(region, 
+                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_replace(region, "Caribbean", "America")
+  )
+migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
+migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
+migrantes_desaparecidos$country_of_death <- as.factor(migrantes_desaparecidos$country_of_death)
+ts_muertes <- migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE)
+  )
+
+ts_muertes <- ts(ts_muertes$muertes, start = min(ts_muertes$year), end = max(ts_muertes$year), frequency = 1)
+
+ts_sobrevivientes <- migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    sobrevivientes = sum(number_of_survivors, na.rm = TRUE)
+  )
+
+ts_sobrevivientes <- ts(ts_sobrevivientes$sobrevivientes, 
+                        start = min(ts_sobrevivientes$year), 
+                        end = max(ts_sobrevivientes$year), 
+                        frequency = 1)
+
+ts_desaparecidos <- migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    desaparecidos = sum(minimum_estimated_number_of_missing, na.rm = TRUE)
+  )
+
+ts_desaparecidos <- ts(ts_desaparecidos$desaparecidos, 
+                        start = min(ts_desaparecidos$year), 
+                        end = max(ts_desaparecidos$year), 
+                        frequency = 1)
+
+glimpse(migrantes_desaparecidos)
+
+````
+
+**Análisis de Método #1: Regresión Lineal Simple (Datos 2022)**
+
+````{r}
+# Cargar datos
+data <- read.csv("data/MissingMigrants-Global-2022.csv")
+
+# Filtrando datos para la primera regresión
+data_filtered <- data %>%
+  select(Number.Dead, Total.Number.of.Dead.and.Missing) %>%
+  drop_na()
+
+
+# Regresión lineal simple: Número de muertos y Total de muertos y desaparecidos
+model1 <- lm(Number.Dead ~ Total.Number.of.Dead.and.Missing, data = data_filtered)
+summary(model1)
+
+# Coeficientes
+slope1 <- coef(model1)[2]
+intercept1 <- coef(model1)[1]
+
+cat("Modelo 1 - Pendiente: ", slope1, "\n")
+cat("Modelo 1 - Intercepto: ", intercept1, "\n")
+
+# Para la segunda regresión, se codifican las regiones numéricamente
+data_filtered_regions <- data %>%
+  select(Region, Number.Dead) %>%
+  drop_na()
+
+data_filtered_regions$Region_encoded <- as.numeric(factor(data_filtered_regions$Region))
+
+# Regresión lineal simple: Regiones y Número de muertos
+model2 <- lm(Number.Dead ~ Region_encoded, data = data_filtered_regions)
+summary(model2)
+
+# Coeficientes
+slope2 <- coef(model2)[2]
+intercept2 <- coef(model2)[1]
+
+cat("Modelo 2 - Pendiente: ", slope2, "\n")
+cat("Modelo 2 - Intercepto: ", intercept2, "\n")
+````
+**Análisis de Regresión Lineal Simple**
+
+**1. Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos**
+
+En este análisis del modelo, se buscó entender la relación entre el **total de muertos y desaparecidos** y el **número de muertos** en incidentes migratorios.
+
+La ecuación de la regresión es la siguiente:
+
+\[
+\text{Número de muertos} = 1.1458 + 0.1832 \times (\text{Total de muertos y desaparecidos})
+\]
+
+**Interpretación de Resultados:**
+
+- **Pendiente (\(\beta_1 = 0.1832\))**: Por cada persona adicional en el total de muertos y desaparecidos, se espera que el número de muertos aumente en **0.18 personas**, en promedio.
+  
+- **Intercepto (\(\beta_0 = 1.1458\))**: Si el total de muertos y desaparecidos fuera cero, el modelo indica que el número estimado de muertos sería **1.15 personas**. Aunque es correcto, no necesariamente reflejo algo revelador, dado que un total de muertos y desaparecidos igual a 0 no implica migrantes fallecidos.
+
+Este modelo sugiere una relación positiva entre estas dos variables, lo que se espera, puesto que el número de muertos está relacionado con el total de muertos y desaparecidos en un incidente.
+
+---
+
+**2. Relación entre la Región y el Número de Muertos**
+
+En este análisis, las **regiones** se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el **número de muertos** cambia entre las distintas regiones.
+
+La ecuación de la regresión es:
+
+\[
+\text{Número de muertos} = 1.3123 + 0.0774 \times (\text{Región codificada})
+\]
+
+**Interpretación de Resultados:**
+
+- **Pendiente (\(\beta_1 = 0.0774\))**: Indica que, en promedio, al cambiar de una región a otra (codificada numéricamente), el número de muertos aumenta en **0.077 personas**.
+  
+- **Intercepto (\(\beta_0 = 1.3123\))**: Cuando la región es la primera codificada, el número esperado de muertos es de **1.31 personas**.
+
+El modelo sugiere que hay diferencias leves en el número de muertos entre las regiones, sin ser un relación significativa. La pendiente es pequeña, lo que indica que el número de muertos no varía drásticamente entre las distintas regiones.
+
+
+
+**Variables Importantes**
+
+- **Region**: Región donde ocurrió el incidente.
+- **Estado**: Estado donde ocurrió el incidente.
+- **Nivel_inc**: Nivel de impacto.
+- **Total_inc**: Número de casos confirmados.
+- **Num_Fallecimientos**: Número de fallecimientos.
+- **Num_Heridos**: Número de heridos debido a incidentes de desempleo.
+- **Sector**: Sector de trabajo en el que labora el afectado de manera directamente relacionada.
+- **Grupo_et**: Clase de grupo étnico involucrado.
+- **Tipo_inc**: Tipo de migración utilizada.
+
+Se describe el análisis:
+
+1. Análisis descriptivo comparativo para identificar las principales diferencias entre 2019 y 2021.
+
+
+
+
+**Análisis descriptivo comparativo de los incidentes migratorios en 2019 y 2021**
+
+Resumen general de los incidentes:
+
+2019:
+- Total de incidentes: 1422
+- Total de muertes: 324
+- Total de desempleados: 1777
+- Total de muertes y desempleados: 5,481
+
+2021:
+- Total de incidentes: 1380
+- Total de muertes: 238
+- Total de desempleados: 2,206
+- Total de muertes y desempleados: 5,146
+
+Interpretación:
+Aunque algunos de los incidentes aumentan levemente en el 2021, se observa una reducción en el número de muertes en comparación con 2019.
+
+---
+
+**Distribución regional de los incidentes:**
+
+Regiones con mayor número de incidentes en 2019:
+1. Área Oeste/Central: 489
+2. Zona del Norte: 288
+3. Región del Este: 259
+4. Península del Norte: 169
+
+Regiones con mayor número de incidentes en 2021:
+1. Área Metropolitana: 417
+2. Norte del Norte: 409
+3. Mediterráneo: 353
+
+Interpretación:
+En 2019, las áreas urbanas (particularmente Occidental y Norte) destacan los incidentes migratorios; sin embargo, en 2021, las áreas metropolitanas muestran un incremento considerable en la cantidad de incidentes.
+
+---
+
+**Principales causas de muerte:**
+ Asesinatos: 213
+Accidentes vehiculares: 208
+
+2021:
+Asesinatos: 431
+Violencia intrafamiliar: 256
+Condiciones socioeconómicas adversas: 224
+
+Conclusión:
+Ambos años, los asesinatos fueron las causas principales de muerte. 
+
+
+**Análisis de regresión temporal: Relación entre el mes y los desaparecidos**
+
+Se realizó una regresión lineal para los años 2019 y 2021 con el objetivo de evaluar si existe una tendencia en el número de desaparecidos a lo largo del tiempo, utilizando el mes como variable independiente.
+
+**Ecuaciones de regresión**
+
+2019:
+- Desaparecidos = 80.34 + 10.44 × (Mes)
+  - Pendiente: 10.44
+  - Intercepto: 80.24
+
+2021:
+- Desaparecidos = 164.03 + 7.17 × (Mes)
+  - Pendiente: 7.17
+  - Intercepto: 164.03
+
+Interpretación de los resultados
+
+2019:
+- La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes.
+- La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).
+
+2021:
+- En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes).
+- El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.
+
+### Fichas de Resultados
+
+**1. Resultado: Principal causa de muerte.**
+
+**- Resumen en una oración:** El 37.6% de las muertes de migrantes es por ahogamiento.
+
+**- Principal característica:** El hallazgo nos indica los tipos de rutas que son los más peligrosos para migrar.
+**- Problemas o posibles desafíos:** Es posible que al utilizar medios de transporte marítimos sea más fácil tener control de las muertes, ya que se asumen, por lo que este hallazgo podría no representar tanta relevancia como otro tipo de muertes confirmadas
+
+**- Resumen en un párrafo:** Alrededor de 10.000 migrantes mueren por ahogamiento, representando un 37.6% del total de muertes confirmadas en esta investigación, además más del 50% de estos migrantes fallecieron en el Meditarraneo, siendo la ruta que conecta países como Siria, Marruecos, Afganistán, Nigeria, España, Italia, Grecia, etc.
+Al ser el mar Mediterraneo muy extenso y bañando las costas de muchos países, parece evidente que esta region cuente con el mayor porcentaje de muertes, además de la dificultad para trasladarse por vía marítima.
+
+**2. Resultado: Region con más muertes.**
+
+**- Resumen en una oración:** El 32.7% de los migrantes muere en África.
+
+**- Principal característica:** El hallazgo indica que África es la zona más difícil por donde migrar.
+
+**- Problemas o posibles desafíos:** África es un contienen enorme a comparación de las otras regiones estudiadas, por lo que podría ser evidente que presente el mayor número de muertes de migrantes, parte del problema radica que no se toman en cuenta las densidades poblacionales de las diferentes regiones.
+
+**- Resumen en un párrafo:** Alrededor de 8.750 migrantes han muerto en África, esto se debe a diferentes causas de las cuales las principales son por condiciones ambientales adversas, se tiene por ejemplo el desierto del Sahara donde se presentan climas extremadamente calurosos, escases de recursos hídricos y falta de infraestructura.
+Seguido de la causa anterior se tienen muertes poe enfermedad, la falta de recursos y de nacionalidad impide poder optar por los medicamentos adecuados.
+En otras causas se tienen muerte por violencia y por accidentes vehiculares.
+
+**3. Resultado: Crisis por pandemia.**
+
+**- Resumen en una oración:** Debido a la pandemia de COVID-19, el año 2021 tuvo mayor número de incidentes sobre migrantes desaparecidos.
+
+**- Principal característica:** El hallzago indica que la pandemia provocó un aumento en la migración a nivel mundial.
+
+**- Problemas o posibles desafíos:** Existen demasiados factores economicos, politicos y sociales, por lo que podrían existir dificultades al momento de conectar dichos factores con la pandemia de COVID-19.
+
+**- Resumen en un párrafo:** Se reportaron 1.860 incidentes sobre migrantes desaparecidos en 2021, siendo este el año con mayor número de incidentes y habiendo aumentado en un 38.39% con respecto al 2020.
+Además se confirmaron 3.386 muertes de migrantes.
+La pandemia de COVID-19 provocó restricciones de movilidad y aislamiento principalmente en 2020, afectando también la economía y salud de toda la población mundial.
+En 2021 algunos países quitaron dichas restricciones, lo cual dio lugar a una enorme ola de migrantes que se había acumulado.
+Por otro lado algunos países de destino mantuvieron cerradas sus fronteras o rutas principales de migración, lo que llevó a que los migrantes buscaran rutas alternativas y más peligrosas para cruzar dichas fronteras aumentado así el número de muertes con respecto al 2020.
+
+**4. Resultado: Más hombres migrantes que mujeres**
+
+**- Resumen en una oración:** En los últimos años, a excepción del 2018, migran más hombres que mujeres.
+
+**- Principal característica:** El resultado representa la proporción entre hombres y mujeres en los incidentes reportados.
+
+**- Problemas o posibles desafíos:** Se presentan datos sobre incidentes de desapariciones, no se toma en cuenta datos sobre migraciones en general, no se podría reflejar la realidad sobre la proporción mencionada.
+Además, en algunos casos no sabe el sexo de las personas que fueron reportadas desaparecidas.
+
+**- Resumen en un párrafo:** En los datos recolectados desde el 2014 al 2022 más del 70% de los migrantes involucrados en los incidentes reportados son hombres y más del 80% de muertes confirmadas de los migrantes desaparecidos tambiém fueron hombres, a excepción del 2018.
+Una de las posibles razones sobre el predominio masculino en la migración es la existencia de los roles tradicionales de género, donde los hombres son los encargados de migrar en busca de mejores oportunidades para cumplir con su parte de "proveedor" de la familia, muchas veces optando por utilizar rutas peligrosas.
+
+**5. Resultado: Niños involucrados**
+
+**- Resumen en una oración:** Más de 2700 niños son involucrados en los incidentes de migrantes desaparecidos.
+
+**- Principal característica:** El resultados presenta la cantidad de niños reportados desaparecidos y cuales de ellos mueren o sobreviven.
+
+**- Problemas o posibles desafíos:** Al igual que el resultado por sexo, en muchos de los casos no se sabe si existieron niños involucrados o no se menciona.
+
+**- Resumen en un párrafo:** Desde el 2014 se han reportado 2700 niños desaparecidos, de los cuales más de 1200 se han confirmado muertos.
+Los migrantes son una parte de la población muy vulnerable, más si se trata de niños migrantes que pueden estar o no acompañados por sus familiares.
+Existen demasiados desafíos a los que deben enfrentarse al momento de migrar, donde ha muerto el 44.44% de los niños reportados desaparecidos.
+El año con mayor número de muertes fue el 2019 con 405 niños involucrados.
+
+- **6. Nombre de su hallazgo/resultado: Incidentes totales en 2019 y 2021.**
+
+- **Resumen en una oración**: Se registraron 1,422 incidentes en 2019 y 1,380 en 2021.
+
+- **Principal característica**: Pequeña dismuninución en la cantidad de incidentes entre los dos años.
+
+- **Problemas o posibles desafíos**: La diferencia en los incidentes podría estar influenciada por factores externos como la pandemia de COVID, con lo cual se requiere contextualizar los datos.
+
+- **Resumen en un párrafo**: En el análisis de los incidentes entre 2019 y 2021, se observa una ligera reducción en la cantidad total. Esto podría estar relacionado con variaciones en patrones migratorios y factores socioeconómicos como los causados por la pandemia. A pesar de la disminución en el total, otros factores muestran tendencias significativas que ameritan un análisis detallado.
+
+- **7. Nombre de su hallazgo/resultado: Variables clave en el análisis de incidentes migratorios**
+
+- **Resumen en una oración**: Se identificaron variables importantes relacionadas con la ubicación, impacto, consecuencias y características de los incidentes migratorios.
+
+- **Principal característica**: Las variables recolectaron información detallada sobre la región, estado, nivel de impacto, y consecuencias como muertes, heridos y desempleo, lo cual permite un análisis exhaustivo de cada incidente.
+
+- **Problemas o posibles desafíos**: La complejidad de las variables y la variabilidad en los datos podrían tergiversan una información uniforme, especialmente en comparación interanual.
+
+- **Resumen en un párrafo**: En el análisis de incidentes migratorios, se definieron variables clave que permiten categorizar y analizar cada caso con detalle. Estas incluyen información sobre la ubicación geográfica (región y estado), el nivel de impacto, la cantidad de incidentes confirmados, y las consecuencias en términos de fallecimientos, heridos y desempleo. También se consideran el sector de trabajo de los afectados, el grupo étnico involucrado, y el tipo de migración, lo cual facilita identificar patrones y diferencias significativas entre los años 2019 y 2021.
+
+- **8. Nombre de su hallazgo/resultado: Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos**
+
+- **Resumen en una oración**: Se encontró una relación positiva entre el total de muertos y desaparecidos y el número de muertos en incidentes migratorios.
+
+- **Principal característica**: La pendiente de la regresión indica que, en promedio, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos aumenta en 0.18 personas.
+
+- **Problemas o posibles desafíos**: La interpretación del intercepto es sumamente significativa.
+
+- **Resumen en un párrafo**: El análisis de regresión entre el total de muertos y desaparecidos y el número de muertos revela una relación positiva esperada, con una pendiente que sugiere que, por cada persona adicional en el total de muertos y desaparecidos, el número de muertos se incrementa en aproximadamente 0.18 personas.
+
+- **9. Nombre de su hallazgo/resultado: Relación entre la Región y el Número de Muertos**
+
+- **Resumen en una oración**: Se observan diferencias leves en el número de muertos entre regiones, pero la relación no es significativa.
+
+- **Principal característica**: La pendiente de 0.0774 indica un aumento leve en el número de muertos al pasar de una región a otra.
+
+- **Problemas o posibles desafíos**: La pequeña pendiente sugiere que las variaciones en el número de muertos entre regiones no son relevantes, limitando la utilidad del modelo para identificar diferencias significativas.
+
+- **Resumen en un párrafo**: El análisis de regresión que relaciona las regiones (codificadas numéricamente) y el número de muertos muestra una pendiente baja (0.0774), lo que sugiere diferencias leves en el número de muertos al cambiar de una región a otra. Aunque el modelo sugiere una ligera variación, esta no es significativa y no refleja una diferencia drástica entre las regiones. El intercepto de 1.31 indica el número esperado de muertos en la primera región codificada. En conclusión, aunque hay una relación entre la región y el número de muertos, esta no es suficiente para ser estadísticamente relevante.
+
+**Conclusión del análisis de regresión**
+
+Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.
+
