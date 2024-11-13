@@ -547,32 +547,8 @@ migrantes_desaparecidos |>
 
 ### Propuesta Metodológica
 
-**Método #1: Coeficiente de Correlación de Pearson**
 
-:   Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.
-
-De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas.
-A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas.
-El valor del índice de correlación de Pearson está entre -1 y +1, ambos incluidos.
-Más abajo veremos cómo se interpreta el valor del coeficiente de correlación de Pearson.
-
-El coeficiente de correlación de Pearson depende de su valor:
-
--   r=-1: Las dos variables tienen una correlación perfecta negativa, por lo que se puede trazar una recta con pendiente negativa en la que se encuentren todos los puntos.
-
--   -1\<r\<0: La correlación entre las dos variables es negativa, por lo tanto, cuando una variable aumenta la otra disminuye.
-    Cuanto más cerca esté el valor de -1 significa que más relacionadas negativamente están las variables.
-
--   r=0: La correlación entre las dos variables es muy débil, de hecho, la relación lineal entre ellas es nula.
-    Esto no significa que las variables sean independientes, ya que podrían tener una relación no lineal.
-
--   0\<r\<1: La correlación entre las dos variables es positiva, cuanto más cerca esté el valor de +1 más fuerte es la relación entre las variables.
-    En este caso, una variable tiende a incrementar su valor cuando la otra también aumenta.
-
--   r=1: Las dos variables tienen una correlación perfecta positiva, es decir, tienen una relación lineal positiva.
-    interpretacion del coeficiente de correlacion de pearson
-
-**Método #2: Regresión Lineal Simple**
+**Método #1: Regresión Lineal Simple**
 
 :   La regresión lineal simple [@probabilidadyestadistica3.0] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y.
     Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
@@ -590,27 +566,6 @@ Para poder hacer una regresión lineal simple, se deben cumplir las siguientes h
 
 -   Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
     Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
-
-**Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)**
-
-Según @Saadeddin, ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad.
-Como se mencionó anteriormente, el modelo está compuesto de tres partes:
-
--   **Parte autorregresiva (AR)**
-
-Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El "marco de autoregresión" funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores. 
-
-Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas. 
-
--   **Parte integrada (I)**
-
-Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.
-
--   **Parte de la media móvil (MA)**
-
-Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados. 
-
-Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud.
 
 ### Fichas de Resultados
 

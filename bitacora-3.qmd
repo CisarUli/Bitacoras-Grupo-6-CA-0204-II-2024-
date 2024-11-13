@@ -369,47 +369,6 @@ Interpretación de los resultados
 
 - **Resumen en un párrafo**: El análisis de regresión que relaciona las regiones (codificadas numéricamente) y el número de muertos muestra una pendiente baja (0.0774), lo que sugiere diferencias leves en el número de muertos al cambiar de una región a otra. Aunque el modelo sugiere una ligera variación, esta no es significativa y no refleja una diferencia drástica entre las regiones. El intercepto de 1.31 indica el número esperado de muertos en la primera región codificada. En conclusión, aunque hay una relación entre la región y el número de muertos, esta no es suficiente para ser estadísticamente relevante.
 
-**10. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.**
-
-**Resumen en una oración: **Se espera que del 2023 al 2027 se reporten 3.028 muertes.
-
-**Principal característica: **El resultado presenta el número de muertes probable que ocurra en los próximos 5 años.
-
-**Problemas o posibles desafíos: **Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.
-
-**Resumen en un párrafo: **Se puede observar una preddicción puntual de que mueran 3.028 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año, que se diferencia en promedio en 1.321 muertes a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 1.007 y 5.047, que se diferencia en promedio en 2.020 muertes a la predicción central.
-
-**11. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.**
-
-**Resumen en una oración: **Se espera que del 2023 al 2027 se reporten 8.011 muertes.
-
-**Principal característica: **El resultado presenta el número de sobrevivientes migrantes más probable que ocurra en los próximos 5 años.
-
-**Problemas o posibles desafíos: **Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.
-
-**Resumen en un párrafo: **Se puede observar una predicción puntual de que sobrevivan o sean rescatados 8.011 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de sobrevivientes migrantes en los próximos años se encuentre entre 3.289 y 12.732 por año, que se diferencia en promedio en 4.721 a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 790 y 15.231, que se diferencia en promedio en 7.220 muertes a la predicción central.
-
-**12. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.**
-
-**Resumen en una oración: **Se espera que del 2023 al 2027 sean reportados 1.224 migrantes como desaparecidos cada año
-
-**Principal característica: **El resultado presenta el número de migrantes desaparecidos más probable que ocurra en los próximos 5 años.
-
-**Problemas o posibles desafíos: **Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.
-
-**Resumen en un párrafo: **A diferencia de los casos de muerte y sobrevivencia, la predicción puntual del número de dsaparecidos varía por año como se muestra anteriormente, donde existe una incertidumbre con un 80% de probabilidad  de que el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.
-
-**13. Nombre del hallazgo: Más sobrevivientes que muertos**
-
-**Resumen en una oración: ** Se espera que se rescaten 4.983 más migrantes que los que no logran sobrevivir.
-
-**Principal característica: **El hallazgo compara los resultados 7 y 8 y presente un mayor número de sobrevivientes al número de muertes en un futuro.
-
-**Problemas o posibles desafíos: **No se toma en cuenta los desaparecidos, debido a que podría tratarse de posibles sobrevivientes o de muertos.
-
-**Resumen en un párrafo: **Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.
-
-
 ---
 
 **Conclusión del análisis de regresión**
