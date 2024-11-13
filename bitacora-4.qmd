@@ -1,0 +1,11 @@
+---
+editor: 
+  markdown: 
+    wrap: sentence
+execute: 
+  warning: FALSE
+  messages: FALSE
+---
+
+# Bitacora 4
+
