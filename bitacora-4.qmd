@@ -708,7 +708,7 @@ cat("Modelo 2 - Intercepto: ", intercept2, "\n")
 
 **1. Relación entre el Total de Muertos y Desaparecidos y el Número de Muertos**
 
-En este análisis del modelo, se buscó entender la relación entre el **total de muertos y desaparecidos** y el **número de muertos** en incidentes migratorios.
+En este análisis del modelo, se buscó entender la relación entre el **total de muertos y desaparecidos**y el **número de muertos**en incidentes migratorios.
 
 La ecuación de la regresión es la siguiente:
 
@@ -728,7 +728,7 @@ Este modelo sugiere una relación positiva entre estas dos variables, lo que se 
 
 **2. Relación entre la Región y el Número de Muertos**
 
-En este análisis, las **regiones** se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el **número de muertos** cambia entre las distintas regiones.
+En este análisis, las **regiones**se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el **número de muertos**cambia entre las distintas regiones.
 
 La ecuación de la regresión es:
 
@@ -847,35 +847,35 @@ Interpretación de los resultados
 
 **1. Resultado: Principal causa de muerte.**
 
-**- Resumen en una oración:** El 37.6% de las muertes de migrantes es por ahogamiento.
+- **Resumen en una oración:**El 37.6% de las muertes de migrantes es por ahogamiento.
 
-**- Principal característica:** El hallazgo nos indica los tipos de rutas que son los más peligrosos para migrar.
-**- Problemas o posibles desafíos:** Es posible que al utilizar medios de transporte marítimos sea más fácil tener control de las muertes, ya que se asumen, por lo que este hallazgo podría no representar tanta relevancia como otro tipo de muertes confirmadas
+- **Principal característica:**El hallazgo nos indica los tipos de rutas que son los más peligrosos para migrar.
+- **Problemas o posibles desafíos:**Es posible que al utilizar medios de transporte marítimos sea más fácil tener control de las muertes, ya que se asumen, por lo que este hallazgo podría no representar tanta relevancia como otro tipo de muertes confirmadas
 
-**- Resumen en un párrafo:** Alrededor de 10.000 migrantes mueren por ahogamiento, representando un 37.6% del total de muertes confirmadas en esta investigación, además más del 50% de estos migrantes fallecieron en el Meditarraneo, siendo la ruta que conecta países como Siria, Marruecos, Afganistán, Nigeria, España, Italia, Grecia, etc.
+- **Resumen en un párrafo:**Alrededor de 10.000 migrantes mueren por ahogamiento, representando un 37.6% del total de muertes confirmadas en esta investigación, además más del 50% de estos migrantes fallecieron en el Meditarraneo, siendo la ruta que conecta países como Siria, Marruecos, Afganistán, Nigeria, España, Italia, Grecia, etc.
 Al ser el mar Mediterraneo muy extenso y bañando las costas de muchos países, parece evidente que esta region cuente con el mayor porcentaje de muertes, además de la dificultad para trasladarse por vía marítima.
 
 **2. Resultado: Region con más muertes.**
 
-**- Resumen en una oración:** El 32.7% de los migrantes muere en África.
+- **Resumen en una oración:**El 32.7% de los migrantes muere en África.
 
-**- Principal característica:** El hallazgo indica que África es la zona más difícil por donde migrar.
+- **Principal característica:**El hallazgo indica que África es la zona más difícil por donde migrar.
 
-**- Problemas o posibles desafíos:** África es un contienen enorme a comparación de las otras regiones estudiadas, por lo que podría ser evidente que presente el mayor número de muertes de migrantes, parte del problema radica que no se toman en cuenta las densidades poblacionales de las diferentes regiones.
+- **Problemas o posibles desafíos:**África es un contienen enorme a comparación de las otras regiones estudiadas, por lo que podría ser evidente que presente el mayor número de muertes de migrantes, parte del problema radica que no se toman en cuenta las densidades poblacionales de las diferentes regiones.
 
-**- Resumen en un párrafo:** Alrededor de 8.750 migrantes han muerto en África, esto se debe a diferentes causas de las cuales las principales son por condiciones ambientales adversas, se tiene por ejemplo el desierto del Sahara donde se presentan climas extremadamente calurosos, escases de recursos hídricos y falta de infraestructura.
+- **Resumen en un párrafo:**Alrededor de 8.750 migrantes han muerto en África, esto se debe a diferentes causas de las cuales las principales son por condiciones ambientales adversas, se tiene por ejemplo el desierto del Sahara donde se presentan climas extremadamente calurosos, escases de recursos hídricos y falta de infraestructura.
 Seguido de la causa anterior se tienen muertes poe enfermedad, la falta de recursos y de nacionalidad impide poder optar por los medicamentos adecuados.
 En otras causas se tienen muerte por violencia y por accidentes vehiculares.
 
 **3. Resultado: Crisis por pandemia.**
 
-**- Resumen en una oración:** Debido a la pandemia de COVID-19, el año 2021 tuvo mayor número de incidentes sobre migrantes desaparecidos.
+- **Resumen en una oración:**Debido a la pandemia de COVID-19, el año 2021 tuvo mayor número de incidentes sobre migrantes desaparecidos.
 
-**- Principal característica:** El hallzago indica que la pandemia provocó un aumento en la migración a nivel mundial.
+- **Principal característica:**El hallzago indica que la pandemia provocó un aumento en la migración a nivel mundial.
 
-**- Problemas o posibles desafíos:** Existen demasiados factores economicos, politicos y sociales, por lo que podrían existir dificultades al momento de conectar dichos factores con la pandemia de COVID-19.
+- **Problemas o posibles desafíos:**Existen demasiados factores economicos, politicos y sociales, por lo que podrían existir dificultades al momento de conectar dichos factores con la pandemia de COVID-19.
 
-**- Resumen en un párrafo:** Se reportaron 1.860 incidentes sobre migrantes desaparecidos en 2021, siendo este el año con mayor número de incidentes y habiendo aumentado en un 38.39% con respecto al 2020.
+- **Resumen en un párrafo:**Se reportaron 1.860 incidentes sobre migrantes desaparecidos en 2021, siendo este el año con mayor número de incidentes y habiendo aumentado en un 38.39% con respecto al 2020.
 Además se confirmaron 3.386 muertes de migrantes.
 La pandemia de COVID-19 provocó restricciones de movilidad y aislamiento principalmente en 2020, afectando también la economía y salud de toda la población mundial.
 En 2021 algunos países quitaron dichas restricciones, lo cual dio lugar a una enorme ola de migrantes que se había acumulado.
@@ -883,25 +883,25 @@ Por otro lado algunos países de destino mantuvieron cerradas sus fronteras o ru
 
 **4. Resultado: Más hombres migrantes que mujeres**
 
-**- Resumen en una oración:** En los últimos años, a excepción del 2018, migran más hombres que mujeres.
+- **Resumen en una oración:**En los últimos años, a excepción del 2018, migran más hombres que mujeres.
 
-**- Principal característica:** El resultado representa la proporción entre hombres y mujeres en los incidentes reportados.
+- **Principal característica:**El resultado representa la proporción entre hombres y mujeres en los incidentes reportados.
 
-**- Problemas o posibles desafíos:** Se presentan datos sobre incidentes de desapariciones, no se toma en cuenta datos sobre migraciones en general, no se podría reflejar la realidad sobre la proporción mencionada.
+- **Problemas o posibles desafíos:**Se presentan datos sobre incidentes de desapariciones, no se toma en cuenta datos sobre migraciones en general, no se podría reflejar la realidad sobre la proporción mencionada.
 Además, en algunos casos no sabe el sexo de las personas que fueron reportadas desaparecidas.
 
-**- Resumen en un párrafo:** En los datos recolectados desde el 2014 al 2022 más del 70% de los migrantes involucrados en los incidentes reportados son hombres y más del 80% de muertes confirmadas de los migrantes desaparecidos tambiém fueron hombres, a excepción del 2018.
+- **Resumen en un párrafo:**En los datos recolectados desde el 2014 al 2022 más del 70% de los migrantes involucrados en los incidentes reportados son hombres y más del 80% de muertes confirmadas de los migrantes desaparecidos tambiém fueron hombres, a excepción del 2018.
 Una de las posibles razones sobre el predominio masculino en la migración es la existencia de los roles tradicionales de género, donde los hombres son los encargados de migrar en busca de mejores oportunidades para cumplir con su parte de "proveedor" de la familia, muchas veces optando por utilizar rutas peligrosas.
 
 **5. Resultado: Niños involucrados**
 
-**- Resumen en una oración:** Más de 2700 niños son involucrados en los incidentes de migrantes desaparecidos.
+- **Resumen en una oración:**Más de 2700 niños son involucrados en los incidentes de migrantes desaparecidos.
 
-**- Principal característica:** El resultados presenta la cantidad de niños reportados desaparecidos y cuales de ellos mueren o sobreviven.
+- **Principal característica:**El resultados presenta la cantidad de niños reportados desaparecidos y cuales de ellos mueren o sobreviven.
 
-**- Problemas o posibles desafíos:** Al igual que el resultado por sexo, en muchos de los casos no se sabe si existieron niños involucrados o no se menciona.
+- **Problemas o posibles desafíos:**Al igual que el resultado por sexo, en muchos de los casos no se sabe si existieron niños involucrados o no se menciona.
 
-**- Resumen en un párrafo:** Desde el 2014 se han reportado 2700 niños desaparecidos, de los cuales más de 1200 se han confirmado muertos.
+- **Resumen en un párrafo:**Desde el 2014 se han reportado 2700 niños desaparecidos, de los cuales más de 1200 se han confirmado muertos.
 Los migrantes son una parte de la población muy vulnerable, más si se trata de niños migrantes que pueden estar o no acompañados por sus familiares.
 Existen demasiados desafíos a los que deben enfrentarse al momento de migrar, donde ha muerto el 44.44% de los niños reportados desaparecidos.
 El año con mayor número de muertes fue el 2019 con 405 niños involucrados.
@@ -970,43 +970,43 @@ Se recomienda utilizar una base matemática y estadística más fuerte para enfr
 
 ### Introducción
 
-**- Tema y contexto:**
+- **Tema y contexto:**
 
-    **- ¿Cuál es el contexto de su tema?** La migración y las desapariciones de migrantes forman parte de un fenómeno complejo y crítico, especialmente en el contexto de los flujos migratorios de la última década.
+    - **¿Cuál es el contexto de su tema?**La migración y las desapariciones de migrantes forman parte de un fenómeno complejo y crítico, especialmente en el contexto de los flujos migratorios de la última década.
 
-    **- ¿Por qué es oportuno?** Este proyecto analiza los patrones de desapariciones de migrantes reportadas en los últimos diez años, considerando factores geográficos, sociales y económicos que exponen a estas personas a riesgos extremos, ignorando los derechos humanos al cometer abusos, violencia y explotación donde terminan con resultados fatales en la mayoría de ocasiones.
+    - **¿Por qué es oportuno?**Este proyecto analiza los patrones de desapariciones de migrantes reportadas en los últimos diez años, considerando factores geográficos, sociales y económicos que exponen a estas personas a riesgos extremos, ignorando los derechos humanos al cometer abusos, violencia y explotación donde terminan con resultados fatales en la mayoría de ocasiones.
 
-**- Enfoque y alcance:**
+- **Enfoque y alcance:**
 
-    **- ¿En qué se va a centrar específicamente en este tema?** El trabajo se centra en las rutas migratorias clave, en particular aquellas hacia Estados Unidos y Europa, donde las muertes y desapariciones son muy elevadas.
+    - **¿En qué se va a centrar específicamente en este tema?**El trabajo se centra en las rutas migratorias clave, en particular aquellas hacia Estados Unidos y Europa, donde las muertes y desapariciones son muy elevadas.
 
-    **- ¿Qué lugar, tiempo y datos demográficos va a analizar?** Se analiza principalmente la situación de migrantes procedentes de países sub-desarrollados y su interacción con las políticas migratorias restrictivas, el tráfico de personas y la corrupción de datos registrados desde el 2014 al 2022, tomando 2019 y 2021 como años representativos para uno de los modelos analíticos."
+    - **¿Qué lugar, tiempo y datos demográficos va a analizar?**Se analiza principalmente la situación de migrantes procedentes de países sub-desarrollados y su interacción con las políticas migratorias restrictivas, el tráfico de personas y la corrupción de datos registrados desde el 2014 al 2022, tomando 2019 y 2021 como años representativos para uno de los modelos analíticos."
 
-**- Relevancia: (revisión de la literatura)**
+- **Relevancia: (revisión de la literatura)**
 
-    **- ¿Por qué es importante que haga esta investigación?** La relevancia de esta investigación radica en su aporte al identificar y entender las condiciones que propician estos riesgos, ayudando a visualizar y cuantificar las violaciones de derechos humanos y las carencias en la protección de migrantes.
+    - **¿Por qué es importante que haga esta investigación?**La relevancia de esta investigación radica en su aporte al identificar y entender las condiciones que propician estos riesgos, ayudando a visualizar y cuantificar las violaciones de derechos humanos y las carencias en la protección de migrantes.
 
-    **- ¿Qué nuevos conocimientos aportará?** Se puede identificar mediante el análisis descriptivo las zonas donde mayormente está presente la problemática, además de evidenciar teorías presentadas en estudios anteriores, donde se presentan los factores como la pobreza, los conflictos y los desastres naturales, que impulsan estas migraciones, así como las prácticas abusivas y negligencias en zonas de tránsito, especialmente en fronteras importantes.
+    - **¿Qué nuevos conocimientos aportará?**Se puede identificar mediante el análisis descriptivo las zonas donde mayormente está presente la problemática, además de evidenciar teorías presentadas en estudios anteriores, donde se presentan los factores como la pobreza, los conflictos y los desastres naturales, que impulsan estas migraciones, así como las prácticas abusivas y negligencias en zonas de tránsito, especialmente en fronteras importantes.
 
-    **- ¿Hay una relevancia política o social más amplia?** Este análisis contribuye a la sociedad al determinar los efectos de algunas de las políticas migratorias actuales y la preocupante falta de protección hacia los migrantes, con el objetivo de proponer soluciones que incluyan tanto intervenciones políticas como apoyo humanitario y psicológico."
+    - **¿Hay una relevancia política o social más amplia?**Este análisis contribuye a la sociedad al determinar los efectos de algunas de las políticas migratorias actuales y la preocupante falta de protección hacia los migrantes, con el objetivo de proponer soluciones que incluyan tanto intervenciones políticas como apoyo humanitario y psicológico."
 
-    **- ¿Cuál es la relevancia de esto en su campo académico?** Este estudio aporta datos y análisis que son fundamentales en los estudios migratorios y en las ciencias sociales, ya que aborda las implicaciones de la migración representadas de forma cuantitativa.
+    - **¿Cuál es la relevancia de esto en su campo académico?**Este estudio aporta datos y análisis que son fundamentales en los estudios migratorios y en las ciencias sociales, ya que aborda las implicaciones de la migración representadas de forma cuantitativa.
 
-    **- ¿Ayuda a resolver o salvar un problema teórico, aborda una laguna en la literatura, se basa en la investigación existente o propone una nueva teoría sobre su tema?** Esta investigación no solo aborda una laguna en la literatura sobre el riesgo de desapariciones y muertes en rutas migratorias, sino que también aporta modelos analíticos que podrían utilizarse para futuras proyecciones sobre los patrones de migración estudiados.
+    - **¿Ayuda a resolver o salvar un problema teórico, aborda una laguna en la literatura, se basa en la investigación existente o propone una nueva teoría sobre su tema?**Esta investigación no solo aborda una laguna en la literatura sobre el riesgo de desapariciones y muertes en rutas migratorias, sino que también aporta modelos analíticos que podrían utilizarse para futuras proyecciones sobre los patrones de migración estudiados.
     
-**- Objetivos y metas:**
+- **Objetivos y metas:**
 
-    **- ¿Cuál es el objetivo de su pregunta de investigación?** El objetivo principal de esta investigación es presentar modelos analíticos que permitan realizar futuras proyecciones sobre patrones de migración, muertes y desapariciones de migrantes. Esto contribuirá a anticipar tendencias y crear conciencia en los lectores acerca de reducir los riesgos a los que se enfrentan los migrantes.
+    - **¿Cuál es el objetivo de su pregunta de investigación?**El objetivo principal de esta investigación es presentar modelos analíticos que permitan realizar futuras proyecciones sobre patrones de migración, muertes y desapariciones de migrantes. Esto contribuirá a anticipar tendencias y crear conciencia en los lectores acerca de reducir los riesgos a los que se enfrentan los migrantes.
 
-    **- ¿Qué quiere descubrir?** Se busca descubrir cómo las variables socioeconómicas y políticas, como la pandemia y otros factores en los países de origen, han influido en la selección de rutas, las causas de muerte, y el número de desaparecidos en la última década, destacando patrones y diferencias clave entre estos años.
+    - **¿Qué quiere descubrir?**Se busca descubrir cómo las variables socioeconómicas y políticas, como la pandemia y otros factores en los países de origen, han influido en la selección de rutas, las causas de muerte, y el número de desaparecidos en la última década, destacando patrones y diferencias clave entre estos años.
 
-    **- ¿Cuál es su enfoque?** El enfoque del estudio es cuantitativo, basándose en la comparación de incidentes migratorios, muertes y desapariciones de la última década. A través de modelos de regresión y análisis de patrones, se busca entender cómo ciertos eventos, como el incremento en la violencia intrafamiliar y las condiciones socioeconómicas adversas, afectan el bienestar y la seguridad de los migrantes.
+    - **¿Cuál es su enfoque?**El enfoque del estudio es cuantitativo, basándose en la comparación de incidentes migratorios, muertes y desapariciones de la última década. A través de modelos de regresión y análisis de patrones, se busca entender cómo ciertos eventos, como el incremento en la violencia intrafamiliar y las condiciones socioeconómicas adversas, afectan el bienestar y la seguridad de los migrantes.
 
-    **- ¿Cómo pretende descubrirlo?** Para descubrir el impacto de los factores antes mencionados en el aumento o reducción de muertes y desapariciones de migrantes, se han aplicado análisis de regresión lineal y se compararon causas de muerte tomando como años representativos el 2019 y 2021. Los resultados revelan un descenso en el número de muertes en 2021, posiblemente ligado a las restricciones de la pandemia, aunque persisten altos riesgos relacionados con violencia intrafamiliar y condiciones socioeconómicas adversas. Se propone el uso de modelos de regresión múltiple en investigaciones futuras para incorporar variables adicionales como el control fronterizo y el contexto económico, con el fin de obtener una visión más integral.
+    - **¿Cómo pretende descubrirlo?**Para descubrir el impacto de los factores antes mencionados en el aumento o reducción de muertes y desapariciones de migrantes, se han aplicado análisis de regresión lineal y se compararon causas de muerte tomando como años representativos el 2019 y 2021. Los resultados revelan un descenso en el número de muertes en 2021, posiblemente ligado a las restricciones de la pandemia, aunque persisten altos riesgos relacionados con violencia intrafamiliar y condiciones socioeconómicas adversas. Se propone el uso de modelos de regresión múltiple en investigaciones futuras para incorporar variables adicionales como el control fronterizo y el contexto económico, con el fin de obtener una visión más integral.
 
-**- Resumen:**
+- **Resumen:**
 
-    **- ¿Qué se trata en cada sección?** El estudio está organizado en varias secciones: un análisis de los patrones de migración y desaparición en diferentes regiones junto a teorías y estudios realizados con anterioridad, una evaluación de los factores de riesgo específicos para el año 2021 en comparación con 2019, y una exploración de modelos predictivos que pueden ofrecer bases para futuras investigaciones y proyecciones.
+    - **¿Qué se trata en cada sección?**El estudio está organizado en varias secciones: un análisis de los patrones de migración y desaparición en diferentes regiones junto a teorías y estudios realizados con anterioridad, una evaluación de los factores de riesgo específicos para el año 2021 en comparación con 2019, y una exploración de modelos predictivos que pueden ofrecer bases para futuras investigaciones y proyecciones.
     
 ### Resumen
 
@@ -1028,13 +1028,13 @@ La desaparición y/o muerte de migrantes en el desarrollo de sus viajes y/o en l
 
 ### Ordenamiento final
 
-**Título:** Proyecciones y patrones en la crisis migratoria: Análisis de desapariciones y muertes de migrantes.
+**Título:**Proyecciones y patrones en la crisis migratoria: Análisis de desapariciones y muertes de migrantes.
 
 **Resumen:**
 
-**Palabras clave:** Migración, desapariciones de migrantes, patrones de migración, muerte de migrantes, crisis migratoria internacional.
+**Palabras clave:**Migración, desapariciones de migrantes, patrones de migración, muerte de migrantes, crisis migratoria internacional.
 
-**Introducción:** La migración y las desapariciones de migrantes forman parte de un fenómeno complejo y crítico, especialmente en el contexto de los flujos migratorios de la última década. Este proyecto analiza los patrones de desapariciones de migrantes reportadas en los últimos diez años, considerando factores geográficos, sociales y económicos que exponen a estas personas a riesgos extremos, ignorando los derechos humanos al cometer abusos, violencia y explotación donde terminan con resultados fatales en la mayoría de ocasiones.
+**Introducción:**La migración y las desapariciones de migrantes forman parte de un fenómeno complejo y crítico, especialmente en el contexto de los flujos migratorios de la última década. Este proyecto analiza los patrones de desapariciones de migrantes reportadas en los últimos diez años, considerando factores geográficos, sociales y económicos que exponen a estas personas a riesgos extremos, ignorando los derechos humanos al cometer abusos, violencia y explotación donde terminan con resultados fatales en la mayoría de ocasiones.
 
 El trabajo se centra en las rutas migratorias clave, en particular aquellas hacia Estados Unidos y Europa, donde las muertes y desapariciones son muy elevadas. Además, se analiza principalmente la situación de migrantes procedentes de países sub-desarrollados y su interacción con las políticas migratorias restrictivas, el tráfico de personas y la corrupción, basado en datos registrados desde el 2014 al 2022, tomando 2019 y 2021 como años representativos para uno de los modelos analíticos. 
 
@@ -1044,21 +1044,21 @@ El objetivo principal de esta investigación es presentar modelos analíticos qu
 
 El estudio está organizado en varias secciones: un análisis de los patrones de migración y desaparición en diferentes regiones junto a teorías y estudios realizados con anterioridad, una evaluación de los factores de riesgo específicos para la última década y una exploración de modelos predictivos que pueden ofrecer bases para futuras investigaciones y proyecciones.
 
-@Todd en  **“Introduction to Human Geography”** se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: el autor explica por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas. Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo.
+@Todd en  **“Introduction to Human Geography”**se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: el autor explica por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas. Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo.
 Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
 
 Gracias a @migrationdataportal se tiene el Proyecto Migrantes Desaparecidos de la OIM es la única base de datos que recopila datos sobre muertes de migrantes. Las fuentes de datos que se emplean varían según la disponibilidad en cada región. Por ejemplo, en la región del Mediterráneo, el personal local de la OIM transmite datos cuando asiste a los sobrevivientes en los puntos de desembarco en Libia. En la frontera entre Estados Unidos y México, los datos se compilan en base a datos de los médicos forenses y las oficinas de los alguaciles de los condados de Estados Unidos, las agencias de búsqueda y rescate (SAR) mexicanas y fuentes de los medios de comunicación. En la Encuesta sobre la travesía del desierto del Sahara, se incluyen datos de la Matriz de Seguimiento de Desplazamientos (DTM) de la OIM. Las estimaciones en otras regiones se basan en una combinación de fuentes oficiales, datos de la OIM y otros organismos de las Naciones Unidas, datos de organizaciones de la sociedad civil y, principalmente, informes de los medios de comunicación. 
 
-Así @UN en **“More than 50,000 migrants ‘die in search of a better life’”**  expone que más de la mitad de las 50.000 muertes individuales documentadas ocurrieron en rutas hacia y dentro de Europa, y las rutas mediterráneas se cobraron al menos 25.104 vidas. Las rutas europeas también representan el mayor número y la mayor proporción de migrantes desaparecidos o presuntamente muertos, con al menos 16.032 desaparecidos en el mar y cuyos restos nunca se han recuperado. África es la segunda región más mortal para las personas en movimiento, con más de 9.000 muertes relacionadas con la migración documentadas desde 2014. Las encuestas regionales de hogares indican que estas cifras son casi con certeza muy inferiores a las reales. 
+Así @UN en **“More than 50,000 migrants ‘die in search of a better life’”** expone que más de la mitad de las 50.000 muertes individuales documentadas ocurrieron en rutas hacia y dentro de Europa, y las rutas mediterráneas se cobraron al menos 25.104 vidas. Las rutas europeas también representan el mayor número y la mayor proporción de migrantes desaparecidos o presuntamente muertos, con al menos 16.032 desaparecidos en el mar y cuyos restos nunca se han recuperado. África es la segunda región más mortal para las personas en movimiento, con más de 9.000 muertes relacionadas con la migración documentadas desde 2014. Las encuestas regionales de hogares indican que estas cifras son casi con certeza muy inferiores a las reales. 
 
 También @MinneapolisFed discute la gran problemática que acarrea la inmigración, no el hecho de que se dé, sino más bien los efectos negativos que implican que en los últimos años haya cada vez menos migración, principalmente en los incidentes ocurridos en Norteamérica el congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere. En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración. Esencialmente, la autora explica en qué afecta que cada vez menos personas emigren a los Estados Unidos. A diferencia de lo que se cree, los inmigrantes no son causa directa del crimen, la saturación de plazas de trabajo, o cualquier otro elemento disuasorio. Más bien, que haya menos migrantes en los Estados Unidos ha significado un debilitamiento en su economía, lo cual ya está mostrando signos. La autora finalmente hace un llamado para que se pongan en marcha legislaciones que favorezcan el paso de migrantes a Estados Unidos. Dado que problemas como inflación y aumento de la pobreza son implicaciones de la falta de migración, es imperativo manejar esta problemática.
 
-Entre algunas de las principales causas de la migración, según @Duhaime, es tiene la existencia de agentes del Estado que pueden ser ellos mismos contrabandistas o traficantes, organizando el tráfico o trata de migrantes, facilitando la migración indocumentada o posibilitando la estancia de migrantes irregulares. En otras ocasiones, participan indirectamente en actividades de tráfico y trata de migrantes llevadas a cabo por actores privados, facilitando operaciones, permitiendo la entrada de migrantes indocumentados, proporcionando documentos fraudulentos o simplemente haciendo la vista gorda. Las actividades de tráfico y trata de migrantes a menudo se llevan a cabo con la participación o colaboración de funcionarios estatales corruptos, y la corrupción y la colusión son generalmente una parte crítica de dichas operaciones. Además @Brito en **""A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever""** indica que los guardacostas libios, formados y financiados por la UE, han sido vinculados con traficantes de personas que explotan a migrantes que son interceptados y devueltos a precarios centros de detención. Un grupo de expertos respaldado por la ONU ha concluido que los abusos cometidos contra los migrantes en el Mediterráneo y en Libia pueden constituir crímenes contra la humanidad.
+Entre algunas de las principales causas de la migración, según @Duhaime, es tiene la existencia de agentes del Estado que pueden ser ellos mismos contrabandistas o traficantes, organizando el tráfico o trata de migrantes, facilitando la migración indocumentada o posibilitando la estancia de migrantes irregulares. En otras ocasiones, participan indirectamente en actividades de tráfico y trata de migrantes llevadas a cabo por actores privados, facilitando operaciones, permitiendo la entrada de migrantes indocumentados, proporcionando documentos fraudulentos o simplemente haciendo la vista gorda. Las actividades de tráfico y trata de migrantes a menudo se llevan a cabo con la participación o colaboración de funcionarios estatales corruptos, y la corrupción y la colusión son generalmente una parte crítica de dichas operaciones. Además @Brito en **""A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever""**indica que los guardacostas libios, formados y financiados por la UE, han sido vinculados con traficantes de personas que explotan a migrantes que son interceptados y devueltos a precarios centros de detención. Un grupo de expertos respaldado por la ONU ha concluido que los abusos cometidos contra los migrantes en el Mediterráneo y en Libia pueden constituir crímenes contra la humanidad.
 
-Por otro lado @APA en **“Psychology of Immigration”** presenta una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia. Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa la migración mundialmente hoy en día. Uno de estos mitos sería que la migración está en alza, lo cual no es cierto; sucede lo contrario. La @WHO en **""Act now to save lives and prevent migrants from going missing""** expone la importancia y/o necesidad de proteger a las personas migrantes de los peligros a los que se enfrentan a diario.
+Por otro lado @APA en **“Psychology of Immigration”**presenta una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia. Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa la migración mundialmente hoy en día. Uno de estos mitos sería que la migración está en alza, lo cual no es cierto; sucede lo contrario. La @WHO en **""Act now to save lives and prevent migrants from going missing""**expone la importancia y/o necesidad de proteger a las personas migrantes de los peligros a los que se enfrentan a diario.
 No es solo una invitación ligera, sino una crítica directa a la situación actual, exigiendo mayor justicia por parte de los gobiernos y organizaciones sin fines de lucro. También expresa que existen práctica, conocimientos y orientación que pueden orientar los esfuerzos coordinados para hacer realidad los compromisos contraídos en virtud del derecho internacional y los objetivos del Pacto Mundial para la Migración. Los organismos internacionales, regionales y subregionales pueden desempeñar un papel importante para facilitar esos esfuerzos, junto con los agentes y las comunidades locales.
 
-**Metodología:** Inicialmente en **“Introducción a la Estadística”** de @Zabala, aunque se presenta un estilo sumamente didáctico, se prioriza su contenido relativo a la exposición de conceptos de la matemática y estadística. Las medidas de centralización (o medidas de posición central) son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos. Las medidas a utilizar son:
+**Metodología:**Inicialmente en **“Introducción a la Estadística”**de @Zabala, aunque se presenta un estilo sumamente didáctico, se prioriza su contenido relativo a la exposición de conceptos de la matemática y estadística. Las medidas de centralización (o medidas de posición central) son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos. Las medidas a utilizar son:
 
 -   Media: Es el promedio de todos los datos de la muestra.
 
@@ -1097,7 +1097,7 @@ Moda
 Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones.
             Por ejemplo, \[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\].
 
-**Resultados: ** Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
+**Resultados: **Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
 
 El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.
 
@@ -1123,7 +1123,7 @@ El análisis de regresión lineal simple utilizado para explorar la relación en
 
 Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.
 
-**Conclusiones: ** 
+**Conclusiones: **
 
 La investigación desarrollada fue esencialmente un trabajo enfocado en establecer ciertos cálculos y modelos estadísticos en aras de establecer diferentes conexiones dentro del ámbito de la migración. 
 
@@ -1138,7 +1138,7 @@ Los problemas que presenta la investigación es que necesita un enfoque estadís
 Se recomienda utilizar una base matemática y estadística más fuerte para enfrentar un problema estadístico similar; también, se insta a establecer objetivos más precisos que no busquen abordar la información encontrada en artículos y teorizada en una UVE Heurística de manera elemental, si no más bien, de manera específica estructurar casos complejos que futuramente puedan ser resueltos y así llenar vacíos intelectuales sobre esta materia.
 
 
-**Agradecimientos: ** Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
+**Agradecimientos: **Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
 
 **Referencias: **
 
