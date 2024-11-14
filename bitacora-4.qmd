@@ -942,6 +942,17 @@ Estos hallazgos invitan a considerar la aplicación de modelos de regresión mú
 
 **Conclusiones: ** 
 
+La investigación desarrollada fue esencialmente un trabajo enfocado en establecer ciertos cálculos y modelos estadísticos en aras de establecer diferentes conexiones dentro del ámbito de la migración. 
+
+Se constituyó un marco teórico diverso; este compuesto de una serie de artículos investigativos, periodísticos, trabajos científicos, tesis universitarios y otros escritos completamente asociados al tema principal de este proyecto. Esto fue señalado y expuesto dentro de lo descrito como fichas bibliográficas y los enlaces. 
+
+En cuanto a la pregunta de investigación - la cual en términos generales intenta plantarse el hecho de, cuáles cálculos estadísticos pueden formularse para crear relaciones y entrelazar compuestos los cuales den explicaciones al tema de migración – se determina que, a pesar de medir y calcular diferentes datos, no es posible hacer inferencias y/o exponer resultados concretos que puedan solventar incógnitas que se pueden plantear referentes a la problemática de migración.
+
+La metodología fue una gran brújula para navegar entre lo deseado a alcanzar teórica y estadísticamente en el proyecto. Esta se basó principalmente en los datos encontrados en la página: Migration Data Portal. 
+
+Los problemas que presenta la investigación es que necesita un enfoque estadístico más riguroso y un planeamiento más complejo si se desea alcanzar la meta de ser un trabajo clave que escarifique dudas que se exponen de manera usual sobre este tema. 
+
+Se recomienda utilizar una base matemática y estadística más fuerte para enfrentar un problema estadístico similar; también, se insta a establecer objetivos más precisos que no busquen abordar la información encontrada en artículos y teorizada en una UVE Heurística de manera elemental, si no más bien, de manera específica estructurar casos complejos que futuramente puedan ser resueltos y así llenar vacíos intelectuales sobre esta materia.
 
 
 **Agradecimientos: ** Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
