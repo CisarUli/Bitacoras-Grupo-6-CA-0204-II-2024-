@@ -9,6 +9,222 @@ execute:
 
 # Bitacora 4
 
+Se tienen nuevas fichas bibliográficas:
+
+Título: International Migration 13 November**
+
+-   Autores: Mirage News.
+-   Nombre del tema: Migración internacional al 13 de noviembre.
+-   Forma de organizarlo:
+    -   Cronológico: Artículo proveniente del 13 de noviembre del 2024.
+    -   Metodológico: Estilo informativo, estadístico y periodístico.
+    -   Temático: Indagación académica/científica.
+    -   Teórico: El artículo consiste en una recolección de datos referentes al movimiento de migrantes en distintas fechas y con distintos filtros.
+      
+-   Resumen de una oración: Las 133.000 salidas de migrantes ocurridas en el año septiembre de 2024 son, provisionalmente, la cifra más alta registrada para un período anual.
+
+-   Argumento central: Exposición de datos estadísticos al tema de migración.
+
+-   Problemas con el argumento: No se tienen.
+
+-   Resumen de un párrafo: En el año que finalizó en marzo de 2024, se produjo una pérdida migratoria neta provisional de 30.000 personas hacia Australia, compuesta por 17.000 llegadas de migrantes de Australia a Nueva Zelanda y 46.900 salidas de migrantes de Nueva Zelanda a Australia.
+
+
+https://www.miragenews.com/international-migration-13-november-1355703/
+
+Título: Five Migration and Security Trends at the U.S.-Mexico Border**
+
+-   Autores: Adam Isacson.
+-   Nombre del tema: Tendencias en el borde de Estados Unidos-México.
+-   Forma de organizarlo:
+    -   Cronológico: Artículo proveniente del 12 de noviembre del 2024.
+    -   Metodológico: Redacción periodística.
+    -   Temático: Enfoque informativo y expositivo.
+    -   Teórico: Noticias y datos que conciernen a México y Estados Unidos y las personas migrantes que atraviesan estos destinos.
+      
+-   Resumen de una oración: Las detenciones de la Patrulla Fronteriza se mantienen entre 54.000 y 58.000 desde julio..
+
+-   Argumento central: Exposición de datos estadísticos al tema de migración.
+
+-   Problemas con el argumento: No se tienen.
+
+-   Resumen de un párrafo: Una cantidad alarmante de migrantes sigue muriendo en suelo estadounidense, generalmente por calor o frío extremos, deshidratación, ahogamiento o caídas desde el muro fronterizo. 
+
+https://www.wola.org/analysis/five-migration-and-security-trends-at-the-u-s-mexico-border/
+
+
+
+## Comandos Git
+
+### Changelog 
+
+All notable changes to this project will be documented in this file.
+
+#### 🚀 Features
+
+- Add _quarto.yml
+- Agrega el Quarto book
+- Agrega bitacoras-1 a chapters
+- Se agrega idea
+- Se agrega conceptualización
+- Agrega argumentación de pregunta 3
+- Se agrega argumentación pregunta 4
+- Agrega la introducción
+- Añade pdf generado en docs
+- Agrega más tensiones a bitacora
+- Añade argumentación con datos
+- Añade archivo Desarrollo_de_UVE.docx
+- Añade archivo Fichas.docx
+- Agrega referencias de conceptos
+- Agrega info de .docs a .qmd
+- Añade referencias faltantes
+- Añade archivo 3parte2.docx
+- Añade archivo 3parte3.docx
+- Añade archivo 3parte1.docx
+- Agrega info de .docx a .qmd
+- Agrega log y changelog
+- Agrega screens de log
+- Agrega base de datos al repertorio
+- Añade archivo graph2.png
+- Añade archivo graph3.png
+- Añade archivo graph4.png
+- Añade archivo graph5.png
+- Añade archivo graph2.png
+- Añade archivo graph10.png
+- Añade archivo graph8.png
+- Añade archivo graph7.png
+- Agrega nueva definición de la idea
+- Añade descripción de las variables
+- Agrega nuevas fichas bibliográficas
+- Agrega nuevas fichas bibliográficas
+- Añade archivo F1a.docx
+- Añade archivo F2b.docx
+- Añade archivo F3c.docx
+- Añade archivo F4d.docx
+- Añade archivo F5e.docx
+- Añade archivo F6f.docx
+- Agrega nueva fuente bibliográfica
+- Agrega nueva fuente bibliográfica
+- Agrega nueva fuente bibliográfica
+- Agrega nuevas fuentes bibliográfica
+- Agrega nuevas fichas bibliográficas
+- Añade archivo F7.docx
+- Añade archivo F8.docx
+- Añade archivo F9.docx
+- Agrega script de R
+- Agregar imagen c1 a cuadro_1
+- Agregar imagen c2 a cuadro_2
+- Agregar imagen c3 a cuadro_3
+- Agregar imagen c4 a cuadro_4
+- Agregar imagen ca a cuadro_1
+- Agregar imagen cb a cuadro_2
+- Añade archivo enlace_1.qmd
+- Agrega segunda bitacora al quarto.
+- Reintegra cuadros resumen y gráficas
+- Agrega README a scripts
+- Agrega gráficas anuales
+- Agrega gráficas por género
+- Agrega enlaces literaios
+- Agrega fichas de resultados
+- Agrega propuesta metodológica ARIMA
+- Agrega bitacora 3 y primer modelo
+- Agrega más modelos con ARIMA
+- Agrega fichas bibliográficas a bitacora 3
+- Agrega referencias nuevas
+- Agrega fichas de resultados
+- Agrega cuadros de ordenamiento
+- Agrega 4 pags de escritura
+- Agrega bitacora 4
+- Agrega parte de planificación
+- Completa parte de escritura
+
+#### 🐛 Bug Fixes
+
+- Resolver conflicto en _quarto.yml y agregar UVE Heurística
+- Resolver conflicto en _quarto.yml
+- Corrige nombre de figuras
+- Corrige nombre figuras en pdf
+- Resuelve problema con links de referencias
+- Arregla tablas de ordenamiento
+
+#### 🚜 Refactor
+
+- Ordena repositorio
+
+#### 📚 Documentation
+
+- Elimina archivos .docs
+- Elimina archivos .docx
+- Cambia referencias por recomendación
+- Elimina archivos .docx
+- Actualiza pdf de bitacoras
+- Mueve metodología de bitacora 1 a la 2
+- Ordena análisis de regresión
+- Mueve nuevas fichas a la sección 3.2
+- Modifica enumeracion de resultados
+- Corrige ortografía
+- Elimina metodo ARIMA
+- Elimina fichas del modelo ARIMA
+
+#### ⚙️ Miscellaneous Tasks
+
+- Modifica gitignore para incluir docs
+- Add .quarto.yml configuration file
+- Agrega archivo configuración de pre-commit
+- Agrega link de repositorio y descarga pdf
+- Implementa opciones edit y source
+- Add .quarto.yml configuration file
+- Update .quarto.yml with new settings
+- Implementa opciones edit y source
+- Actualiza el sitio web
+- Add Pregunta_1.docx
+- Add Pregunta_1.docx
+- Add Pregunta_2.docx
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Delete graphs from graph2.png to graph10.png
+- Actualiza repertorio local
+- Implementa ProjectTemplate
+- Ordena archivos
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Convierte F7.docx a formato Quarto (.qmd)
+- Convierte F8.docx a formato Quarto (.qmd)
+- Convierte F9.docx a formato Quarto (.qmd)
+- Actualiza sitio web.
+- Actualiza pdf de bitácora
+- Cambia tema a simplex
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza pdf
+- Actualiza sitio web
+- Actualiza pdf de bitácoras
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza pdf de bitacoras
+- Actualiza referencias en el quarto book
+- Actualiza sitio web
+- Actualiza pdf de bitacoras
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza sitio web
+- Actualiza capitulos de bitacoras
+
+<!-- generated by git-cliff -->
+
+### Git Summary
+
+![Generado por git summary](images/bitacora-4_git-summary.png)
+
+
 ## Parte de Planificación
 
 Para contestar la pregunta de nuestro problema "¿qué patrones se detectan sobre los grupos de personas migrantes de todo el mundo cuando son declaradas desaparecidas?" primero se realiza la limpieza, donde se unen todos los datos en un solo dataset, además de cambiar el formato de algunas columnas y agregar/quitar variables en el modelo:
@@ -734,56 +950,23 @@ El año con mayor número de muertes fue el 2019 con 405 niños involucrados.
 
 Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.
 
-Título: International Migration 13 November**
-
--   Autores: Mirage News.
--   Nombre del tema: Migración internacional al 13 de noviembre.
--   Forma de organizarlo:
-    -   Cronológico: Artículo proveniente del 13 de noviembre del 2024.
-    -   Metodológico: Estilo informativo, estadístico y periodístico.
-    -   Temático: Indagación académica/científica.
-    -   Teórico: El artículo consiste en una recolección de datos referentes al movimiento de migrantes en distintas fechas y con distintos filtros.
-      
--   Resumen de una oración: Las 133.000 salidas de migrantes ocurridas en el año septiembre de 2024 son, provisionalmente, la cifra más alta registrada para un período anual.
-
--   Argumento central: Exposición de datos estadísticos al tema de migración.
-
--   Problemas con el argumento: No se tienen.
-
--   Resumen de un párrafo: En el año que finalizó en marzo de 2024, se produjo una pérdida migratoria neta provisional de 30.000 personas hacia Australia, compuesta por 17.000 llegadas de migrantes de Australia a Nueva Zelanda y 46.900 salidas de migrantes de Nueva Zelanda a Australia.
-
-
-https://www.miragenews.com/international-migration-13-november-1355703/
-
-Título: Five Migration and Security Trends at the U.S.-Mexico Border**
-
--   Autores: Adam Isacson.
--   Nombre del tema: Tendencias en el borde de Estados Unidos-México.
--   Forma de organizarlo:
-    -   Cronológico: Artículo proveniente del 12 de noviembre del 2024.
-    -   Metodológico: Redacción periodística.
-    -   Temático: Enfoque informativo y expositivo.
-    -   Teórico: Noticias y datos que conciernen a México y Estados Unidos y las personas migrantes que atraviesan estos destinos.
-      
--   Resumen de una oración: Las detenciones de la Patrulla Fronteriza se mantienen entre 54.000 y 58.000 desde julio..
-
--   Argumento central: Exposición de datos estadísticos al tema de migración.
-
--   Problemas con el argumento: No se tienen.
-
--   Resumen de un párrafo: Una cantidad alarmante de migrantes sigue muriendo en suelo estadounidense, generalmente por calor o frío extremos, deshidratación, ahogamiento o caídas desde el muro fronterizo. 
-
-https://www.wola.org/analysis/five-migration-and-security-trends-at-the-u-s-mexico-border/
-
 
 
 ## Parte de Escritura
 
-
-
-
-
 ### Conclusión
+
+La investigación desarrollada fue esencialmente un trabajo enfocado en establecer ciertos cálculos y modelos estadísticos en aras de establecer diferentes conexiones dentro del ámbito de la migración. 
+
+Se constituyó un marco teórico diverso; este compuesto de una serie de artículos investigativos, periodísticos, trabajos científicos, tesis universitarios y otros escritos completamente asociados al tema principal de este proyecto. Esto fue señalado y expuesto dentro de lo descrito como fichas bibliográficas y los enlaces. 
+
+En cuanto a la pregunta de investigación - la cual en términos generales intenta plantarse el hecho de, cuáles cálculos estadísticos pueden formularse para crear relaciones y entrelazar compuestos los cuales den explicaciones al tema de migración – se determina que, a pesar de medir y calcular diferentes datos, no es posible hacer inferencias y/o exponer resultados concretos que puedan solventar incógnitas que se pueden plantear referentes a la problemática de migración.
+
+La metodología fue una gran brújula para navegar entre lo deseado a alcanzar teórica y estadísticamente en el proyecto. Esta se basó principalmente en los datos encontrados en la página: Migration Data Portal. 
+
+Los problemas que presenta la investigación es que necesita un enfoque estadístico más riguroso y un planeamiento más complejo si se desea alcanzar la meta de ser un trabajo clave que escarifique dudas que se exponen de manera usual sobre este tema. 
+
+Se recomienda utilizar una base matemática y estadística más fuerte para enfrentar un problema estadístico similar; también, se insta a establecer objetivos más precisos que no busquen abordar la información encontrada en artículos y teorizada en una UVE Heurística de manera elemental, si no más bien, de manera específica estructurar casos complejos que futuramente puedan ser resueltos y así llenar vacíos intelectuales sobre esta materia.
 
 ### Introducción
 
