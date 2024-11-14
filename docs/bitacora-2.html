@@ -188,6 +188,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bitácora 3</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bitacora-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bitacora 4</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -1491,22 +1497,7 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <section id="propuesta-metodológica" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="propuesta-metodológica"><span class="header-section-number">2.3.3</span> Propuesta Metodológica</h3>
 <dl>
-<dt><strong>Método #1: Coeficiente de Correlación de Pearson</strong></dt>
-<dd>
-<p>Para calcular el coeficiente de correlación de Pearson entre dos variables se debe dividir la covarianza de dichas variables por la raíz cuadrada del producto de sus varianzas.</p>
-</dd>
-</dl>
-<p>De manera que el coeficiente de correlación de Pearson trata de cuantificar la dependencia lineal entre dos variables aleatorias cuantitativas. A priori, valorar numéricamente la correlación entre dos variables es complicado porque resulta difícil determinar qué pareja de variables está más correlacionada entre sí, así pues, el objetivo de coeficiente de correlación de Pearson es dar un valor a la relación entre variables para luego poder comparar entre ellas. El valor del índice de correlación de Pearson está entre -1 y +1, ambos incluidos. Más abajo veremos cómo se interpreta el valor del coeficiente de correlación de Pearson.</p>
-<p>El coeficiente de correlación de Pearson depende de su valor:</p>
-<ul>
-<li><p>r=-1: Las dos variables tienen una correlación perfecta negativa, por lo que se puede trazar una recta con pendiente negativa en la que se encuentren todos los puntos.</p></li>
-<li><p>-1&lt;r&lt;0: La correlación entre las dos variables es negativa, por lo tanto, cuando una variable aumenta la otra disminuye. Cuanto más cerca esté el valor de -1 significa que más relacionadas negativamente están las variables.</p></li>
-<li><p>r=0: La correlación entre las dos variables es muy débil, de hecho, la relación lineal entre ellas es nula. Esto no significa que las variables sean independientes, ya que podrían tener una relación no lineal.</p></li>
-<li><p>0&lt;r&lt;1: La correlación entre las dos variables es positiva, cuanto más cerca esté el valor de +1 más fuerte es la relación entre las variables. En este caso, una variable tiende a incrementar su valor cuando la otra también aumenta.</p></li>
-<li><p>r=1: Las dos variables tienen una correlación perfecta positiva, es decir, tienen una relación lineal positiva. interpretacion del coeficiente de correlacion de pearson</p></li>
-</ul>
-<dl>
-<dt><strong>Método #2: Regresión Lineal Simple</strong></dt>
+<dt><strong>Método #1: Regresión Lineal Simple</strong></dt>
 <dd>
 <p>La regresión lineal simple <span class="citation" data-cites="probabilidadyestadistica3.0">(<a href="#ref-probabilidadyestadistica3.0" role="doc-biblioref">Desconocido 2024</a>)</span> es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y. Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.</p>
 </dd>
@@ -1518,22 +1509,6 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <li><p>Homocedasticidad: debe haber homogeneidad en las varianzas de los residuos, es decir, la variabilidad de los residuos debe ser constante.</p></li>
 <li><p>Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0. Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.</p></li>
 </ul>
-<p><strong>Método #3: Modelo autorregresivo integrado de media móvil (ARIMA)</strong></p>
-<p>Según <span class="citation" data-cites="Saadeddin">Saadeddin (<a href="#ref-Saadeddin" role="doc-biblioref">2024</a>)</span>, ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad. Como se mencionó anteriormente, el modelo está compuesto de tres partes:</p>
-<ul>
-<li><strong>Parte autorregresiva (AR)</strong></li>
-</ul>
-<p>Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El “marco de autoregresión” funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores.</p>
-<p>Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas.</p>
-<ul>
-<li><strong>Parte integrada (I)</strong></li>
-</ul>
-<p>Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.</p>
-<ul>
-<li><strong>Parte de la media móvil (MA)</strong></li>
-</ul>
-<p>Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados.</p>
-<p>Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud.</p>
 </section>
 <section id="fichas-de-resultados" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="fichas-de-resultados"><span class="header-section-number">2.3.4</span> Fichas de Resultados</h3>
@@ -1566,9 +1541,6 @@ $ country_of_death                    &lt;fct&gt; United States, United States, 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-probabilidadyestadistica3.0" class="csl-entry" role="listitem">
 Desconocido, Autor. 2024. <span>«Regresión Lineal Simple»</span>. <a href="https://www.probabilidadyestadistica.net/regresion-lineal-simple/">https://www.probabilidadyestadistica.net/regresion-lineal-simple/</a>.
-</div>
-<div id="ref-Saadeddin" class="csl-entry" role="listitem">
-Saadeddin, Zaina. 2024. <span>«ARIMA para la previsión de series temporales: Guía completa»</span>. <a href="https://www.datacamp.com/es/tutorial/arima">https://www.datacamp.com/es/tutorial/arima</a>.
 </div>
 </div>
 </section>

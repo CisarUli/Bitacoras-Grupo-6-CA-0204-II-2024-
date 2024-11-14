@@ -84,6 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./bitacora-4.html" rel="next">
 <link href="./bitacora-2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -216,6 +217,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bitácora 3</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bitacora-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bitacora 4</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -230,8 +237,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#análisis-de-modelación" id="toc-análisis-de-modelación" class="nav-link" data-scroll-target="#análisis-de-modelación"><span class="header-section-number">3.1.1</span> Análisis de Modelación</a></li>
   <li><a href="#construcción-de-fichas-de-resultados" id="toc-construcción-de-fichas-de-resultados" class="nav-link" data-scroll-target="#construcción-de-fichas-de-resultados"><span class="header-section-number">3.1.2</span> Construcción de fichas de resultados</a></li>
-  <li><a href="#conclusión-del-análisis-de-regresión" id="toc-conclusión-del-análisis-de-regresión" class="nav-link" data-scroll-target="#conclusión-del-análisis-de-regresión"><span class="header-section-number">3.1.3</span> Conclusión del análisis de regresión</a></li>
-  <li><a href="#ordenamiento-de-los-elementos-del-reporte" id="toc-ordenamiento-de-los-elementos-del-reporte" class="nav-link" data-scroll-target="#ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.4</span> Ordenamiento de los elementos del reporte</a></li>
+  <li><a href="#ordenamiento-de-los-elementos-del-reporte" id="toc-ordenamiento-de-los-elementos-del-reporte" class="nav-link" data-scroll-target="#ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.3</span> Ordenamiento de los elementos del reporte</a></li>
   </ul></li>
   <li><a href="#parte-de-escritura" id="toc-parte-de-escritura" class="nav-link" data-scroll-target="#parte-de-escritura"><span class="header-section-number">3.2</span> Parte de Escritura</a></li>
   <li><a href="#parte-de-reflexión" id="toc-parte-de-reflexión" class="nav-link" data-scroll-target="#parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</a></li>
@@ -573,476 +579,6 @@ F-statistic: 3.105 on 1 and 773 DF,  p-value: 0.07842</code></pre>
 <p>2019: - La pendiente positiva indica que el número de desaparecidos aumentó progresivamente cada mes en 2019, en promedio 10.44 personas más por mes. - La información sugiere un aumento gradual de desaparecidos a lo largo del año, probablemente por el crecimiento debido a los movimientos migratorios y factores estacionales (como el verano en Europa).</p>
 <p>2021: - En 2021 también se observa una pendiente positiva, pero más baja (7.17 personas adicionales por mes). - El intercepto más alto (164.03) refleja un número inicial de desaparecidos más alto, lo que podría indicar que la pandemia impactó desde el inicio, con más personas tomando rutas peligrosas a lo largo del año.</p>
 </section>
-<section id="método-2-modelo-autorregresivo-integrado-de-media-móvil-arima" class="level4" data-number="3.1.1.2">
-<h4 data-number="3.1.1.2" class="anchored" data-anchor-id="método-2-modelo-autorregresivo-integrado-de-media-móvil-arima"><span class="header-section-number">3.1.1.2</span> Método #2 Modelo autorregresivo integrado de media móvil (ARIMA)</h4>
-<p>Como se tienen los incidentes reportados por año y a su vez la suma de muertes, sobrevivientes y desaparecidos se puede proyectar el futuro número migrantes muertos, rescatados o desaparecidos en los próximos años.</p>
-<p>Recuerde que el modelo ARIMA, según <span class="citation" data-cites="SanidadMilitar">Gallego-Nicasio Moraleda (<a href="#ref-SanidadMilitar" role="doc-biblioref">2018</a>)</span>, requiere de tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) que dependen de tres parámetros definidos como:</p>
-<ul>
-<li><p>p: Es el número de observaciones de retraso en el modelo.</p></li>
-<li><p>d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.</p></li>
-<li><p>q: Es el tamaño de datos que se utiliza para la media móvil.</p></li>
-</ul>
-<p>Y utiliza la siguiente ecuación:</p>
-<p><span class="math display">\[
-(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
-\]</span></p>
-<p>Donde:</p>
-<ul>
-<li><span class="math inline">\(Y_t\)</span>: valor de la variable en el momento <span class="math inline">\(t\)</span>.</li>
-<li><span class="math inline">\(L\)</span>: operador de retardos (por ejemplo, <span class="math inline">\(Y_{t-1} = Y_t \cdot L\)</span>).</li>
-<li><span class="math inline">\(a_p\)</span>: coeficientes para el componente autorregresivo.</li>
-<li><span class="math inline">\(b_q\)</span>: coeficientes para el componente de medias móviles.</li>
-<li><span class="math inline">\(\varepsilon_t\)</span>: componente aleatoria.</li>
-</ul>
-<p><strong>Análisis de ARIMA</strong></p>
-<p><strong>1. Predicción de muertes de migrantes en los próximos 5 años</strong></p>
-<p>Primero se observan algunos patrones o tendencias:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time Series:
-Start = 2014 
-End = 2019 
-Frequency = 1 
-[1] 1752 4077 4071 3664 3176 3624</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_muertes, <span class="at">main=</span><span class="st">"Muertes por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Muertes"</span>, <span class="at">col=</span><span class="st">"darkred"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Augmented Dickey-Fuller Test
-
-data:  ts_muertes
-Dickey-Fuller = -2.9157, Lag order = 2, p-value = 0.2236
-alternative hypothesis: stationary</code></pre>
-</div>
-</div>
-<p>Note que la serie no es estacionaria, pues p-value &gt; 0.05, entonces se procede a diferenciarla:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>diff_muertes <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_muertes)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_muertes, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"darkred"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete <strong>forecast</strong> para un mejor manejo de los parámetros AR, I y MA de la serie:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_muertes)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Series: ts_muertes 
-ARIMA(0,0,0) with non-zero mean 
-
-Coefficients:
-           mean
-      3027.6667
-s.e.   323.9503
-
-sigma^2 = 1062543:  log likelihood = -74.68
-AIC=153.37   AICc=155.37   BIC=153.76
-
-Training set error measures:
-                       ME     RMSE      MAE      MPE     MAPE      MASE
-Training set 6.063545e-13 971.8449 851.5556 -16.6233 38.94371 0.8189018
-                   ACF1
-Training set -0.0912454</code></pre>
-</div>
-</div>
-<p>Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre las muertes de migrantes desaparecidos:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>prediccion_muertes <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prediccion_muertes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>$method
-[1] "ARIMA(0,0,0) with non-zero mean"
-
-$model
-Series: ts_muertes 
-ARIMA(0,0,0) with non-zero mean 
-
-Coefficients:
-           mean
-      3027.6667
-s.e.   323.9503
-
-sigma^2 = 1062543:  log likelihood = -74.68
-AIC=153.37   AICc=155.37   BIC=153.76
-
-$level
-[1] 80 95
-
-$mean
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-[1] 3027.667 3027.667 3027.667 3027.667 3027.667
-
-$lower
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-          80%      95%
-2023 1706.647 1007.341
-2024 1706.647 1007.341
-2025 1706.647 1007.341
-2026 1706.647 1007.341
-2027 1706.647 1007.341
-
-$upper
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-          80%      95%
-2023 4348.686 5047.992
-2024 4348.686 5047.992
-2025 4348.686 5047.992
-2026 4348.686 5047.992
-2027 4348.686 5047.992</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_muertes, <span class="at">main=</span><span class="st">"Predicción de muertes de migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>2. Predicción de sobrevivientes migrantes en los próximos 5 años</strong></p>
-<p>Al igual que con las muertes de migrantes, se observan algunos patrones o tendencias:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_sobrevivientes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time Series:
-Start = 2014 
-End = 2019 
-Frequency = 1 
-[1]  6122  8099 17112  6888  8321  4925</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_sobrevivientes, <span class="at">main=</span><span class="st">"Sobrevivientes por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Sobrevivientes"</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_sobrevivientes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Augmented Dickey-Fuller Test
-
-data:  ts_sobrevivientes
-Dickey-Fuller = -1.4007, Lag order = 2, p-value = 0.8007
-alternative hypothesis: stationary</code></pre>
-</div>
-</div>
-<p>Al igual que con las muertes, note que la serie no es estacionaria, pues p-value &gt; 0.05, entonces se procede a diferenciarla:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>diff_sobrevivientes <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_sobrevivientes)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_sobrevivientes, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete <strong>forecast</strong> para un mejor manejo de los parámetros AR, I y MA de la serie:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_sobrevivientes)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Series: ts_sobrevivientes 
-ARIMA(0,0,0) with non-zero mean 
-
-Coefficients:
-          mean
-      8011.111
-s.e.  1157.820
-
-sigma^2 = 13572881:  log likelihood = -86.15
-AIC=176.29   AICc=178.29   BIC=176.69
-
-Training set error measures:
-                       ME    RMSE      MAE       MPE     MAPE      MASE
-Training set 8.084397e-13 3473.44 2298.123 -13.41378 28.41677 0.5435004
-                    ACF1
-Training set -0.09825737</code></pre>
-</div>
-</div>
-<p>Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre los sobrevivientes migrantes desaparecidos:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>prediccion_sobrevivientes <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prediccion_sobrevivientes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>$method
-[1] "ARIMA(0,0,0) with non-zero mean"
-
-$model
-Series: ts_sobrevivientes 
-ARIMA(0,0,0) with non-zero mean 
-
-Coefficients:
-          mean
-      8011.111
-s.e.  1157.820
-
-sigma^2 = 13572881:  log likelihood = -86.15
-AIC=176.29   AICc=178.29   BIC=176.69
-
-$level
-[1] 80 95
-
-$mean
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-[1] 8011.111 8011.111 8011.111 8011.111 8011.111
-
-$lower
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-          80%      95%
-2023 3289.697 790.3312
-2024 3289.697 790.3312
-2025 3289.697 790.3312
-2026 3289.697 790.3312
-2027 3289.697 790.3312
-
-$upper
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-          80%      95%
-2023 12732.53 15231.89
-2024 12732.53 15231.89
-2025 12732.53 15231.89
-2026 12732.53 15231.89
-2027 12732.53 15231.89</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_sobrevivientes, <span class="at">main=</span><span class="st">"Predicción de sobrevivientes migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>3. Predicción de desapariciones de migrantes en los próximos 5 años</strong></p>
-<p>Al igual que en los casos anteriores, se observan algunos patrones o tendencias:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ts_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time Series:
-Start = 2014 
-End = 2019 
-Frequency = 1 
-[1] 3566 2637 4013 2620 1811 1777</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ts_desaparecidos, <span class="at">main=</span><span class="st">"Desaparecidos por año"</span>, <span class="at">xlab=</span><span class="st">"Año"</span>, <span class="at">ylab=</span><span class="st">"Desaparecidos"</span>, <span class="at">col=</span><span class="st">"purple"</span>, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Utilizando la prueba de Dickey-Fuller aumentada se observa si la serie temporal es estacionaria:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(ts_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Augmented Dickey-Fuller Test
-
-data:  ts_desaparecidos
-Dickey-Fuller = -2.3603, Lag order = 2, p-value = 0.4351
-alternative hypothesis: stationary</code></pre>
-</div>
-</div>
-<p>Igualmente la serie no es estacionaria, pues p-value &gt; 0.05, entonces se procede a diferenciarla:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>diff_desaparecidos <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_desaparecidos)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_desaparecidos, <span class="at">main =</span> <span class="st">"Serie temporal diferenciada"</span>, <span class="at">col =</span> <span class="st">"purple"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Ahora se ajusta el modelo ARIMA, donde se utilizará la función auto.arima() del parquete <strong>forecast</strong> para un mejor manejo de los parámetros AR, I y MA de la serie:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>modelo_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_desaparecidos)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_arima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Series: ts_desaparecidos 
-ARIMA(0,1,0) 
-
-sigma^2 = 921593:  log likelihood = -66.29
-AIC=134.57   AICc=135.24   BIC=134.65
-
-Training set error measures:
-                   ME     RMSE      MAE       MPE     MAPE      MASE       ACF1
-Training set -259.826 905.0933 733.2851 -19.44727 34.22342 0.8893694 -0.4340032</code></pre>
-</div>
-</div>
-<p>Finalmente utilizamos la función forecast() para realizar las predicciones en los próximos 5 años sobre los sobrevivientes migrantes desaparecidos:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>prediccion_desaparecidos <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelo_arima, <span class="at">h=</span><span class="dv">5</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(prediccion_desaparecidos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>$method
-[1] "ARIMA(0,1,0)"
-
-$model
-Series: ts_desaparecidos 
-ARIMA(0,1,0) 
-
-sigma^2 = 921593:  log likelihood = -66.29
-AIC=134.57   AICc=135.24   BIC=134.65
-
-$level
-[1] 80 95
-
-$mean
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-[1] 1224 1224 1224 1224 1224
-
-$lower
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-             80%        95%
-2023    -6.28489  -657.5584
-2024  -515.88558 -1436.9254
-2025  -906.91594 -2034.9547
-2026 -1236.56978 -2539.1167
-2027 -1527.00065 -2983.2924
-
-$upper
-Time Series:
-Start = 2023 
-End = 2027 
-Frequency = 1 
-          80%      95%
-2023 2454.285 3105.558
-2024 2963.886 3884.925
-2025 3354.916 4482.955
-2026 3684.570 4987.117
-2027 3975.001 5431.292</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prediccion_desaparecidos, <span class="at">main=</span><span class="st">"Predicción de desapariciones de migrantes para los próximos 5 años"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bitacora-3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="construcción-de-fichas-de-resultados" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="construcción-de-fichas-de-resultados"><span class="header-section-number">3.1.2</span> Construcción de fichas de resultados</h3>
@@ -1068,34 +604,12 @@ Frequency = 1
 <li><p><strong>Problemas o posibles desafíos</strong>: La pequeña pendiente sugiere que las variaciones en el número de muertos entre regiones no son relevantes, limitando la utilidad del modelo para identificar diferencias significativas.</p></li>
 <li><p><strong>Resumen en un párrafo</strong>: El análisis de regresión que relaciona las regiones (codificadas numéricamente) y el número de muertos muestra una pendiente baja (0.0774), lo que sugiere diferencias leves en el número de muertos al cambiar de una región a otra. Aunque el modelo sugiere una ligera variación, esta no es significativa y no refleja una diferencia drástica entre las regiones. El intercepto de 1.31 indica el número esperado de muertos en la primera región codificada. En conclusión, aunque hay una relación entre la región y el número de muertos, esta no es suficiente para ser estadísticamente relevante.</p></li>
 </ul>
-<p><strong>10. Nombre del hallazgo: Predicción de muertes de migrantes en los próximos 5 años.</strong></p>
-<p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 se reporten 3.028 muertes.</p>
-<p><strong>Principal característica: </strong>El resultado presenta el número de muertes probable que ocurra en los próximos 5 años.</p>
-<p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
-<p><strong>Resumen en un párrafo: </strong>Se puede observar una preddicción puntual de que mueran 3.028 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de muertes de los próximos años se encuentre entre 1.707 y 4.349 muertes por año, que se diferencia en promedio en 1.321 muertes a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 1.007 y 5.047, que se diferencia en promedio en 2.020 muertes a la predicción central.</p>
-<p><strong>11. Nombre del hallazgo: Predicción de sobrevivientes de migrantes en los próximos 5 años.</strong></p>
-<p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 se reporten 8.011 muertes.</p>
-<p><strong>Principal característica: </strong>El resultado presenta el número de sobrevivientes migrantes más probable que ocurra en los próximos 5 años.</p>
-<p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
-<p><strong>Resumen en un párrafo: </strong>Se puede observar una predicción puntual de que sobrevivan o sean rescatados 8.011 migrantes por año. También se tiene una incertidumbre donde existe un 80% de probabilidad de que el número de sobrevivientes migrantes en los próximos años se encuentre entre 3.289 y 12.732 por año, que se diferencia en promedio en 4.721 a la predicción central. Por otro lado existe un 95% de que el número de muertes se encuentre entre 790 y 15.231, que se diferencia en promedio en 7.220 muertes a la predicción central.</p>
-<p><strong>12. Nombre del hallazgo: Predicción de desapariciones de migrantes en los próximos 5 años.</strong></p>
-<p><strong>Resumen en una oración: </strong>Se espera que del 2023 al 2027 sean reportados 1.224 migrantes como desaparecidos cada año</p>
-<p><strong>Principal característica: </strong>El resultado presenta el número de migrantes desaparecidos más probable que ocurra en los próximos 5 años.</p>
-<p><strong>Problemas o posibles desafíos: </strong>Se basa en eventos pasados, incluidos eventos catastróficos como la pandemia de COVID-19, que no ocurren en un horizonte de 5 años.</p>
-<p><strong>Resumen en un párrafo: </strong>A diferencia de los casos de muerte y sobrevivencia, la predicción puntual del número de dsaparecidos varía por año como se muestra anteriormente, donde existe una incertidumbre con un 80% de probabilidad de que el menor número esperado es -1527, esto podría indicar que es probable que en vez de reportar migrantes como desaparecidos se puede presenter la certeza de si el migrante ha muerto o ha sobrevivido a los diferentes incidentes o por otro lado se recolecte menos información sobre desaparecidos en los últimos años.</p>
-<p><strong>13. Nombre del hallazgo: Más sobrevivientes que muertos</strong></p>
-<p><strong>Resumen en una oración: </strong> Se espera que se rescaten 4.983 más migrantes que los que no logran sobrevivir.</p>
-<p><strong>Principal característica: </strong>El hallazgo compara los resultados 7 y 8 y presente un mayor número de sobrevivientes al número de muertes en un futuro.</p>
-<p><strong>Problemas o posibles desafíos: </strong>No se toma en cuenta los desaparecidos, debido a que podría tratarse de posibles sobrevivientes o de muertos.</p>
-<p><strong>Resumen en un párrafo: </strong>Se puede observar que al utilizar el mismo modelo ARIMA para la predicción de la muerte de migrantes y sobrevivientes, la predicción puntual de los sobrevivientes se encuentra 4.983 por encima que la de muertes futuras, lo cual indica que la mayoría de incidentes son reportados al realizar rescates o por lo menos presentan algún sobreviviente.</p>
 <hr>
-</section>
-<section id="conclusión-del-análisis-de-regresión" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="conclusión-del-análisis-de-regresión"><span class="header-section-number">3.1.3</span> Conclusión del análisis de regresión</h3>
+<p><strong>Conclusión del análisis de regresión</strong></p>
 <p>Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud es menor en 2021. Esto podría reflejar que la pandemia cambió los patrones migratorios, haciendo que desde el inicio del año haya un número elevado, aunque el aumento mensual fuera más moderado en comparación con 2019.</p>
 </section>
-<section id="ordenamiento-de-los-elementos-del-reporte" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored" data-anchor-id="ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.4</span> Ordenamiento de los elementos del reporte</h3>
+<section id="ordenamiento-de-los-elementos-del-reporte" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="ordenamiento-de-los-elementos-del-reporte"><span class="header-section-number">3.1.3</span> Ordenamiento de los elementos del reporte</h3>
 <p>Se dividen los elementos principales de la investigación en primarios y secundarios como se muestra en la siguientes tabla:</p>
 <table class="caption-top table">
 <colgroup>
@@ -1212,41 +726,22 @@ Frequency = 1
 <li><p>Moda bimodal: el máximo número de repeticiones se produce en dos valores diferentes y ambos valores se repiten el mismo número de veces. Por ejemplo, <span class="math display">\[2, 6, 7, 2, 3, 6, 9\]</span>.</p></li>
 </ul>
 <p>Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, <span class="math display">\[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\]</span>.</p>
-<p>Para la modelación se utilizan dos métodos, <span class="citation" data-cites="Saadaddin">(<a href="#ref-Saadaddin" role="doc-biblioref"><strong>Saadaddin?</strong></a>)</span> explica que ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad. Como se mencionó anteriormente, el modelo está compuesto de tres partes:</p>
-<ul>
-<li><strong>Parte autorregresiva (AR)</strong></li>
-</ul>
-<p>Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El “marco de autoregresión” funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores.</p>
-<p>Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas.</p>
-<ul>
-<li><strong>Parte integrada (I)</strong></li>
-</ul>
-<p>Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.</p>
-<ul>
-<li><strong>Parte de la media móvil (MA)</strong></li>
-</ul>
-<p>Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados.</p>
-<p>Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud. Además <span class="citation" data-cites="SanidadMilitar">Gallego-Nicasio Moraleda (<a href="#ref-SanidadMilitar" role="doc-biblioref">2018</a>)</span> indica que para los tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) se requiere de tres parámetros definidos como:</p>
-<ul>
-<li><p>p: Es el número de observaciones de retraso en el modelo.</p></li>
-<li><p>d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.</p></li>
-<li><p>q: Es el tamaño de datos que se utiliza para la media móvil.</p></li>
-</ul>
-<p>Y utiliza la siguiente ecuación:</p>
-<p><span class="math display">\[
-(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
-\]</span></p>
-<p>Donde:</p>
-<ul>
-<li><span class="math inline">\(Y_t\)</span>: valor de la variable en el momento <span class="math inline">\(t\)</span>.</li>
-<li><span class="math inline">\(L\)</span>: operador de retardos (por ejemplo, <span class="math inline">\(Y_{t-1} = Y_t \cdot L\)</span>).</li>
-<li><span class="math inline">\(a_p\)</span>: coeficientes para el componente autorregresivo.</li>
-<li><span class="math inline">\(b_q\)</span>: coeficientes para el componente de medias móviles.</li>
-<li><span class="math inline">\(\varepsilon_t\)</span>: componente aleatoria.</li>
-</ul>
+<p>Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.</p>
+<p>El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.</p>
+<p>En este punto se observan patrones distintos entre los dos años. En 2019, las regiones con mayor número de incidentes fueron el Área Oeste/Central, la Zona del Norte y la Región del Este, con 489, 288, y 259 incidentes, respectivamente. En cuanto al 2021, los incidentes mostraron marcas en áreas metropolitanas, con 417 incidentes en la capital y 409 en el Norte del Norte, seguido por el Mediterráneo con 353 incidentes.</p>
+<p>Como es también reflejado en las fichas bibliográficas, este tipo de problemáticas puede que signifique la intensificación de ciertos conflictos y condiciones socioeconómicas adversas en áreas urbanas, que atraen a más migrantes o son zonas de paso forzoso. Además de que usualmente estás áreas son tanto las más pobladas como las que suelen presentar eventos sociopolíticos. La elección de las rutas migratorias en 2021 podría haber sido impulsada por la búsqueda de empleo y seguridad.</p>
+<p>En el 2019, las causas de muerte principales fueron asesinatos y accidentes vehiculares, con 213 y 208 casos respectivamente. Para 2021, las principales causas de muerte incluyeron asesinatos (431 casos), violencia intrafamiliar (256 casos), y condiciones socioeconómicas adversas (224 casos).</p>
+<p>En 2019, como se describe, los accidentes vehiculares fueron una causa mayoritaria; con alta probabilidad podría determinarse que se debería a los medios de trasporte ilegales de los migrantes, (que carecen de poca seguridad), o accidentes de tránsito derivados de persecuciones. Para 2021, el aumento en casos de violencia intrafamiliar y condiciones socioeconómicas adversas podría estar relacionado con el impacto de la pandemia, que exacerbó las desigualdades y aumentó la vulnerabilidad de los migrantes.</p>
+<p>Se observan unas tendencias en el número de migrantes desaparecidos, para comprender la variación en el número de desaparecidos a lo largo del tiempo, se llevó a cabo una regresión con el mes como variable independiente en los años 2019 y 2021.</p>
+<p>En 2019, la pendiente positiva de 10.44 indica que el número de desaparecidos aumentaba en promedio en 10.44 personas cada mes, quizás impulsado por los flujos migratorios estacionales, como el verano en Europa. En 2021, aunque la pendiente fue menor (7.17 personas adicionales por mes), el número inicial de desaparecidos era considerablemente más alto (164.03), lo que sugiere que la pandemia podría haber incrementado la cifra base de desaparecidos.</p>
+<p>Por lo que se generan ciertas implicaciones de las diferencias en causas de muerte y desaparecidos, los cambios en las causas de muerte entre el 2019 y 2021, especialmente el incremento en violencia intrafamiliar y condiciones socioeconómicas adversas, muestran una triste metamorfosis en los riesgos que enfrentan los migrantes en sus países de origen y durante su tránsito.</p>
+<p>Estos fenómenos complejos pueden ser intensificados en contextos de crisis económica y social. Los migrantes suelen enfrentar situaciones de gran precariedad, que los exponen a una doble vulnerabilidad: por un lado, los riesgos inherentes a las rutas migratorias y, por otro, la posibilidad de enfrentar situaciones de violencia doméstica tanto en su país de origen como al país en que se trasladaron. Esto pone de relieve la importancia de las políticas públicas para la prevención de la violencia intrafamiliar y el apoyo psicosocial a migrantes en tránsito, en especial en tiempos de crisis.</p>
+<p>Además, el incremento en el número de desaparecidos en los primeros meses de 2021 sugiere que, aunque se redujeron las muertes, los migrantes pueden estar enfrentando más riesgos asociados con el tráfico de personas o meramente la ilegalidad con la que se mueven.</p>
 </section>
 <section id="parte-de-reflexión" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="parte-de-reflexión"><span class="header-section-number">3.3</span> Parte de reflexión</h2>
+<p>El análisis de regresión lineal simple utilizado para explorar la relación entre el total de muertos y desaparecidos y el número de muertos, así como entre la región y el número de muertos, ha permitido identificar patrones básicos en los datos migratorios. Sin embargo, estos modelos lineales presentan numerosas limitaciones, ya que los procesos migratorios y sus riesgos son fenómenos altamente multifactoriales que interactúan con diversas variables sociales, económicas y políticas.</p>
+<p>Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -1716,6 +1211,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./bitacora-4.html" class="pagination-link" aria-label="Bitacora 4">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bitacora 4</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
