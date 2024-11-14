@@ -462,105 +462,35 @@ Moda
 Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones.
             Por ejemplo, \[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\].
 
-Para la modelación se utilizan dos métodos, @Saadaddin explica que ARIMA modela eficazmente los datos de las series temporales captando tanto los componentes autorregresivos (AR) como los de media móvil (MA), al tiempo que aborda la no estacionariedad mediante la diferenciación (I), con el objetivo de analizar y predecir datos de series temporales de una forma sofisticada que tiene en cuenta patrones, tendencias y estacionalidad.
-Como se mencionó anteriormente, el modelo está compuesto de tres partes:
-
--   **Parte autorregresiva (AR)**
-
-Construye una tendencia a partir de valores pasados en el marco AR para modelos predictivos. El "marco de autoregresión" funciona como un modelo de regresión en el que utilizas los retardos de los propios valores pasados de la serie temporal como regresores. 
-
-Utilizando una amplia variedad de datos históricos, el marco interroga patrones importantes para poder exponer la dinámica sistémica. Estas pautas históricas facilitan la comprensión de qué tendencias futuras podrían avecinarse y establecen algunos puntos probables de la trayectoria del valor que son imprescindibles para tomar mejores decisiones y hacer previsiones precisas. 
-
--   **Parte integrada (I)**
-
-Diferencia el componente de la serie temporal teniendo en cuenta que nuestra serie temporal debe ser estacionaria, lo que en realidad significa que la media y la varianza deben permanecer constantes a lo largo de un periodo de tiempo. Básicamente, se resta una observación de otra para eliminar las tendencias y la estacionalidad. Realizando la diferenciación se obtiene la estacionariedad. Este paso es necesario porque ayuda a que el modelo se ajuste a los datos y no al ruido.
-
--   **Parte de la media móvil (MA)**
-
-Se centra en la relación entre una observación y un error residual (fallos en los valores observados-predichos) de observaciones retardadas. Si se identifica cómo se relaciona la observación actual con las de los errores pasados, se puede deducir alguna información útil sobre cualquier posible tendencia en los datos analizados. 
-
-Se pueden considerar los residuos entre uno de estos errores, y el concepto de modelo de media móvil estima o considera su impacto en nuestra última observación. Esto es especialmente útil para seguir y atrapar cambios a corto plazo en los datos o choques aleatorios. En la parte (MA) de una serie temporal, se puede obtener información valiosa sobre su comportamiento, lo que a su vez nos permite prever y predecir con mayor exactitud. Además @SanidadMilitar indica que para los tres componentes (Autorregresivos(AR), Integrado(I) y Media Móvil(MA)) se requiere de tres parámetros definidos como:
-
-- p: Es el número de observaciones de retraso en el modelo.
-
-- d: Es el número de datos anteriores que se resta a cada valor conocido también como grado de diferenciación.
-
-- q: Es el tamaño de datos que se utiliza para la media móvil.
-
-Y utiliza la siguiente ecuación:
-
-\[
-(1 - a_1 L^1 - a_2 L^2 - \dots - a_p L^p)(1 - L)^d Y_t = (1 - b_1 L^1 - b_2 L^2 - \dots - b_q L^q) \varepsilon_t
-\]
-
-Donde:
-
-- \( Y_t \): valor de la variable en el momento \( t \).
-- \( L \): operador de retardos (por ejemplo, \( Y_{t-1} = Y_t \cdot L \)).
-- \( a_p \): coeficientes para el componente autorregresivo.
-- \( b_q \): coeficientes para el componente de medias móviles.
-- \( \varepsilon_t \): componente aleatoria.
-
-
-# Comparación entre el Total de Muertes en 2019 y 2021
-
-En el 2019, el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
-
-**Interpretación de Resultados:**
+Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
 
 El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.
 
----
-
-# Análisis de la Distribución Regional de Incidentes en 2019 y 2021
-
-En este punto se observan patrones distintos entre los dos años. 
-
-En 2019, las regiones con mayor número de incidentes fueron el Área Oeste/Central, la Zona del Norte y la Región del Este, con 489, 288, y 259 incidentes, respectivamente. En cuanto al 2021, los incidentes mostraron marcas en áreas metropolitanas, con 417 incidentes en la capital y 409 en el Norte del Norte, seguido por el Mediterráneo con 353 incidentes.
-
-**Interpretación de Resultados:**
+En este punto se observan patrones distintos entre los dos años. En 2019, las regiones con mayor número de incidentes fueron el Área Oeste/Central, la Zona del Norte y la Región del Este, con 489, 288, y 259 incidentes, respectivamente. En cuanto al 2021, los incidentes mostraron marcas en áreas metropolitanas, con 417 incidentes en la capital y 409 en el Norte del Norte, seguido por el Mediterráneo con 353 incidentes.
 
 Como es también reflejado en las fichas bibliográficas, este tipo de problemáticas puede que signifique la intensificación de ciertos conflictos y condiciones socioeconómicas adversas en áreas urbanas, que atraen a más migrantes o son zonas de paso forzoso. Además de que usualmente estás áreas son tanto las más pobladas como las que suelen presentar eventos sociopolíticos. La elección de las rutas migratorias en 2021 podría haber sido impulsada por la búsqueda de empleo y seguridad.
 
----
-
-# Principales Causas de Muerte entre Migrantes en 2019 y 2021
-
 En el 2019, las causas de muerte principales fueron asesinatos y accidentes vehiculares, con 213 y 208 casos respectivamente. Para 2021, las principales causas de muerte incluyeron asesinatos (431 casos), violencia intrafamiliar (256 casos), y condiciones socioeconómicas adversas (224 casos).
-
-**Interpretación de Resultados:**
 
 En 2019, como se describe, los accidentes vehiculares fueron una causa mayoritaria; con alta probabilidad podría determinarse que se debería a los medios de trasporte ilegales de los migrantes, (que carecen de poca seguridad), o accidentes de tránsito derivados de persecuciones. Para 2021, el aumento en casos de violencia intrafamiliar y condiciones socioeconómicas adversas podría estar relacionado con el impacto de la pandemia, que exacerbó las desigualdades y aumentó la vulnerabilidad de los migrantes.
 
----
-
-# Tendencias Temporales de Desaparecidos: 2019 vs. 2021
-
-Para comprender la variación en el número de desaparecidos a lo largo del tiempo, se llevó a cabo una regresión con el mes como variable independiente en los años 2019 y 2021.
-
-**Interpretación de Resultados:**
+Se observan unas tendencias en el número de migrantes desaparecidos, para comprender la variación en el número de desaparecidos a lo largo del tiempo, se llevó a cabo una regresión con el mes como variable independiente en los años 2019 y 2021.
 
 En 2019, la pendiente positiva de 10.44 indica que el número de desaparecidos aumentaba en promedio en 10.44 personas cada mes, quizás impulsado por los flujos migratorios estacionales, como el verano en Europa. En 2021, aunque la pendiente fue menor (7.17 personas adicionales por mes), el número inicial de desaparecidos era considerablemente más alto (164.03), lo que sugiere que la pandemia podría haber incrementado la cifra base de desaparecidos.
 
----
-
-# Implicaciones de las Diferencias en Causas de Muerte y Desaparecidos
-
-Los cambios en las causas de muerte entre el 2019 y 2021, especialmente el incremento en violencia intrafamiliar y condiciones socioeconómicas adversas, muestran una triste metamorfosis en los riesgos que enfrentan los migrantes en sus países de origen y durante su tránsito.
+Por lo que se generan ciertas implicaciones de las diferencias en causas de muerte y desaparecidos, los cambios en las causas de muerte entre el 2019 y 2021, especialmente el incremento en violencia intrafamiliar y condiciones socioeconómicas adversas, muestran una triste metamorfosis en los riesgos que enfrentan los migrantes en sus países de origen y durante su tránsito.
 
 Estos fenómenos complejos pueden ser intensificados en contextos de crisis económica y social. Los migrantes suelen enfrentar situaciones de gran precariedad, que los exponen a una doble vulnerabilidad: por un lado, los riesgos inherentes a las rutas migratorias y, por otro, la posibilidad de enfrentar situaciones de violencia doméstica tanto en su país de origen como al país en que se trasladaron. Esto pone de relieve la importancia de las políticas públicas para la prevención de la violencia intrafamiliar y el apoyo psicosocial a migrantes en tránsito, en especial en tiempos de crisis.
 
 Además, el incremento en el número de desaparecidos en los primeros meses de 2021 sugiere que, aunque se redujeron las muertes, los migrantes pueden estar enfrentando más riesgos asociados con el tráfico de personas o meramente la ilegalidad con la que se mueven.
 
----
-
-# Reflexiones sobre el Análisis de Regresión y el Impacto Social
+## Parte de reflexión
 
 El análisis de regresión lineal simple utilizado para explorar la relación entre el total de muertos y desaparecidos y el número de muertos, así como entre la región y el número de muertos, ha permitido identificar patrones básicos en los datos migratorios. Sin embargo, estos modelos lineales presentan numerosas limitaciones, ya que los procesos migratorios y sus riesgos son fenómenos altamente multifactoriales que interactúan con diversas variables sociales, económicas y políticas.
 
 Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.
 
-## Parte de reflexión
+
 
 
 
