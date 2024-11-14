@@ -784,6 +784,22 @@ Ambos años muestran un aumento mensual en los desaparecidos, pero la magnitud e
     
 ### Resumen
 
+“Migrante muere y familia clama por ayuda”, “Desaparecen 10 migrantes”, “Denuncian desaparición de 800 000 migrantes”. Son estos títulos los usuales en noticias y diarios que abarcan estás problemáticas. Pero, ¿por qué es tan común encontrar a diario estas situaciones?, ¿son estos casos fortuitos o tienen que ver con un problema tan arraigado en las sociedades que simplemente se da por sentado? En efecto esto es un tema de alta complejidad; el cual se fundamenta en este proyecto, con el objetivo de establecer series de cálculos estadísticos que puedan hacer conexiones entre diferentes casos. 
+
+Si bien, tratar sobre desapariciones de migrantes puede ser un tema confuso (quizá con fuentes parcializadas y con datos inexactos), lo cierto es que existen organizaciones que son poseedoras de información fidedigna y rigurosa, la cual ha pasado por altos niveles de escrutinio y puede etiquetarse como confiable en su mayoría. Es esta información (en específico: bases de datos), la cual sienta como base y eje el presente proyecto. 
+
+Además, numerosos escritos como: noticias, artículos e investigaciones académicas son los que forman el esqueleto del trabajo investigativo. 
+
+A través de los análisis, fórmulas y cálculos creados en la investigación, resultados como: 
+
+Ligera incidencia entre el cambio de región y números de desaparecidos.
+Insignificante efecto de la Regresión Lineal Simple para determinar si existe mayor riesgo de desaparición/muerte de migrantes en una región u otra.
+
+Resultados de moda, mediana y promedio de poco impacto; además, pequeños aumentos al progresar los años. 
+
+La desaparición y/o muerte de migrantes en el desarrollo de sus viajes y/o en las llegadas a sus destinos se trata de una materia con capas muy diversas que, intuitivamente, puede determinarse que existen relaciones entre diferentes conceptos originarios de las propias bases de datos utilizados en proyecto. Sin embargo, una es requerido un proceso más complejo para establecerlas.
+
+
 ### Ordenamiento final
 
 **Título:** Proyecciones y patrones en la crisis migratoria: Análisis de desapariciones y muertes de migrantes.
@@ -882,6 +898,8 @@ El análisis de regresión lineal simple utilizado para explorar la relación en
 Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.
 
 **Conclusiones: ** 
+
+
 
 **Agradecimientos: ** Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
 
