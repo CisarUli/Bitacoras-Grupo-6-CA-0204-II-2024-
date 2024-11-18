@@ -7,7 +7,7 @@ bibliography: references.bib
 format:
   pdf:
     documentclass: scrreprt
-    number-sections: true
+    number-sections: false
     table-caption: true
     toc: true
 
@@ -42,7 +42,7 @@ La desaparición y/o muerte de migrantes en el desarrollo de sus viajes y/o en l
 
 **Palabras clave: ** Migración, desapariciones de migrantes, patrones de migración, muerte de migrantes, crisis migratoria internacional.
 
-# Introducción 
+## Introducción 
 
 La migración y las desapariciones de migrantes forman parte de un fenómeno complejo y crítico, especialmente en el contexto de los flujos migratorios de la última década. Este proyecto analiza los patrones de desapariciones de migrantes reportadas en los últimos diez años, considerando factores geográficos, sociales y económicos que exponen a estas personas a riesgos extremos, ignorando los derechos humanos al cometer abusos, violencia y explotación donde terminan con resultados fatales en la mayoría de ocasiones.
 
@@ -54,7 +54,7 @@ El objetivo principal de esta investigación es presentar modelos analíticos qu
 
 El estudio está organizado en varias secciones: un análisis de los patrones de migración y desaparición en diferentes regiones junto a teorías y estudios realizados con anterioridad, una evaluación de los factores de riesgo específicos para la última década y una exploración de modelos predictivos que pueden ofrecer bases para futuras investigaciones y proyecciones.
 
-# Metodología 
+## Metodología 
 
 @Todd en **“Introduction to Human Geography”**se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: el autor explica por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas. Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo. Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
 
@@ -100,7 +100,24 @@ Moda
 
 Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, \[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\].
 
-# Resultados 
+:   La regresión lineal simple [@probabilidadyestadistica3.0] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y.
+    Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
+
+Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal.
+Lógicamente, la relación entre las dos variables debe ser lineal, sino se debe utilizar otro tipo de modelo de regresión.
+
+La ecuación de un modelo de regresión lineal simple está formada por dos coeficientes: la constante de la ecuación (b0) y el coeficiente de la correlación entre las dos variables (b1).
+Para poder hacer una regresión lineal simple, se deben cumplir las siguientes hipótesis:
+
+-   Independencia: los residuos observados deben ser independientes entre sí.
+    Una manera común de garantizar la independencia del modelo es añadiendo aleatoriedad en el proceso de muestreo.
+
+-   Homocedasticidad: debe haber homogeneidad en las varianzas de los residuos, es decir, la variabilidad de los residuos debe ser constante.
+
+-   Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
+    Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
+
+## Resultados 
 
 ````{r}
 suppressMessages(library(tidyverse))
@@ -295,7 +312,7 @@ El análisis de regresión lineal simple utilizado para explorar la relación en
 
 Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.
 
-# Conclusiones
+## Conclusiones
 
 La investigación desarrollada fue esencialmente un trabajo enfocado en establecer ciertos cálculos y modelos estadísticos en aras de establecer diferentes conexiones dentro del ámbito de la migración.
 
@@ -309,8 +326,8 @@ Los problemas que presenta la investigación es que necesita un enfoque estadís
 
 Se recomienda utilizar una base matemática y estadística más fuerte para enfrentar un problema estadístico similar; también, se insta a establecer objetivos más precisos que no busquen abordar la información encontrada en artículos y teorizada en una UVE Heurística de manera elemental, si no más bien, de manera específica estructurar casos complejos que futuramente puedan ser resueltos y así llenar vacíos intelectuales sobre esta materia.
 
-# Agradecimientos
+## Agradecimientos
 
 Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
 
-# Referencias
+## Referencias
