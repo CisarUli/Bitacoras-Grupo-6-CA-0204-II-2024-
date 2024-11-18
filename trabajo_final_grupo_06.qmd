@@ -109,6 +109,7 @@ suppressMessages(library(tidyr))
 suppressMessages(library(knitr))
 suppressMessages(library(countrycode))
 suppressMessages(library(forcats))
+suppressMessages(library(cowplot))
 library(knitr)
 library(kableExtra)
 
@@ -184,6 +185,89 @@ model2_cuadro <- kable(
 model2_cuadro
 
 ````
+
+En este análisis del modelo, se buscó entender la relación entre el **total de muertos y desaparecidos** y el **número de muertos**en incidentes migratorios. Además, también se realizó el análisis de las **regiones** que se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el **número de muertos** cambia entre las distintas regiones.
+
+La ecuación de la regresión es:
+
+- \[
+\text{Número de muertos} = 1.3123 + 0.0774 \times (\text{Región codificada})
+\]
+
+- \[
+\text{Número de muertos} = 1.1458 + 0.1832 \times (\text{Total de muertos y desaparecidos})
+\]
+
+```{r, fig.width=3.75, fig.height=2.5, fig.align='center'}
+  
+lista_archivos <- lapply(
+  X = dir(path = "data/"),
+  FUN = function(f) {
+    read_csv(paste0("data/", f))
+  }
+)
+migrantes_desaparecidos <- bind_rows(lista_archivos) |>
+  janitor::clean_names()
+
+migrantes_desaparecidos <- migrantes_desaparecidos |> # separate_wider_delim(col, delim)
+  separate(coordinates,
+    into = c("latitud", "longitud"),
+    sep = ",", fill = "left"
+  )
+migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud) # separa las coordenadas
+
+migrantes_desaparecidos <- migrantes_desaparecidos |> # extrae la fecha exacta
+  mutate(incident_date = as.Date(
+    str_extract(
+      incident_date,
+      "\\b\\d{2}/\\d{2}/\\d{4}\\b"
+    ),
+    format = "%m/%d/%Y"
+  ))
+migrantes_desaparecidos <- migrantes_desaparecidos[, -c(1, 6, 9, 16, 20:21)] # elimina la columna 1
+migrantes_desaparecidos <- migrantes_desaparecidos |>
+  mutate(
+    location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
+  )
+migrantes_desaparecidos <- migrantes_desaparecidos |> # Extrae países y causas de muerte
+  mutate(
+    country_of_death = countrycode(location_of_death,
+      origin = "country.name",
+      destination = "country.name"
+    ),
+    cause_of_death = str_extract(cause_of_death, "^[^/]+"),
+    region = str_extract(
+      region,
+      "Asia|America|Africa|Europe|Caribbean|Mediterranean"
+    ),
+    region = str_replace(region, "Caribbean", "America")
+  )
+migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
+migrantes_desaparecidos$region <- as.factor(migrantes_desaparecidos$region)
+migrantes_desaparecidos$country_of_death <- as.factor(migrantes_desaparecidos$country_of_death)
+
+migrantes_desaparecidos |>
+  group_by(year) |>
+  summarise(
+    muertes = sum(number_dead, na.rm = TRUE),
+    rescatados = sum(number_of_survivors, na.rm = TRUE)
+  ) |>
+  ggplot(aes(year)) +
+  geom_line(aes(y = muertes), color = "darkred", size = 0.5) +
+  geom_point(aes(y = muertes), color = "orange", size = 1.5) +
+  geom_smooth(aes(y = muertes), se = FALSE, size = 0.5, linetype = "dotted") +
+  labs(
+    x = "Año",
+    y = "Migrantes",
+    caption = "Figura 4.1: Muertes por año. Elaboración propia con datos de Nocco"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.caption = element_text(hjust = 0.625, size = 6.25),
+    axis.title.x = element_text(size = 7.5),
+    axis.title.y = element_text(size = 7.5))
+```
 
 Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
 
