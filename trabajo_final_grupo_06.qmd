@@ -330,4 +330,4 @@ Se recomienda utilizar una base matemática y estadística más fuerte para enfr
 
 Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
 
-## Referencias
+# Referencias
