@@ -2,13 +2,13 @@
 # R specific hooks: https://github.com/lorenzwalthert/precommit
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v3.4.0
+    rev: v3.6.0
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
         args: [] # optional: list of Conventional Commits types to allow e.g. [feat, fix, ci, chore, test]
   - repo: https://github.com/lorenzwalthert/precommit
-    rev: v0.4.3
+    rev: v0.4.3.9003
     hooks:
       - id: style-files
         args: [--style_pkg=styler, --style_fun=tidyverse_style]
@@ -17,36 +17,6 @@ repos:
       # -   id: codemeta-description-updated
       # roxygen requires loading pkg -> add dependencies from DESCRIPTION
       - id: use-tidy-description
-      - id: spell-check
-        exclude: >
-          (?x)^(
-          .*\.[rR]|
-          .*\.feather|
-          .*\.jpeg|
-          .*\.pdf|
-          .*\.png|
-          .*\.py|
-          .*\.RData|
-          .*\.rds|
-          .*\.Rds|
-          .*\.Rproj|
-          .*\.sh|
-          (.*/|)\.gitignore|
-          (.*/|)\.gitlab-ci\.yml|
-          (.*/|)\.lintr|
-          (.*/|)\.pre-commit-.*|
-          (.*/|)\.Rbuildignore|
-          (.*/|)\.Renviron|
-          (.*/|)\.Rprofile|
-          (.*/|)\.travis\.yml|
-          (.*/|)appveyor\.yml|
-          (.*/|)NAMESPACE|
-          (.*/|)renv/settings\.dcf|
-          (.*/|)renv\.lock|
-          (.*/|)WORDLIST|
-          \.github/workflows/.*|
-          data/.*|
-          )$
       - id: lintr
         args: [--warn_only]
       - id: readme-rmd-rendered
@@ -55,7 +25,7 @@ repos:
       - id: no-debug-statement
       - id: deps-in-desc
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
         args: ["--maxkb=2000"]
