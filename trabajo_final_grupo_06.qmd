@@ -1,15 +1,18 @@
 ---
-title: "Proyecciones y patrones en la crisis migratoria: Análisis de desapariciones y muertes de migrantes"
-author: "Pablo Chaves, César Salazar"
-date: today
 bibliography: references.bib
 
 format:
   pdf:
     documentclass: scrreprt
+    include-in-header:
+      text: |
+        \usepackage{sectsty}
+        \chapterfont{\centering}
+        \sectionfont{\centering}
+        \usepackage{float}
     number-sections: false
     table-caption: true
-    toc: true
+    
 
 execute:
   echo: false  
@@ -23,8 +26,9 @@ nocite: |
 lang: es
 link-external-newwindow: true
 ---
+# Proyecciones y patrones en la crisis migratoria: Análisis de desapariciones y muertes de migrantes
 
-# Resumen
+## Resumen
 
 "Migrante muere y familia clama por ayuda”, “Desaparecen 10 migrantes”, “Denuncian desaparición de 800 000 migrantes”. Son estos títulos los usuales en noticias y diarios que abarcan estas problemáticas. Pero, ¿por qué es tan común encontrar a diario estas situaciones?, ¿son estos casos fortuitos o tienen que ver con un problema tan arraigado en las sociedades que simplemente se da por sentado? En efecto esto es un tema de alta complejidad; el cual se fundamenta en este proyecto, con el objetivo de establecer series de cálculos estadísticos que puedan hacer conexiones entre diferentes casos.
 
@@ -116,8 +120,10 @@ Para poder hacer una regresión lineal simple, se deben cumplir las siguientes h
 
 -   Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
     Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
+\newpage
 
-## Resultados 
+## Resultados
+
 
 ````{r}
 suppressMessages(library(tidyverse))
@@ -176,7 +182,7 @@ model1_cuadro <- kable(
   booktabs = TRUE,
   align = "c",
   caption = "Modelo 1: Número de muertos por incidente",
-  row.names = FALSE 
+  row.names = FALSE
 ) |> 
   kable_styling(latex_options = c("hold_position"))
 
@@ -195,7 +201,7 @@ model2_cuadro <- kable(
   booktabs = TRUE,
   align = "c",
   caption = "Modelo 2: Número de muertos por región",
-  row.names = FALSE 
+  row.names = FALSE
 ) |> 
   kable_styling(latex_options = c("hold_position"))
 
@@ -277,7 +283,7 @@ migrantes_desaparecidos |>
   labs(
     x = "Año",
     y = "Migrantes",
-    caption = "Figura 4.1: Muertes por año. Elaboración propia con datos de Nocco"
+    caption = "Figura 1: Muertes por año. Elaboración propia con datos de Nocco"
   ) +
   theme_minimal() +
   theme(
@@ -289,6 +295,26 @@ migrantes_desaparecidos |>
 Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
 
 El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.
+
+````{r, fig.width=9, fig.height=4.5, fig.align='center'}
+
+library(maps)
+
+world_map <- map_data("world")
+
+ggplot() +
+  geom_polygon(data = world_map, 
+               aes(x = long, y = lat, group = group),
+               fill = "lightblue", 
+               color = "white") +
+  geom_point(data = migrantes_desaparecidos,
+             aes(x = longitud,
+                 y = latitud),
+             color = "red", size = 0.25, alpha = 0.7) +
+  theme_minimal() +
+  labs(caption = "Figura 2: Mapa de migrantes desaparecidos. Elaboración propia con datos de Nocco")
+
+````
 
 En este punto se observan patrones distintos entre los dos años. En 2019, las regiones con mayor número de incidentes fueron el Área Oeste/Central, la Zona del Norte y la Región del Este, con 489, 288, y 259 incidentes, respectivamente. En cuanto al 2021, los incidentes mostraron marcas en áreas metropolitanas, con 417 incidentes en la capital y 409 en el Norte del Norte, seguido por el Mediterráneo con 353 incidentes.
 
@@ -330,4 +356,4 @@ Se recomienda utilizar una base matemática y estadística más fuerte para enfr
 
 Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
 
-# Referencias
+# Bibliografía
