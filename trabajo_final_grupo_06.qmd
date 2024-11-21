@@ -12,6 +12,8 @@ format:
         \usepackage{float}
     number-sections: false
     table-caption: true
+
+  
     
 
 execute:
@@ -27,6 +29,8 @@ lang: es
 link-external-newwindow: true
 ---
 # Proyecciones y patrones en la crisis migratoria: Análisis de desapariciones y muertes de migrantes
+
+![Correo a revista Serengueti](images/correo_revista.png)
 
 ## Resumen
 
@@ -60,17 +64,7 @@ El estudio está organizado en varias secciones: un análisis de los patrones de
 
 ## Metodología 
 
-@Todd en **“Introduction to Human Geography”**se dedica a explicar la relación entre los migrantes y los factores geográficos. Por ejemplo: el autor explica por qué los migrantes eligen unos países y no otros, qué tienen que ver las rutas con los destinos de estas personas, y cómo fenómenos naturales y/o meteorológicos afectan a quienes se embarcan en dichas odiseas. Los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo. Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
-
-Gracias a @migrationdataportal se tiene el Proyecto Migrantes Desaparecidos de la OIM es la única base de datos que recopila datos sobre muertes de migrantes. Las fuentes de datos que se emplean varían según la disponibilidad en cada región. Por ejemplo, en la región del Mediterráneo, el personal local de la OIM transmite datos cuando asiste a los sobrevivientes en los puntos de desembarco en Libia. En la frontera entre Estados Unidos y México, los datos se compilan en base a datos de los médicos forenses y las oficinas de los alguaciles de los condados de Estados Unidos, las agencias de búsqueda y rescate (SAR) mexicanas y fuentes de los medios de comunicación. En la Encuesta sobre la travesía del desierto del Sahara, se incluyen datos de la Matriz de Seguimiento de Desplazamientos (DTM) de la OIM. Las estimaciones en otras regiones se basan en una combinación de fuentes oficiales, datos de la OIM y otros organismos de las Naciones Unidas, datos de organizaciones de la sociedad civil y, principalmente, informes de los medios de comunicación.
-
-Así @UN en **“More than 50,000 migrants ‘die in search of a better life’”** expone que más de la mitad de las 50.000 muertes individuales documentadas ocurrieron en rutas hacia y dentro de Europa, y las rutas mediterráneas se cobraron al menos 25.104 vidas. Las rutas europeas también representan el mayor número y la mayor proporción de migrantes desaparecidos o presuntamente muertos, con al menos 16.032 desaparecidos en el mar y cuyos restos nunca se han recuperado. África es la segunda región más mortal para las personas en movimiento, con más de 9.000 muertes relacionadas con la migración documentadas desde 2014. Las encuestas regionales de hogares indican que estas cifras son casi con certeza muy inferiores a las reales.
-
-También @MinneapolisFed discute la gran problemática que acarrea la inmigración, no el hecho de que se dé, sino más bien los efectos negativos que implican que en los últimos años haya cada vez menos migración, principalmente en los incidentes ocurridos en Norteamérica el congreso legislativo estadounidense no ha estado activo en lo que políticas de inmigración se refiere. En cambio, es el poder ejecutivo el que estado dándole más forma a esta área social; el problema radica en que quien está en la presidencia posee un gran número de limitaciones; generando así un incierto acerca de la política de inmigración. Esencialmente, la autora explica en qué afecta que cada vez menos personas emigren a los Estados Unidos. A diferencia de lo que se cree, los inmigrantes no son causa directa del crimen, la saturación de plazas de trabajo, o cualquier otro elemento disuasorio. Más bien, que haya menos migrantes en los Estados Unidos ha significado un debilitamiento en su economía, lo cual ya está mostrando signos. La autora finalmente hace un llamado para que se pongan en marcha legislaciones que favorezcan el paso de migrantes a Estados Unidos. Dado que problemas como inflación y aumento de la pobreza son implicaciones de la falta de migración, es imperativo manejar esta problemática.
-
-Entre algunas de las principales causas de la migración, según @Duhaime, es tiene la existencia de agentes del Estado que pueden ser ellos mismos contrabandistas o traficantes, organizando el tráfico o trata de migrantes, facilitando la migración indocumentada o posibilitando la estancia de migrantes irregulares. En otras ocasiones, participan indirectamente en actividades de tráfico y trata de migrantes llevadas a cabo por actores privados, facilitando operaciones, permitiendo la entrada de migrantes indocumentados, proporcionando documentos fraudulentos o simplemente haciendo la vista gorda. Las actividades de tráfico y trata de migrantes a menudo se llevan a cabo con la participación o colaboración de funcionarios estatales corruptos, y la corrupción y la colusión son generalmente una parte crítica de dichas operaciones. Además @Brito en **""A decade of documenting more than 63,000 migrant deaths shows that fleeing is more lethal than ever""**indica que los guardacostas libios, formados y financiados por la UE, han sido vinculados con traficantes de personas que explotan a migrantes que son interceptados y devueltos a precarios centros de detención. Un grupo de expertos respaldado por la ONU ha concluido que los abusos cometidos contra los migrantes en el Mediterráneo y en Libia pueden constituir crímenes contra la humanidad.
-
-Por otro lado @APA en **“Psychology of Immigration”**presenta una serie de información médica y psicológica en aras de apoyar a servicios de apoyo a personas migrantes. La mayor parte del artículo consiste -además de proporcionar información precisa sobre trastornos mentales que pueden padecer personas inmigrantes- en señalar y enfatizar el tenso ambiente que pueden sufrir las personas que se enmarcan en la migración, ambiente que puede incluir: discriminación, xenofobia y violencia. Curiosamente, aporta también datos y desmiente mitos acerca de lo que significa la migración mundialmente hoy en día. Uno de estos mitos sería que la migración está en alza, lo cual no es cierto; sucede lo contrario. La @WHO en **""Act now to save lives and prevent migrants from going missing""**expone la importancia y/o necesidad de proteger a las personas migrantes de los peligros a los que se enfrentan a diario. No es solo una invitación ligera, sino una crítica directa a la situación actual, exigiendo mayor justicia por parte de los gobiernos y organizaciones sin fines de lucro. También expresa que existen práctica, conocimientos y orientación que pueden orientar los esfuerzos coordinados para hacer realidad los compromisos contraídos en virtud del derecho internacional y los objetivos del Pacto Mundial para la Migración. Los organismos internacionales, regionales y subregionales pueden desempeñar un papel importante para facilitar esos esfuerzos, junto con los agentes y las comunidades locales.
+Gracias a @migrationdataportal y @Nocco se tiene el Proyecto Migrantes Desaparecidos de la OIM que es la única base de datos que recopila datos sobre muertes de migrantes. Las fuentes de datos que se emplean varían según la disponibilidad en cada región. Por ejemplo, en la región del Mediterráneo, el personal local de la OIM transmite datos cuando asiste a los sobrevivientes en los puntos de desembarco en Libia. En la frontera entre Estados Unidos y México, los datos se compilan en base a datos de los médicos forenses y las oficinas de los alguaciles de los condados de Estados Unidos, las agencias de búsqueda y rescate (SAR) mexicanas y fuentes de los medios de comunicación. En la Encuesta sobre la travesía del desierto del Sahara, se incluyen datos de la Matriz de Seguimiento de Desplazamientos (DTM) de la OIM. Las estimaciones en otras regiones se basan en una combinación de fuentes oficiales, datos de la OIM y otros organismos de las Naciones Unidas, datos de organizaciones de la sociedad civil y, principalmente, informes de los medios de comunicación.
 
 Inicialmente en **“Introducción a la Estadística”**de @Zabala, aunque se presenta un estilo sumamente didáctico, se prioriza su contenido relativo a la exposición de conceptos de la matemática y estadística. Las medidas de centralización (o medidas de posición central) son métricas estadísticas que se encargan de mostrar el valor central distributivo. Por lo cual, se dedican a rastrear valores representativos del centro de un conjunto de datos. Las medidas a utilizar son:
 
@@ -86,6 +80,8 @@ Media
 
 :   Para calcular la media se deben sumar todos los valores y luego dividir entre el número total de datos. La media también se conoce como media aritmética o promedio. Además, la media de una distribución estadística es equivalente a su esperanza matemática.
 
+$$\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$$
+
 Mediana
 
 :   La mediana es el valor del medio de todos los datos ordenados de menor a mayor. Es decir, la mediana divide todo el conjunto de datos ordenados en dos partes iguales. El cálculo de la mediana depende de si el número total de datos es par o impar:
@@ -93,6 +89,11 @@ Mediana
 -   Si el número total de datos es impar, la mediana será el valor que está justo en el medio de los datos. Es decir, el valor que está en la posición (n+1)/2 de los datos ordenados.
 
 -   Si el número total de datos es par, la mediana será la media de los dos datos que están en el centro. Esto es, la media aritmética de los valores que están en la posiciones n/2 y n/2+1 de los datos ordenados.
+
+$$ \begin{cases} 
+x_{\frac{n+1}{2}}, & \text{si } n \text{ es impar}, \\ 
+\frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2}, & \text{si } n \text{ es par}.
+\end{cases} $$
 
 Moda
 
@@ -102,9 +103,9 @@ Moda
 
 -   Moda bimodal: el máximo número de repeticiones se produce en dos valores diferentes y ambos valores se repiten el mismo número de veces. Por ejemplo, \[2, 6, 7, 2, 3, 6, 9\].
 
-Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, \[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\].
+- Moda multimodal: tres o más valores tienen el mismo número máximo de repeticiones. Por ejemplo, \[3, 3, 4, 1, 3, 4, 2, 1, 4, 5, 2, 1\].
 
-:   La regresión lineal simple [@probabilidadyestadistica3.0] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y.
+La regresión lineal simple [@Waples] es un modelo estadístico usado para relacionar una variable independiente X con una variable dependiente Y.
     Es decir, en una regresión lineal simple solo hay dos variables (la variable explicativa X y la variable respuesta Y) y se intenta aproximar la relación que hay entre ambas variables.
 
 Por lo tanto, la regresión lineal simple sirve para encontrar una ecuación que relacione dos variables de una manera lineal.
@@ -120,6 +121,33 @@ Para poder hacer una regresión lineal simple, se deben cumplir las siguientes h
 
 -   Normalidad: los residuos deben estar distribuidos normalmente, o dicho de otra forma, deben seguir una distribución normal de media 0.
     Linealidad: la relación entre la variable independiente y la variable dependiente debe ser lineal.
+    
+La ecuación de la regresión lineal simple es:
+$$ y = \beta_0 + \beta_1 x + \epsilon $$
+donde:
+\begin{itemize}
+    \item \(y\): Variable dependiente (respuesta).
+    \item \(x\): Variable independiente (predictor).
+    \item \(\beta_0\): Intercepto o término constante.
+    \item \(\beta_1\): Pendiente o coeficiente de regresión.
+    \item \(\epsilon\): Error aleatorio.
+\end{itemize}
+
+Los estimadores de \(\beta_0\) y \(\beta_1\) se calculan como:
+$$ \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} $$
+$$
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}
+$$
+donde:
+\begin{itemize}
+    \item \(\bar{x}\): Media de la variable independiente \(x\).
+    \item \(\bar{y}\): Media de la variable dependiente \(y\).
+\end{itemize}
+
+Finalmente, la línea ajustada de regresión es:
+$$
+\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x
+$$
 \newpage
 
 ## Resultados
@@ -211,15 +239,10 @@ model2_cuadro
 
 En este análisis del modelo, se buscó entender la relación entre el **total de muertos y desaparecidos** y el **número de muertos**en incidentes migratorios. Además, también se realizó el análisis de las **regiones** que se codificaron numéricamente y se realizó una regresión lineal simple para evaluar si el **número de muertos** cambia entre las distintas regiones.
 
-La ecuación de la regresión es:
+Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
 
-- \[
-\text{Número de muertos} = 1.3123 + 0.0774 \times (\text{Región codificada})
-\]
+El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.
 
-- \[
-\text{Número de muertos} = 1.1458 + 0.1832 \times (\text{Total de muertos y desaparecidos})
-\]
 
 ```{r, fig.width=3.75, fig.height=2.5, fig.align='center'}
   
@@ -292,9 +315,11 @@ migrantes_desaparecidos |>
     axis.title.y = element_text(size = 7.5))
 ```
 
-Al realizar una comparación entre el total de muertes en 2019 y 2021, se obtiene que en el 2019 el número total de incidentes migratorios fue de 1,422, con un total de 324 muertes reportadas. En contraste, para el año 2021, se documentaron 1,380 incidentes y 238 muertes. Aunque el número de incidentes no cambió sustancialmente, se subraya la información.
-
-El descenso en el número de muertes en 2021 podría deberse a varios factores. Por ejemplo: medidas adoptadas debido a la pandemia que hayan afectado el comportamiento de los flujos migratorios. Por otro lado, el número de personas desempleadas aumentó de 1,777 en 2019 a 2,206 en 2021, lo que indica una mayor precarización de las condiciones laborales y sociales en los países de origen.
+Se reportaron 1.860 incidentes sobre migrantes desaparecidos en 2021, siendo este el año con mayor número de incidentes y habiendo aumentado en un 38.39% con respecto al 2020.
+Además se confirmaron 3.386 muertes de migrantes.
+La pandemia de COVID-19 provocó restricciones de movilidad y aislamiento principalmente en 2020, afectando también la economía y salud de toda la población mundial.
+En 2021 algunos países quitaron dichas restricciones, lo cual dio lugar a una enorme ola de migrantes que se había acumulado.
+Por otro lado algunos países de destino mantuvieron cerradas sus fronteras o rutas principales de migración, lo que llevó a que los migrantes buscaran rutas alternativas y más peligrosas para cruzar dichas fronteras aumentado así el número de muertes con respecto al 2020.
 
 ````{r, fig.width=9, fig.height=4.5, fig.align='center'}
 
@@ -315,6 +340,12 @@ ggplot() +
   labs(caption = "Figura 2: Mapa de migrantes desaparecidos. Elaboración propia con datos de Nocco")
 
 ````
+
+Alrededor de 8.750 migrantes han muerto en África, esto se debe a diferentes causas de las cuales las principales son por condiciones ambientales adversas, se tiene por ejemplo el desierto del Sahara donde se presentan climas extremadamente calurosos, escases de recursos hídricos y falta de infraestructura.
+Seguido de la causa anterior se tienen muertes poe enfermedad, la falta de recursos y de nacionalidad impide poder optar por los medicamentos adecuados.
+En otras causas se tienen muerte por violencia y por accidentes vehiculares.
+
+@Todd en **“Introduction to Human Geography”** explica que los geógrafos han identificado tendencias generales en la migración global, también conocida como migración Norte-Sur, en la que la mayoría de los emigrantes provienen de países más pobres y en desarrollo, mientras que la mayoría de los destinos han sido tradicionalmente países más ricos y desarrollados. Para la mayoría de los estadounidenses y canadienses, este patrón es muy familiar, ya que en las últimas décadas se ha visto un número sin precedentes de latinos inmigrar a Estados Unidos en busca de empleos mejor remunerados y mejores oportunidades, además de escapar de la pobreza estructural en el mundo en desarrollo. De manera similar, los patrones recientes en Europa han mostrado un número récord de europeos del Este mudándose al oeste y norte para ganar salarios más altos que los disponibles en sus países de origen. El cambio climático y el desplazamiento por desastres son las crisis definitorias de nuestro tiempo. Países enteros ya están sufriendo los impactos de emergencias relacionadas con el clima, pero las personas vulnerables que viven en las regiones más frágiles y pobres son las más afectadas de manera desproporcionada y se ven obligadas a moverse.
 
 En este punto se observan patrones distintos entre los dos años. En 2019, las regiones con mayor número de incidentes fueron el Área Oeste/Central, la Zona del Norte y la Región del Este, con 489, 288, y 259 incidentes, respectivamente. En cuanto al 2021, los incidentes mostraron marcas en áreas metropolitanas, con 417 incidentes en la capital y 409 en el Norte del Norte, seguido por el Mediterráneo con 353 incidentes.
 
@@ -355,5 +386,13 @@ Se recomienda utilizar una base matemática y estadística más fuerte para enfr
 ## Agradecimientos
 
 Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
+
+\newpage
+
+## Anexos
+
+1. **Repositorio en GitHub:** https://github.com/CisarUli/Bitacoras-Grupo-6-CA-0204-II-2024-
+
+2. **Aplicación de Shiny:** https://cisaruli.shinyapps.io/Bitacoras-Grupo-6-CA-0204-II-2024-/
 
 # Bibliografía

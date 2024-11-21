@@ -241,39 +241,47 @@ suppressMessages(library(forcats))
 #|warning: FALSE
 #|messages: FALSE
 
-lista_archivos <- lapply(X = dir(path = "data/"), 
-                         FUN = function(f){
-                           read_csv(paste0("data/", f))
-                           })
+lista_archivos <- lapply(
+  X = dir(path = "data/"),
+  FUN = function(f) {
+    read_csv(paste0("data/", f))
+  }
+)
 migrantes_desaparecidos <- bind_rows(lista_archivos) |>
   janitor::clean_names()
 
-migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+migrantes_desaparecidos <- migrantes_desaparecidos |> # separate_wider_delim(col, delim)
   separate(coordinates,
-           into = c("latitud", "longitud"),
-           sep = ",", fill = "left"
-           )
+    into = c("latitud", "longitud"),
+    sep = ",", fill = "left"
+  )
 migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
-migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud) # separa las coordenadas
 
-migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+migrantes_desaparecidos <- migrantes_desaparecidos |> # extrae la fecha exacta
   mutate(incident_date = as.Date(
-    str_extract(incident_date,
-                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
-    )
-migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
+    str_extract(
+      incident_date,
+      "\\b\\d{2}/\\d{2}/\\d{4}\\b"
+    ),
+    format = "%m/%d/%Y"
+  ))
+migrantes_desaparecidos <- migrantes_desaparecidos[, -c(1, 6, 9, 16, 20:21)] # elimina la columna 1
 migrantes_desaparecidos <- migrantes_desaparecidos |>
   mutate(
     location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
-    )
-migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  )
+migrantes_desaparecidos <- migrantes_desaparecidos |> # Extrae países y causas de muerte
   mutate(
     country_of_death = countrycode(location_of_death,
-                          origin = 'country.name',
-                          destination = 'country.name'),
+      origin = "country.name",
+      destination = "country.name"
+    ),
     cause_of_death = str_extract(cause_of_death, "^[^/]+"),
-    region = str_extract(region, 
-                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_extract(
+      region,
+      "Asia|America|Africa|Europe|Caribbean|Mediterranean"
+    ),
     region = str_replace(region, "Caribbean", "America")
   )
 migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
@@ -297,18 +305,19 @@ migrantes_desaparecidos |>
     prom_m = mean(number_dead, na.rm = TRUE),
     prom_s = mean(number_of_survivors, na.rm = TRUE),
     prom_d = mean(minimum_estimated_number_of_missing, na.rm = TRUE),
-    per_m = sum(number_dead, na.rm = TRUE) / 
+    per_m = sum(number_dead, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
-    per_s = sum(number_of_survivors, na.rm = TRUE) / 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
+    per_s = sum(number_of_survivors, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
-    per_d = sum(minimum_estimated_number_of_missing, na.rm = TRUE) / 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100) |> 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100
+  ) |>
   kable(caption = "Resumen de Migrantes Desaparecidos por Año")
 ```
 
@@ -322,20 +331,20 @@ migrantes_desaparecidos |>
     prom_m = mean(number_dead, na.rm = TRUE),
     prom_s = mean(number_of_survivors, na.rm = TRUE),
     prom_d = mean(minimum_estimated_number_of_missing, na.rm = TRUE),
-    per_m = sum(number_dead, na.rm = TRUE) / 
+    per_m = sum(number_dead, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
-    per_s = sum(number_of_survivors, na.rm = TRUE) / 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
+    per_s = sum(number_of_survivors, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
-    per_d = sum(minimum_estimated_number_of_missing, na.rm = TRUE) / 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100) |> 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100
+  ) |>
   kable(caption = "Resumen de Migrantes Desaparecidos por Región")
-
 ```
 
 **Resumen por País:**
@@ -348,22 +357,22 @@ migrantes_desaparecidos |>
     prom_m = mean(number_dead, na.rm = TRUE),
     prom_s = mean(number_of_survivors, na.rm = TRUE),
     prom_d = mean(minimum_estimated_number_of_missing, na.rm = TRUE),
-    per_m = sum(number_dead, na.rm = TRUE) / 
+    per_m = sum(number_dead, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
-    per_s = sum(number_of_survivors, na.rm = TRUE) / 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
+    per_s = sum(number_of_survivors, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
-    per_d = sum(minimum_estimated_number_of_missing, na.rm = TRUE) / 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100,
+    per_d = sum(minimum_estimated_number_of_missing, na.rm = TRUE) /
       (sum(number_dead, na.rm = TRUE) +
-         sum(number_of_survivors, na.rm = TRUE) +
-         sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100) |>
-  arrange(desc(prom_m)) |>  
-  slice_head(n = 15) |> 
+        sum(number_of_survivors, na.rm = TRUE) +
+        sum(minimum_estimated_number_of_missing, na.rm = TRUE)) * 100
+  ) |>
+  arrange(desc(prom_m)) |>
+  slice_head(n = 15) |>
   kable(caption = "Resumen de Migrantes Desaparecidos por País")
-
 ```
 
 **Resumen por Causa de Muerte:**
@@ -378,9 +387,9 @@ migrantes_desaparecidos |>
     per_m = sum(number_dead, na.rm = TRUE) / sum(migrantes_desaparecidos$number_dead, na.rm = TRUE) * 100,
     Max_M = max(number_dead, na.rm = TRUE),
     Var_M = var(number_dead, na.rm = TRUE),
-    Desv_M = sd(number_dead, na.rm = TRUE)) |>
+    Desv_M = sd(number_dead, na.rm = TRUE)
+  ) |>
   kable(caption = "Resumen de Causa de Muerte de Migrantes Desaparecidos")
-
 ```
 
 ### Figuras
@@ -404,30 +413,32 @@ migrantes_desaparecidos |>
   geom_line(color = "black", size = 1) +
   geom_point(color = "red", size = 2) +
   geom_smooth(se = FALSE, size = 1, linetype = "dotted") +
-  labs(title = "Incidentes por año",
-       x = "Año", 
-       y = "Incidentes") +
+  labs(
+    title = "Incidentes por año",
+    x = "Año",
+    y = "Incidentes"
+  ) +
   theme_minimal()
 ```
 
 **Mapa sobre incidentes por Region**
 
 ```{r}
-migrantes_desaparecidos |> 
-ggplot(aes(x = longitud, y = latitud)) +
+migrantes_desaparecidos |>
+  ggplot(aes(x = longitud, y = latitud)) +
   geom_point(color = "red", size = 0.5) +
   theme_minimal() +
   labs(
     title = "Mapa de Incidentes según Coordenadas",
     x = "Longitud",
-    y = "Latitud")
+    y = "Latitud"
+  )
 ```
 
 **Causa de muerte**
 
 ```{r}
-
-migrantes_desaparecidos |>  
+migrantes_desaparecidos |>
   filter(!is.na(incident_date)) |>
   ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death), fill = region)) +
   geom_col() +
@@ -435,7 +446,7 @@ migrantes_desaparecidos |>
     tittle = "Causa de muerte",
     x = "Muertes",
     y = "Causa"
-  ) + 
+  ) +
   theme_minimal() +
   scale_fill_brewer(palette = "Set1")
 ```
@@ -443,7 +454,6 @@ migrantes_desaparecidos |>
 **Sobrevivientes por año**
 
 ```{r}
-
 migrantes_desaparecidos |>
   group_by(year) |>
   summarise(
@@ -454,17 +464,17 @@ migrantes_desaparecidos |>
   geom_line(aes(y = rescatados), color = "darkblue", size = 1) +
   geom_point(aes(y = rescatados), color = "cyan", size = 3) +
   geom_smooth(aes(y = rescatados), se = FALSE, size = 1, linetype = "twodash") +
-  labs(title = "Sobrevivientes por año",
-       x = "Año", 
-       y = "Migrantes") +
+  labs(
+    title = "Sobrevivientes por año",
+    x = "Año",
+    y = "Migrantes"
+  ) +
   theme_minimal()
-
 ```
 
 **Muertes por año**
 
 ```{r}
-
 migrantes_desaparecidos |>
   group_by(year) |>
   summarise(
@@ -475,17 +485,19 @@ migrantes_desaparecidos |>
   geom_line(aes(y = muertes), color = "darkred", size = 1) +
   geom_point(aes(y = muertes), color = "orange", size = 3) +
   geom_smooth(aes(y = muertes), se = FALSE, size = 1, linetype = "dotted") +
-  labs(title = "Muertes por año",
-       x = "Año", 
-       y = "Migrantes") +
-  theme_minimal()
-
+  labs(
+    x = "Año",
+    y = "Migrantes",
+    caption = "Muertes por año | Figura 4.1 | Elaboración propia con datos de Nocco"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.caption = element_text(hjust = 1, size = 10, face = "italic"))
 ```
 
 **Muertes de mujeres migrantes por region**
 
 ```{r}
-
 migrantes_desaparecidos |>
   group_by(region) |>
   summarise(
@@ -497,16 +509,14 @@ migrantes_desaparecidos |>
     tittle = "Muertes de hombres migrantes",
     x = "Muertes",
     y = "Region"
-  ) + 
-  theme_minimal() 
-
+  ) +
+  theme_minimal()
 ```
 
 **Muertes de hombres migrantes por region**
 
 ```{r}
-
-migrantes_desaparecidos |> 
+migrantes_desaparecidos |>
   group_by(region) |>
   summarise(
     muertes = sum(number_of_males, na.rm = TRUE)
@@ -517,16 +527,14 @@ migrantes_desaparecidos |>
     tittle = "Muertes de hombres migrantes",
     x = "Muertes",
     y = "Region"
-  ) + 
-  theme_minimal() 
-
+  ) +
+  theme_minimal()
 ```
 
 **Muertes de mujeres migrantes por año**
 
 ```{r}
-
-migrantes_desaparecidos |> 
+migrantes_desaparecidos |>
   group_by(year) |>
   summarise(
     muertes = sum(number_of_females, na.rm = TRUE)
@@ -538,16 +546,14 @@ migrantes_desaparecidos |>
     tittle = "Muertes de mujeres migrantes por año",
     x = "Muertes",
     y = "Año"
-  ) + 
-  theme_minimal() 
-
+  ) +
+  theme_minimal()
 ```
 
 **Muertes de hombres migrantes por año**
 
 ```{r}
-
-migrantes_desaparecidos |> 
+migrantes_desaparecidos |>
   group_by(year) |>
   summarise(
     muertes = sum(number_of_males, na.rm = TRUE)
@@ -559,9 +565,8 @@ migrantes_desaparecidos |>
     tittle = "Muertes de hombres migrantes por año",
     x = "Muertes",
     y = "Año"
-  ) + 
-  theme_minimal() 
-
+  ) +
+  theme_minimal()
 ```
 
 ### Método #1: Regresión Lineal Simple**
@@ -586,44 +591,51 @@ Para poder hacer una regresión lineal simple, se deben cumplir las siguientes h
 Primero se cargan los datos recolectados del 2014 al 2022:
 
 ````{r}
-
 library(tidyverse)
 library(knitr)
 library(countrycode)
 
-lista_archivos <- lapply(X = dir(path = "data/"), 
-                         FUN = function(f){
-                           read_csv(paste0("data/", f))
-                           })
+lista_archivos <- lapply(
+  X = dir(path = "data/"),
+  FUN = function(f) {
+    read_csv(paste0("data/", f))
+  }
+)
 migrantes_desaparecidos <- bind_rows(lista_archivos) |>
   janitor::clean_names()
 
-migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+migrantes_desaparecidos <- migrantes_desaparecidos |> # separate_wider_delim(col, delim)
   separate(coordinates,
-           into = c("latitud", "longitud"),
-           sep = ",", fill = "left"
-           )
+    into = c("latitud", "longitud"),
+    sep = ",", fill = "left"
+  )
 migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
-migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud) # separa las coordenadas
 
-migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+migrantes_desaparecidos <- migrantes_desaparecidos |> # extrae la fecha exacta
   mutate(incident_date = as.Date(
-    str_extract(incident_date,
-                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
-    )
-migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
+    str_extract(
+      incident_date,
+      "\\b\\d{2}/\\d{2}/\\d{4}\\b"
+    ),
+    format = "%m/%d/%Y"
+  ))
+migrantes_desaparecidos <- migrantes_desaparecidos[, -c(1, 6, 9, 16, 20:21)] # elimina la columna 1
 migrantes_desaparecidos <- migrantes_desaparecidos |>
   mutate(
     location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
-    )
-migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  )
+migrantes_desaparecidos <- migrantes_desaparecidos |> # Extrae países y causas de muerte
   mutate(
     country_of_death = countrycode(location_of_death,
-                          origin = 'country.name',
-                          destination = 'country.name'),
+      origin = "country.name",
+      destination = "country.name"
+    ),
     cause_of_death = str_extract(cause_of_death, "^[^/]+"),
-    region = str_extract(region, 
-                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_extract(
+      region,
+      "Asia|America|Africa|Europe|Caribbean|Mediterranean"
+    ),
     region = str_replace(region, "Caribbean", "America")
   )
 migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
@@ -643,10 +655,11 @@ ts_sobrevivientes <- migrantes_desaparecidos |>
     sobrevivientes = sum(number_of_survivors, na.rm = TRUE)
   )
 
-ts_sobrevivientes <- ts(ts_sobrevivientes$sobrevivientes, 
-                        start = min(ts_sobrevivientes$year), 
-                        end = max(ts_sobrevivientes$year), 
-                        frequency = 1)
+ts_sobrevivientes <- ts(ts_sobrevivientes$sobrevivientes,
+  start = min(ts_sobrevivientes$year),
+  end = max(ts_sobrevivientes$year),
+  frequency = 1
+)
 
 ts_desaparecidos <- migrantes_desaparecidos |>
   group_by(year) |>
@@ -654,13 +667,13 @@ ts_desaparecidos <- migrantes_desaparecidos |>
     desaparecidos = sum(minimum_estimated_number_of_missing, na.rm = TRUE)
   )
 
-ts_desaparecidos <- ts(ts_desaparecidos$desaparecidos, 
-                        start = min(ts_desaparecidos$year), 
-                        end = max(ts_desaparecidos$year), 
-                        frequency = 1)
+ts_desaparecidos <- ts(ts_desaparecidos$desaparecidos,
+  start = min(ts_desaparecidos$year),
+  end = max(ts_desaparecidos$year),
+  frequency = 1
+)
 
 glimpse(migrantes_desaparecidos)
-
 ````
 
 **Análisis de Método #1: Regresión Lineal Simple (Datos 2022)**
@@ -1141,5 +1154,3 @@ Se recomienda utilizar una base matemática y estadística más fuerte para enfr
 **Agradecimientos: **Agradecimientos especiales a Maikol Solis, profesor del curso Herramientas para el Análisis de Datos, por su guía y dedicación a lo largo del semestre, así como a Ana Laura Lopez, asistente del curso, por su enorme apoyo en cada etapa del proceso. También se agradece a la Universidad de Costa Rica por asegurar un entorno académico que ha permitido el desarrollo de este proyecto.
 
 **Referencias: **
-
-

@@ -1,5 +1,5 @@
 source("scripts/Limpieza.R")
-suppressMessages(library(ggiraph)) 
+suppressMessages(library(ggiraph))
 suppressMessages(library(ggplot2))
 suppressMessages(library(dplyr))
 suppressMessages(library(patchwork))
@@ -8,7 +8,7 @@ suppressMessages(library(sf))
 suppressMessages(library(cowplot))
 library(forcats)
 
-migrantes_desaparecidos |>    #Historico de muertes por año
+migrantes_desaparecidos |> # Historico de muertes por año
   filter(!is.na(incident_date)) |>
   ggplot(aes(x = format(incident_date, "%Y"))) +
   geom_bar(fill = "darkred") +
@@ -16,9 +16,9 @@ migrantes_desaparecidos |>    #Historico de muertes por año
     tittle = "Incidentes por año",
     x = "Año",
     y = "Incidentes"
-  ) + 
+  ) +
   theme_minimal()
-migrantes_desaparecidos |>    #Historico de muertes por año
+migrantes_desaparecidos |> # Historico de muertes por año
   filter(!is.na(incident_date)) |>
   ggplot(aes(y = fct_infreq(region))) +
   geom_bar(fill = "darkblue") +
@@ -26,10 +26,10 @@ migrantes_desaparecidos |>    #Historico de muertes por año
     tittle = "Incidentes por region",
     x = "Region",
     y = "Incidentes"
-  ) + 
+  ) +
   theme_minimal()
 
-migrantes_desaparecidos |>     #grafica por causa de muerte
+migrantes_desaparecidos |> # grafica por causa de muerte
   filter(!is.na(incident_date)) |>
   ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death), fill = region)) +
   geom_col() +
@@ -37,7 +37,7 @@ migrantes_desaparecidos |>     #grafica por causa de muerte
     tittle = "Causa de muerte",
     x = "Muertes",
     y = "Causa"
-  ) + 
+  ) +
   theme_minimal() +
   scale_fill_brewer(palette = "Set1")
 
@@ -54,12 +54,14 @@ migrantes_desaparecidos |>
   geom_point(aes(y = rescatados), color = "cyan", size = 2) +
   geom_smooth(aes(y = muertes), se = FALSE, size = 1, linetype = "dotted") +
   geom_smooth(aes(y = rescatados), se = FALSE, size = 1, linetype = "twodash") +
-  labs(title = "Sobrevivientes vs Muertes",
-       x = "Año", 
-       y = "Migrantes") +
+  labs(
+    title = "Sobrevivientes vs Muertes",
+    x = "Año",
+    y = "Migrantes"
+  ) +
   theme_minimal()
 
-migrantes_desaparecidos |>     #Mujeres muertes
+migrantes_desaparecidos |> # Mujeres muertes
   group_by(region) |>
   summarise(
     muertes = sum(number_of_females, na.rm = TRUE)
@@ -70,10 +72,10 @@ migrantes_desaparecidos |>     #Mujeres muertes
     tittle = "Muertes de hombres migrantes",
     x = "Muertes",
     y = "Region"
-  ) + 
-  theme_minimal() 
+  ) +
+  theme_minimal()
 
-migrantes_desaparecidos |>     #Hombres muertes
+migrantes_desaparecidos |> # Hombres muertes
   group_by(region) |>
   summarise(
     muertes = sum(number_of_males, na.rm = TRUE)
@@ -84,10 +86,10 @@ migrantes_desaparecidos |>     #Hombres muertes
     tittle = "Muertes de hombres migrantes",
     x = "Muertes",
     y = "Region"
-  ) + 
-  theme_minimal() 
-  
-migrantes_desaparecidos |>     #grafica por causa de muerte con facet
+  ) +
+  theme_minimal()
+
+migrantes_desaparecidos |> # grafica por causa de muerte con facet
   filter(!is.na(incident_date)) |>
   ggplot(aes(x = number_dead, y = fct_infreq(cause_of_death))) +
   geom_col(fill = "darkgreen") +
@@ -96,14 +98,14 @@ migrantes_desaparecidos |>     #grafica por causa de muerte con facet
     tittle = "Causa de muerte",
     x = "Muertes",
     y = "Causa"
-  ) + 
-  theme_minimal() 
+  ) +
+  theme_minimal()
 
 migrantes_desaparecidos |>
   group_by(region) |>
   summarise(
     muertes = sum(number_dead, na.rm = TRUE),
-    porcentaje = muertes/sum(migrantes_desaparecidos$number_dead, na.rm = TRUE)
+    porcentaje = muertes / sum(migrantes_desaparecidos$number_dead, na.rm = TRUE)
   ) |>
   ggplot(aes(x = muertes, y = region)) +
   geom_col()
@@ -118,7 +120,7 @@ migrantes_desaparecidos |>
   geom_line()
 
 
-migrantes_desaparecidos |> #Muerte por sexo por año
+migrantes_desaparecidos |> # Muerte por sexo por año
   filter(
     is.na(number_of_survivors),
     is.na(minimum_estimated_number_of_missing)
@@ -135,10 +137,10 @@ migrantes_desaparecidos |> #Muerte por sexo por año
     tittle = "Muertes de hombres migrantes",
     x = "Migrantes",
     y = "Año"
-  ) + 
-  theme_minimal() 
+  ) +
+  theme_minimal()
 
-migrantes_desaparecidos |> #Muerte de niños migrantes
+migrantes_desaparecidos |> # Muerte de niños migrantes
   filter(
     is.na(number_of_survivors),
     is.na(minimum_estimated_number_of_missing)
@@ -148,5 +150,5 @@ migrantes_desaparecidos |> #Muerte de niños migrantes
     niños = sum(number_of_children, na.rm = TRUE)
   ) |>
   ggplot(aes(x = year, y = niños)) +
-  geom_line(color = "darkblue", size = 1) + 
+  geom_line(color = "darkblue", size = 1) +
   theme_minimal()

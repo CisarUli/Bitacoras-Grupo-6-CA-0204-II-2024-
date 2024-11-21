@@ -70,44 +70,51 @@ Para esta bitácora se añade un nuevo método: el modelo autorregresivo integra
 Primero se cargan los datos recolectados del 2014 al 2022:
 
 ````{r}
-
 library(tidyverse)
 library(knitr)
 library(countrycode)
 
-lista_archivos <- lapply(X = dir(path = "data/"), 
-                         FUN = function(f){
-                           read_csv(paste0("data/", f))
-                           })
+lista_archivos <- lapply(
+  X = dir(path = "data/"),
+  FUN = function(f) {
+    read_csv(paste0("data/", f))
+  }
+)
 migrantes_desaparecidos <- bind_rows(lista_archivos) |>
   janitor::clean_names()
 
-migrantes_desaparecidos <- migrantes_desaparecidos |>   #separate_wider_delim(col, delim)
+migrantes_desaparecidos <- migrantes_desaparecidos |> # separate_wider_delim(col, delim)
   separate(coordinates,
-           into = c("latitud", "longitud"),
-           sep = ",", fill = "left"
-           )
+    into = c("latitud", "longitud"),
+    sep = ",", fill = "left"
+  )
 migrantes_desaparecidos$latitud <- as.numeric(migrantes_desaparecidos$latitud)
-migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud)#separa las coordenadas
+migrantes_desaparecidos$longitud <- as.numeric(migrantes_desaparecidos$longitud) # separa las coordenadas
 
-migrantes_desaparecidos <- migrantes_desaparecidos |> #extrae la fecha exacta
+migrantes_desaparecidos <- migrantes_desaparecidos |> # extrae la fecha exacta
   mutate(incident_date = as.Date(
-    str_extract(incident_date,
-                "\\b\\d{2}/\\d{2}/\\d{4}\\b"), format = "%m/%d/%Y")
-    )
-migrantes_desaparecidos <- migrantes_desaparecidos[ , -c(1, 6, 9, 16, 20:21)] #elimina la columna 1
+    str_extract(
+      incident_date,
+      "\\b\\d{2}/\\d{2}/\\d{4}\\b"
+    ),
+    format = "%m/%d/%Y"
+  ))
+migrantes_desaparecidos <- migrantes_desaparecidos[, -c(1, 6, 9, 16, 20:21)] # elimina la columna 1
 migrantes_desaparecidos <- migrantes_desaparecidos |>
   mutate(
     location_of_death = str_remove_all(location_of_death, " \\(see coordinates for exact location\\)")
-    )
-migrantes_desaparecidos <- migrantes_desaparecidos |> #Extrae países y causas de muerte
+  )
+migrantes_desaparecidos <- migrantes_desaparecidos |> # Extrae países y causas de muerte
   mutate(
     country_of_death = countrycode(location_of_death,
-                          origin = 'country.name',
-                          destination = 'country.name'),
+      origin = "country.name",
+      destination = "country.name"
+    ),
     cause_of_death = str_extract(cause_of_death, "^[^/]+"),
-    region = str_extract(region, 
-                         "Asia|America|Africa|Europe|Caribbean|Mediterranean"),
+    region = str_extract(
+      region,
+      "Asia|America|Africa|Europe|Caribbean|Mediterranean"
+    ),
     region = str_replace(region, "Caribbean", "America")
   )
 migrantes_desaparecidos$cause_of_death <- as.factor(migrantes_desaparecidos$cause_of_death)
@@ -127,10 +134,11 @@ ts_sobrevivientes <- migrantes_desaparecidos |>
     sobrevivientes = sum(number_of_survivors, na.rm = TRUE)
   )
 
-ts_sobrevivientes <- ts(ts_sobrevivientes$sobrevivientes, 
-                        start = min(ts_sobrevivientes$year), 
-                        end = max(ts_sobrevivientes$year), 
-                        frequency = 1)
+ts_sobrevivientes <- ts(ts_sobrevivientes$sobrevivientes,
+  start = min(ts_sobrevivientes$year),
+  end = max(ts_sobrevivientes$year),
+  frequency = 1
+)
 
 ts_desaparecidos <- migrantes_desaparecidos |>
   group_by(year) |>
@@ -138,13 +146,13 @@ ts_desaparecidos <- migrantes_desaparecidos |>
     desaparecidos = sum(minimum_estimated_number_of_missing, na.rm = TRUE)
   )
 
-ts_desaparecidos <- ts(ts_desaparecidos$desaparecidos, 
-                        start = min(ts_desaparecidos$year), 
-                        end = max(ts_desaparecidos$year), 
-                        frequency = 1)
+ts_desaparecidos <- ts(ts_desaparecidos$desaparecidos,
+  start = min(ts_desaparecidos$year),
+  end = max(ts_desaparecidos$year),
+  frequency = 1
+)
 
 glimpse(migrantes_desaparecidos)
-
 ````
 
 #### Método #1: Regresión Lineal Simple (Datos 2022)
@@ -489,11 +497,3 @@ Además, el incremento en el número de desaparecidos en los primeros meses de 2
 El análisis de regresión lineal simple utilizado para explorar la relación entre el total de muertos y desaparecidos y el número de muertos, así como entre la región y el número de muertos, ha permitido identificar patrones básicos en los datos migratorios. Sin embargo, estos modelos lineales presentan numerosas limitaciones, ya que los procesos migratorios y sus riesgos son fenómenos altamente multifactoriales que interactúan con diversas variables sociales, económicas y políticas.
 
 Estos hallazgos invitan a considerar la aplicación de modelos de regresión múltiple o análisis de varianza que incorporen factores adicionales, como políticas de control fronterizo, nivel socioeconómico, y condiciones climáticas, para obtener una perspectiva más robusta. A nivel social, la implementación de estos modelos puede contribuir a la creación de políticas que protejan a los migrantes y minimicen los riesgos inherentes a sus trayectorias.
-
-
-
-
-
-
-
-
